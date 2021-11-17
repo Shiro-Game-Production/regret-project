@@ -118,8 +118,8 @@ namespace Dialogue
 
             foreach (char letter in sentence)
             {
-                // If there is mouse click, finish the sentence right away
-                if (Input.GetMouseButtonDown(0))
+                // If there is right mouse click, finish the sentence right away
+                if (Input.GetMouseButtonDown(1))
                 {
                     dialogueText.text = sentence;
                     break;

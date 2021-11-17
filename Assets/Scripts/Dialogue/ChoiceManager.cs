@@ -14,7 +14,6 @@ namespace Dialogue
 
         private void Start()
         {
-            Debug.Log("Add listener");
             choiceButton.onClick.RemoveAllListeners();
             choiceButton.onClick.AddListener(() =>
             {
