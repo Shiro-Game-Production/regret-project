@@ -22,6 +22,8 @@ Halo
     Baik kok. Trims
     
     ++ [OK]
+    
+    ++ [masama]
 
 #speaker:Aldy
 -wkwkwkwk
