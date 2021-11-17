@@ -1002,8 +1002,9 @@ MonoBehaviour:
   dialogueText: {fileID: 559666000}
   speakerName: {fileID: 1808173392}
   choicesParent: {fileID: 1383723933}
-  portraitsParent: {fileID: 1717084958}
   choicePrefab: {fileID: 3937746009833068588, guid: 0572647ca9091894e9bf0d8ac87b3073, type: 3}
+  portraitsParent: {fileID: 1717084958}
+  portraitPrefab: {fileID: 2657727682114043160, guid: c82bff6f77e3a1747aec57b6f92b4b65, type: 3}
 --- !u!4 &1918492633
 Transform:
   m_ObjectHideFlags: 0
