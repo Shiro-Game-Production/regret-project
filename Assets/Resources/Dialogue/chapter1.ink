@@ -10,6 +10,7 @@ Halo
     
     #speaker:Aldy
     Gaskan
+    
 + [Halo juga]
     #speaker:Aldy
     Apa kabar?
@@ -19,6 +20,8 @@ Halo
     
     #speaker:Aldy
     Baik kok. Trims
+    
+    ++ [OK]
 
 #speaker:Aldy
 -wkwkwkwk

@@ -46,6 +46,7 @@ namespace Dialogue
             if (!DialogueIsPlaying) return;
 
             if (canContinueToNextLine &&
+                currentStory.currentChoices.Count == 0 &&
                 Input.GetMouseButtonDown(0))
             {
                 ContinueStory();
@@ -138,7 +139,10 @@ namespace Dialogue
         /// </summary>
         private void HideChoices()
         {
-            choicesParent.gameObject.SetActive(false);
+            foreach (ChoiceManager choiceManager in choicePool)
+            {
+                choiceManager.gameObject.SetActive(false);
+            }
         }
         
         /// <summary>
@@ -150,10 +154,10 @@ namespace Dialogue
 
             if (currentChoices.Count == 0) return;
             
-            choicesParent.gameObject.SetActive(true);
             foreach (Choice choice in currentChoices)
             {
                 ChoiceManager choiceManager = GetOrCreateChoiceManager();
+                choiceManager.gameObject.SetActive(true);
                 // Set choice text
                 choiceManager.ChoiceText.text = choice.text;
                 choiceManager.choiceIndex = choice.index;
@@ -174,6 +178,8 @@ namespace Dialogue
                 // Add new choice manager to pool 
                 choicePool.Add(choiceManager);
             }
+            
+            choiceManager.gameObject.SetActive(false);
 
             return choiceManager;
         }
