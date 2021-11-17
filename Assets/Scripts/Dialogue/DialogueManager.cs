@@ -26,11 +26,10 @@ namespace Dialogue
         [SerializeField] private PortraitManager portraitPrefab;
         private readonly List<PortraitManager> portraitPool = new List<PortraitManager>();
         
-
         private Story currentStory;
         public bool DialogueIsPlaying { get; private set; }
 
-        private bool canContinueToNextLine = false;
+        private bool canContinueToNextLine;
 
         private Coroutine displayLineCoroutine;
 
@@ -41,8 +40,6 @@ namespace Dialogue
         {
             DialogueIsPlaying = false;
             dialogueHolder.SetActive(false);
-            
-            SetDialogue(Resources.Load<TextAsset>("Dialogue/chapter1"));
         }
 
         private void Update()
