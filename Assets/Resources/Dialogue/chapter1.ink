@@ -1,4 +1,5 @@
 #speaker:Aldy
+#portrait:yuri,yuri-happy
 Halo
 
 + [Hai]
@@ -9,6 +10,7 @@ Halo
     Skuy
     
     #speaker:Aldy
+    #portrait:yuri
     Gaskan
     
 + [Halo juga]
@@ -22,8 +24,9 @@ Halo
     Baik kok. Trims
     
     ++ [OK]
-    
+        
     ++ [masama]
 
 #speaker:Aldy
+#portrait:none
 -wkwkwkwk

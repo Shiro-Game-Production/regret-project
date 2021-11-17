@@ -15,12 +15,17 @@ namespace Dialogue
         [SerializeField] private GameObject dialogueHolder; 
         [SerializeField] private Text dialogueText;
         [SerializeField] private Text speakerName;
-        [SerializeField] private Transform choicesParent;
-        [SerializeField] private Transform portraitsParent;
 
         [Header("Dialogue Choices")]
+        [SerializeField] private Transform choicesParent;
         [SerializeField] private ChoiceManager choicePrefab;
         private readonly List<ChoiceManager> choicePool = new List<ChoiceManager>();
+        
+        [Header("Dialogue Portrait")]
+        [SerializeField] private Transform portraitsParent;
+        [SerializeField] private PortraitManager portraitPrefab;
+        private readonly List<PortraitManager> portraitPool = new List<PortraitManager>();
+        
 
         private Story currentStory;
         public bool DialogueIsPlaying { get; private set; }
@@ -101,6 +106,8 @@ namespace Dialogue
             DialogueIsPlaying = false;
             dialogueHolder.SetActive(false);
             dialogueText.text = "";
+            HideChoices();
+            HidePortraits();
         }
         
         /// <summary>
@@ -215,20 +222,79 @@ namespace Dialogue
 
                 string tagKey = splitTag[0].Trim();
                 string tagValue = splitTag[1].Trim();
-
+                
+                // Handle tag
                 switch (tagKey)
                 {
                     case SPEAKER_TAG:
                         speakerName.text = tagValue;
                         break;
                     case PORTRAIT_TAG:
-                        Debug.Log(tagValue);
+                        DisplayPortraits(tagValue);
                         break;
                     default:
                         Debug.LogError("Tag is not in the list: " + tag);
                         break;
                 }
             }
+        }
+        
+        /// <summary>
+        /// Display portraits
+        /// </summary>
+        /// <param name="filenames"></param>
+        private void DisplayPortraits(string filenames)
+        {
+            string[] files = filenames.Split(',');
+            
+            // If there are no portraits or none, hide portrait and return right away
+            if (files.Length <= 0 || filenames == "none")
+            {
+                HidePortraits();
+                return;
+            }
+            
+            HidePortraits(); // Hide previous portrait
+
+            foreach (string filename in files)
+            {
+                Sprite portrait = Resources.Load<Sprite>($"Portraits/{filename}");
+                PortraitManager portraitManager = GetOrCreatePortraitManager();
+                
+                portraitManager.gameObject.SetActive(true);
+                portraitManager.PortraitImage.sprite = portrait;
+            }
+        }
+        
+        /// <summary>
+        /// Hide portraits if there are no portraits
+        /// </summary>
+        private void HidePortraits()
+        {
+            foreach (PortraitManager portrait in portraitPool)
+            {
+                portrait.gameObject.SetActive(false);
+            }
+        }
+        
+        /// <summary>
+        /// Portrait manager object pooling
+        /// </summary>
+        /// <returns>Return existing portrait manager in hierarchy or create a new one</returns>
+        private PortraitManager GetOrCreatePortraitManager()
+        {
+            PortraitManager portraitManager = portraitPool.Find(portrait => !portrait.gameObject.activeInHierarchy);
+
+            if (portraitManager == null)
+            {
+                portraitManager = Instantiate(portraitPrefab, portraitsParent).GetComponent<PortraitManager>();
+                // Add new choice manager to pool 
+                portraitPool.Add(portraitManager);
+            }
+            
+            portraitManager.gameObject.SetActive(false);
+
+            return portraitManager;
         }
     }
 }
