@@ -30,3 +30,4 @@ Halo
 #speaker:Aldy
 #portrait:none
 -wkwkwkwk
+-> END
