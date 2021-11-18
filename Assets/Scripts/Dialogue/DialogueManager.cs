@@ -30,6 +30,7 @@ namespace Dialogue
         public bool DialogueIsPlaying { get; private set; }
 
         private bool canContinueToNextLine;
+        private bool canSkipSentence;
 
         private Coroutine displayLineCoroutine;
 
@@ -53,6 +54,10 @@ namespace Dialogue
             {
                 ContinueStory();
             }
+            
+            // If right click and is typing, make player can skip dialogue sentence
+            if (Input.GetMouseButtonDown(1) && !canContinueToNextLine)
+                canSkipSentence = true;
         }
         
         /// <summary>
@@ -123,9 +128,10 @@ namespace Dialogue
             foreach (char letter in sentence)
             {
                 // If there is right mouse click, finish the sentence right away
-                if (Input.GetMouseButtonDown(1))
+                if (canSkipSentence)
                 {
                     dialogueText.text = sentence;
+                    canSkipSentence = false;
                     break;
                 }
 
