@@ -2,7 +2,7 @@
 
 namespace Actors
 {
-    [CreateAssetMenu(fileName = "NewActor", menuName = "Actor", order = 0)]
+    [CreateAssetMenu(fileName = "NewActor", menuName = "Dialogue/Actor", order = 0)]
     public class Actor : ScriptableObject
     {
         [SerializeField] private string actorName;
