@@ -11,10 +11,15 @@ namespace Event
         [SerializeField] private string eventName;
         [SerializeField] private Actor affectedActor;
         public EventState eventState = EventState.NotStarted;
+        [SerializeField] private TextAsset waitDialogueAsset;
+        [SerializeField] private TextAsset finishDialogueAsset;
+        
         [SerializeField] private int triggerLimit = 1;
         
         public string EventName => eventName;
         public Actor AffectedActor => affectedActor;
         public int TriggerLimit => triggerLimit;
+        public TextAsset WaitDialogueAsset => waitDialogueAsset;
+        public TextAsset FinishDialogueAsset => finishDialogueAsset;
     }
 }
