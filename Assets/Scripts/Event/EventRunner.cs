@@ -64,6 +64,8 @@ namespace Event
             
             // Set event state
             eventData.eventState = EventData.EventState.Finish;
+            
+            gameObject.SetActive(false);
         }
     }
 }
