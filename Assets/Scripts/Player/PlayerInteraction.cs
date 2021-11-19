@@ -1,4 +1,5 @@
-﻿using Dialogue;
+﻿using Actors;
+using Dialogue;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -70,7 +71,7 @@ namespace Player
         private void HandleInteractionButton(Collider objectInteraction, string buttonText)
         {
             // Get dialogue trigger
-            DialogueTrigger dialogueTrigger = objectInteraction.GetComponent<DialogueTrigger>();
+            Actor dialogueTrigger = objectInteraction.GetComponent<ActorManager>().ActorData;
             
             // Set button text
             interactionButtonText.text = buttonText;
@@ -78,7 +79,7 @@ namespace Player
             interactionButton.onClick.RemoveAllListeners();
             interactionButton.onClick.AddListener(() =>
             {
-                dialogueManager.SetDialogue(dialogueTrigger.DialogueJson);
+                dialogueManager.SetDialogue(dialogueTrigger.currentDialogue);
             });
         }
     }
