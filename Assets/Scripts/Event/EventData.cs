@@ -8,9 +8,13 @@ namespace Event
     {
         public enum EventState{ NotStarted, Start, Active, Finish }
 
-        public string eventName;
+        [SerializeField] private string eventName;
+        [SerializeField] private Actor affectedActor;
         public EventState eventState = EventState.NotStarted;
-        public int triggerLimit = 1;
-        public Actor affectedActor;
+        [SerializeField] private int triggerLimit = 1;
+        
+        public string EventName => eventName;
+        public Actor AffectedActor => affectedActor;
+        public int TriggerLimit => triggerLimit;
     }
 }
