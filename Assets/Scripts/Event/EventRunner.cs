@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Event
 {
@@ -7,26 +8,54 @@ namespace Event
         public EventData eventData;
         public bool canStartEvent;
 
+        [Header("Event Data Origin State")]
         private EventData.EventState originEventState;
+        private EventData.FinishCondition originFinishCondition;
+        private bool originIsFinished;
 
         private void Awake()
         {
             // Get the origin event state in the beginning
             originEventState = eventData.eventState;
+            originFinishCondition = eventData.finishCondition;
+            originIsFinished = eventData.isFinished;
+            
             canStartEvent = false;
         }
 
         private void Update()
         {
-            if (canStartEvent &&
-                eventData.eventState == EventData.EventState.NotStarted)
+            switch (eventData.eventState)
             {
-                OnEventStart();
+                case EventData.EventState.NotStarted:
+                    if(canStartEvent)
+                        OnEventStart();
+                    break;
+                
+                case EventData.EventState.Start:
+                    OnEventActive();
+                    break;
+                
+                case EventData.EventState.Active:
+                    switch (eventData.finishCondition)
+                    {
+                        case EventData.FinishCondition.OnTriggerEnter:
+                            eventData.TriggerObject.SetBoxCollider(true);
+                            break;
+                        case EventData.FinishCondition.PuzzleFinished:
+                            break;
+                        case EventData.FinishCondition.DialogueFinished:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                    
+                    break;
             }
 
-            if (eventData.eventState == EventData.EventState.Start)
+            if (eventData.isFinished)
             {
-                OnEventActive();
+                OnEventFinish();
             }
         }
 
@@ -34,6 +63,8 @@ namespace Event
         {
             // Return the origin event state to scriptable object file
             eventData.eventState = originEventState;
+            eventData.finishCondition = originFinishCondition;
+            eventData.isFinished = originIsFinished;
         }
 
         public void OnEventStart()
