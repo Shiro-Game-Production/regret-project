@@ -27,7 +27,7 @@ namespace Event
         private EventRunner GetOrCreateEventRunner()
         {
             EventRunner eventRunner = eventRunnerPool.Find(runner =>
-                runner.eventData.eventState == EventData.EventState.Finish &&
+                runner.eventData.eventState == EventState.Finish &&
                 !runner.gameObject.activeInHierarchy);
 
             if (eventRunner != null)

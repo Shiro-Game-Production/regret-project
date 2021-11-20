@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Event.FinishCondition
+namespace Event.FinishConditionScripts
 {
     [RequireComponent(typeof(BoxCollider))]
     public class TriggerEnterCondition : MonoBehaviour
