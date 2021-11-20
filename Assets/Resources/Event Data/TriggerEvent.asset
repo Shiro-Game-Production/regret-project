@@ -10,9 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aa283f438074fdcb8b252e1c4893182, type: 3}
-  m_Name: Event1
+  m_Name: TriggerEvent
   m_EditorClassIdentifier: 
-  eventName: 
-  eventState: 0
+  eventName: Trigger Event 1
+  affectedActor: {fileID: 11400000, guid: a871fb700b622c64d8da6c56bfffeba8, type: 2}
+  isFinished: 0
   triggerLimit: 1
-  affectedActor: {fileID: 0}
+  eventState: 0
+  waitDialogueAsset: {fileID: 0}
+  finishDialogueAsset: {fileID: 0}
+  finishCondition: 0
+  triggerObject: {fileID: 0}
+  puzzleObject: {fileID: 0}
+  dialogue: {fileID: 0}
