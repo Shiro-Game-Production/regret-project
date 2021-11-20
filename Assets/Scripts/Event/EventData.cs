@@ -1,4 +1,5 @@
-﻿using Actors;
+﻿using System;
+using Actors;
 using Event.FinishConditionScripts;
 using UnityEngine;
 
@@ -33,6 +34,11 @@ namespace Event
         public TextAsset WaitDialogueAsset => waitDialogueAsset;
         public TextAsset FinishDialogueAsset => finishDialogueAsset;
         public TriggerEnterCondition TriggerObject => triggerObject;
+
+        private void Awake()
+        {
+            gameObject.SetActive(false);
+        }
     }
     
     public enum EventState{ NotStarted, Start, Active, Finish }

@@ -76,6 +76,7 @@ namespace Event
             eventData.eventState = EventState.Finish;
             
             gameObject.SetActive(false);
+            eventData.gameObject.SetActive(false);
         }
     }
 }

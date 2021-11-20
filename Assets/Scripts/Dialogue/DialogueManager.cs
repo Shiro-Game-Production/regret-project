@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Event;
 using Ink.Runtime;
 using UnityEngine;
@@ -26,6 +27,9 @@ namespace Dialogue
         [SerializeField] private Transform portraitsParent;
         [SerializeField] private PortraitManager portraitPrefab;
         private readonly List<PortraitManager> portraitPool = new List<PortraitManager>();
+
+        [Header("Event Data")]
+        [SerializeField] private List<EventData> eventDatas;
         
         private Story currentStory;
         private EventManager eventManager;
@@ -313,14 +317,19 @@ namespace Dialogue
         }
         
         /// <summary>
-        /// Find event data in resources folder
+        /// Find event data in list
         /// </summary>
         /// <param name="eventDataName">Event data name</param>
         private void SetEventData(string eventDataName)
         {
-            // Find event data in resources folder
-            EventData eventData = Resources.Load<EventData>($"Event Data/{eventDataName}");
-            eventManager.SetEventData(eventData);
+            // Find event data in list
+            foreach (EventData eventData in eventDatas.Where(
+                eventData => eventData.EventName == eventDataName))
+            {
+                eventManager.SetEventData(eventData);  
+                eventData.gameObject.SetActive(true);
+                break;
+            }
         }
     }
 }
