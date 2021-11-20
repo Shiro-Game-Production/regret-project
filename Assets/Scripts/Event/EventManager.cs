@@ -17,6 +17,7 @@ namespace Event
         {
             EventRunner eventRunner = GetOrCreateEventRunner();
             eventRunner.eventData = eventData;
+            eventRunner.canStartEvent = true;
         }
         
         /// <summary>

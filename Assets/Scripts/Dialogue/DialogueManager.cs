@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Event;
 using Ink.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,15 +28,23 @@ namespace Dialogue
         private readonly List<PortraitManager> portraitPool = new List<PortraitManager>();
         
         private Story currentStory;
+        private EventManager eventManager;
         public bool DialogueIsPlaying { get; private set; }
 
         private bool canContinueToNextLine;
         private bool canSkipSentence;
 
         private Coroutine displayLineCoroutine;
-
+        
+        [Header("Dialogue Tags")]
         private const string SPEAKER_TAG = "speaker";
         private const string PORTRAIT_TAG = "portrait";
+        private const string EVENT_TAG = "event";
+
+        private void Awake()
+        {
+            eventManager = EventManager.Instance;
+        }
 
         private void Start()
         {
@@ -235,6 +244,9 @@ namespace Dialogue
                     case PORTRAIT_TAG:
                         DisplayPortraits(tagValue);
                         break;
+                    case EVENT_TAG:
+                        SetEventData(tagValue);
+                        break;
                     default:
                         Debug.LogError("Tag is not in the list: " + tag);
                         break;
@@ -298,6 +310,17 @@ namespace Dialogue
             portraitManager.gameObject.SetActive(false);
 
             return portraitManager;
+        }
+        
+        /// <summary>
+        /// Find event data in resources folder
+        /// </summary>
+        /// <param name="eventDataName">Event data name</param>
+        private void SetEventData(string eventDataName)
+        {
+            // Find event data in resources folder
+            EventData eventData = Resources.Load<EventData>($"Event Data/{eventDataName}");
+            eventManager.SetEventData(eventData);
         }
     }
 }
