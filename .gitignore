@@ -1,6 +1,12 @@
 ﻿# Created by https://www.toptal.com/developers/gitignore/api/unity
 # Edit at https://www.toptal.com/developers/gitignore?templates=unity
 
+### Blender ###
+*.pyc
+*.blend[1-9]
+__pycache__
+/dist/
+
 ### Unity ###
 # This .gitignore file should be placed at the root of your Unity project directory
 #
