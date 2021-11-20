@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aa283f438074fdcb8b252e1c4893182, type: 3}
-  m_Name: TriggerEvent
+  m_Name: trigger-event
   m_EditorClassIdentifier: 
   eventName: Trigger Event 1
   affectedActor: {fileID: 11400000, guid: a871fb700b622c64d8da6c56bfffeba8, type: 2}

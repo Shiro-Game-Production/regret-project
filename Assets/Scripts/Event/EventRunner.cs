@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Event
 {
@@ -46,8 +45,6 @@ namespace Event
                             break;
                         case EventData.FinishCondition.DialogueFinished:
                             break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
                     }
                     
                     break;
