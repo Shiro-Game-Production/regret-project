@@ -7,18 +7,8 @@ namespace Event
         public EventData eventData;
         public bool canStartEvent;
 
-        [Header("Event Data Origin State")]
-        private EventData.EventState originEventState;
-        private EventData.FinishCondition originFinishCondition;
-        private bool originIsFinished;
-
         private void Awake()
         {
-            // Get the origin event state in the beginning
-            originEventState = eventData.eventState;
-            originFinishCondition = eventData.finishCondition;
-            originIsFinished = eventData.isFinished;
-            
             canStartEvent = false;
         }
 
@@ -26,24 +16,24 @@ namespace Event
         {
             switch (eventData.eventState)
             {
-                case EventData.EventState.NotStarted:
+                case EventState.NotStarted:
                     if(canStartEvent)
                         OnEventStart();
                     break;
                 
-                case EventData.EventState.Start:
+                case EventState.Start:
                     OnEventActive();
                     break;
                 
-                case EventData.EventState.Active:
+                case EventState.Active:
                     switch (eventData.finishCondition)
                     {
-                        case EventData.FinishCondition.OnTriggerEnter:
+                        case FinishCondition.OnTriggerEnter:
                             eventData.TriggerObject.SetBoxCollider(true);
                             break;
-                        case EventData.FinishCondition.PuzzleFinished:
+                        case FinishCondition.PuzzleFinished:
                             break;
-                        case EventData.FinishCondition.DialogueFinished:
+                        case FinishCondition.DialogueFinished:
                             break;
                     }
                     
@@ -56,14 +46,6 @@ namespace Event
             }
         }
 
-        private void OnApplicationQuit()
-        {
-            // Return the origin event state to scriptable object file
-            eventData.eventState = originEventState;
-            eventData.finishCondition = originFinishCondition;
-            eventData.isFinished = originIsFinished;
-        }
-
         public void OnEventStart()
         {
             // Set actor's dialogue to dialogue manager
@@ -72,7 +54,7 @@ namespace Event
             
             // Start the event
             // Set event state
-            eventData.eventState = EventData.EventState.Start;
+            eventData.eventState = EventState.Start;
         }
 
         public void OnEventActive()
@@ -81,7 +63,7 @@ namespace Event
             // Call on event finish when ending condition is met
             
             // Set event state
-            eventData.eventState = EventData.EventState.Active;
+            eventData.eventState = EventState.Active;
         }
 
         public void OnEventFinish()
@@ -91,7 +73,7 @@ namespace Event
             eventData.AffectedActor.currentDialogue = eventData.FinishDialogueAsset;
             
             // Set event state
-            eventData.eventState = EventData.EventState.Finish;
+            eventData.eventState = EventState.Finish;
             
             gameObject.SetActive(false);
         }
