@@ -30,14 +30,14 @@ namespace Event
                 runner.eventData.eventState == EventState.Finish &&
                 !runner.gameObject.activeInHierarchy);
 
-            if (eventRunner != null)
+            if (eventRunner == null)
             {
                 eventRunner = Instantiate(eventRunnerPrefab, transform).GetComponent<EventRunner>();
                 
                 eventRunnerPool.Add(eventRunner);
             }
             
-            eventRunner.gameObject.SetActive(false);
+            eventRunner.gameObject.SetActive(true);
             return eventRunner;
         }
     }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Yuri
   m_EditorClassIdentifier: 
   actorName: Yuri
-  currentDialogue: {fileID: 4900000, guid: 7e5ef520b0b442c4388e0859a6a68338, type: 3}
+  currentDialogue: {fileID: 4900000, guid: 9048cf84b5fdefa45b12b7b078099ca8, type: 3}
