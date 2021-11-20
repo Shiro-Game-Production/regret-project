@@ -123,59 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: a1f9d42bd6070ff43a20ffd8542fe6c1, type: 2}
---- !u!1 &91610219
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 91610220}
-  - component: {fileID: 91610221}
-  m_Layer: 0
-  m_Name: Trigger Event
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &91610220
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91610219}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1991894431}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &91610221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 91610219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aa283f438074fdcb8b252e1c4893182, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventName: trigger-event
-  affectedActor: {fileID: 11400000, guid: a871fb700b622c64d8da6c56bfffeba8, type: 2}
-  isFinished: 0
-  eventState: 0
-  waitDialogueAsset: {fileID: 0}
-  finishDialogueAsset: {fileID: 0}
-  finishCondition: 0
-  triggerObject: {fileID: 934976394}
-  puzzleObject: {fileID: 0}
-  dialogue: {fileID: 0}
 --- !u!1 &162690483
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +256,7 @@ RectTransform:
   - {fileID: 162690484}
   - {fileID: 1735458850}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -986,7 +933,7 @@ Transform:
   - {fileID: 929216878}
   - {fileID: 1702682916}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &929216876
 GameObject:
@@ -1025,7 +972,8 @@ MonoBehaviour:
   choicePrefab: {fileID: 3937746009833068588, guid: 0572647ca9091894e9bf0d8ac87b3073, type: 3}
   portraitsParent: {fileID: 728144692}
   portraitPrefab: {fileID: 2657727682114043160, guid: c82bff6f77e3a1747aec57b6f92b4b65, type: 3}
-  eventDatas: []
+  eventDatas:
+  - {fileID: 934976395}
 --- !u!4 &929216878
 Transform:
   m_ObjectHideFlags: 0
@@ -1054,6 +1002,7 @@ GameObject:
   - component: {fileID: 934976389}
   - component: {fileID: 934976393}
   - component: {fileID: 934976394}
+  - component: {fileID: 934976395}
   m_Layer: 0
   m_Name: Item 1
   m_TagString: Item
@@ -1162,8 +1111,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280437604c104eeaaebbf33a428d570d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventData: {fileID: 0}
   triggerSize: {x: 2, y: 2, z: 2}
+--- !u!114 &934976395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934976388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa283f438074fdcb8b252e1c4893182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: trigger-event
+  affectedActor: {fileID: 11400000, guid: 8c92b46974ef753489c86e8345c23687, type: 2}
+  isFinished: 0
+  eventState: 0
+  waitDialogueAsset: {fileID: 4900000, guid: 0dd16323a28ba434492c150b4bdeeeae, type: 3}
+  finishDialogueAsset: {fileID: 4900000, guid: 1ce42faa9230a8f4597bbe2483821c6e, type: 3}
+  finishCondition: 0
+  triggerObject: {fileID: 934976394}
+  puzzleObject: {fileID: 0}
+  dialogue: {fileID: 0}
 --- !u!1 &960155170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,7 +1492,7 @@ Transform:
   - {fileID: 231381065}
   - {fileID: 934976392}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1526633818
 GameObject:
@@ -1790,7 +1760,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735458849
 GameObject:
@@ -1913,34 +1883,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735458849}
   m_CullTransparentMesh: 1
---- !u!1 &1991894430
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1991894431}
-  m_Layer: 0
-  m_Name: Event Datas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!4 &1991894431
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1991894430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 91610220}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

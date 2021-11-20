@@ -6,7 +6,7 @@ namespace Event.FinishConditionScripts
     public class TriggerEnterCondition : MonoBehaviour
     {
         [Header("Event Data")]
-        public EventData eventData;
+        private EventData eventData;
 
         [Header("Trigger Collider")]
         [SerializeField] private Vector3 triggerSize = new Vector3(2, 2, 2);
@@ -15,6 +15,7 @@ namespace Event.FinishConditionScripts
         private void Awake()
         {
             boxCollider = GetComponent<BoxCollider>();
+            eventData = GetComponent<EventData>();
         }
 
         private void OnTriggerEnter(Collider other)
