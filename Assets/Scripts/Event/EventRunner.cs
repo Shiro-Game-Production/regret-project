@@ -33,7 +33,7 @@ namespace Event
                         switch (eventData.finishCondition)
                         {
                             case FinishCondition.OnTriggerEnter:
-                                eventData.TriggerObject.SetBoxCollider(true);
+                                eventData.TriggerObject.SetEndingCondition();
                                 hasSetFinishCondition = true;
                                 break;
                             case FinishCondition.PuzzleFinished:
