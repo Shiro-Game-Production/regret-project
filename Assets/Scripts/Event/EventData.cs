@@ -8,7 +8,7 @@ namespace Event
     {
         [Header("Event Data")]
         [SerializeField] private string eventName;
-        [SerializeField] private Actor affectedActor;
+        [SerializeField] private ActorManager affectedActor;
         public bool isFinished;
         public EventState eventState = EventState.NotStarted;
         
@@ -29,7 +29,7 @@ namespace Event
         [SerializeField] private TextAsset dialogue;
 
         public string EventName => eventName;
-        public Actor AffectedActor => affectedActor;
+        public ActorManager AffectedActor => affectedActor;
         public TextAsset WaitDialogueAsset => waitDialogueAsset;
         public TextAsset FinishDialogueAsset => finishDialogueAsset;
         public TriggerEnterCondition TriggerObject => triggerObject;
