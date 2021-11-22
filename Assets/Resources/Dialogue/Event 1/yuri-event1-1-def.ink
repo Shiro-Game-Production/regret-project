@@ -7,9 +7,8 @@ Halo
     Minta tolong kamu ambil box di sana
     
     #speaker:Alfian
-    Ok, onee-sama~
-    
     #event:trigger-event
+    Ok, onee-sama~
     -> END
     
 + [...]
@@ -25,4 +24,4 @@ Halo
     #speaker:Alfian
     #portrait:none
     -wkwkwkwk
-    -> END
+-> END

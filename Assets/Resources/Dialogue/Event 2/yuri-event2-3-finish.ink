@@ -1,6 +1,6 @@
 #speaker:Yuri
 #portrait:yuri
-Ara ara~ arigatou gozaimuch
+Ara ara~ iiko iiko~
 
 #speaker:Alfian
 Hai, onee-sama >\/\/\/\/<
