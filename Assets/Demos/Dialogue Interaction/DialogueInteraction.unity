@@ -372,7 +372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0afc394c6d43679341b067446e2dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actor: {fileID: 11400000, guid: 8c92b46974ef753489c86e8345c23687, type: 2}
+  actorName: Yuri
+  currentDialogue: {fileID: 4900000, guid: 9048cf84b5fdefa45b12b7b078099ca8, type: 3}
 --- !u!1 &285853631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0afc394c6d43679341b067446e2dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actor: {fileID: 11400000, guid: a871fb700b622c64d8da6c56bfffeba8, type: 2}
+  actorName: Item 1
+  currentDialogue: {fileID: 4900000, guid: 3e820264af8eb4d4a96dfb9065c63f9a, type: 3}
 --- !u!114 &934976394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,7 +1127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: trigger-event
-  affectedActor: {fileID: 11400000, guid: 8c92b46974ef753489c86e8345c23687, type: 2}
+  affectedActor: {fileID: 231381067}
   isFinished: 0
   eventState: 0
   waitDialogueAsset: {fileID: 4900000, guid: 0dd16323a28ba434492c150b4bdeeeae, type: 3}
