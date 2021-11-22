@@ -20,7 +20,7 @@ namespace Event
         public FinishCondition finishCondition;
 
         [DrawIf("finishCondition", FinishCondition.OnTriggerEnter)]
-        [SerializeField] private TriggerEnterCondition triggerObject;
+        [SerializeField] private FinishConditionManager triggerObject;
 
         [DrawIf("finishCondition", FinishCondition.PuzzleFinished)]
         [SerializeField] private GameObject puzzleObject;
@@ -32,7 +32,7 @@ namespace Event
         public ActorManager AffectedActor => affectedActor;
         public TextAsset WaitDialogueAsset => waitDialogueAsset;
         public TextAsset FinishDialogueAsset => finishDialogueAsset;
-        public TriggerEnterCondition TriggerObject => triggerObject;
+        public FinishConditionManager TriggerObject => triggerObject;
     }
     
     public enum EventState{ NotStarted, Start, Active, Finish }
