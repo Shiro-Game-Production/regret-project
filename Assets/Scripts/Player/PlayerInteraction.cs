@@ -71,7 +71,7 @@ namespace Player
         private void HandleInteractionButton(Collider objectInteraction, string buttonText)
         {
             // Get dialogue trigger
-            Actor dialogueTrigger = objectInteraction.GetComponent<ActorManager>().ActorData;
+            ActorManager dialogueTrigger = objectInteraction.GetComponent<ActorManager>();
             
             // Set button text
             interactionButtonText.text = buttonText;

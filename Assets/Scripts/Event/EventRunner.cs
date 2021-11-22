@@ -6,9 +6,11 @@ namespace Event
     {
         public EventData eventData;
         public bool canStartEvent;
+        private bool hasSetFinishCondition;
 
         private void Awake()
         {
+            hasSetFinishCondition = false;
             canStartEvent = false;
         }
 
@@ -26,15 +28,21 @@ namespace Event
                     break;
                 
                 case EventState.Active:
-                    switch (eventData.finishCondition)
+                    if(!hasSetFinishCondition)
                     {
-                        case FinishCondition.OnTriggerEnter:
-                            eventData.TriggerObject.SetBoxCollider(true);
-                            break;
-                        case FinishCondition.PuzzleFinished:
-                            break;
-                        case FinishCondition.DialogueFinished:
-                            break;
+                        switch (eventData.finishCondition)
+                        {
+                            case FinishCondition.OnTriggerEnter:
+                                eventData.TriggerObject.SetBoxCollider(true);
+                                hasSetFinishCondition = true;
+                                break;
+                            case FinishCondition.PuzzleFinished:
+                                hasSetFinishCondition = true;
+                                break;
+                            case FinishCondition.DialogueFinished:
+                                hasSetFinishCondition = true;
+                                break;
+                        }
                     }
                     
                     break;

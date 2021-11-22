@@ -4,20 +4,9 @@ namespace Actors
 {
     public class ActorManager : MonoBehaviour
     {
-        [SerializeField] private Actor actor;
+        [SerializeField] private string actorName;
+        public TextAsset currentDialogue;
         
-        public Actor ActorData => actor;
-
-        private TextAsset originTextAsset;
-
-        private void Awake()
-        {
-            originTextAsset = actor.currentDialogue;
-        }
-
-        private void OnApplicationQuit()
-        {
-            actor.currentDialogue = originTextAsset;
-        }
+        public string ActorName => actorName;
     }
 }
