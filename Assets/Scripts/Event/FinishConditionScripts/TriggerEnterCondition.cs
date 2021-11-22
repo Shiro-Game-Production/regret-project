@@ -20,7 +20,7 @@ namespace Event.FinishConditionScripts
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && eventData.eventState == EventState.Active)
             {
                 // Set is finished in event data to true
                 eventData.isFinished = true;

@@ -1,5 +1,6 @@
 ﻿using Actors;
 using Dialogue;
+using Event;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,6 +37,8 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
+            if (other.GetComponent<EventData>()) return;
+            
             switch (other.tag)
             {
                 case NPC_TAG:
@@ -51,6 +54,8 @@ namespace Player
 
         private void OnTriggerExit(Collider other)
         {
+            if (other.GetComponent<EventData>()) return;
+            
             switch (other.tag)
             {
                 case NPC_TAG:
