@@ -4,6 +4,7 @@ using System.Linq;
 using Effects;
 using Event;
 using Ink.Runtime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ namespace Dialogue
         [Header("Dialogue UI")]
         [SerializeField] private CanvasGroup dialogueCanvasGroup;
         [SerializeField] private GameObject dialogueHolder; 
-        [SerializeField] private Text dialogueText;
+        [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Text speakerName;
 
         [Header("Dialogue Choices")]
