@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Effects;
 using Event;
 using Ink.Runtime;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace Dialogue
         [SerializeField] private float typingSpeed = 0.04f;
 
         [Header("Dialogue UI")]
+        [SerializeField] private CanvasGroup dialogueCanvasGroup;
         [SerializeField] private GameObject dialogueHolder; 
         [SerializeField] private Text dialogueText;
         [SerializeField] private Text speakerName;
@@ -48,6 +50,8 @@ namespace Dialogue
         private void Awake()
         {
             eventManager = EventManager.Instance;
+            dialogueCanvasGroup.interactable = true;
+            dialogueCanvasGroup.blocksRaycasts = false;
         }
 
         private void Start()
@@ -80,10 +84,18 @@ namespace Dialogue
         public void SetDialogue(TextAsset dialogueInk)
         {
             currentStory = new Story(dialogueInk.text);
-            DialogueIsPlaying = true;
-            dialogueHolder.SetActive(true);
-
-            ContinueStory();
+            
+            StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,
+                beforeEffect: () =>
+                {
+                    dialogueHolder.SetActive(true);
+                },
+                afterEffect: () =>
+                {
+                    DialogueIsPlaying = true;
+                    ContinueStory();
+                })
+            );
         }
         
         /// <summary>
@@ -106,23 +118,26 @@ namespace Dialogue
             }
             else
             {
-                StartCoroutine(FinishDialogue());
+                FinishDialogue();
             }
         }
 
         /// <summary>
         /// Actions when dialogue is finished
         /// </summary>
-        /// <returns>Wait for 0.2 seconds</returns>
-        private IEnumerator FinishDialogue()
+        private void FinishDialogue()
         {
-            yield return new WaitForSeconds(0.2f);
-            
-            DialogueIsPlaying = false;
-            dialogueHolder.SetActive(false);
-            dialogueText.text = "";
-            HideChoices();
-            HidePortraits();
+            StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
+                afterEffect: () =>
+                {
+                    dialogueHolder.SetActive(false);
+                    DialogueIsPlaying = false;
+                    dialogueText.text = "";
+                    speakerName.text = "";
+                    HideChoices();
+                    HidePortraits();
+                })
+            );
         }
         
         /// <summary>
