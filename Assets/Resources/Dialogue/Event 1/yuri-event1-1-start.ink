@@ -8,7 +8,7 @@ Halo
     
     #speaker:Alfian
     #event:trigger-event
-    <b><i>Ok, onee-sama</i></b>~
+    Ok, <b><i>onee-sama</i></b>~
     -> END
     
 + [...]
