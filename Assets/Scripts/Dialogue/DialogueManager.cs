@@ -152,6 +152,7 @@ namespace Dialogue
             HideChoices();
 
             canContinueToNextLine = false;
+            bool isAddingRichTextTag = false;
 
             foreach (char letter in sentence)
             {
@@ -163,9 +164,22 @@ namespace Dialogue
                     break;
                 }
 
-                // Type sentence by letter
-                dialogueText.text += letter;
-                yield return new WaitForSeconds(typingSpeed);
+                // If found rich text tag, add it without waiting
+                if (letter == '<' || isAddingRichTextTag)
+                {
+                    isAddingRichTextTag = true;
+                    dialogueText.text += letter;
+
+                    if (letter == '>')
+                        isAddingRichTextTag = false;
+                } 
+                // If not rich text, add letter and wait
+                else
+                {
+                    // Type sentence by letter
+                    dialogueText.text += letter;
+                    yield return new WaitForSeconds(typingSpeed);
+                }
             }
 
             DisplayChoices();
