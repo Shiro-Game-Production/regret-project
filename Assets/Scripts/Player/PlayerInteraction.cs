@@ -1,6 +1,6 @@
 ﻿using Actors;
 using Dialogue;
-using Event;
+using Event.FinishConditionScripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,7 +37,7 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<EventData>()) return;
+            if (other.GetComponent<TriggerEnterCondition>()) return;
             
             switch (other.tag)
             {
@@ -54,7 +54,7 @@ namespace Player
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.GetComponent<EventData>()) return;
+            if (other.GetComponent<TriggerEnterCondition>()) return;
             
             switch (other.tag)
             {
