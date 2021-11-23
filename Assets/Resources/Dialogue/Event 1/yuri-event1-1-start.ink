@@ -2,13 +2,13 @@
 #portrait:yuri
 Halo
 
-+ [Ada apa, onee-sama?]
++ [Ada apa, <b><i>onee-sama</i></b>?]
     #speaker:Yuri
     Minta tolong kamu ambil box di sana
     
     #speaker:Alfian
     #event:trigger-event
-    Ok, onee-sama~
+    <b><i>Ok, onee-sama</i></b>~
     -> END
     
 + [...]
