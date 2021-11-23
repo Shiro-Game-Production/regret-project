@@ -11,28 +11,41 @@ namespace Event
         [SerializeField] private ActorManager affectedActor;
         public bool isFinished;
         public EventState eventState = EventState.NotStarted;
-        
+        private MeshRenderer eventMeshRenderer;
+        private Collider eventCollider;
+
         [Header("Dialogue Asset")]
         [SerializeField] private TextAsset waitDialogueAsset;
         [SerializeField] private TextAsset finishDialogueAsset;
+        [SerializeField] private TextAsset nextEventDialogueAsset;
+        [SerializeField] private TextAsset defaultDialogueAsset;
         
         [Header("Finish Condition")]
         public FinishCondition finishCondition;
-
-        [DrawIf("finishCondition", FinishCondition.OnTriggerEnter)]
         [SerializeField] private FinishConditionManager triggerObject;
-
-        [DrawIf("finishCondition", FinishCondition.PuzzleFinished)]
-        [SerializeField] private GameObject puzzleObject;
-        
-        [DrawIf("finishCondition", FinishCondition.DialogueFinished)]
-        [SerializeField] private TextAsset dialogue;
 
         public string EventName => eventName;
         public ActorManager AffectedActor => affectedActor;
         public TextAsset WaitDialogueAsset => waitDialogueAsset;
+        public TextAsset NextEventDialogueAsset => nextEventDialogueAsset;
+        public TextAsset DefaultDialogueAsset => defaultDialogueAsset;
         public TextAsset FinishDialogueAsset => finishDialogueAsset;
         public FinishConditionManager TriggerObject => triggerObject;
+
+        private void Awake()
+        {
+            eventCollider = GetComponent<Collider>();
+            eventMeshRenderer = GetComponent<MeshRenderer>();
+        }
+        
+        /// <summary>
+        /// Deactivate renderer and collider
+        /// </summary>
+        public void DeactivateRenderer()
+        {
+            eventCollider.enabled = false;
+            eventMeshRenderer.enabled = false;
+        }
     }
     
     public enum EventState{ NotStarted, Start, Active, Finish }
