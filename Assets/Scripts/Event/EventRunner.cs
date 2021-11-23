@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Dialogue;
+using UnityEngine;
 
 namespace Event
 {
@@ -6,10 +7,14 @@ namespace Event
     {
         public EventData eventData;
         public bool canStartEvent;
+
+        private DialogueManager dialogueManager;
         private bool hasSetFinishCondition;
 
         private void Awake()
         {
+            dialogueManager = DialogueManager.Instance;
+            
             hasSetFinishCondition = false;
             canStartEvent = false;
         }
@@ -28,6 +33,8 @@ namespace Event
                     break;
                 
                 case EventState.Active:
+                    // Add ending condition to object
+                    // Call on event finish when ending condition is met
                     if(!hasSetFinishCondition)
                     {
                         switch (eventData.finishCondition)
@@ -45,12 +52,15 @@ namespace Event
                         }
                     }
                     
+                    if (eventData.isFinished)
+                    {
+                        OnEventFinish();
+                    }
                     break;
-            }
-
-            if (eventData.isFinished)
-            {
-                OnEventFinish();
+                case EventState.Finish:
+                    if(dialogueManager.DialogueIsPlaying)
+                        SetNextEvent();
+                    break;
             }
         }
 
@@ -67,9 +77,6 @@ namespace Event
 
         public void OnEventActive()
         {
-            // Add ending condition to object
-            // Call on event finish when ending condition is met
-            
             // Set event state
             eventData.eventState = EventState.Active;
         }
@@ -82,7 +89,19 @@ namespace Event
             
             // Set event state
             eventData.eventState = EventState.Finish;
+            // Deactivate event data renderer
+            eventData.DeactivateRenderer();
+        }
+
+        public void SetNextEvent()
+        {
+            // Set next dialogue to affected actor
+            eventData.AffectedActor.currentDialogue = 
+                eventData.NextEventDialogueAsset != null 
+                    ? eventData.NextEventDialogueAsset 
+                    : eventData.DefaultDialogueAsset;
             
+            // Deactivate game object
             gameObject.SetActive(false);
             eventData.gameObject.SetActive(false);
         }

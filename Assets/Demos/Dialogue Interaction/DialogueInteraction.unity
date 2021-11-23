@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorName: Yuri
-  currentDialogue: {fileID: 4900000, guid: b8da21a3397468c4392a1cfc341d9a27, type: 3}
+  currentDialogue: {fileID: 4900000, guid: 314ba4d62ec49b14096b7fe17221e4b4, type: 3}
 --- !u!1 &285853631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,10 +1133,10 @@ MonoBehaviour:
   eventState: 0
   waitDialogueAsset: {fileID: 4900000, guid: 6e1f4f2f317aae240b44e9d65e28bfae, type: 3}
   finishDialogueAsset: {fileID: 4900000, guid: 385297c0e4cfe394fb1ceb3903400411, type: 3}
+  nextEventDialogueAsset: {fileID: 4900000, guid: bbe2aedaef509fe48a8c5633d42c7324, type: 3}
+  defaultDialogueAsset: {fileID: 0}
   finishCondition: 0
   triggerObject: {fileID: 934976394}
-  puzzleObject: {fileID: 0}
-  dialogue: {fileID: 0}
 --- !u!1 &960155170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,10 +1519,10 @@ MonoBehaviour:
   eventState: 0
   waitDialogueAsset: {fileID: 4900000, guid: 54159e63ea6b3364ba5438553da9b789, type: 3}
   finishDialogueAsset: {fileID: 4900000, guid: b23856d0fde84c8499eb1bbb4c234776, type: 3}
+  nextEventDialogueAsset: {fileID: 0}
+  defaultDialogueAsset: {fileID: 4900000, guid: 6f5f2102ad217b04395d6a3f5dc226f0, type: 3}
   finishCondition: 0
   triggerObject: {fileID: 1355072273}
-  puzzleObject: {fileID: 0}
-  dialogue: {fileID: 0}
 --- !u!114 &1355072273
 MonoBehaviour:
   m_ObjectHideFlags: 0
