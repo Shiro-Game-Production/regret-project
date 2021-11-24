@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Audios;
 using Effects;
 using Event;
 using GameCamera;
@@ -288,6 +289,7 @@ namespace Dialogue
                 switch (tagKey)
                 {
                     case DialogueTags.AUDIO_TAG:
+                        HandleAudio(tagValue);
                         break;
                     case DialogueTags.EFFECT_TAG:
                         switch (tagValue)
@@ -312,6 +314,11 @@ namespace Dialogue
                         break;
                 }
             }
+        }
+
+        private void HandleAudio(string audio)
+        {
+            AudioManager.Instance.Play(audio);
         }
         
         /// <summary>

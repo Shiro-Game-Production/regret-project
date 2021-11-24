@@ -13,6 +13,7 @@ Halo
     
 + [...]
     #speaker:Yuri
+    #audio:slap
     #effect:shake
     Cuek
     
@@ -20,6 +21,7 @@ Halo
     Ehe
     
     #speaker:Yuri
+    #audio:slap
     #effect:shake
     Ehe, ndasmu
 
