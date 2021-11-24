@@ -102,9 +102,6 @@ namespace Dialogue
                 {
                     dialogueHolder.SetActive(true);
                     cameraMovement.SetPosition(dialogueModePosition, dialogueModeAngle, true);
-                },
-                afterEffect: () =>
-                {
                     DialogueIsPlaying = true;
                     ContinueStory();
                 })
