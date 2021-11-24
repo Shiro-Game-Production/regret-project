@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Effects;
 using Event;
+using GameCamera;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,15 @@ namespace Dialogue
 {
     public class DialogueManager : SingletonBaseClass<DialogueManager>
     {
+        [Header("Camera Transition")]
+        [Header("Top Down Mode")]
+        [SerializeField] private Vector3 topDownModePosition;
+        [SerializeField] private Vector3 topDownModeAngle;
+        [Header("Dialogue Mode")]
+        [SerializeField] private Vector3 dialogueModePosition;
+        [SerializeField] private Vector3 dialogueModeAngle;
+        private CameraMovement cameraMovement;
+        
         [Header("Parameters")]
         [SerializeField] private float typingSpeed = 0.04f;
 
@@ -50,6 +60,7 @@ namespace Dialogue
 
         private void Awake()
         {
+            cameraMovement = CameraMovement.Instance;
             eventManager = EventManager.Instance;
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
@@ -59,6 +70,8 @@ namespace Dialogue
         {
             DialogueIsPlaying = false;
             dialogueHolder.SetActive(false);
+            
+            cameraMovement.SetPosition(topDownModePosition, topDownModeAngle, false);
         }
 
         private void Update()
@@ -90,6 +103,7 @@ namespace Dialogue
                 beforeEffect: () =>
                 {
                     dialogueHolder.SetActive(true);
+                    cameraMovement.SetPosition(dialogueModePosition, dialogueModeAngle, true);
                 },
                 afterEffect: () =>
                 {
@@ -129,6 +143,10 @@ namespace Dialogue
         private void FinishDialogue()
         {
             StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
+                beforeEffect: () =>
+                {
+                    cameraMovement.SetPosition(topDownModePosition, topDownModeAngle, false);
+                },
                 afterEffect: () =>
                 {
                     dialogueHolder.SetActive(false);
