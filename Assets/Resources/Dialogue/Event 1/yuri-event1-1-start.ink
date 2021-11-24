@@ -13,15 +13,17 @@ Halo
     
 + [...]
     #speaker:Yuri
+    #effect:shake
     Cuek
     
     #speaker:Alfian
     Ehe
     
     #speaker:Yuri
+    #effect:shake
     Ehe, ndasmu
 
-    #speaker:Alfian
+    #speaker:none
     #portrait:none
-    -wkwkwkwk
+    Yuri menampar Alfian, tapi Alfian merasa kesenangan....
 -> END
