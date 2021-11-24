@@ -899,6 +899,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695cdc8d9a6e8a04286b60f504728d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topDownModePosition: {x: 0, y: 9, z: -2}
+  topDownModeAngle: {x: 80, y: 0, z: 0}
+  dialogueModePosition: {x: 0, y: 1, z: -3}
+  dialogueModeAngle: {x: 14.999997, y: 0, z: 0}
   typingSpeed: 0.04
   dialogueCanvasGroup: {fileID: 162690485}
   dialogueHolder: {fileID: 162690483}
@@ -1844,6 +1848,7 @@ GameObject:
   - component: {fileID: 1708622495}
   - component: {fileID: 1708622494}
   - component: {fileID: 1708622493}
+  - component: {fileID: 1708622496}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1909,13 +1914,26 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708622492}
-  m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
+  m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.76604444}
   m_LocalPosition: {x: 0, y: 9, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 80, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
+--- !u!114 &1708622496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708622492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29694def3c454117bc1e5c04fdcabf96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionSpeed: 3
 --- !u!1 &1715898892
 GameObject:
   m_ObjectHideFlags: 0
