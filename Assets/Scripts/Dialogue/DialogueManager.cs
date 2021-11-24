@@ -13,7 +13,8 @@ namespace Dialogue
 {
     public class DialogueManager : SingletonBaseClass<DialogueManager>
     {
-        [Header("Camera Transition")]
+        [Header("Camera Transition")] 
+        private CameraShake cameraShake;
         [Header("Top Down Mode")]
         [SerializeField] private Vector3 topDownModePosition;
         [SerializeField] private Vector3 topDownModeAngle;
@@ -52,15 +53,11 @@ namespace Dialogue
         private bool canSkipSentence;
 
         private Coroutine displayLineCoroutine;
-        
-        [Header("Dialogue Tags")]
-        private const string SPEAKER_TAG = "speaker";
-        private const string PORTRAIT_TAG = "portrait";
-        private const string EVENT_TAG = "event";
 
         private void Awake()
         {
             cameraMovement = CameraMovement.Instance;
+            cameraShake = CameraShake.Instance;
             eventManager = EventManager.Instance;
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
@@ -290,14 +287,25 @@ namespace Dialogue
                 // Handle tag
                 switch (tagKey)
                 {
-                    case SPEAKER_TAG:
-                        speakerName.text = tagValue;
+                    case DialogueTags.AUDIO_TAG:
                         break;
-                    case PORTRAIT_TAG:
+                    case DialogueTags.EFFECT_TAG:
+                        switch (tagValue)
+                        {
+                            case DialogueTags.SHAKE_TAG:
+                                StartCoroutine(cameraShake.ShakingEffect());
+                                break;
+                        }
+                        break;
+                    case DialogueTags.EVENT_TAG:
+                        SetEventData(tagValue);
+                        break;
+                    case DialogueTags.PORTRAIT_TAG:
                         DisplayPortraits(tagValue);
                         break;
-                    case EVENT_TAG:
-                        SetEventData(tagValue);
+                    case DialogueTags.SPEAKER_TAG:
+                        speakerName.text = 
+                            tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
                         break;
                     default:
                         Debug.LogError("Tag is not in the list: " + tag);
@@ -315,7 +323,7 @@ namespace Dialogue
             string[] files = filenames.Split(',');
             
             // If there are no portraits or none, hide portrait and return right away
-            if (files.Length <= 0 || filenames == "none")
+            if (files.Length <= 0 || filenames == DialogueTags.BLANK_VALUE)
             {
                 HidePortraits();
                 return;
