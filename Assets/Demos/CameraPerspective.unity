@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ea99725e86f45641a8271b32f8b9dba, type: 3}
+  m_Script: {fileID: 11500000, guid: 2426ebd325337f44984c57d0728d75c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetRoom:
@@ -1572,7 +1572,6 @@ MonoBehaviour:
   - {fileID: 1971889223}
   - {fileID: 1943967660}
   transitionSpeed: 5
-  pintu: {fileID: 327745288}
 --- !u!1 &984844261
 GameObject:
   m_ObjectHideFlags: 0
@@ -4332,7 +4331,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bebc3a7609c11c74ca2a45b87d3b7a3b, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4672,8 +4671,8 @@ GameObject:
   - component: {fileID: 2027856674}
   - component: {fileID: 2027856673}
   - component: {fileID: 2027856672}
-  - component: {fileID: 2027856671}
   - component: {fileID: 2027856676}
+  - component: {fileID: 2027856671}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -4690,7 +4689,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2027856670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f33db65477e1640b8a0eb16017fc15, type: 3}
+  m_Script: {fileID: 11500000, guid: f8127ee8d1524b74d8d153bb0fd92b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraManager: {fileID: 963194229}
