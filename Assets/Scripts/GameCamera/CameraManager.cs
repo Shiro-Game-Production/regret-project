@@ -4,26 +4,18 @@ namespace GameCamera
 {
     public class CameraManager : SingletonBaseClass<CameraManager>
     {
-        [SerializeField] private Transform[] targetRoom;
         [SerializeField] private float transitionSpeed;
-        
-        private Transform currentRoom;
-        
-        // Start is called before the first frame update
-        private void Start()
-        {
-            MoveCamera(0);
-        }
-        
+        [SerializeField] private Vector3 currentRoomPosition;
+
         private void LateUpdate()
         {
             // Lerp position
-            transform.position = Vector3.Lerp(transform.position, currentRoom.position, Time.deltaTime * transitionSpeed);
+            transform.position = Vector3.Lerp(transform.position, currentRoomPosition, Time.deltaTime * transitionSpeed);
         }
         
-        public void MoveCamera(int index)
+        public void MoveCamera(Vector3 roomPosition)
         {
-            currentRoom = targetRoom[index];
+            currentRoomPosition = roomPosition;
         }
     }
 }

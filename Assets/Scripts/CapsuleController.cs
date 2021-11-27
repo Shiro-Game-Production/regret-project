@@ -30,20 +30,11 @@ public class CapsuleController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        switch (other.tag)
+        RoomManager roomManager = other.GetComponent<RoomManager>();
+        if (roomManager != null)
         {
-            case "Pintu":
-                cameraManager.MoveCamera(0);
-                break;
-            case "Pintu1":
-                cameraManager.MoveCamera(1);
-                break;
-            case "Pintu2":
-                cameraManager.MoveCamera(2);
-                break;
-            case "Pintu3":
-                cameraManager.MoveCamera(3);
-                break;
+            if(roomManager.PlayerInRoom)
+                cameraManager.MoveCamera(roomManager.CameraPosition);
         }
     }
 }
