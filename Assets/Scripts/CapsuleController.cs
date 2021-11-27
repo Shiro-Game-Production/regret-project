@@ -1,67 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CapsuleController : MonoBehaviour
 {
-    //private Camera mainCamera;
-
-    public CameraManager cameraManager;
-
+    [SerializeField] private float movementSpeed;
     
-
-    [SerializeField]
-    private float movementSpeed;
+    private CameraManager cameraManager;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        cameraManager = FindObjectOfType<CameraManager>();
-    
+        cameraManager = CameraManager.Instance;
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         HandleMovementInput();
     }
 
-    void HandleMovementInput()
+    private void HandleMovementInput()
     {
-        float _horizontal = Input.GetAxis("Horizontal");
-        float _vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        Vector3 _movement = new Vector3(_horizontal, 0, _vertical);
-        transform.Translate(_movement * movementSpeed * Time.deltaTime, Space.World);
+        Vector3 movement = new Vector3(horizontal, 0, vertical);
+        transform.Translate(movement * (movementSpeed * Time.deltaTime), Space.World);
     }
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.gameObject.CompareTag("Pintu"))
+        switch (other.tag)
         {
-            cameraManager.MoveCameraToMainRoom();
+            case "Pintu":
+                cameraManager.MoveCamera(0);
+                break;
+            case "Pintu1":
+                cameraManager.MoveCamera(1);
+                break;
+            case "Pintu2":
+                cameraManager.MoveCamera(2);
+                break;
+            case "Pintu3":
+                cameraManager.MoveCamera(3);
+                break;
         }
-
-        if(other.gameObject.CompareTag("Pintu1"))
-        {
-            Debug.Log("Test 1");
-            //cameraManager.MoveCamera();
-            cameraManager.MoveCameraToRoom1();
-            Debug.Log("Test");
-            
-            //Destroy(gameObject);
-        }
-        
-        if(other.gameObject.CompareTag("Pintu2"))
-        {
-            cameraManager.MoveCameraToRoom2();
-        }
-
-        if(other.gameObject.CompareTag("Pintu3"))
-        {
-            cameraManager.MoveCameraToRoom3();
-        }
-
-        //cameraManager.MoveCameraToRoom1();
     }
 }
