@@ -1,15 +1,10 @@
 #speaker:Yuri
 #portrait:yuri
 ...Ken?
-#speaker:Yuri
 Ini... Bohong kan?
-#speaker:Yuri
 BOHONG KAN!?
-#speaker:Yuri
 ...
-#speaker:Yuri
 ...
-#speaker:Yuri
 Kenapa kamu malah pergi lebih dulu, Ken. . .
 Ini semua salahku..
 Bener-bener salahku..

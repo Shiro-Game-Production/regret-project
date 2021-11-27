@@ -5,8 +5,6 @@ namespace Audios
 {
     public class AudioManager: SingletonBaseClass<AudioManager>
     {
-        [SerializeField] private AudioSource audioSource;
-        
         // [ArrayElementTitle("listSound")]
         public Sound[] sounds;
         
@@ -34,7 +32,9 @@ namespace Audios
             
             foreach (Sound sound in sounds)
             {
+                sound.source = gameObject.AddComponent<AudioSource>();
                 sound.source.clip = sound.clip;
+                sound.source.outputAudioMixerGroup = sound.audioMixer;
 
                 sound.source.volume = sound.volume;
                 sound.source.pitch = sound.pitch;
@@ -49,7 +49,8 @@ namespace Audios
         /// <param name="listSound"></param>
         public void Play(ListSound listSound)
         {
-            audioSource.PlayOneShot(GetAudioClip(listSound));
+            AudioSource audioSource = GetAudioSource(listSound);
+            audioSource.PlayOneShot(audioSource.clip);
         }
 
         /// <summary>
@@ -59,25 +60,22 @@ namespace Audios
         /// <param name="audioFileName"></param>
         public void Play(string audioFileName)
         {
-            audioSource.PlayOneShot(GetAudioClip(audioFileName));
+            AudioSource audioSource = GetAudioSource(audioFileName);
+            audioSource.PlayOneShot(audioSource.clip);
         }
 
         /// <summary>
-        /// Get audio source by enum
+        /// Get audio source for enum
         /// </summary>
         /// <param name="listSound"></param>
         /// <returns></returns>
-        private AudioClip GetAudioClip(ListSound listSound)
+        private AudioSource GetAudioSource(ListSound listSound)
         {
             Sound s = Array.Find(sounds, sound => sound.listSound == listSound);
-            
-            if (s == null)
-            {
-                Debug.LogError($"Sound: {listSound} not found!");
-                return null;
-            }
-            
-            return s.clip;
+
+            if (s != null) return s.source;
+            Debug.LogError($"Sound: {listSound} not found!");
+            return null;
         }
         
         /// <summary>
@@ -85,18 +83,14 @@ namespace Audios
         /// </summary>
         /// <param name="audioFileName"></param>
         /// <returns></returns>
-        private AudioClip GetAudioClip(string audioFileName)
+        private AudioSource GetAudioSource(string audioFileName)
         {
             Sound s = Array.Find(sounds, sound => 
                 Enum.TryParse(audioFileName, true, out sound.listSound));
-            
-            if (s == null)
-            {
-                Debug.LogError($"Sound: {audioFileName} not found!");
-                return null;
-            }
-            
-            return s.clip;
+
+            if (s != null) return s.source;
+            Debug.LogError($"Sound: {audioFileName} not found!");
+            return null;
         }
     }
 }
