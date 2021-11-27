@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GameCamera;
+using UnityEngine;
 
 public class CapsuleController : MonoBehaviour
 {
