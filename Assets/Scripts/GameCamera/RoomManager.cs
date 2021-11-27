@@ -8,8 +8,9 @@ namespace GameCamera
         [SerializeField] private Vector3 cameraPosition;
 
         public Vector3 CameraPosition => cameraPosition;
+        public bool PlayerInRoom => playerInRoom;
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter(Collider other)
         {
             if (!other.gameObject.CompareTag("Player")) return;
             playerInRoom = !playerInRoom;
