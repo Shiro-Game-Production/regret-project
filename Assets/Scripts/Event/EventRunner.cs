@@ -47,6 +47,7 @@ namespace Event
                                 hasSetFinishCondition = true;
                                 break;
                             case FinishCondition.DialogueFinished:
+                                eventData.TriggerObject.SetEndingCondition();
                                 hasSetFinishCondition = true;
                                 break;
                         }
