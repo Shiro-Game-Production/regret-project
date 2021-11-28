@@ -1,5 +1,6 @@
 ﻿using Actors;
 using Dialogue;
+using Event;
 using Event.FinishConditionScripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,6 +39,14 @@ namespace Player
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<TriggerEnterCondition>()) return;
+            
+            // if collide with event data, ...
+            EventData eventData = other.GetComponent<EventData>();
+            if (eventData)
+            {
+                // Return if the item can't be interacted
+                if (!eventData.canBeInteracted) return;
+            }
             
             switch (other.tag)
             {
