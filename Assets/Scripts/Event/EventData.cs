@@ -1,4 +1,5 @@
-﻿using Actors;
+﻿using System;
+using Actors;
 using Event.FinishConditionScripts;
 using UnityEngine;
 
@@ -11,8 +12,6 @@ namespace Event
         [SerializeField] private ActorManager affectedActor;
         public bool isFinished;
         public EventState eventState = EventState.NotStarted;
-        private MeshRenderer eventMeshRenderer;
-        private Collider eventCollider;
 
         [Header("Dialogue Asset")]
         [SerializeField] private TextAsset waitDialogueAsset;
@@ -23,7 +22,17 @@ namespace Event
         [Header("Finish Condition")]
         public FinishCondition finishCondition;
         [SerializeField] private FinishConditionManager triggerObject;
-
+        
+        // OnTriggerEnter finish condition
+        [DrawIf("finishCondition", FinishCondition.OnTriggerEnter)]
+        private MeshRenderer eventMeshRenderer;
+        [DrawIf("finishCondition", FinishCondition.OnTriggerEnter)]
+        private Collider eventCollider;
+        
+        // Dialogue finished condition
+        
+        #region Setter and Getter
+        
         public string EventName => eventName;
         public ActorManager AffectedActor => affectedActor;
         public TextAsset WaitDialogueAsset => waitDialogueAsset;
@@ -31,11 +40,24 @@ namespace Event
         public TextAsset DefaultDialogueAsset => defaultDialogueAsset;
         public TextAsset FinishDialogueAsset => finishDialogueAsset;
         public FinishConditionManager TriggerObject => triggerObject;
-
+        
+        #endregion
+        
         private void Awake()
         {
-            eventCollider = GetComponent<Collider>();
-            eventMeshRenderer = GetComponent<MeshRenderer>();
+            switch (finishCondition)
+            {
+                case FinishCondition.OnTriggerEnter:
+                    eventCollider = GetComponent<Collider>();
+                    eventMeshRenderer = GetComponent<MeshRenderer>();
+                    break;
+                case FinishCondition.PuzzleFinished:
+                    break;
+                case FinishCondition.DialogueFinished:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
         
         /// <summary>
