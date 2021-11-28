@@ -34,7 +34,7 @@ public class CapsuleController : MonoBehaviour
         if (roomManager != null)
         {
             if(roomManager.PlayerInRoom)
-                cameraManager.MoveCamera(roomManager.CameraPosition);
+                cameraManager.MoveCamera(roomManager.CameraTransform.position);
         }
     }
 }
