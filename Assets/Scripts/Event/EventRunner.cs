@@ -14,7 +14,10 @@ namespace Event
         private void Awake()
         {
             dialogueManager = DialogueManager.Instance;
-            
+        }
+
+        private void OnEnable()
+        {
             hasSetFinishCondition = false;
             canStartEvent = false;
         }
@@ -67,9 +70,12 @@ namespace Event
 
         public void OnEventStart()
         {
-            // Set actor's dialogue to dialogue manager
-            // Wait dialogue
-            eventData.AffectedActor.currentDialogue = eventData.WaitDialogueAsset;
+            if(eventData.WaitDialogueAsset)
+            {
+                // Set actor's dialogue to dialogue manager
+                // Wait dialogue
+                eventData.AffectedActor.currentDialogue = eventData.WaitDialogueAsset;
+            }
             
             // Start the event
             // Set event state
@@ -80,31 +86,38 @@ namespace Event
         {
             // Set event state
             eventData.eventState = EventState.Active;
+            eventData.canBeInteracted = true;
         }
 
         public void OnEventFinish()
         {
-            // Set actor's dialogue to dialogue manager
-            // Finish dialogue
-            eventData.AffectedActor.currentDialogue = eventData.FinishDialogueAsset;
+            if(eventData.FinishDialogueAsset)
+            {
+                // Set actor's dialogue to dialogue manager
+                // Finish dialogue
+                eventData.AffectedActor.currentDialogue = eventData.FinishDialogueAsset;
+            }
             
             // Set event state
             eventData.eventState = EventState.Finish;
             // Deactivate event data renderer
-            eventData.DeactivateRenderer();
+            eventData.OnEventFinish();
         }
 
         public void SetNextEvent()
         {
-            // Set next dialogue to affected actor
-            eventData.AffectedActor.currentDialogue = 
-                eventData.NextEventDialogueAsset != null 
-                    ? eventData.NextEventDialogueAsset 
-                    : eventData.DefaultDialogueAsset;
+            if(eventData.NextEventDialogueAsset || eventData.DefaultDialogueAsset)
+            {
+                // Set next dialogue to affected actor
+                eventData.AffectedActor.currentDialogue =
+                    eventData.NextEventDialogueAsset != null
+                        ? eventData.NextEventDialogueAsset
+                        : eventData.DefaultDialogueAsset;
+            }
             
             // Deactivate game object
+            eventData.gameObject.SetActive(eventData.KeepObjectAfterFinish);
             gameObject.SetActive(false);
-            eventData.gameObject.SetActive(false);
         }
     }
 }

@@ -136,6 +136,8 @@ GameObject:
   - component: {fileID: 18392491}
   - component: {fileID: 18392490}
   - component: {fileID: 18392489}
+  - component: {fileID: 18392494}
+  - component: {fileID: 18392493}
   m_Layer: 0
   m_Name: Pintu kamar
   m_TagString: Item
@@ -169,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0afc394c6d43679341b067446e2dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorName: 
-  currentDialogue: {fileID: 4900000, guid: 0070202516bedc3419b14b72d391844b, type: 3}
+  actorName: Pintu kamar
+  currentDialogue: {fileID: 0}
 --- !u!65 &18392490
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -233,6 +235,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18392487}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &18392493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18392487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf091ab55da433d8c55d994ad653e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &18392494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18392487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa283f438074fdcb8b252e1c4893182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: prologue-3
+  affectedActor: {fileID: 1132355244}
+  isFinished: 0
+  eventState: 0
+  waitDialogueAsset: {fileID: 0}
+  finishDialogueAsset: {fileID: 4900000, guid: 0705e3e9efa6ce84a8b4e7765ab27428, type: 3}
+  nextEventDialogueAsset: {fileID: 0}
+  defaultDialogueAsset: {fileID: 0}
+  finishCondition: 2
+  canBeInteracted: 0
+  keepObjectAfterFinish: 1
+  triggerObject: {fileID: 18392493}
 --- !u!1 &162690483
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 231381061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.19, y: 1, z: -2.31}
+  m_LocalPosition: {x: 0.19, y: 1, z: -3.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1427373502}
@@ -495,8 +533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0afc394c6d43679341b067446e2dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorName: Yuri
-  currentDialogue: {fileID: 4900000, guid: 504db0ec9b263e54da454b5ae49756c6, type: 3}
+  actorName: Pintu
+  currentDialogue: {fileID: 4900000, guid: 58d9a071f38863d4cb86ef32f180fee8, type: 3}
 --- !u!1 &278530322
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +548,8 @@ GameObject:
   - component: {fileID: 278530326}
   - component: {fileID: 278530325}
   - component: {fileID: 278530324}
+  - component: {fileID: 278530329}
+  - component: {fileID: 278530328}
   m_Layer: 0
   m_Name: Pintu rumah
   m_TagString: Item
@@ -543,8 +583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0afc394c6d43679341b067446e2dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorName: 
-  currentDialogue: {fileID: 4900000, guid: 29f2709db02c5ae469b0630037414f63, type: 3}
+  actorName: Pintu rumah
+  currentDialogue: {fileID: 4900000, guid: 2667168f31482864aa0d18d0cd3678b2, type: 3}
 --- !u!65 &278530325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -607,6 +647,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278530322}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &278530328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278530322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf091ab55da433d8c55d994ad653e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &278530329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278530322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa283f438074fdcb8b252e1c4893182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: prologue-2
+  affectedActor: {fileID: 18392489}
+  isFinished: 0
+  eventState: 0
+  waitDialogueAsset: {fileID: 0}
+  finishDialogueAsset: {fileID: 4900000, guid: 748c5ae7d7649d640951527834223ab7, type: 3}
+  nextEventDialogueAsset: {fileID: 0}
+  defaultDialogueAsset: {fileID: 0}
+  finishCondition: 2
+  canBeInteracted: 0
+  keepObjectAfterFinish: 1
+  triggerObject: {fileID: 278530328}
 --- !u!1 &285853631
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,8 +933,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &541465671
-CapsuleCollider:
+--- !u!65 &541465671
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -867,10 +943,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0.3}
 --- !u!114 &541465672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,6 +1234,8 @@ MonoBehaviour:
   nextEventDialogueAsset: {fileID: 0}
   defaultDialogueAsset: {fileID: 4900000, guid: 6f5f2102ad217b04395d6a3f5dc226f0, type: 3}
   finishCondition: 0
+  canBeInteracted: 0
+  keepObjectAfterFinish: 0
   triggerObject: {fileID: 799606221}
 --- !u!65 &799606223
 BoxCollider:
@@ -1315,9 +1392,13 @@ MonoBehaviour:
   choicePrefab: {fileID: 3937746009833068588, guid: 0572647ca9091894e9bf0d8ac87b3073, type: 3}
   portraitsParent: {fileID: 728144692}
   portraitPrefab: {fileID: 2657727682114043160, guid: c82bff6f77e3a1747aec57b6f92b4b65, type: 3}
+  currentDialogueAsset: {fileID: 0}
   eventDatas:
   - {fileID: 1094133413}
   - {fileID: 799606222}
+  - {fileID: 278530329}
+  - {fileID: 18392494}
+  - {fileID: 1132355249}
 --- !u!4 &929216878
 Transform:
   m_ObjectHideFlags: 0
@@ -1528,7 +1609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050534840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.89, y: 0, z: 0}
+  m_LocalPosition: {x: -11.47, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1930506862}
@@ -1683,6 +1764,8 @@ MonoBehaviour:
   nextEventDialogueAsset: {fileID: 4900000, guid: bbe2aedaef509fe48a8c5633d42c7324, type: 3}
   defaultDialogueAsset: {fileID: 0}
   finishCondition: 0
+  canBeInteracted: 0
+  keepObjectAfterFinish: 0
   triggerObject: {fileID: 1094133412}
 --- !u!65 &1094133414
 BoxCollider:
@@ -1759,6 +1842,8 @@ GameObject:
   - component: {fileID: 1132355246}
   - component: {fileID: 1132355245}
   - component: {fileID: 1132355244}
+  - component: {fileID: 1132355249}
+  - component: {fileID: 1132355248}
   m_Layer: 0
   m_Name: Altar
   m_TagString: Item
@@ -1792,8 +1877,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0afc394c6d43679341b067446e2dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorName: 
-  currentDialogue: {fileID: 4900000, guid: 294a1da49e4a8cb4b88d9de6f150ceb9, type: 3}
+  actorName: Altar
+  currentDialogue: {fileID: 0}
 --- !u!65 &1132355245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1856,6 +1941,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132355242}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1132355248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132355242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4039f8b7ea49b1a0e64a23ccfd0abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1132355249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132355242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa283f438074fdcb8b252e1c4893182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: prologue-4
+  affectedActor: {fileID: 1132355244}
+  isFinished: 0
+  eventState: 0
+  waitDialogueAsset: {fileID: 0}
+  finishDialogueAsset: {fileID: 0}
+  nextEventDialogueAsset: {fileID: 0}
+  defaultDialogueAsset: {fileID: 0}
+  finishCondition: 2
+  canBeInteracted: 0
+  keepObjectAfterFinish: 1
+  triggerObject: {fileID: 1132355248}
 --- !u!1 &1194479953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,7 +2707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorName: Yuri
-  currentDialogue: {fileID: 4900000, guid: 504db0ec9b263e54da454b5ae49756c6, type: 3}
+  currentDialogue: {fileID: 4900000, guid: 314ba4d62ec49b14096b7fe17221e4b4, type: 3}
 --- !u!136 &1930506859
 CapsuleCollider:
   m_ObjectHideFlags: 0
