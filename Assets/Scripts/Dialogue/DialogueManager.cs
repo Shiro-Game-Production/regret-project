@@ -44,16 +44,17 @@ namespace Dialogue
         private readonly List<PortraitManager> portraitPool = new List<PortraitManager>();
 
         [Header("Event Data")]
+        [SerializeField] private TextAsset currentDialogueAsset;
         [SerializeField] private List<EventData> eventDatas;
         
+        private Coroutine displayLineCoroutine;
         private Story currentStory;
         private EventManager eventManager;
-        public bool DialogueIsPlaying { get; private set; }
-
         private bool canContinueToNextLine;
         private bool canSkipSentence;
 
-        private Coroutine displayLineCoroutine;
+        public TextAsset CurrentDialogueAsset => currentDialogueAsset;
+        public bool DialogueIsPlaying { get; private set; }
 
         private void Awake()
         {
@@ -95,6 +96,7 @@ namespace Dialogue
         /// <param name="dialogueInk">Dialogue JSON file from Inky</param>
         public void SetDialogue(TextAsset dialogueInk)
         {
+            currentDialogueAsset = dialogueInk;
             currentStory = new Story(dialogueInk.text);
             
             StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,

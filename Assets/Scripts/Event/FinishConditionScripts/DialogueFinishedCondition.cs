@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Actors;
 using Dialogue;
 using UnityEngine;
 
@@ -6,8 +7,13 @@ namespace Event.FinishConditionScripts
 {
     public class DialogueFinishedCondition: FinishConditionManager
     {
+        private DialogueManager dialogueManager;
+        private ActorManager actorManager;
+        
         private void Awake()
         {
+            actorManager = GetComponent<ActorManager>();
+            dialogueManager = DialogueManager.Instance;
             EventData = GetComponent<EventData>();
         }
 
@@ -23,7 +29,11 @@ namespace Event.FinishConditionScripts
         /// <returns></returns>
         private IEnumerator WaitUntilDialogueFinished()
         {
-            yield return new WaitUntil(() => !DialogueManager.Instance.DialogueIsPlaying);
+            Debug.Log("Wait for dialogue finished");
+            yield return new WaitUntil(() => 
+                !dialogueManager.DialogueIsPlaying && 
+                dialogueManager.CurrentDialogueAsset == actorManager.currentDialogue);
+            Debug.Log("Dialogue finished");
             OnEndingCondition();
         }
     }

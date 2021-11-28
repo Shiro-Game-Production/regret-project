@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Dialogue;
 using UnityEngine;
 
 namespace Event
@@ -17,6 +19,18 @@ namespace Event
         {
             EventRunner eventRunner = GetOrCreateEventRunner();
             eventRunner.eventData = eventData;
+            StartCoroutine(StartEvent(eventRunner));
+        }
+        
+        /// <summary>
+        /// Start event when dialogue is finished
+        /// </summary>
+        /// <param name="eventRunner"></param>
+        /// <returns></returns>
+        private static IEnumerator StartEvent(EventRunner eventRunner)
+        {
+            yield return new WaitUntil(() => !DialogueManager.Instance.DialogueIsPlaying);
+            yield return new WaitForSeconds(1f);
             eventRunner.canStartEvent = true;
         }
         

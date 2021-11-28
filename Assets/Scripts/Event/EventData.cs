@@ -21,18 +21,19 @@ namespace Event
         
         [Header("Finish Condition")]
         public FinishCondition finishCondition;
+        public bool canBeInteracted;
+        [SerializeField] private bool keepObjectAfterFinish;
         [SerializeField] private FinishConditionManager triggerObject;
         
         // OnTriggerEnter finish condition
-        [DrawIf("finishCondition", FinishCondition.OnTriggerEnter)]
         private MeshRenderer eventMeshRenderer;
-        [DrawIf("finishCondition", FinishCondition.OnTriggerEnter)]
         private Collider eventCollider;
         
         // Dialogue finished condition
         
         #region Setter and Getter
-        
+
+        public bool KeepObjectAfterFinish => keepObjectAfterFinish;
         public string EventName => eventName;
         public ActorManager AffectedActor => affectedActor;
         public TextAsset WaitDialogueAsset => waitDialogueAsset;
@@ -61,12 +62,24 @@ namespace Event
         }
         
         /// <summary>
-        /// Deactivate renderer and collider
+        /// Actions on event finish depends on finish condition
         /// </summary>
-        public void DeactivateRenderer()
+        public void OnEventFinish()
         {
-            eventCollider.enabled = false;
-            eventMeshRenderer.enabled = false;
+            switch (finishCondition)
+            {
+                case FinishCondition.OnTriggerEnter:
+                    eventCollider.enabled = false;
+                    eventMeshRenderer.enabled = false;
+                    break;
+                case FinishCondition.PuzzleFinished:
+                    break;
+                case FinishCondition.DialogueFinished:
+                    canBeInteracted = false;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
     

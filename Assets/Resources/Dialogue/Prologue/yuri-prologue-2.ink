@@ -17,5 +17,6 @@ Keluarlah
 #speaker:Yuri
 Keluarlah
 Semua orang kemana ya?
+#event:prologue-3
 Aneh..
 ->END
