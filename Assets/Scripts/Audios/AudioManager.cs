@@ -5,7 +5,7 @@ namespace Audios
 {
     public class AudioManager: SingletonBaseClass<AudioManager>
     {
-        // [ArrayElementTitle("listSound")]
+        [ArrayElementTitle("listSound")]
         public Sound[] sounds;
         
         /// <summary>
