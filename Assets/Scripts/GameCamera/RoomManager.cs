@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace GameCamera
@@ -5,15 +6,21 @@ namespace GameCamera
     public class RoomManager: MonoBehaviour
     {
         [SerializeField] private bool playerInRoom;
-        [SerializeField] private Vector3 cameraPosition;
+        [SerializeField] private Transform cameraTransform;
 
-        public Vector3 CameraPosition => cameraPosition;
+        public Transform CameraTransform => cameraTransform;
         public bool PlayerInRoom => playerInRoom;
 
         private void OnTriggerEnter(Collider other)
         {
             if (!other.gameObject.CompareTag("Player")) return;
-            playerInRoom = !playerInRoom;
+            playerInRoom = true;
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (!other.gameObject.CompareTag("Player")) return;
+            playerInRoom = false;
         }
     }
 }
