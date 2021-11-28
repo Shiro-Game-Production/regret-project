@@ -53,8 +53,12 @@ namespace Dialogue
         private bool canContinueToNextLine;
         private bool canSkipSentence;
 
+        #region Setter and Getter
+        
         public TextAsset CurrentDialogueAsset => currentDialogueAsset;
         public bool DialogueIsPlaying { get; private set; }
+        
+        #endregion
 
         private void Awake()
         {
@@ -89,6 +93,8 @@ namespace Dialogue
             if (Input.GetMouseButtonDown(1) && !canContinueToNextLine)
                 canSkipSentence = true;
         }
+
+        #region Dialogue
         
         /// <summary>
         /// Set dialogue by using dialogue inky file
@@ -202,6 +208,10 @@ namespace Dialogue
             canContinueToNextLine = true;
         }
         
+        #endregion
+
+        #region Choices
+        
         /// <summary>
         /// Hide choices
         /// </summary>
@@ -265,6 +275,10 @@ namespace Dialogue
             }
         }
         
+        #endregion
+
+        #region Tags
+        
         /// <summary>
         /// Handle tags in dialogue
         /// </summary>
@@ -315,10 +329,16 @@ namespace Dialogue
             }
         }
 
+        #region Audio
+        
         private void HandleAudio(string audio)
         {
             AudioManager.Instance.Play(audio);
         }
+        
+        #endregion
+
+        #region Portraits
         
         /// <summary>
         /// Display portraits
@@ -378,6 +398,10 @@ namespace Dialogue
             return portraitManager;
         }
         
+        #endregion
+
+        #region Event
+        
         /// <summary>
         /// Find event data in list
         /// </summary>
@@ -393,5 +417,9 @@ namespace Dialogue
                 break;
             }
         }
+        
+        #endregion'
+        
+        #endregion
     }
 }

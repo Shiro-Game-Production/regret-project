@@ -29,8 +29,6 @@ namespace Event
         private MeshRenderer eventMeshRenderer;
         private Collider eventCollider;
         
-        // Dialogue finished condition
-        
         #region Setter and Getter
 
         public bool KeepObjectAfterFinish => keepObjectAfterFinish;
