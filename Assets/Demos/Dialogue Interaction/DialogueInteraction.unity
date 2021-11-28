@@ -1360,6 +1360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 929216878}
   - component: {fileID: 929216877}
+  - component: {fileID: 929216879}
   m_Layer: 0
   m_Name: Dialogue Manager
   m_TagString: Untagged
@@ -1379,10 +1380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695cdc8d9a6e8a04286b60f504728d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topDownModePosition: {x: 0, y: 15, z: -2}
-  topDownModeAngle: {x: 80, y: 0, z: 0}
-  dialogueModePosition: {x: 0, y: 1, z: -3}
-  dialogueModeAngle: {x: 14.999997, y: 0, z: 0}
   typingSpeed: 0.04
   dialogueCanvasGroup: {fileID: 162690485}
   dialogueHolder: {fileID: 162690483}
@@ -1413,6 +1410,22 @@ Transform:
   m_Father: {fileID: 752675143}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &929216879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929216876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c55480d32d0472681cb565cdcd9edab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topDownModePosition: {x: 0, y: 15, z: -2}
+  topDownModeAngle: {x: 80, y: 0, z: 0}
+  dialogueModePosition: {x: 0, y: 1, z: -3}
+  dialogueModeAngle: {x: 14.999997, y: 0, z: 0}
 --- !u!1 &960155170
 GameObject:
   m_ObjectHideFlags: 0

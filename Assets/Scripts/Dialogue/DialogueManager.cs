@@ -4,7 +4,6 @@ using System.Linq;
 using Audios;
 using Effects;
 using Event;
-using GameCamera;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
@@ -14,15 +13,8 @@ namespace Dialogue
 {
     public class DialogueManager : SingletonBaseClass<DialogueManager>
     {
-        [Header("Camera Transition")] 
-        private CameraShake cameraShake;
-        [Header("Top Down Mode")]
-        [SerializeField] private Vector3 topDownModePosition;
-        [SerializeField] private Vector3 topDownModeAngle;
-        [Header("Dialogue Mode")]
-        [SerializeField] private Vector3 dialogueModePosition;
-        [SerializeField] private Vector3 dialogueModeAngle;
-        private CameraMovement cameraMovement;
+        [Header("Camera Manager")] 
+        private DialogueCameraManager dialogueCameraManager;
         
         [Header("Parameters")]
         [SerializeField] private float typingSpeed = 0.04f;
@@ -62,8 +54,7 @@ namespace Dialogue
 
         private void Awake()
         {
-            cameraMovement = CameraMovement.Instance;
-            cameraShake = CameraShake.Instance;
+            dialogueCameraManager = DialogueCameraManager.Instance;
             eventManager = EventManager.Instance;
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
@@ -73,8 +64,6 @@ namespace Dialogue
         {
             DialogueIsPlaying = false;
             dialogueHolder.SetActive(false);
-            
-            cameraMovement.SetPosition(topDownModePosition, topDownModeAngle, false);
         }
 
         private void Update()
@@ -109,7 +98,7 @@ namespace Dialogue
                 beforeEffect: () =>
                 {
                     dialogueHolder.SetActive(true);
-                    cameraMovement.SetPosition(dialogueModePosition, dialogueModeAngle, true);
+                    dialogueCameraManager.SetCameraToDialogueMode();
                     DialogueIsPlaying = true;
                     ContinueStory();
                 })
@@ -148,7 +137,7 @@ namespace Dialogue
             StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
                 beforeEffect: () =>
                 {
-                    cameraMovement.SetPosition(topDownModePosition, topDownModeAngle, false);
+                    dialogueCameraManager.SetCameraToTopDownMode();
                 },
                 afterEffect: () =>
                 {
@@ -304,24 +293,29 @@ namespace Dialogue
                     case DialogueTags.AUDIO_TAG:
                         HandleAudio(tagValue);
                         break;
+                    
                     case DialogueTags.EFFECT_TAG:
                         switch (tagValue)
                         {
                             case DialogueTags.SHAKE_TAG:
-                                StartCoroutine(cameraShake.ShakingEffect());
+                                dialogueCameraManager.ShakingEffect();
                                 break;
                         }
                         break;
+                    
                     case DialogueTags.EVENT_TAG:
                         SetEventData(tagValue);
                         break;
+                    
                     case DialogueTags.PORTRAIT_TAG:
                         DisplayPortraits(tagValue);
                         break;
+                    
                     case DialogueTags.SPEAKER_TAG:
                         speakerName.text = 
                             tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
                         break;
+                    
                     default:
                         Debug.LogError("Tag is not in the list: " + tag);
                         break;
