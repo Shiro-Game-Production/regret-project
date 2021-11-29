@@ -4,6 +4,7 @@ using System.Linq;
 using Audios;
 using Effects;
 using Event;
+using GameCamera;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Dialogue
     public class DialogueManager : SingletonBaseClass<DialogueManager>
     {
         [Header("Camera Manager")] 
-        private DialogueCameraManager dialogueCameraManager;
+        private DialogueCameraMovement dialogueCameraMovement;
         
         [Header("Parameters")]
         [SerializeField] private float typingSpeed = 0.04f;
@@ -54,7 +55,7 @@ namespace Dialogue
 
         private void Awake()
         {
-            dialogueCameraManager = DialogueCameraManager.Instance;
+            dialogueCameraMovement = DialogueCameraMovement.Instance;
             eventManager = EventManager.Instance;
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
@@ -98,7 +99,7 @@ namespace Dialogue
                 beforeEffect: () =>
                 {
                     dialogueHolder.SetActive(true);
-                    dialogueCameraManager.SetCameraToDialogueMode();
+                    dialogueCameraMovement.SetCameraToDialogueMode();
                     DialogueIsPlaying = true;
                     ContinueStory();
                 })
@@ -137,7 +138,7 @@ namespace Dialogue
             StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
                 beforeEffect: () =>
                 {
-                    dialogueCameraManager.SetCameraToTopDownMode();
+                    dialogueCameraMovement.SetCameraToTopDownMode();
                 },
                 afterEffect: () =>
                 {
@@ -298,7 +299,7 @@ namespace Dialogue
                         switch (tagValue)
                         {
                             case DialogueTags.SHAKE_TAG:
-                                dialogueCameraManager.ShakingEffect();
+                                dialogueCameraMovement.ShakingEffect();
                                 break;
                         }
                         break;
