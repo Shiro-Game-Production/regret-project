@@ -86,6 +86,12 @@ namespace GameCamera
         /// <param name="setToPlayer">Set camera's parent to player</param>
         public void SetPosition(Vector3 targetPosition, Vector3 targetAngle, bool setToPlayer = false)
         {
+            if (!setToPlayer)
+            {
+                topDownMode.localPosition = targetPosition;
+                topDownMode.localEulerAngles = targetAngle;
+            }
+            
             canMove = true;
             transform.SetParent(setToPlayer ? playerTransform : null);
             this.targetPosition = targetPosition;
