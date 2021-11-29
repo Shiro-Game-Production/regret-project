@@ -2,7 +2,7 @@
 
 namespace GameCamera
 {
-    public class CameraMovement : SingletonBaseClass<CameraMovement>
+    public class DialogueCameraMovement : SingletonBaseClass<DialogueCameraMovement>
     {
         [Range(0, 10)]
         [SerializeField] private float transitionSpeed;

@@ -5,12 +5,12 @@ public class CapsuleController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
     
-    private CameraManager cameraManager;
+    private RoomCameraMovement roomCameraMovement;
 
     // Start is called before the first frame update
     private void Awake()
     {
-        cameraManager = CameraManager.Instance;
+        roomCameraMovement = RoomCameraMovement.Instance;
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class CapsuleController : MonoBehaviour
         if (roomManager != null)
         {
             if(roomManager.PlayerInRoom)
-                cameraManager.MoveCamera(roomManager.CameraTransform.position);
+                roomCameraMovement.MoveCamera(roomManager.CameraTransform.position);
         }
     }
 }
