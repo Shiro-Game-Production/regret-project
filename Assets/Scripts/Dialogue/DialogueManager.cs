@@ -15,7 +15,7 @@ namespace Dialogue
     public class DialogueManager : SingletonBaseClass<DialogueManager>
     {
         [Header("Camera Manager")] 
-        private DialogueCameraMovement dialogueCameraMovement;
+        private CameraMovement cameraMovement;
         
         [Header("Parameters")]
         [SerializeField] private float typingSpeed = 0.04f;
@@ -55,7 +55,7 @@ namespace Dialogue
 
         private void Awake()
         {
-            dialogueCameraMovement = DialogueCameraMovement.Instance;
+            cameraMovement = CameraMovement.Instance;
             eventManager = EventManager.Instance;
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
@@ -99,7 +99,7 @@ namespace Dialogue
                 beforeEffect: () =>
                 {
                     dialogueHolder.SetActive(true);
-                    dialogueCameraMovement.SetCameraToDialogueMode();
+                    cameraMovement.SetCameraToDialogueMode();
                     DialogueIsPlaying = true;
                     ContinueStory();
                 })
@@ -138,7 +138,7 @@ namespace Dialogue
             StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
                 beforeEffect: () =>
                 {
-                    dialogueCameraMovement.SetCameraToTopDownMode();
+                    cameraMovement.SetCameraToTopDownMode();
                 },
                 afterEffect: () =>
                 {
@@ -299,7 +299,7 @@ namespace Dialogue
                         switch (tagValue)
                         {
                             case DialogueTags.SHAKE_TAG:
-                                dialogueCameraMovement.ShakingEffect();
+                                cameraMovement.ShakingEffect();
                                 break;
                         }
                         break;

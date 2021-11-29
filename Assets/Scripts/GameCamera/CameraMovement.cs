@@ -2,7 +2,7 @@
 
 namespace GameCamera
 {
-    public class DialogueCameraMovement : SingletonBaseClass<DialogueCameraMovement>
+    public class CameraMovement : SingletonBaseClass<CameraMovement>
     {
         [Header("Camera Transition")] 
         private CameraShake cameraShake;
@@ -17,7 +17,6 @@ namespace GameCamera
 
         private bool canMove;
         
-        private Camera mainCamera;
         private Transform playerTransform;
         private Vector3 targetPosition, targetAngle;
 
@@ -25,23 +24,17 @@ namespace GameCamera
         {
             canMove = false;
             cameraShake = CameraShake.Instance;
-            mainCamera = GetComponent<Camera>();
             playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             
             if(playerTransform == null)
                 Debug.LogError("Object with \"Player\" tag not found");
-        }
-        
-        private void Start()
-        {
-            SetCameraToTopDownMode();
         }
 
         private void LateUpdate()
         {
             if (!canMove) return;
             
-            var mainCameraTransform = mainCamera.transform;
+            var mainCameraTransform = transform;
             Vector3 currentPosition = mainCameraTransform.localPosition;
             Vector3 currentAngles = mainCameraTransform.localEulerAngles;
             
@@ -66,7 +59,7 @@ namespace GameCamera
         /// </summary>
         public void SetCameraToTopDownMode()
         {
-            SetPosition(topDownMode.localPosition, topDownMode.localEulerAngles, false);
+            SetPosition(topDownMode.localPosition, topDownMode.localEulerAngles);
         }
         
         /// <summary>
@@ -91,10 +84,10 @@ namespace GameCamera
         /// <param name="targetPosition">Camera target position</param>
         /// <param name="targetAngle">Camera target angle</param>
         /// <param name="setToPlayer">Set camera's parent to player</param>
-        private void SetPosition(Vector3 targetPosition, Vector3 targetAngle, bool setToPlayer)
+        public void SetPosition(Vector3 targetPosition, Vector3 targetAngle, bool setToPlayer = false)
         {
             canMove = true;
-            mainCamera.transform.SetParent(setToPlayer ? playerTransform : null);
+            transform.SetParent(setToPlayer ? playerTransform : null);
             this.targetPosition = targetPosition;
             this.targetAngle = targetAngle;
         }
