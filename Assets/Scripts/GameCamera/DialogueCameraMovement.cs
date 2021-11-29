@@ -4,8 +4,16 @@ namespace GameCamera
 {
     public class DialogueCameraMovement : SingletonBaseClass<DialogueCameraMovement>
     {
+        [Header("Camera Transition")] 
+        private CameraShake cameraShake;
         [Range(0, 10)]
         [SerializeField] private float transitionSpeed;
+        
+        [Header("Top Down Mode")]
+        [SerializeField] private Transform topDownMode;
+        
+        [Header("Dialogue Mode")]
+        [SerializeField] private Transform dialogueMode;
 
         private bool canMove;
         
@@ -16,11 +24,17 @@ namespace GameCamera
         private void Awake()
         {
             canMove = false;
+            cameraShake = CameraShake.Instance;
             mainCamera = GetComponent<Camera>();
             playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             
             if(playerTransform == null)
                 Debug.LogError("Object with \"Player\" tag not found");
+        }
+        
+        private void Start()
+        {
+            SetCameraToTopDownMode();
         }
 
         private void LateUpdate()
@@ -48,12 +62,36 @@ namespace GameCamera
         }
 
         /// <summary>
+        /// Set camera to top down mode
+        /// </summary>
+        public void SetCameraToTopDownMode()
+        {
+            SetPosition(topDownMode.localPosition, topDownMode.localEulerAngles, false);
+        }
+        
+        /// <summary>
+        /// Set camera to dialogue mode
+        /// </summary>
+        public void SetCameraToDialogueMode()
+        {
+            SetPosition(dialogueMode.localPosition, dialogueMode.localEulerAngles, true);
+        }
+        
+        /// <summary>
+        /// Call camera shake effect
+        /// </summary>
+        public void ShakingEffect()
+        {
+            StartCoroutine(cameraShake.ShakingEffect());
+        }
+
+        /// <summary>
         /// Make camera position to target position using lerp
         /// </summary>
         /// <param name="targetPosition">Camera target position</param>
         /// <param name="targetAngle">Camera target angle</param>
         /// <param name="setToPlayer">Set camera's parent to player</param>
-        public void SetPosition(Vector3 targetPosition, Vector3 targetAngle, bool setToPlayer)
+        private void SetPosition(Vector3 targetPosition, Vector3 targetAngle, bool setToPlayer)
         {
             canMove = true;
             mainCamera.transform.SetParent(setToPlayer ? playerTransform : null);
