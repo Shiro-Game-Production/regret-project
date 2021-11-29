@@ -6,14 +6,20 @@ namespace GameCamera
     {
         [SerializeField] private bool playerInRoom;
         [SerializeField] private Transform cameraTransform;
+        private CameraMovement cameraMovement;
 
-        public Transform CameraTransform => cameraTransform;
-        public bool PlayerInRoom => playerInRoom;
+        private void Awake()
+        {
+            cameraMovement = CameraMovement.Instance;
+        }
 
         private void OnTriggerEnter(Collider other)
         {
             if (!other.gameObject.CompareTag("Player")) return;
             playerInRoom = true;
+            
+            cameraMovement.SetPosition(cameraTransform.position, 
+                cameraTransform.eulerAngles);
         }
 
         private void OnTriggerExit(Collider other)
