@@ -1,5 +1,4 @@
-﻿using System;
-using GameCamera;
+﻿using GameCamera;
 using UnityEngine;
 
 namespace Dialogue
@@ -8,7 +7,7 @@ namespace Dialogue
     {
         [Header("Camera Transition")] 
         private CameraShake cameraShake;
-        private CameraMovement cameraMovement;
+        private DialogueCameraMovement dialogueCameraMovement;
         
         [Header("Top Down Mode")]
         [SerializeField] private Vector3 topDownModePosition;
@@ -20,7 +19,7 @@ namespace Dialogue
 
         private void Awake()
         {
-            cameraMovement = CameraMovement.Instance;
+            dialogueCameraMovement = DialogueCameraMovement.Instance;
             cameraShake = CameraShake.Instance;
         }
 
@@ -34,7 +33,7 @@ namespace Dialogue
         /// </summary>
         public void SetCameraToTopDownMode()
         {
-            cameraMovement.SetPosition(topDownModePosition, topDownModeAngle, false);
+            dialogueCameraMovement.SetPosition(topDownModePosition, topDownModeAngle, false);
         }
         
         /// <summary>
@@ -42,7 +41,7 @@ namespace Dialogue
         /// </summary>
         public void SetCameraToDialogueMode()
         {
-            cameraMovement.SetPosition(dialogueModePosition, dialogueModeAngle, true);
+            dialogueCameraMovement.SetPosition(dialogueModePosition, dialogueModeAngle, true);
         }
         
         /// <summary>

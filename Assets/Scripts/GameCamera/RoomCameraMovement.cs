@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace GameCamera
 {
-    public class CameraManager : SingletonBaseClass<CameraManager>
+    public class RoomCameraMovement : SingletonBaseClass<RoomCameraMovement>
     {
         [SerializeField] private float transitionSpeed;
         [SerializeField] private Vector3 currentRoomPosition;
