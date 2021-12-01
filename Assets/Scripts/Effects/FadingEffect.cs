@@ -26,6 +26,8 @@ namespace Effects
             float oldAlpha = 0;
             const float newAlpha = 1;
             
+            // Block the raycast
+            canvasGroup.blocksRaycasts = true;
             beforeEffect?.Invoke();
             
             while (oldAlpha < newAlpha)
@@ -40,8 +42,6 @@ namespace Effects
                 oldAlpha = currentAlpha;
                 yield return new WaitForSeconds(fadeWaitingTime);
             }
-            // Block the raycast
-            canvasGroup.blocksRaycasts = true;
 
             afterEffect?.Invoke();
         }

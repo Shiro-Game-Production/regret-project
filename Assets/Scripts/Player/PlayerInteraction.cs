@@ -9,8 +9,12 @@ namespace Player
 {
     public class PlayerInteraction : MonoBehaviour
     {
+        [Header("Interaction Button UI")]
         [SerializeField] private Button interactionButton;
-        [SerializeField] private Text interactionButtonText;
+        [SerializeField] private Camera mainCamera;
+        [SerializeField] private Canvas canvas;
+        [SerializeField] private RectTransform interactionButtonTransform;
+        [SerializeField] private RectTransform interactionButtonParent;
 
         private bool playerInRange;
         private DialogueManager dialogueManager;
@@ -39,25 +43,29 @@ namespace Player
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<TriggerEnterCondition>()) return;
-            
-            // if collide with event data, ...
-            EventData eventData = other.GetComponent<EventData>();
-            if (eventData)
-            {
-                // Return if the item can't be interacted
-                if (!eventData.canBeInteracted) return;
-            }
-            
+
             switch (other.tag)
             {
                 case NPC_TAG:
                     playerInRange = true;
-                    HandleInteractionButton(other,"Talk");
+                    HandleInteractionButton(other);
                     break;
                 case ITEM_TAG:
                     playerInRange = true;
-                    HandleInteractionButton(other,"Interact");
+                    HandleInteractionButton(other);
                     break;
+            }
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            // if collide with event data, ...
+            EventData eventData = other.GetComponent<EventData>();
+            if (!eventData) return;
+            // Return if the item can't be interacted
+            if (!eventData.canBeInteracted)
+            {
+                playerInRange = false;
             }
         }
 
@@ -81,14 +89,22 @@ namespace Player
         /// Set dialogue to dialogue manager in interaction button
         /// </summary>
         /// <param name="objectInteraction"></param>
-        /// <param name="buttonText"></param>
-        private void HandleInteractionButton(Collider objectInteraction, string buttonText)
+        private void HandleInteractionButton(Collider objectInteraction)
         {
             // Get dialogue trigger
             ActorManager dialogueTrigger = objectInteraction.GetComponent<ActorManager>();
+            Vector2 actorScreenPosition = mainCamera.WorldToScreenPoint(dialogueTrigger.transform.position);
+            // Make it to the right a bit, so it doesn't cover the actor
+            actorScreenPosition.x += 100;
             
-            // Set button text
-            interactionButtonText.text = buttonText;
+            // Set anchored position for interaction button
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                interactionButtonParent, actorScreenPosition,
+                canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : mainCamera,
+                out var anchoredPosition);
+
+            interactionButtonTransform.anchoredPosition = anchoredPosition;
+            
             // Set button actions 
             interactionButton.onClick.RemoveAllListeners();
             interactionButton.onClick.AddListener(() =>
