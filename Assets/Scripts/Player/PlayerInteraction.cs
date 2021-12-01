@@ -19,9 +19,6 @@ namespace Player
 
         private bool playerInRange;
         private DialogueManager dialogueManager;
-        
-        private const string ITEM_TAG = "Item";
-        private const string NPC_TAG = "NPC";
 
         private void Awake()
         {
@@ -43,24 +40,20 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
+            if (other.GetComponent<TriggerEnterCondition>()) return;
+            
             ItemData itemData = other.GetComponent<ItemData>();
-            if (other.GetComponent<TriggerEnterCondition>() || 
-                !itemData) return;
-
-            playerInRange = true;
-            HandleInteractionButton(itemData);
-
-            // switch (other.tag)
-            // {
-            //     case NPC_TAG:
-            //         playerInRange = true;
-            //         HandleInteractionButton(other);
-            //         break;
-            //     case ITEM_TAG:
-            //         playerInRange = true;
-            //         HandleInteractionButton(other);
-            //         break;
-            // }
+            ActorManager actorManager = other.GetComponent<ActorManager>();
+            if(itemData)
+            {
+                playerInRange = true;
+                HandleInteractionButton(itemData);
+            } 
+            else if (actorManager)
+            {
+                playerInRange = true;
+                HandleInteractionButton(actorManager);
+            }
         }
 
         private void OnTriggerStay(Collider other)
@@ -77,53 +70,51 @@ namespace Player
 
         private void OnTriggerExit(Collider other)
         {
+            if (other.GetComponent<TriggerEnterCondition>()) return;
+            
             ItemData itemData = other.GetComponent<ItemData>();
-            if (other.GetComponent<TriggerEnterCondition>() || 
-                !itemData) return;
-            
-            playerInRange = false;
-            
-            // switch (other.tag)
-            // {
-            //     case NPC_TAG:
-            //         playerInRange = false;
-            //         break;
-            //     case ITEM_TAG:
-            //         playerInRange = false;
-            //         break;
-            // }
-        }
-
-        /// <summary>
-        /// Handle interaction buton
-        /// Set dialogue to dialogue manager in interaction button
-        /// </summary>
-        /// <param name="objectInteraction"></param>
-        private void HandleInteractionButton(Collider objectInteraction)
-        {
-            // Get dialogue trigger
-            ActorManager dialogueTrigger = objectInteraction.GetComponent<ActorManager>();
-            
-            
-            // Set button actions 
-            interactionButton.onClick.RemoveAllListeners();
-            interactionButton.onClick.AddListener(() =>
+            ActorManager actorManager = other.GetComponent<ActorManager>();
+            if(itemData || actorManager)
             {
-                dialogueManager.SetDialogue(dialogueTrigger.currentDialogue);
-            });
+                playerInRange = false;
+            }
         }
-
+        
+        /// <summary>
+        /// Handle interaction button for item
+        /// </summary>
+        /// <param name="itemData"></param>
         private void HandleInteractionButton(ItemData itemData)
         {
-            HandleInteractionButtonPosition(itemData);
+            HandleInteractionButtonPosition(itemData.transform.position);
             // Set button actions 
             interactionButton.onClick.RemoveAllListeners();
             interactionButton.onClick.AddListener(itemData.HandleInteraction);
         }
-
-        private void HandleInteractionButtonPosition(ItemData itemData)
+        
+        /// <summary>
+        /// Handle interaction button for actor
+        /// </summary>
+        /// <param name="actorManager"></param>
+        private void HandleInteractionButton(ActorManager actorManager)
         {
-            Vector2 actorScreenPosition = mainCamera.WorldToScreenPoint(itemData.transform.position);
+            HandleInteractionButtonPosition(actorManager.transform.position);
+            // Set button actions 
+            interactionButton.onClick.RemoveAllListeners();
+            interactionButton.onClick.AddListener(() =>
+            {
+                DialogueManager.Instance.SetDialogue(actorManager.currentDialogue);
+            });
+        }
+        
+        /// <summary>
+        /// Handle interaction button position
+        /// Convert world space position to canvas position 
+        /// </summary>
+        /// <param name="targetPosition">World space position</param>
+        private void HandleInteractionButtonPosition(Vector3 targetPosition)
+        {
+            Vector2 actorScreenPosition = mainCamera.WorldToScreenPoint(targetPosition);
             // Make it to the right a bit, so it doesn't cover the actor
             actorScreenPosition.x += 100;
             

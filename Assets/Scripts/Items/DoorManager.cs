@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using Actors;
 using Player;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,8 +9,9 @@ namespace Items
 {
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(NavMeshObstacle))]
-    public class DoorManager : ItemData
+    public class DoorManager: ItemData
     {
+        [Header("Door Parameters")]
         [SerializeField] private Transform insideTransform;
         [SerializeField] private Transform outsideTransform;
         [SerializeField] private bool isPlayerInside;
@@ -27,15 +30,37 @@ namespace Items
             playerMovement = PlayerMovement.Instance;
 
             navMeshObstacle.carving = true;
+
+            switch (itemType)
+            {
+                case ItemType.DialogueFirst:
+                    actorManager = GetComponent<ActorManager>();
+                    break;
+                case ItemType.Normal:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         public override void HandleInteraction()
         {
             if (isLocked) return;
 
-            StartCoroutine(DoorAnimation());
+            switch (itemType)
+            {
+                case ItemType.DialogueFirst:
+                    StartCoroutine(DoorAnimation());
+                    HandleDialogue();
+                    break;
+                case ItemType.Normal:
+                    StartCoroutine(DoorAnimation());
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
-    
+
         /// <summary>
         /// Play open and close door animation
         /// </summary>
