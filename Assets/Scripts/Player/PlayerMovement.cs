@@ -58,6 +58,7 @@ namespace Player
         /// <param name="destination"></param>
         private void Move(Vector3 destination)
         {
+            Debug.Log("Move");
             navPlayer.SetDestination(destination);
         }
         

@@ -2,6 +2,7 @@
 using Dialogue;
 using Event;
 using Event.FinishConditionScripts;
+using Items;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,19 +43,24 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<TriggerEnterCondition>()) return;
+            ItemData itemData = other.GetComponent<ItemData>();
+            if (other.GetComponent<TriggerEnterCondition>() || 
+                !itemData) return;
 
-            switch (other.tag)
-            {
-                case NPC_TAG:
-                    playerInRange = true;
-                    HandleInteractionButton(other);
-                    break;
-                case ITEM_TAG:
-                    playerInRange = true;
-                    HandleInteractionButton(other);
-                    break;
-            }
+            playerInRange = true;
+            HandleInteractionButton(itemData);
+
+            // switch (other.tag)
+            // {
+            //     case NPC_TAG:
+            //         playerInRange = true;
+            //         HandleInteractionButton(other);
+            //         break;
+            //     case ITEM_TAG:
+            //         playerInRange = true;
+            //         HandleInteractionButton(other);
+            //         break;
+            // }
         }
 
         private void OnTriggerStay(Collider other)
@@ -93,7 +99,27 @@ namespace Player
         {
             // Get dialogue trigger
             ActorManager dialogueTrigger = objectInteraction.GetComponent<ActorManager>();
-            Vector2 actorScreenPosition = mainCamera.WorldToScreenPoint(dialogueTrigger.transform.position);
+            
+            
+            // Set button actions 
+            interactionButton.onClick.RemoveAllListeners();
+            interactionButton.onClick.AddListener(() =>
+            {
+                dialogueManager.SetDialogue(dialogueTrigger.currentDialogue);
+            });
+        }
+
+        private void HandleInteractionButton(ItemData itemData)
+        {
+            HandleInteractionButtonPosition(itemData);
+            // Set button actions 
+            interactionButton.onClick.RemoveAllListeners();
+            interactionButton.onClick.AddListener(itemData.HandleInteraction);
+        }
+
+        private void HandleInteractionButtonPosition(ItemData itemData)
+        {
+            Vector2 actorScreenPosition = mainCamera.WorldToScreenPoint(itemData.transform.position);
             // Make it to the right a bit, so it doesn't cover the actor
             actorScreenPosition.x += 100;
             
@@ -104,13 +130,6 @@ namespace Player
                 out var anchoredPosition);
 
             interactionButtonTransform.anchoredPosition = anchoredPosition;
-            
-            // Set button actions 
-            interactionButton.onClick.RemoveAllListeners();
-            interactionButton.onClick.AddListener(() =>
-            {
-                dialogueManager.SetDialogue(dialogueTrigger.currentDialogue);
-            });
         }
     }
 }
