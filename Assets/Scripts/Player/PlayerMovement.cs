@@ -17,9 +17,9 @@ namespace Player
         private Animator animator;
         private Camera mainCamera;
         private NavMeshAgent navPlayer;
-
+        public bool canMove;
         private bool isWalking;
-        private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+        private static readonly int IsWalkingParam = Animator.StringToHash("IsWalking");
         
         private void Awake()
         {
@@ -30,13 +30,14 @@ namespace Player
         
         private void Start()
         {
+            canMove = true;
             navPlayer.speed = speed;
             navPlayer.angularSpeed = angularSpeed;
         }
         
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && !IsPointerOverUiObject())
+            if (Input.GetMouseButtonDown(0) && !IsPointerOverUiObject() && canMove)
             {
                 Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
                 
@@ -49,14 +50,14 @@ namespace Player
             // Set animation
             // Uncomment this if want to apply animation
             // isWalking = !(navPlayer.remainingDistance <= navPlayer.stoppingDistance);
-            // animator.SetBool(IsWalking, isWalking);
+            // animator.SetBool(IsWalkingParam, isWalking);
         }
         
         /// <summary>
         /// Move to destination
         /// </summary>
         /// <param name="destination"></param>
-        private void Move(Vector3 destination)
+        public void Move(Vector3 destination)
         {
             Debug.Log("Move");
             navPlayer.SetDestination(destination);

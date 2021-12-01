@@ -77,17 +77,21 @@ namespace Player
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.GetComponent<TriggerEnterCondition>()) return;
+            ItemData itemData = other.GetComponent<ItemData>();
+            if (other.GetComponent<TriggerEnterCondition>() || 
+                !itemData) return;
             
-            switch (other.tag)
-            {
-                case NPC_TAG:
-                    playerInRange = false;
-                    break;
-                case ITEM_TAG:
-                    playerInRange = false;
-                    break;
-            }
+            playerInRange = false;
+            
+            // switch (other.tag)
+            // {
+            //     case NPC_TAG:
+            //         playerInRange = false;
+            //         break;
+            //     case ITEM_TAG:
+            //         playerInRange = false;
+            //         break;
+            // }
         }
 
         /// <summary>
