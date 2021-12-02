@@ -75,7 +75,7 @@ namespace Event
             {
                 // Set actor's dialogue to dialogue manager
                 // Wait dialogue
-                eventData.AffectedActor.currentDialogue = eventData.WaitDialogueAsset;
+                eventData.AffectedItem.currentDialogue = eventData.WaitDialogueAsset;
             }
             
             // Start the event
@@ -97,7 +97,7 @@ namespace Event
             {
                 // Set actor's dialogue to dialogue manager
                 // Finish dialogue
-                eventData.AffectedActor.currentDialogue = eventData.FinishDialogueAsset;
+                eventData.AffectedItem.currentDialogue = eventData.FinishDialogueAsset;
             }
             
             // Set event state
@@ -111,7 +111,7 @@ namespace Event
             if(eventData.NextEventDialogueAsset || eventData.DefaultDialogueAsset)
             {
                 // Set next dialogue to affected actor
-                eventData.AffectedActor.currentDialogue =
+                eventData.AffectedItem.currentDialogue =
                     eventData.NextEventDialogueAsset != null
                         ? eventData.NextEventDialogueAsset
                         : eventData.DefaultDialogueAsset;

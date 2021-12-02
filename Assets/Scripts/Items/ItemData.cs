@@ -1,22 +1,33 @@
-﻿using Actors;
+﻿using System;
 using Dialogue;
 using UnityEngine;
 
 namespace Items
 {
-    public abstract class ItemData: MonoBehaviour
+    public class ItemData: MonoBehaviour
     {
         public enum ItemMode { DialogueMode, NormalMode }
 
         public ItemMode itemMode = ItemMode.NormalMode;
+        public TextAsset currentDialogue;
 
-        protected ActorManager actorManager;
-        
-        public abstract void HandleInteraction();
+        public virtual void HandleInteraction()
+        {
+            switch (itemMode)
+            {
+                case ItemMode.DialogueMode:
+                    HandleDialogue();
+                    break;
+                case ItemMode.NormalMode:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
 
         protected virtual void HandleDialogue()
         {
-            DialogueManager.Instance.SetDialogue(actorManager.currentDialogue);
+            DialogueManager.Instance.SetDialogue(currentDialogue);
         }
     }
 }

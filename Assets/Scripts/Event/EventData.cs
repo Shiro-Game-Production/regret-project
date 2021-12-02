@@ -1,5 +1,4 @@
 ﻿using System;
-using Actors;
 using Event.FinishConditionScripts;
 using Items;
 using UnityEngine;
@@ -10,7 +9,7 @@ namespace Event
     {
         [Header("Event Data")]
         [SerializeField] private string eventName;
-        [SerializeField] private ActorManager affectedActor;
+        [SerializeField] private ItemData affectedItem;
         public bool isFinished;
         public EventState eventState = EventState.NotStarted;
 
@@ -34,7 +33,7 @@ namespace Event
 
         public bool KeepObjectAfterFinish => keepObjectAfterFinish;
         public string EventName => eventName;
-        public ActorManager AffectedActor => affectedActor;
+        public ItemData AffectedItem => affectedItem;
         public ItemData ItemData { get; private set; }
         public TextAsset WaitDialogueAsset => waitDialogueAsset;
         public TextAsset NextEventDialogueAsset => nextEventDialogueAsset;

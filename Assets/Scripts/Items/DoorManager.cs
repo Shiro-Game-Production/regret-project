@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using Actors;
 using Player;
 using UnityEngine;
 using UnityEngine.AI;
@@ -41,7 +40,6 @@ namespace Items
             switch (itemMode)
             {
                 case ItemMode.DialogueMode:
-                    actorManager = GetComponent<ActorManager>();
                     HandleDialogue();
                     break;
                 case ItemMode.NormalMode:

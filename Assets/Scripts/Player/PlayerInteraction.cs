@@ -1,5 +1,4 @@
-﻿using Actors;
-using Dialogue;
+﻿using Dialogue;
 using Event;
 using Event.FinishConditionScripts;
 using Items;
@@ -43,16 +42,10 @@ namespace Player
             if (other.GetComponent<TriggerEnterCondition>()) return;
             
             ItemData itemData = other.GetComponent<ItemData>();
-            ActorManager actorManager = other.GetComponent<ActorManager>();
             if(itemData)
             {
                 playerInRange = true;
                 HandleInteractionButton(itemData);
-            } 
-            else if (actorManager && actorManager.currentDialogue)
-            {
-                playerInRange = true;
-                HandleInteractionButton(actorManager);
             }
         }
 
@@ -75,8 +68,7 @@ namespace Player
             if (other.GetComponent<TriggerEnterCondition>()) return;
             
             ItemData itemData = other.GetComponent<ItemData>();
-            ActorManager actorManager = other.GetComponent<ActorManager>();
-            if(itemData || actorManager)
+            if(itemData)
             {
                 playerInRange = false;
             }
@@ -92,21 +84,6 @@ namespace Player
             // Set button actions 
             interactionButton.onClick.RemoveAllListeners();
             interactionButton.onClick.AddListener(itemData.HandleInteraction);
-        }
-        
-        /// <summary>
-        /// Handle interaction button for actor
-        /// </summary>
-        /// <param name="actorManager"></param>
-        private void HandleInteractionButton(ActorManager actorManager)
-        {
-            HandleInteractionButtonPosition(actorManager.transform.position);
-            // Set button actions 
-            interactionButton.onClick.RemoveAllListeners();
-            interactionButton.onClick.AddListener(() =>
-            {
-                DialogueManager.Instance.SetDialogue(actorManager.currentDialogue);
-            });
         }
         
         /// <summary>
