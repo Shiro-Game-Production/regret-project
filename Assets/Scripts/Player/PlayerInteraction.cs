@@ -11,6 +11,7 @@ namespace Player
     {
         [Header("Interaction Button UI")]
         [SerializeField] private Button interactionButton;
+        [SerializeField] private Text interactionBtnText;
         [SerializeField] private Camera mainCamera;
         [SerializeField] private Canvas canvas;
         [SerializeField] private RectTransform interactionButtonTransform;
@@ -81,6 +82,7 @@ namespace Player
         private void HandleInteractionButton(ItemData itemData)
         {
             HandleInteractionButtonPosition(itemData.transform.position);
+            interactionBtnText.text = itemData.interactionText.ToString();
             // Set button actions 
             interactionButton.onClick.RemoveAllListeners();
             interactionButton.onClick.AddListener(itemData.HandleInteraction);

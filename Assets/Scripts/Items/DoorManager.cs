@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Player;
 using UnityEngine;
 using UnityEngine.AI;
@@ -36,17 +35,7 @@ namespace Items
             if (isLocked) return;
             // Play door animation
             StartCoroutine(DoorAnimation());
-            
-            switch (itemMode)
-            {
-                case ItemMode.DialogueMode:
-                    HandleDialogue();
-                    break;
-                case ItemMode.NormalMode:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            base.HandleInteraction();
         }
 
         /// <summary>
