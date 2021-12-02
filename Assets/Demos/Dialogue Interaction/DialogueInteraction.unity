@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f627ff742e44b19279008486e78cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemMode: 0
+  itemMode: 1
   insideTransform: {fileID: 1561945041}
   outsideTransform: {fileID: 1727978006}
   isPlayerInside: 0
@@ -1313,9 +1313,9 @@ GameObject:
   - component: {fileID: 440394691}
   - component: {fileID: 440394690}
   - component: {fileID: 440394689}
-  - component: {fileID: 440394688}
   - component: {fileID: 440394687}
   - component: {fileID: 440394686}
+  - component: {fileID: 440394688}
   - component: {fileID: 440394685}
   - component: {fileID: 440394692}
   - component: {fileID: 440394684}
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f627ff742e44b19279008486e78cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemMode: 0
+  itemMode: 1
   insideTransform: {fileID: 1773702039}
   outsideTransform: {fileID: 1711343774}
   isPlayerInside: 0

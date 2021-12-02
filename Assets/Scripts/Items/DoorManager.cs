@@ -30,17 +30,6 @@ namespace Items
             playerMovement = PlayerMovement.Instance;
 
             navMeshObstacle.carving = true;
-
-            switch (itemMode)
-            {
-                case ItemMode.DialogueMode:
-                    actorManager = GetComponent<ActorManager>();
-                    break;
-                case ItemMode.NormalMode:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
         }
 
         public override void HandleInteraction()
@@ -52,6 +41,7 @@ namespace Items
             switch (itemMode)
             {
                 case ItemMode.DialogueMode:
+                    actorManager = GetComponent<ActorManager>();
                     HandleDialogue();
                     break;
                 case ItemMode.NormalMode:

@@ -11,7 +11,6 @@ namespace Event
         [Header("Event Data")]
         [SerializeField] private string eventName;
         [SerializeField] private ActorManager affectedActor;
-        private ItemData itemData;
         public bool isFinished;
         public EventState eventState = EventState.NotStarted;
 
@@ -36,6 +35,7 @@ namespace Event
         public bool KeepObjectAfterFinish => keepObjectAfterFinish;
         public string EventName => eventName;
         public ActorManager AffectedActor => affectedActor;
+        public ItemData ItemData { get; private set; }
         public TextAsset WaitDialogueAsset => waitDialogueAsset;
         public TextAsset NextEventDialogueAsset => nextEventDialogueAsset;
         public TextAsset DefaultDialogueAsset => defaultDialogueAsset;
@@ -46,7 +46,7 @@ namespace Event
         
         private void Awake()
         {
-            itemData = GetComponent<ItemData>();
+            ItemData = GetComponent<ItemData>();
             
             switch (finishCondition)
             {
@@ -78,7 +78,7 @@ namespace Event
                     break;
                 case FinishCondition.DialogueFinished:
                     canBeInteracted = false;
-                    itemData.itemMode = ItemData.ItemMode.NormalMode;
+                    ItemData.itemMode = ItemData.ItemMode.NormalMode;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

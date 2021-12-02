@@ -1,4 +1,5 @@
 ﻿using Dialogue;
+using Items;
 using UnityEngine;
 
 namespace Event
@@ -87,6 +88,7 @@ namespace Event
             // Set event state
             eventData.eventState = EventState.Active;
             eventData.canBeInteracted = true;
+            eventData.ItemData.itemMode = ItemData.ItemMode.DialogueMode;
         }
 
         public void OnEventFinish()

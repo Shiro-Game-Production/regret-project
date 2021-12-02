@@ -49,7 +49,7 @@ namespace Player
                 playerInRange = true;
                 HandleInteractionButton(itemData);
             } 
-            else if (actorManager)
+            else if (actorManager && actorManager.currentDialogue)
             {
                 playerInRange = true;
                 HandleInteractionButton(actorManager);
