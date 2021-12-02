@@ -32,7 +32,11 @@ namespace Items
 
         public override void HandleInteraction()
         {
-            if (isLocked) return;
+            if (isLocked)
+            {
+                ItemNotificationManager.Instance.SetNotificationText("Door is locked");
+                return;
+            }
             // Play door animation
             StartCoroutine(DoorAnimation());
             base.HandleInteraction();
