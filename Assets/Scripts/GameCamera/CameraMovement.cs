@@ -69,14 +69,6 @@ namespace GameCamera
         {
             SetPosition(dialogueMode.localPosition, dialogueMode.localEulerAngles, true);
         }
-        
-        /// <summary>
-        /// Call camera shake effect
-        /// </summary>
-        public void ShakingEffect()
-        {
-            StartCoroutine(cameraShake.ShakingEffect());
-        }
 
         /// <summary>
         /// Make camera position to target position using lerp

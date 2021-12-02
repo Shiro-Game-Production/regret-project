@@ -16,6 +16,7 @@ namespace Dialogue
     {
         [Header("Camera Manager")] 
         private CameraMovement cameraMovement;
+        private CameraShake cameraShake;
         
         [Header("Parameters")]
         [SerializeField] private float typingSpeed = 0.04f;
@@ -56,6 +57,7 @@ namespace Dialogue
         private void Awake()
         {
             cameraMovement = CameraMovement.Instance;
+            cameraShake = CameraShake.Instance;
             eventManager = EventManager.Instance;
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
@@ -299,7 +301,7 @@ namespace Dialogue
                         switch (tagValue)
                         {
                             case DialogueTags.SHAKE_TAG:
-                                cameraMovement.ShakingEffect();
+                                StartCoroutine(cameraShake.ShakingEffect());
                                 break;
                         }
                         break;
