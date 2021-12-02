@@ -1,6 +1,7 @@
 ﻿using System;
 using Actors;
 using Event.FinishConditionScripts;
+using Items;
 using UnityEngine;
 
 namespace Event
@@ -10,6 +11,7 @@ namespace Event
         [Header("Event Data")]
         [SerializeField] private string eventName;
         [SerializeField] private ActorManager affectedActor;
+        private ItemData itemData;
         public bool isFinished;
         public EventState eventState = EventState.NotStarted;
 
@@ -44,6 +46,8 @@ namespace Event
         
         private void Awake()
         {
+            itemData = GetComponent<ItemData>();
+            
             switch (finishCondition)
             {
                 case FinishCondition.OnTriggerEnter:
@@ -74,6 +78,7 @@ namespace Event
                     break;
                 case FinishCondition.DialogueFinished:
                     canBeInteracted = false;
+                    itemData.itemMode = ItemData.ItemMode.NormalMode;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

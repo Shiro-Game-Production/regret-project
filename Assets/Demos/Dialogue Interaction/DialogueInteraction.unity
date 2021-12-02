@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f627ff742e44b19279008486e78cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemMode: 0
   insideTransform: {fileID: 1561945041}
   outsideTransform: {fileID: 1727978006}
   isPlayerInside: 0
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f627ff742e44b19279008486e78cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 0
+  itemMode: 0
   insideTransform: {fileID: 1773702039}
   outsideTransform: {fileID: 1711343774}
   isPlayerInside: 0
@@ -2022,7 +2022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f627ff742e44b19279008486e78cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 1
+  itemMode: 1
   insideTransform: {fileID: 1005414885}
   outsideTransform: {fileID: 1582657569}
   isPlayerInside: 0

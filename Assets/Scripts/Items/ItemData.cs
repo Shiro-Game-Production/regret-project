@@ -6,9 +6,9 @@ namespace Items
 {
     public abstract class ItemData: MonoBehaviour
     {
-        public enum ItemType { DialogueFirst, Normal }
+        public enum ItemMode { DialogueMode, NormalMode }
 
-        public ItemType itemType = ItemType.Normal;
+        public ItemMode itemMode = ItemMode.NormalMode;
 
         protected ActorManager actorManager;
         

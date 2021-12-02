@@ -60,9 +60,11 @@ namespace Player
         {
             // if collide with event data, ...
             EventData eventData = other.GetComponent<EventData>();
-            if (!eventData) return;
-            // Return if the item can't be interacted
-            if (!eventData.canBeInteracted)
+            ItemData itemData = other.GetComponent<ItemData>();
+            if (!eventData || !itemData) return;
+            
+            // If event data can't be interacted (not finished yet) and item mode is dialogue mode, ...
+            if (!eventData.canBeInteracted && itemData.itemMode == ItemData.ItemMode.DialogueMode)
             {
                 playerInRange = false;
             }

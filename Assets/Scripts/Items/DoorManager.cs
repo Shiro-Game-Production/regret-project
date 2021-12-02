@@ -31,12 +31,12 @@ namespace Items
 
             navMeshObstacle.carving = true;
 
-            switch (itemType)
+            switch (itemMode)
             {
-                case ItemType.DialogueFirst:
+                case ItemMode.DialogueMode:
                     actorManager = GetComponent<ActorManager>();
                     break;
-                case ItemType.Normal:
+                case ItemMode.NormalMode:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -46,15 +46,15 @@ namespace Items
         public override void HandleInteraction()
         {
             if (isLocked) return;
-
-            switch (itemType)
+            // Play door animation
+            StartCoroutine(DoorAnimation());
+            
+            switch (itemMode)
             {
-                case ItemType.DialogueFirst:
-                    StartCoroutine(DoorAnimation());
+                case ItemMode.DialogueMode:
                     HandleDialogue();
                     break;
-                case ItemType.Normal:
-                    StartCoroutine(DoorAnimation());
+                case ItemMode.NormalMode:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
