@@ -1442,7 +1442,7 @@ MonoBehaviour:
   insideTransform: {fileID: 1773702039}
   outsideTransform: {fileID: 1711343774}
   isPlayerInside: 0
-  isLocked: 1
+  isLocked: 0
 --- !u!65 &440394689
 BoxCollider:
   m_ObjectHideFlags: 0
