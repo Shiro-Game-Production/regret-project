@@ -49,8 +49,8 @@ namespace Player
 
             // Set animation
             // Uncomment this if want to apply animation
-            // isWalking = !(navPlayer.remainingDistance <= navPlayer.stoppingDistance);
-            // animator.SetBool(IsWalkingParam, isWalking);
+            isWalking = !(navPlayer.remainingDistance <= navPlayer.stoppingDistance);
+            animator.SetBool(IsWalkingParam, isWalking);
         }
         
         /// <summary>

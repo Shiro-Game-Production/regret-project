@@ -4,8 +4,7 @@ namespace GameCamera
 {
     public class CameraMovement : SingletonBaseClass<CameraMovement>
     {
-        [Header("Camera Transition")] 
-        private CameraShake cameraShake;
+        [Header("Camera Transition")]
         [Range(0, 10)]
         [SerializeField] private float transitionSpeed;
         
@@ -23,7 +22,6 @@ namespace GameCamera
         private void Awake()
         {
             canMove = false;
-            cameraShake = CameraShake.Instance;
             playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             
             if(playerTransform == null)
