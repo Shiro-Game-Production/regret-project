@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1766058712348374810}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 5715365925521487445}
   - component: {fileID: 4609621441838499071}
   - component: {fileID: 729815643411299001}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7215984397256033002}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
