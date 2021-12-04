@@ -1,5 +1,5 @@
 #speaker:Yuri
-#portrait:yuri/yuri-tshirt/yuri-ex4-shock
+#portrait:yuri/yuri-blouse/yuri-ex4-shock
 ...Ken?
 Ini... Bohong kan?
 BOHONG KAN!?
