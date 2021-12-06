@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace GameCamera
+namespace GameCamera.Room
 {
-    public class RoomManager: MonoBehaviour
+    public class RoomTrigger: MonoBehaviour
     {
         [SerializeField] private bool playerInRoom;
         [SerializeField] private Transform cameraTransform;
