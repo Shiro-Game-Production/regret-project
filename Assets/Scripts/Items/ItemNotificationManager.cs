@@ -8,6 +8,7 @@ namespace Items
     {
         [SerializeField] private Text notificationText;
         [SerializeField] private CanvasGroup notificationCanvasGroup;
+        [Range(0, 3)]
         [SerializeField] private float notificationDuration = 3f;
         
         /// <summary>

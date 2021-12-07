@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationText: {fileID: 0}
   notificationCanvasGroup: {fileID: 0}
-  notificationDuration: 3
+  notificationDuration: 1.8
