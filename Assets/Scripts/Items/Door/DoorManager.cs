@@ -24,6 +24,8 @@ namespace Items.Door
             playerMovement = PlayerMovement.Instance;
             insidePosition = insideTransform.position;
             outsidePosition = outsideTransform.position;
+            
+            doorOpenerTransform.gameObject.SetActive(!isLocked);
         }
 
         public override void HandleInteraction()
