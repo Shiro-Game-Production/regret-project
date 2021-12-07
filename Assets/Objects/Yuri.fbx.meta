@@ -4,6 +4,9 @@ ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
+      74: -7361427651036151181
+    second: rig|Idle
+  - first:
       74: -6371369689968625921
     second: rig|Walking
   externalObjects: {}
