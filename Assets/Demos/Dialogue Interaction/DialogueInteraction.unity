@@ -851,7 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionText: 0
   itemMode: 0
-  currentDialogue: {fileID: 4900000, guid: 58d9a071f38863d4cb86ef32f180fee8, type: 3}
+  currentDialogue: {fileID: 4900000, guid: f090e3b6a4f0cc541a3ffbbe9dc17cec, type: 3}
 --- !u!1 &278530322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,6 +1231,7 @@ MonoBehaviour:
   currentDialogue: {fileID: 0}
   insideTransform: {fileID: 1561945041}
   outsideTransform: {fileID: 1727978006}
+  doorOpenerTransform: {fileID: 0}
   isPlayerInside: 0
   isLocked: 0
 --- !u!65 &361902485
@@ -1347,7 +1348,7 @@ MonoBehaviour:
   isFinished: 0
   eventState: 0
   waitDialogueAsset: {fileID: 0}
-  finishDialogueAsset: {fileID: 4900000, guid: 0705e3e9efa6ce84a8b4e7765ab27428, type: 3}
+  finishDialogueAsset: {fileID: 4900000, guid: 804b68f6eba36524eaed4eafd5c5240d, type: 3}
   nextEventDialogueAsset: {fileID: 0}
   defaultDialogueAsset: {fileID: 0}
   finishCondition: 2
@@ -1468,6 +1469,7 @@ MonoBehaviour:
   currentDialogue: {fileID: 4900000, guid: 2667168f31482864aa0d18d0cd3678b2, type: 3}
   insideTransform: {fileID: 1773702039}
   outsideTransform: {fileID: 1711343774}
+  doorOpenerTransform: {fileID: 0}
   isPlayerInside: 0
   isLocked: 0
 --- !u!65 &440394689
@@ -1549,7 +1551,7 @@ MonoBehaviour:
   isFinished: 0
   eventState: 0
   waitDialogueAsset: {fileID: 0}
-  finishDialogueAsset: {fileID: 4900000, guid: 748c5ae7d7649d640951527834223ab7, type: 3}
+  finishDialogueAsset: {fileID: 4900000, guid: 9345e53e0fe8f9b4c98defe795a9fa75, type: 3}
   nextEventDialogueAsset: {fileID: 0}
   defaultDialogueAsset: {fileID: 0}
   finishCondition: 2
@@ -1880,6 +1882,7 @@ MonoBehaviour:
   currentDialogue: {fileID: 0}
   insideTransform: {fileID: 1005414885}
   outsideTransform: {fileID: 1582657569}
+  doorOpenerTransform: {fileID: 0}
   isPlayerInside: 0
   isLocked: 0
 --- !u!65 &728383414
