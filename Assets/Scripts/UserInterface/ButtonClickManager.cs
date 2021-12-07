@@ -26,17 +26,26 @@ namespace UserInterface
                         ShowPrompts(exitPrompts);
                         break;
                     case SceneLocation.Gameplay:
-                        ShowPrompts(pausePrompts);
+                        ShowPrompts(pausePrompts, () => PauseOrResumeGame(true));
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
             }
         }
-
-        public void ShowPrompts(CanvasGroup canvasGroup)
+        
+        /// <summary>
+        /// Pause or resume game
+        /// </summary>
+        /// <param name="pauseGame">True to pause, False to resume</param>
+        public void PauseOrResumeGame(bool pauseGame)
         {
-            StartCoroutine(FadingEffect.FadeIn(canvasGroup));
+            Time.timeScale = pauseGame ? 0f : 1f;
+        }
+
+        public void ShowPrompts(CanvasGroup canvasGroup, Action afterEffect = null)
+        {
+            StartCoroutine(FadingEffect.FadeIn(canvasGroup, afterEffect: afterEffect));
         }
 
         public void HidePrompts(CanvasGroup canvasGroup)
