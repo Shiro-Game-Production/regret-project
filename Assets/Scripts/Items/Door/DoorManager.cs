@@ -1,12 +1,9 @@
 ﻿using System.Collections;
 using Player;
 using UnityEngine;
-using UnityEngine.AI;
 
-namespace Items
+namespace Items.Door
 {
-    [RequireComponent(typeof(Animator))]
-    [RequireComponent(typeof(NavMeshObstacle))]
     public class DoorManager: ItemData
     {
         [Header("Door Parameters")]
@@ -14,20 +11,11 @@ namespace Items
         [SerializeField] private Transform outsideTransform;
         [SerializeField] private bool isPlayerInside;
         [SerializeField] private bool isLocked;
-
-        private Animator animator;
-        private NavMeshObstacle navMeshObstacle;
         private PlayerMovement playerMovement;
-        private static readonly int OpenDoor = Animator.StringToHash("openDoor");
-        private static readonly int CloseDoor = Animator.StringToHash("closeDoor");
 
         private void Awake()
         {
-            animator = GetComponent<Animator>();
-            navMeshObstacle = GetComponent<NavMeshObstacle>();
             playerMovement = PlayerMovement.Instance;
-
-            navMeshObstacle.carving = true;
         }
 
         public override void HandleInteraction()
@@ -50,7 +38,7 @@ namespace Items
         {
             playerMovement.canMove = false;
             // Open the door
-            animator.SetTrigger(OpenDoor);
+            // animator.SetTrigger(OpenDoor);
             
             // Move the player
             playerMovement.Move(isPlayerInside 
@@ -60,7 +48,7 @@ namespace Items
             yield return new WaitForSeconds(2f);
 
             // Close the door
-            animator.SetTrigger(CloseDoor);
+            // animator.SetTrigger(CloseDoor);
             playerMovement.canMove = true;
         }
     }
