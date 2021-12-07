@@ -20,7 +20,9 @@ namespace Player
         public bool canMove;
         private bool isWalking;
         private static readonly int IsWalkingParam = Animator.StringToHash("IsWalking");
-        
+
+        public bool IsWalking => isWalking;
+
         private void Awake()
         {
             animator = GetComponent<Animator>();
