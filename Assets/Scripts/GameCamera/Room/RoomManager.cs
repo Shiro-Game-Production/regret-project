@@ -10,6 +10,11 @@ namespace GameCamera.Room
         private bool fixCamera;
         private int roomCount, roomIndex;
 
+        private void Start()
+        {
+            fixCamera = true;
+        }
+
         private void Update()
         {
             // Don't detect room if detect rooms is false
