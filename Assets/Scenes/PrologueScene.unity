@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 625bb316b4df26e4ab2a8a90c8caa2b5
+  m_OcclusionCullingData: {fileID: 36300000, guid: 52d3ae6d879db324b9b8f1bc3641c519, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 4667493a6bb2f4240a3165ae6575ac16, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -6436,7 +6436,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1176705822}
   m_OnClick:
     m_PersistentCalls:
@@ -9318,7 +9318,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2143914989}
   m_OnClick:
     m_PersistentCalls:
