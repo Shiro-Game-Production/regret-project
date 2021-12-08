@@ -1,4 +1,3 @@
-using System;
 using Effects;
 using SceneLoading;
 using UnityEngine;
@@ -7,33 +6,7 @@ namespace UserInterface
 {
     public class ButtonClickManager : MonoBehaviour
     {
-        private enum SceneLocation {Home, Gameplay}
-
-        [SerializeField] private SceneLocation sceneLocation = SceneLocation.Gameplay;
-
-        [DrawIf("sceneLocation", SceneLocation.Home)]
-        [SerializeField] private CanvasGroup exitPrompts;
-        
-        [DrawIf("sceneLocation", SceneLocation.Gameplay)]
-        [SerializeField] private CanvasGroup pausePrompts;
-        
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                switch (sceneLocation)
-                {
-                    case SceneLocation.Home:
-                        ShowPrompts(exitPrompts);
-                        break;
-                    case SceneLocation.Gameplay:
-                        ShowPrompts(pausePrompts, () => PauseGame(true));
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
+        [SerializeField] private CanvasGroup pauseCanvasGroup;
         
         /// <summary>
         /// Pause or resume game
@@ -41,17 +14,23 @@ namespace UserInterface
         /// <param name="pauseGame">True to pause, False to resume</param>
         public void PauseGame(bool pauseGame)
         {
-            Time.timeScale = pauseGame ? 0f : 1f;
+            if(pauseGame)
+            {
+                StartCoroutine(FadingEffect.FadeIn(pauseCanvasGroup, 
+                    afterEffect: () => Time.timeScale = 0f)
+                );
+            }
+            else
+            {
+                StartCoroutine(FadingEffect.FadeOut(pauseCanvasGroup, 
+                    beforeEffect: () => Time.timeScale = 1f)
+                );
+            }
         }
         
         public void ShowPrompts(CanvasGroup canvasGroup)
         {
             StartCoroutine(FadingEffect.FadeIn(canvasGroup));
-        }
-
-        public void ShowPrompts(CanvasGroup canvasGroup, Action afterEffect = null)
-        {
-            StartCoroutine(FadingEffect.FadeIn(canvasGroup, afterEffect: afterEffect));
         }
 
         public void HidePrompts(CanvasGroup canvasGroup)
