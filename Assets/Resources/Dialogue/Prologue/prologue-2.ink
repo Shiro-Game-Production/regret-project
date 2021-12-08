@@ -1,11 +1,11 @@
 #speaker:Yuri
-#portrait:yuri/yuri-blouse/yuri-ex3.1-warmsmile
-Aku pulang!
+#portrait:yuri/yuri-blouse/yuri-ex3.1-warmsmilemore
+Aku pulang~!
 #speaker:none
 ...
 #speaker:Yuri
-#portrait:yuri/yuri-blouse/yuri-ex1-smile
-Halo...
+#portrait:yuri/yuri-blouse/yuri-ex1-confident
+Halo..
 Apa ada orang di rumah?
 #speaker:none
 ...
@@ -17,8 +17,7 @@ Keluarlah
 #speaker:none
 ...
 #speaker:Yuri
-Keluarlah
-#portrait:yuri/yuri-blouse/yuri-ex2-littlemad
+#portrait:yuri/yuri-blouse/yuri-ex2-serious
 Semua orang kemana ya?
 #event:prologue-3
 Aneh..

@@ -7,10 +7,9 @@ namespace Dialogue
     {
         [SerializeField] private Image portraitImage;
 
-        public Image PortraitImage => portraitImage;
-
-        private void Start()
+        public void SetPortraitSprite(Sprite portraitSprite)
         {
+            portraitImage.sprite = portraitSprite;
             portraitImage.SetNativeSize();
         }
     }

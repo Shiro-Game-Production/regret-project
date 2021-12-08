@@ -360,7 +360,7 @@ namespace Dialogue
                 PortraitManager portraitManager = GetOrCreatePortraitManager();
                 
                 portraitManager.gameObject.SetActive(true);
-                portraitManager.PortraitImage.sprite = portrait;
+                portraitManager.SetPortraitSprite(portrait);
             }
         }
         
