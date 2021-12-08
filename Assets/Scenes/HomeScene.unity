@@ -1110,8 +1110,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1209670611}
-        m_TargetAssemblyTypeName: SceneLoading.SceneLoadTrigger, Assembly-CSharp
+      - m_Target: {fileID: 1122238292}
+        m_TargetAssemblyTypeName: UserInterface.ButtonClickManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -1296,17 +1296,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57165b8cc20efa64bbe6d6a870e15c36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1209670611 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6247734043715561550, guid: e4e3fec7bc9c0fe4ba0db18d9f4d4fbc, type: 3}
-  m_PrefabInstance: {fileID: 6247734042777482141}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c420c4784deb6f244b744aafbf6087d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1296237531

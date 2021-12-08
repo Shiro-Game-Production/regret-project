@@ -1,5 +1,6 @@
 using System;
 using Effects;
+using SceneLoading;
 using UnityEngine;
 
 namespace UserInterface
@@ -42,6 +43,11 @@ namespace UserInterface
         {
             Time.timeScale = pauseGame ? 0f : 1f;
         }
+        
+        public void ShowPrompts(CanvasGroup canvasGroup)
+        {
+            StartCoroutine(FadingEffect.FadeIn(canvasGroup));
+        }
 
         public void ShowPrompts(CanvasGroup canvasGroup, Action afterEffect = null)
         {
@@ -51,6 +57,11 @@ namespace UserInterface
         public void HidePrompts(CanvasGroup canvasGroup)
         {
             StartCoroutine(FadingEffect.FadeOut(canvasGroup));
+        }
+
+        public void LoadScene(string sceneName)
+        {
+            SceneLoadTrigger.Instance.LoadScene(sceneName);
         }
         
         public void ExitApplication()

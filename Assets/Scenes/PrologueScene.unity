@@ -243,8 +243,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 1.7476593, z: 0.6492853}
-  m_Center: {x: 0, y: 0.84351295, z: 0.121789455}
+  m_Size: {x: 0.4, y: 1.7476594, z: 0.52827626}
+  m_Center: {x: 0, y: 0.8435129, z: 0.061284695}
 --- !u!1001 &28185594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -496,8 +496,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1106310868}
-        m_TargetAssemblyTypeName: SceneLoading.SceneLoadTrigger, Assembly-CSharp
+      - m_Target: {fileID: 1493208569}
+        m_TargetAssemblyTypeName: UserInterface.ButtonClickManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
@@ -6980,17 +6980,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4e3fec7bc9c0fe4ba0db18d9f4d4fbc, type: 3}
---- !u!114 &1106310868 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6247734043715561550, guid: e4e3fec7bc9c0fe4ba0db18d9f4d4fbc, type: 3}
-  m_PrefabInstance: {fileID: 1106310867}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c420c4784deb6f244b744aafbf6087d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1176705819
 GameObject:
   m_ObjectHideFlags: 0
