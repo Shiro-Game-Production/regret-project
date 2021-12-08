@@ -32,7 +32,7 @@ namespace Items.Door
         {
             if (isLocked)
             {
-                ItemNotificationManager.Instance.SetNotificationText("Door is locked");
+                ItemNotificationManager.Instance.SetNotificationText("Pintu terkunci");
                 return;
             }
             // Play door animation

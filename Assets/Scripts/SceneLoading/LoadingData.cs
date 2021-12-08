@@ -2,6 +2,6 @@
 {
     public static class LoadingData
     {
-        public static string SceneName;
+        public static string sceneName;
     }
 }

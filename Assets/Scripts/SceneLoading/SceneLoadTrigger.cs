@@ -37,7 +37,7 @@ namespace SceneLoading
         /// <param name="sceneName">Scene's name to load</param>
         public void LoadScene(string sceneName)
         {
-            LoadingData.SceneName = sceneName;
+            LoadingData.sceneName = sceneName;
             SceneManager.LoadScene(LOADING_SCENE_NAME);
         }
     }

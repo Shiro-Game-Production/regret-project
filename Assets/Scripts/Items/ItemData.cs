@@ -7,9 +7,9 @@ namespace Items
     public class ItemData: MonoBehaviour
     {
         public enum ItemMode { DialogueMode, NormalMode }
-        public enum InteractionText { Interact, Open, Talk }
+        public enum InteractionText { Interaksi, Buka, Bicara }
 
-        public InteractionText interactionText = InteractionText.Interact;
+        public InteractionText interactionText = InteractionText.Interaksi;
         public ItemMode itemMode = ItemMode.NormalMode;
         public TextAsset currentDialogue;
 

@@ -39,7 +39,7 @@ namespace SceneLoading
         {
             while (!stopAnimating)
             {
-                loadingText.text = "Loading";
+                loadingText.text = "Memuat";
 
                 foreach (char letter in ".....")
                 {
@@ -59,7 +59,7 @@ namespace SceneLoading
             yield return new WaitForSeconds(WAIT_SECONDS);
             
             // Load scene asynchronously
-            AsyncOperation loadingScene = SceneManager.LoadSceneAsync(LoadingData.SceneName);
+            AsyncOperation loadingScene = SceneManager.LoadSceneAsync(LoadingData.sceneName);
 
             stopAnimating = loadingScene.isDone;
         }
