@@ -27,7 +27,7 @@ namespace UserInterface
                         ShowPrompts(exitPrompts);
                         break;
                     case SceneLocation.Gameplay:
-                        ShowPrompts(pausePrompts, () => PauseOrResumeGame(true));
+                        ShowPrompts(pausePrompts, () => PauseGame(true));
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -39,7 +39,7 @@ namespace UserInterface
         /// Pause or resume game
         /// </summary>
         /// <param name="pauseGame">True to pause, False to resume</param>
-        public void PauseOrResumeGame(bool pauseGame)
+        public void PauseGame(bool pauseGame)
         {
             Time.timeScale = pauseGame ? 0f : 1f;
         }
