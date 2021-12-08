@@ -6,6 +6,7 @@ using Effects;
 using Event;
 using GameCamera;
 using Ink.Runtime;
+using SceneLoading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,6 +41,9 @@ namespace Dialogue
         [Header("Event Data")]
         [SerializeField] private TextAsset currentDialogueAsset;
         [SerializeField] private List<EventData> eventDatas;
+
+        [Header("Ending")] 
+        [SerializeField] private Image blackScreen;
         
         private Coroutine displayLineCoroutine;
         private Story currentStory;
@@ -319,6 +323,10 @@ namespace Dialogue
                             tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
                         break;
                     
+                    case DialogueTags.ENDING_TAG:
+                        HandleEndingTag(tagValue);
+                        break;
+                    
                     default:
                         Debug.LogError("Tag is not in the list: " + tag);
                         break;
@@ -415,6 +423,24 @@ namespace Dialogue
             }
         }
         
+        #endregion
+
+        #region Ending
+        
+        /// <summary>
+        /// Handle ending tag
+        /// </summary>
+        /// <param name="tagValue"></param>
+        private void HandleEndingTag(string tagValue)
+        {
+            if (tagValue != DialogueTags.CONFIRM_ENDING) return;
+            
+            StartCoroutine(FadingEffect.FadeIn(blackScreen,
+                fadingSpeed: 0.02f,
+                afterEffect: () => SceneLoadTrigger.Instance.LoadScene("HomeScene"))
+            );
+        }
+
         #endregion
         
         #endregion

@@ -1,8 +1,9 @@
 ﻿﻿using System;
 using System.Collections;
 using UnityEngine;
+ using UnityEngine.UI;
 
-namespace Effects
+ namespace Effects
 {
     public static class FadingEffect
     {
@@ -37,6 +38,45 @@ namespace Effects
                 // Increase current alpha
                 currentAlpha += fadingSpeed;
                 canvasGroup.alpha = currentAlpha;
+                
+                // Update old alpha
+                oldAlpha = currentAlpha;
+                yield return new WaitForSeconds(fadeWaitingTime);
+            }
+
+            afterEffect?.Invoke();
+        }
+        
+        /// <summary>
+        /// Fade in effect by using image alpha
+        /// From invisible (0) to visible (1)
+        /// </summary>
+        /// <param name="image">Image component</param>
+        /// <param name="fadingSpeed">Fading speed for alpha value</param>
+        /// <param name="beforeEffect">Action before fade effect</param>
+        /// <param name="afterEffect">Action after fade effect</param>
+        /// <param name="fadeWaitingTime">Waiting time every loop</param>
+        /// <returns>Wait for certain seconds</returns>
+        public static IEnumerator FadeIn(Image image, 
+            float fadeWaitingTime = FADE_WAITING_TIME, float fadingSpeed = FADING_SPEED,
+            Action beforeEffect = null, Action afterEffect = null)
+        {
+            float oldAlpha = 0;
+            const float newAlpha = 1;
+            
+            // Block the raycast
+            image.gameObject.SetActive(true);
+            beforeEffect?.Invoke();
+            
+            while (oldAlpha < newAlpha)
+            {
+                Color currentColor = image.color;
+                float currentAlpha = currentColor.a;
+
+                // Increase current alpha
+                currentAlpha += fadingSpeed;
+                currentColor.a = currentAlpha;
+                image.color = currentColor;
                 
                 // Update old alpha
                 oldAlpha = currentAlpha;
