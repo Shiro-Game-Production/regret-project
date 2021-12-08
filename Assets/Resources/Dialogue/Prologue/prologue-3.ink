@@ -1,6 +1,6 @@
 #speaker:Yuri
 #portrait:yuri
-#portrait:yuri/yuri-blouse/yuri-ex4-shock
+#portrait:yuri/pose1/yuri-blouse/yuri-ex4-shock
 ...
 Eh..
 Apa-apaan ini!?

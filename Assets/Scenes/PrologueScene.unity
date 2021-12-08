@@ -10421,6 +10421,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5695546272190915801, guid: 691c2f6a9f33e254591d802f2b401428, type: 3}
+--- !u!1 &2072811004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6004412373954719545, guid: 691c2f6a9f33e254591d802f2b401428, type: 3}
+  m_PrefabInstance: {fileID: 2072810998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2072811005
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072811004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5761473202586186960, guid: 691c2f6a9f33e254591d802f2b401428, type: 3}
 --- !u!1 &2084487765
 GameObject:
   m_ObjectHideFlags: 0
@@ -10630,7 +10649,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.004, z: 0}
   m_Axis: {x: 0, y: 0, z: 90}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 4.3676043, y: 1.0775795, z: -1.7520691}
+  m_ConnectedAnchor: {x: 4.367609, y: 1.07758, z: -1.7520717}
   m_UseSpring: 1
   m_Spring:
     spring: 15
@@ -10712,7 +10731,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: -0.004, z: 0}
   m_Axis: {x: 0, y: 0, z: 90}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 4.367604, y: 1.0775802, z: -0.04318595}
+  m_ConnectedAnchor: {x: 4.367609, y: 1.0775809, z: -0.04318595}
   m_UseSpring: 1
   m_Spring:
     spring: 15
@@ -10791,6 +10810,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -8145398612105296343, guid: 691c2f6a9f33e254591d802f2b401428, type: 3}
   m_PrefabInstance: {fileID: 2072810998}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1077973424020493280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077973424020493279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49eeb3cd4479d704bab3f8877d6ec549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!208 &1077973424020493281
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -10832,7 +10863,7 @@ HingeJoint:
   m_Anchor: {x: -0.004, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 90}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 2.375632, y: 1.0775791, z: -5.2849207}
+  m_ConnectedAnchor: {x: 2.3756318, y: 1.0775791, z: -5.2849197}
   m_UseSpring: 1
   m_Spring:
     spring: 15
@@ -11002,7 +11033,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.004, z: 0}
   m_Axis: {x: 0, y: 0, z: 90}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 4.3676004, y: 1.0778449, z: 8.242831}
+  m_ConnectedAnchor: {x: 4.3676157, y: 1.0778487, z: 8.242853}
   m_UseSpring: 1
   m_Spring:
     spring: 15
@@ -11100,7 +11131,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.004, z: 0}
   m_Axis: {x: 0, y: 0, z: 90}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7591094, y: 1.0778415, z: -1.7576061}
+  m_ConnectedAnchor: {x: 0.7591128, y: 1.0778456, z: -1.7576147}
   m_UseSpring: 1
   m_Spring:
     spring: 15

@@ -1,10 +1,11 @@
 #speaker:Yuri
-#portrait:yuri/yuri-blouse/yuri-ex4-shock
+#portrait:yuri/pose2/yuri-blouse/yuri-ex1-shockmore
 ...Ken?
 Ini... Bohong kan?
 BOHONG KAN!?
 ...
 ...
+#portrait:yuri/pose2/yuri-blouse/yuri-ex2-cry
 Kenapa kamu malah pergi lebih dulu, Ken...
 Ini semua salahku..
 Bener-bener salahku..
@@ -13,8 +14,8 @@ Apanya yang nyelamatin kamu..
 Apanya yang berjuang buat kamu...
 Semuanya menjadi omong kosong.
 Harusnya.. aku.. menemanimu saat itu.
+#portrait:yuri/pose2/yuri-blouse/yuri-ex3-scream
 #effect:shake
-#portrait:none
 aaaaaaAAAAA....!!!!!!
 Jika saja aku bisa kembali,,
 Aku ingin mengubah semuanya.
