@@ -7,17 +7,15 @@ namespace GameCamera
         [Header("Camera Transition")]
         [Range(0, 10)]
         [SerializeField] private float transitionSpeed;
+        [SerializeField] private bool canMove;
+        private Vector3 targetPosition, targetAngle;
         
         [Header("Top Down Mode")]
         [SerializeField] private Transform topDownMode;
         
         [Header("Dialogue Mode")]
         [SerializeField] private Transform dialogueMode;
-
-        private bool canMove;
-        
         private Transform playerTransform;
-        private Vector3 targetPosition, targetAngle;
 
         private void Awake()
         {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Dialogue;
 using UnityEngine;
 
 namespace GameCamera.Room
@@ -39,7 +40,7 @@ namespace GameCamera.Room
             }
             
             // When player is only in 1 room, set camera position
-            if (roomCount == 1 && fixCamera)
+            if (roomCount == 1 && fixCamera && !DialogueManager.Instance.DialogueIsPlaying)
             {
                 detectRooms = false;
                 fixCamera = false;

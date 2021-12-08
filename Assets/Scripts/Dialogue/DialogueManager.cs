@@ -65,12 +65,12 @@ namespace Dialogue
             eventManager = EventManager.Instance;
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
+            dialogueHolder.SetActive(false);
         }
 
         private void Start()
         {
             DialogueIsPlaying = false;
-            dialogueHolder.SetActive(false);
         }
 
         private void Update()

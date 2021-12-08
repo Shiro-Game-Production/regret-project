@@ -5,5 +5,5 @@
 Eh..
 Apa-apaan ini!?
 #event:prologue-4
-Kenapa di kamar ku ada beginian?
+Kenapa di kamar ku ada altar kematian?
 ->END
