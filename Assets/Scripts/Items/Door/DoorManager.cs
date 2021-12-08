@@ -7,13 +7,17 @@ namespace Items.Door
     public class DoorManager: ItemData
     {
         [Header("Door Parameters")]
-        [SerializeField] private Transform insideTransform;
-        [SerializeField] private Transform outsideTransform;
+        [SerializeField] private Transform openerInsideTransform;
+        [SerializeField] private Transform openerOutsideTransform;
         [SerializeField] private Transform doorOpenerTransform;
-        [SerializeField] private bool isPlayerInside;
         [SerializeField] private bool isLocked;
         
-        private Vector3 targetPosition, insidePosition, outsidePosition;
+        [Header("Player Parameters")]
+        [SerializeField] private Transform playerInsideTransform;
+        [SerializeField] private Transform playerOutsideTransform;
+        [SerializeField] private bool isPlayerInside;
+        
+        private Vector3 targetPosition;
         private PlayerMovement playerMovement;
         
         private bool moveDoorOpener;
@@ -22,8 +26,6 @@ namespace Items.Door
         private void Awake()
         {
             playerMovement = PlayerMovement.Instance;
-            insidePosition = insideTransform.position;
-            outsidePosition = outsideTransform.position;
             
             doorOpenerTransform.gameObject.SetActive(!isLocked);
         }
@@ -55,13 +57,14 @@ namespace Items.Door
         {
             playerMovement.canMove = false;
             // Open the door
-            targetPosition = insidePosition;
+            targetPosition = openerInsideTransform.position;
             moveDoorOpener = true;
             
             yield return new WaitUntil(() => !moveDoorOpener);
             
             // Move the player
-            playerMovement.Move(isPlayerInside ? outsidePosition : insidePosition);
+            playerMovement.Move(isPlayerInside ? 
+                playerOutsideTransform.position : playerInsideTransform.position);
             isPlayerInside = !isPlayerInside;
             
             // Wait for 2 seconds and when player is not walking anymore
@@ -69,7 +72,7 @@ namespace Items.Door
             yield return new WaitUntil(() => !PlayerMovement.Instance.IsWalking);
 
             // Close the door
-            targetPosition = outsidePosition;
+            targetPosition = openerOutsideTransform.position;
             moveDoorOpener = true;
             playerMovement.canMove = true;
         }
