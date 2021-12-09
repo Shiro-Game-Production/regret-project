@@ -15,7 +15,6 @@ namespace Dialogue
         private void Start()
         {
             Invoke(nameof(SetPrologueTrigger), 0.02f);
-            
         }
         
         /// <summary>
