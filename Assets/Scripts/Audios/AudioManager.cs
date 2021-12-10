@@ -1,12 +1,15 @@
 ﻿﻿using System;
 using UnityEngine;
+ using UnityEngine.SceneManagement;
 
-namespace Audios
+ namespace Audios
 {
     public class AudioManager: SingletonBaseClass<AudioManager>
     {
         [ArrayElementTitle("listSound")]
         public Sound[] sounds;
+
+        private bool donePlayBgm;
         
         /// <summary>
         /// Set instance and don't destroy on load
@@ -42,6 +45,30 @@ namespace Audios
             }
         }
 
+        private void Update()
+        {
+            PlayBgm();
+        }
+        
+        /// <summary>
+        /// Play BGM but only in home scene
+        /// </summary>
+        private void PlayBgm()
+        {
+            if (SceneManager.GetActiveScene().name == "HomeScene")
+            {
+                if (donePlayBgm) return;
+                
+                donePlayBgm = true;
+                Play(ListSound.BackgroundMusic);
+            }
+            else
+            {
+                donePlayBgm = false;
+                Stop(ListSound.BackgroundMusic);
+            }
+        }
+
         /// <summary>
         /// Play audio
         /// To call method in scripts
@@ -62,6 +89,17 @@ namespace Audios
         {
             AudioSource audioSource = GetAudioSource(audioFileName);
             audioSource.PlayOneShot(audioSource.clip);
+        }
+        
+        /// <summary>
+        /// Stop specific sound that is playing
+        /// </summary>
+        /// <param name="listSound"></param>
+        private void Stop(ListSound listSound)
+        {
+            AudioSource audioSource = GetAudioSource(listSound);
+            if(audioSource.isPlaying)
+                audioSource.Stop();
         }
 
         /// <summary>

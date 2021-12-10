@@ -45,9 +45,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - listSound: 0
-    clip: {fileID: 8300000, guid: f348d2a50018c374ba2c47addb89f96c, type: 3}
-    audioMixer: {fileID: -8915898980215198207, guid: ce90d4bb66f4b384ebd11cc960371d3c, type: 2}
+    clip: {fileID: 8300000, guid: 9402029bbb2e94a4bbe7392bfcece48a, type: 3}
+    audioMixer: {fileID: 24300002, guid: d5bd08d9f45cf3f40b8c23b7b3ae82bc, type: 2}
     volume: 1
     pitch: 1
+    playOnAwake: 1
+    loop: 1
+    source: {fileID: 0}
+  - listSound: 1
+    clip: {fileID: 8300000, guid: b6c926b19753c4445a500e1a4b8e5987, type: 3}
+    audioMixer: {fileID: 24300002, guid: 641f92a3603a0e04c8a56c7796d15d5e, type: 2}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - listSound: 2
+    clip: {fileID: 8300000, guid: ce3e43ea9f61e3c4aac53fd8735c1d1f, type: 3}
+    audioMixer: {fileID: 24300002, guid: 641f92a3603a0e04c8a56c7796d15d5e, type: 2}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
+    loop: 0
+    source: {fileID: 0}
+  - listSound: 3
+    clip: {fileID: 8300000, guid: f348d2a50018c374ba2c47addb89f96c, type: 3}
+    audioMixer: {fileID: 24300002, guid: 641f92a3603a0e04c8a56c7796d15d5e, type: 2}
+    volume: 1
+    pitch: 1
+    playOnAwake: 0
     loop: 0
     source: {fileID: 0}

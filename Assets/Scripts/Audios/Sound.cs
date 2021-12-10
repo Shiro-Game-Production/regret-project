@@ -5,6 +5,9 @@ using UnityEngine.Audio;
 {
     public enum ListSound
     {
+        BackgroundMusic,
+        DoorOpened,
+        DoorClosed,
         Slap
     }
     

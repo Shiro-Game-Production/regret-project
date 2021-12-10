@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Audios;
 using Player;
 using UnityEngine;
 
@@ -57,6 +58,7 @@ namespace Items.Door
         {
             playerMovement.canMove = false;
             // Open the door
+            AudioManager.Instance.Play(ListSound.DoorOpened);
             targetPosition = openerInsideTransform.position;
             moveDoorOpener = true;
             
@@ -75,6 +77,8 @@ namespace Items.Door
             targetPosition = openerOutsideTransform.position;
             moveDoorOpener = true;
             playerMovement.canMove = true;
+            yield return new WaitForSeconds(0.5f);
+            AudioManager.Instance.Play(ListSound.DoorClosed);
         }
         
         /// <summary>
