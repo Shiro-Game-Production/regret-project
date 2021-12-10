@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 96336363}
   - component: {fileID: 96336362}
   m_Layer: 5
-  m_Name: Pause Button
+  m_Name: SettingsBbutton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
