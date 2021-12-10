@@ -1,3 +1,6 @@
+#speaker:none
+#portrait:ken/ken-photo
+...
 #speaker:Yuri
 #portrait:yuri/pose2/yuri-blouse/yuri-ex1-shockmore
 ...Ken?
