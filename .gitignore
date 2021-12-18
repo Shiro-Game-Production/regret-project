@@ -1,6 +1,10 @@
 ﻿# Created by https://www.toptal.com/developers/gitignore/api/unity
 # Edit at https://www.toptal.com/developers/gitignore?templates=unity
 
+### Nuget & Omnisharp ###
+/NuGet/
+**/omnisharp.json
+
 ### Blender ###
 *.pyc
 *.blend[1-9]
