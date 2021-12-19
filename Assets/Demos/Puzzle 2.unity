@@ -228,12 +228,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43133592}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1044036431}
-  m_Father: {fileID: 89841425}
+  m_Father: {fileID: 443771474}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -286,7 +286,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 89841426}
   - component: {fileID: 89841428}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Safe Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,25 +523,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -0.000025087}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1142815873}
-  - {fileID: 974956044}
-  - {fileID: 851195627}
-  - {fileID: 43133593}
-  - {fileID: 241317128}
-  - {fileID: 1122108835}
-  - {fileID: 1440915912}
-  - {fileID: 2139948983}
-  - {fileID: 1586839368}
-  - {fileID: 1930509690}
-  - {fileID: 2083301965}
-  - {fileID: 795066782}
+  - {fileID: 712699883}
+  - {fileID: 406716651}
   m_Father: {fileID: 1362884279}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000061035156, y: -0.00030517578}
-  m_SizeDelta: {x: -1100, y: -0.00048828}
+  m_SizeDelta: {x: 820, y: 1079.9995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &89841426
 MonoBehaviour:
@@ -593,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3808e04625d57f42b1c03544ef30dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  codeText: {fileID: 210316070}
+  safeDisplayText: {fileID: 210316070}
 --- !u!1 &210316068
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,12 +689,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241317127}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 759558891}
-  m_Father: {fileID: 89841425}
+  m_Father: {fileID: 443771474}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -757,7 +747,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -806,6 +796,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241317127}
   m_CullTransparentMesh: 1
+--- !u!1 &406716650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 406716651}
+  m_Layer: 5
+  m_Name: Keypad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &406716651
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406716650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 443771474}
+  - {fileID: 1160873103}
+  m_Father: {fileID: 89841425}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &443771473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 443771474}
+  m_Layer: 5
+  m_Name: Number buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &443771474
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443771473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1142815873}
+  - {fileID: 974956044}
+  - {fileID: 851195627}
+  - {fileID: 43133593}
+  - {fileID: 241317128}
+  - {fileID: 1122108835}
+  - {fileID: 1440915912}
+  - {fileID: 2139948983}
+  - {fileID: 1586839368}
+  - {fileID: 2083301965}
+  m_Father: {fileID: 406716651}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,18 +996,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 712699882}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000012613}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000012474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 210316069}
-  m_Father: {fileID: 1362884279}
-  m_RootOrder: 1
+  m_Father: {fileID: 89841425}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 403}
-  m_SizeDelta: {x: -1254.757, y: -911.198}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0.000091552734, y: -136.9997}
+  m_SizeDelta: {x: 665.24304, y: 169.23254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &712699884
 MonoBehaviour:
@@ -1080,13 +1152,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795066781}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1832936270}
-  m_Father: {fileID: 89841425}
-  m_RootOrder: 11
+  m_Father: {fileID: 1160873103}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1138,7 +1210,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: CheckCode
         m_Mode: 1
         m_Arguments:
@@ -1292,12 +1364,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851195626}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 66918111}
-  m_Father: {fileID: 89841425}
+  m_Father: {fileID: 443771474}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1350,7 +1422,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -1508,12 +1580,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974956043}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 11627563}
-  m_Father: {fileID: 89841425}
+  m_Father: {fileID: 443771474}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1566,7 +1638,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -1720,12 +1792,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122108834}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1829802568}
-  m_Father: {fileID: 89841425}
+  m_Father: {fileID: 443771474}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1778,7 +1850,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -1853,12 +1925,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142815872}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1414555668}
-  m_Father: {fileID: 89841425}
+  m_Father: {fileID: 443771474}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1911,7 +1983,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -2039,6 +2111,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147945977}
   m_CullTransparentMesh: 1
+--- !u!1 &1160873102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1160873103}
+  m_Layer: 5
+  m_Name: Action buttons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1160873103
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160873102}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1930509690}
+  - {fileID: 795066782}
+  m_Father: {fileID: 406716651}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1314166694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,7 +2282,7 @@ Canvas:
   m_GameObject: {fileID: 1362884275}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2197,7 +2306,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 89841425}
-  - {fileID: 712699883}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2311,12 +2419,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440915911}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1627659781}
-  m_Father: {fileID: 89841425}
+  m_Father: {fileID: 443771474}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2369,7 +2477,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -2444,12 +2552,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586839367}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2056844344}
-  m_Father: {fileID: 89841425}
+  m_Father: {fileID: 443771474}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2502,7 +2610,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -2814,13 +2922,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930509689}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 821337901}
-  m_Father: {fileID: 89841425}
-  m_RootOrder: 9
+  m_Father: {fileID: 1160873103}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2872,7 +2980,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: DeleteCode
         m_Mode: 1
         m_Arguments:
@@ -3026,13 +3134,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083301964}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1147945978}
-  m_Father: {fileID: 89841425}
-  m_RootOrder: 10
+  m_Father: {fileID: 443771474}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3084,7 +3192,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -3159,12 +3267,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139948982}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 87012837}
-  m_Father: {fileID: 89841425}
+  m_Father: {fileID: 443771474}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3217,7 +3325,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89841428}
-        m_TargetAssemblyTypeName: DisplayCode, Assembly-CSharp
+        m_TargetAssemblyTypeName: Puzzle.Safe.SafeManager, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:

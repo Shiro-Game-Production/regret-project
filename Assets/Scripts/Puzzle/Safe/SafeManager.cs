@@ -2,16 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Puzzle.Safe {
-    public class DisplayCode : MonoBehaviour
+    public class SafeManager : MonoBehaviour
     {
-        [SerializeField] private Text codeText;
+        [SerializeField] private Text safeDisplayText;
 
-        private string codeTextValue = "";
         private const string CORRECT_CODE = "284031"; 
 
         private void Start()
         {
-            codeText.text = "";
+            safeDisplayText.text = "";
         }
 
         /// <summary>
@@ -20,10 +19,9 @@ namespace Puzzle.Safe {
         /// <param name="digit"></param>
         public void AddDigit(string digit)
         {
-            if(codeText.text.Length < CORRECT_CODE.Length)
+            if(safeDisplayText.text.Length < CORRECT_CODE.Length)
             {
-                codeTextValue += digit;
-                codeText.text = codeTextValue;
+                safeDisplayText.text += digit;
             }
         }
 
@@ -32,7 +30,7 @@ namespace Puzzle.Safe {
         /// </summary>
         public void CheckCode()
         {
-            if(codeTextValue == CORRECT_CODE)
+            if(safeDisplayText.text == CORRECT_CODE)
             {
                 Debug.Log("Safe opened!");
             }
@@ -47,10 +45,13 @@ namespace Puzzle.Safe {
         /// </summary>
         public void DeleteCode()
         {
-            int lastIndex = codeText.text.Length - 1; 
-            codeTextValue = codeText.text.Remove(lastIndex);
-            codeText.text = codeTextValue;
-        }
+            string codeTextValue = safeDisplayText.text;
+            // Return if there are no digits in code text
+            if(codeTextValue.Length == 0) return;
 
+            // Remove last index in code text
+            int lastIndex = codeTextValue.Length - 1; 
+            safeDisplayText.text = codeTextValue.Remove(lastIndex);
+        }
     }
 }
