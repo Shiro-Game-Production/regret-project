@@ -2,27 +2,33 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Puzzle.Trash {
+    [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class Trash: MonoBehaviour, 
         IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] private Canvas canvas;
         [SerializeField] private RectTransform parentRectTransform;
 
+        private BoxCollider2D trashCollider;
+        private Rigidbody2D trashRigidbody;
         private Bounds parentBounds;
         private RectTransform rectTransform;
 
         private void Awake() {
+            trashCollider = GetComponent<BoxCollider2D>();
+            trashRigidbody = GetComponent<Rigidbody2D>();
             rectTransform = GetComponent<RectTransform>();
+
+            trashCollider.size = rectTransform.rect.size;
+            trashRigidbody.bodyType = RigidbodyType2D.Kinematic;
 
             parentBounds = new Bounds(
                 parentRectTransform.anchoredPosition,
                 parentRectTransform.rect.size);
         }
 
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            Debug.Log("Begin drag");
-        }
+        public void OnBeginDrag(PointerEventData eventData) { }
 
         public void OnDrag(PointerEventData eventData)
         {
@@ -30,10 +36,7 @@ namespace Puzzle.Trash {
             rectTransform.anchoredPosition = CheckPosition(rectTransform.anchoredPosition);
         }
 
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            Debug.Log("End drag");
-        }
+        public void OnEndDrag(PointerEventData eventData) { }
         
         /// <summary>
         /// Make sure trash's position is in parentBounds
