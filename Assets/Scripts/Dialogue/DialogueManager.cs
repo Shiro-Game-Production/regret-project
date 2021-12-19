@@ -25,7 +25,8 @@ namespace Dialogue
 
         [Header("Dialogue UI")]
         [SerializeField] private CanvasGroup dialogueCanvasGroup;
-        [SerializeField] private GameObject dialogueHolder; 
+        [SerializeField] private GameObject dialogueHolder;
+        [SerializeField] private GameObject dialogueTextBox;
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Text speakerName;
 
@@ -302,6 +303,10 @@ namespace Dialogue
                         HandleAudio(tagValue);
                         break;
                     
+                    case DialogueTags.DIALOGUE_BOX_TAG:
+                        ShowOrHideDialogueBox(tagValue);
+                        break;
+
                     case DialogueTags.EFFECT_TAG:
                         switch (tagValue)
                         {
@@ -309,6 +314,10 @@ namespace Dialogue
                                 StartCoroutine(cameraShake.ShakingEffect());
                                 break;
                         }
+                        break;
+                    
+                    case DialogueTags.ENDING_TAG:
+                        HandleEndingTag(tagValue);
                         break;
                     
                     case DialogueTags.EVENT_TAG:
@@ -322,10 +331,6 @@ namespace Dialogue
                     case DialogueTags.SPEAKER_TAG:
                         speakerName.text = 
                             tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
-                        break;
-                    
-                    case DialogueTags.ENDING_TAG:
-                        HandleEndingTag(tagValue);
                         break;
                     
                     default:
@@ -404,6 +409,30 @@ namespace Dialogue
             return portraitManager;
         }
         
+        #endregion
+
+        #region Dialogue Box
+
+        /// <summary>
+        /// Show or hide dialogue box depends on tag value
+        /// </summary>
+        /// <param name="tagValue"></param>
+        private void ShowOrHideDialogueBox(string tagValue){
+            switch(tagValue){
+                case DialogueTags.BLANK_VALUE:
+                    dialogueTextBox.SetActive(false);
+                    break;
+                
+                case DialogueTags.SHOW_DIALOGUE_BOX:
+                    dialogueTextBox.SetActive(true);
+                    break;
+
+                default:
+                    Debug.LogError($"Tag: {tagValue} is not registered to handle dialogue box");
+                    break;
+            }
+        }
+
         #endregion
 
         #region Event

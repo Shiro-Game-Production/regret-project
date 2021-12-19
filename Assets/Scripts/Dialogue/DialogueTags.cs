@@ -6,6 +6,7 @@ namespace Dialogue
     {
         [Header("Tags")]
         public const string AUDIO_TAG = "audio";
+        public const string DIALOGUE_BOX_TAG = "dialogue-box";
         public const string EFFECT_TAG = "effect";
         public const string ENDING_TAG = "end";
         public const string EVENT_TAG = "event";
@@ -14,6 +15,8 @@ namespace Dialogue
 
         [Header("Tag Value")]
         public const string BLANK_VALUE = "none";
+        [Header("Tag: dialogue-box")]
+        public const string SHOW_DIALOGUE_BOX = "show";
         [Header("Tag: effect")]
         public const string SHAKE_TAG = "shake";
         [Header("Tag: ending")]

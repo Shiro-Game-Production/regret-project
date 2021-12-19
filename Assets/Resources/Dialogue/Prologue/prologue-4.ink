@@ -1,8 +1,10 @@
 #speaker:none
+#dialogue-box:none
 #portrait:ken/ken-photo
 ...
 #speaker:Yuri
-#portrait:yuri/pose2/yuri-blouse/yuri-ex1-shockmore
+#dialogue-box:show
+#portrait:ken/ken-photo,yuri/pose2/yuri-blouse/yuri-ex1-shockmore
 ...Ken?
 Ini... Bohong kan?
 BOHONG KAN!?

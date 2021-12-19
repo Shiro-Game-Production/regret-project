@@ -9423,6 +9423,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 205015532}
     - target: {fileID: 346516491375830044, guid: 81912c05843dc80458a1460360464cc2, type: 3}
+      propertyPath: dialogueTextBox
+      value: 
+      objectReference: {fileID: 499073445}
+    - target: {fileID: 346516491375830044, guid: 81912c05843dc80458a1460360464cc2, type: 3}
       propertyPath: portraitsParent
       value: 
       objectReference: {fileID: 1363340992}
