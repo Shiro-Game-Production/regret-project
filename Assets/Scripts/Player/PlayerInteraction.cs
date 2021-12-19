@@ -98,7 +98,7 @@ namespace Player
         {
             Vector2 actorScreenPosition = mainCamera.WorldToScreenPoint(targetPosition);
             // Make it to the right a bit, so it doesn't cover the actor
-            actorScreenPosition.x += 100;
+            actorScreenPosition.x += 50;
             
             // Set anchored position for interaction button
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
