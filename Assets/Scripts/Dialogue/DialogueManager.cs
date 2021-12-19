@@ -10,6 +10,7 @@ using SceneLoading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 namespace Dialogue
 {
@@ -44,7 +45,7 @@ namespace Dialogue
 
         [Header("Ending")] 
         [SerializeField] private Image blackScreen;
-        
+
         private Coroutine displayLineCoroutine;
         private Story currentStory;
         private EventManager eventManager;
@@ -86,7 +87,7 @@ namespace Dialogue
             }
             
             // If right click and is typing, make player can skip dialogue sentence
-            if (Input.GetMouseButtonDown(1) && !canContinueToNextLine)
+            if (MouseClick.IsDoubleClick() && !canContinueToNextLine)
                 canSkipSentence = true;
         }
 
@@ -442,7 +443,7 @@ namespace Dialogue
         }
 
         #endregion
-        
+
         #endregion
     }
 }
