@@ -2,12 +2,13 @@
 using Event;
 using Event.FinishConditionScripts;
 using Items;
+using Items.Door;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Player
 {
-    public class PlayerInteraction : MonoBehaviour
+    public class PlayerInteraction : SingletonBaseClass<PlayerInteraction>
     {
         [Header("Interaction Button UI")]
         [SerializeField] private Button interactionButton;
@@ -18,6 +19,7 @@ namespace Player
         [SerializeField] private RectTransform interactionButtonParent;
 
         private bool playerInRange;
+        private bool hasInteracted;
         private DialogueManager dialogueManager;
 
         private void Awake()
@@ -28,7 +30,7 @@ namespace Player
 
         private void Update()
         {
-            if (playerInRange && !dialogueManager.DialogueIsPlaying)
+            if (playerInRange && !dialogueManager.DialogueIsPlaying && !hasInteracted)
             {
                 interactionButton.gameObject.SetActive(true);
             }
@@ -41,10 +43,11 @@ namespace Player
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<TriggerEnterCondition>()) return;
-            
+
             ItemData itemData = other.GetComponent<ItemData>();
             if(itemData)
             {
+                hasInteracted = false;
                 playerInRange = true;
                 HandleInteractionButton(itemData);
             }
@@ -57,6 +60,17 @@ namespace Player
             ItemData itemData = other.GetComponent<ItemData>();
             if (!eventData || !itemData) return;
             
+            // Special case for door only
+            DoorManager doorManager = other.GetComponent<DoorManager>();
+            // If door manager is animating, set hasInteracted to true
+            // Wait until door manager isn't animating
+            if(doorManager){
+                if(doorManager.IsAnimating){
+                    hasInteracted = true;
+                    return;
+                }
+            }
+
             // If event data can't be interacted (not finished yet) and item mode is dialogue mode, ...
             if (!eventData.canBeInteracted && itemData.itemMode == ItemData.ItemMode.DialogueMode ||
                 !eventData && !itemData)
@@ -72,6 +86,7 @@ namespace Player
             ItemData itemData = other.GetComponent<ItemData>();
             if(itemData)
             {
+                hasInteracted = true;
                 playerInRange = false;
             }
         }
@@ -86,7 +101,10 @@ namespace Player
             interactionBtnText.text = itemData.interactionText.ToString();
             // Set button actions 
             interactionButton.onClick.RemoveAllListeners();
-            interactionButton.onClick.AddListener(itemData.HandleInteraction);
+            interactionButton.onClick.AddListener(() => {
+                hasInteracted = true;
+                itemData.HandleInteraction();
+            });
         }
         
         /// <summary>

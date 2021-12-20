@@ -22,8 +22,11 @@ namespace Items.Door
         private PlayerMovement playerMovement;
         
         private bool moveDoorOpener;
+        private bool isAnimating;
         private const float DOOR_MOVEMENT_SPEED = 1.2f;
 
+        public bool IsAnimating => isAnimating;
+        
         private void Awake()
         {
             playerMovement = PlayerMovement.Instance;
@@ -56,6 +59,7 @@ namespace Items.Door
         /// <returns></returns>
         private IEnumerator DoorAnimation()
         {
+            isAnimating = true;
             playerMovement.canMove = false;
             // Open the door
             AudioManager.Instance.Play(ListSound.DoorOpened);
@@ -79,6 +83,7 @@ namespace Items.Door
             playerMovement.canMove = true;
             yield return new WaitForSeconds(0.5f);
             AudioManager.Instance.Play(ListSound.DoorClosed);
+            isAnimating = false;
         }
         
         /// <summary>
