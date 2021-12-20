@@ -34,6 +34,12 @@ namespace Dialogue
         [SerializeField] private Transform choicesParent;
         [SerializeField] private ChoiceManager choicePrefab;
         private readonly List<ChoiceManager> choicePool = new List<ChoiceManager>();
+
+        [Header("Dialogue Log")]
+        [SerializeField] private DialogueLogManager dialogueLogPrefab;
+        [SerializeField] private Transform dialogueLogParent;
+        private string dialogueTextValue, speakerNameValue;
+        
         
         [Header("Dialogue Portrait")]
         [SerializeField] private Transform portraitsParent;
@@ -127,15 +133,26 @@ namespace Dialogue
                 
                 // Show sentence by each character
                 string currentSentence = currentStory.Continue();
+                dialogueTextValue = currentSentence;
                 displayLineCoroutine = StartCoroutine(DisplaySentence(currentSentence));
                 
                 // Handle tags in story
                 HandleTags(currentStory.currentTags);
+                // Add dialogue log
+                AddDialogueLog();
             }
             else
             {
                 FinishDialogue();
             }
+        }
+
+        /// <summary>
+        /// Add dialogue log
+        /// </summary>
+        private void AddDialogueLog(){
+            DialogueLogManager dialogueLogManager = Instantiate(dialogueLogPrefab, dialogueLogParent);
+            dialogueLogManager.SetDialogueLog(speakerNameValue, dialogueTextValue);
         }
 
         /// <summary>
@@ -329,8 +346,8 @@ namespace Dialogue
                         break;
                     
                     case DialogueTags.SPEAKER_TAG:
-                        speakerName.text = 
-                            tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
+                        speakerNameValue = tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
+                        speakerName.text = speakerNameValue;
                         break;
                     
                     default:
