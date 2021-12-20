@@ -71,11 +71,11 @@ namespace Event
 
         public void OnEventStart()
         {
-            if(eventData.WaitDialogueAsset)
+            if(eventData.EventDialogue.WaitDialogueAsset)
             {
                 // Set actor's dialogue to dialogue manager
                 // Wait dialogue
-                eventData.AffectedItem.currentDialogue = eventData.WaitDialogueAsset;
+                eventData.AffectedItem.currentDialogue = eventData.EventDialogue.WaitDialogueAsset;
             }
             
             // Start the event
@@ -93,11 +93,11 @@ namespace Event
 
         public void OnEventFinish()
         {
-            if(eventData.FinishDialogueAsset)
+            if(eventData.EventDialogue.FinishDialogueAsset)
             {
                 // Set actor's dialogue to dialogue manager
                 // Finish dialogue
-                eventData.AffectedItem.currentDialogue = eventData.FinishDialogueAsset;
+                eventData.AffectedItem.currentDialogue = eventData.EventDialogue.FinishDialogueAsset;
             }
             
             // Set event state
@@ -108,13 +108,13 @@ namespace Event
 
         public void SetNextEvent()
         {
-            if(eventData.NextEventDialogueAsset || eventData.DefaultDialogueAsset)
+            if(eventData.EventDialogue.NextEventDialogueAsset || eventData.EventDialogue.DefaultDialogueAsset)
             {
                 // Set next dialogue to affected actor
                 eventData.AffectedItem.currentDialogue =
-                    eventData.NextEventDialogueAsset != null
-                        ? eventData.NextEventDialogueAsset
-                        : eventData.DefaultDialogueAsset;
+                    eventData.EventDialogue.NextEventDialogueAsset != null
+                        ? eventData.EventDialogue.NextEventDialogueAsset
+                        : eventData.EventDialogue.DefaultDialogueAsset;
             }
             
             // Deactivate game object

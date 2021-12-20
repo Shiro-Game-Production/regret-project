@@ -14,6 +14,7 @@ namespace Event
         public EventState eventState = EventState.NotStarted;
 
         [Header("Dialogue Asset")]
+        [SerializeField] private EventDialogue eventDialogue;
         [SerializeField] private TextAsset waitDialogueAsset;
         [SerializeField] private TextAsset finishDialogueAsset;
         [SerializeField] private TextAsset nextEventDialogueAsset;
@@ -35,10 +36,7 @@ namespace Event
         public string EventName => eventName;
         public ItemData AffectedItem => affectedItem;
         public ItemData ItemData { get; private set; }
-        public TextAsset WaitDialogueAsset => waitDialogueAsset;
-        public TextAsset NextEventDialogueAsset => nextEventDialogueAsset;
-        public TextAsset DefaultDialogueAsset => defaultDialogueAsset;
-        public TextAsset FinishDialogueAsset => finishDialogueAsset;
+        public EventDialogue EventDialogue => eventDialogue;
         public FinishConditionManager TriggerObject => triggerObject;
         
         #endregion
