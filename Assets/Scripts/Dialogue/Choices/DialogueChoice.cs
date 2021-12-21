@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Dialogue
+namespace Dialogue.Choices
 {
-    public class ChoiceManager : MonoBehaviour
+    public class DialogueChoice : MonoBehaviour
     {
         [SerializeField] private Button choiceButton;
         [SerializeField] private Text choiceText;
@@ -17,7 +17,7 @@ namespace Dialogue
             choiceButton.onClick.RemoveAllListeners();
             choiceButton.onClick.AddListener(() =>
             {
-                DialogueManager.Instance.Decide(choiceIndex);
+                DialogueChoiceManager.Instance.Decide(choiceIndex);
             });
         }
     }

@@ -11,6 +11,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Dialogue.Portrait;
+using Dialogue.Choices;
 
 namespace Dialogue
 {
@@ -33,9 +34,7 @@ namespace Dialogue
         [SerializeField] private Text speakerName;
 
         [Header("Dialogue Choices")]
-        [SerializeField] private Transform choicesParent;
-        [SerializeField] private ChoiceManager choicePrefab;
-        private readonly List<ChoiceManager> choicePool = new List<ChoiceManager>();
+        private DialogueChoiceManager dialogueChoiceManager;
 
         [Header("Dialogue Log")]
         [SerializeField] private CanvasGroup dialogueLogCanvasGroup;
@@ -59,6 +58,7 @@ namespace Dialogue
 
         #region Setter and Getter
 
+        public Story CurrentStory => currentStory;
         public TextAsset CurrentDialogueAsset => currentDialogueAsset;
         public bool DialogueIsPlaying { get; private set; }
 
@@ -68,6 +68,7 @@ namespace Dialogue
         {
             cameraMovement = CameraMovement.Instance;
             cameraShake = CameraShake.Instance;
+            dialogueChoiceManager = DialogueChoiceManager.Instance;
             dialoguePortraitManager = DialoguePortraitManager.Instance;
             eventManager = EventManager.Instance;
             dialogueCanvasGroup.interactable = true;
@@ -132,7 +133,7 @@ namespace Dialogue
         /// <summary>
         /// Continue story dialogue
         /// </summary>
-        private void ContinueStory()
+        public void ContinueStory()
         {
             if (currentStory.canContinue)
             {
@@ -172,7 +173,7 @@ namespace Dialogue
                     DialogueIsPlaying = false;
                     dialogueText.text = "";
                     speakerName.text = "";
-                    HideChoices();
+                    dialogueChoiceManager.HideChoices();
                     dialoguePortraitManager.HidePortraits();
                 })
             );
@@ -187,7 +188,7 @@ namespace Dialogue
         {
             dialogueText.text = ""; // Empty the dialogue text
             // Hide items while typing
-            HideChoices();
+            dialogueChoiceManager.HideChoices();
 
             dialogueState = DialogueState.Typing;
             bool isAddingRichTextTag = false;
@@ -224,7 +225,7 @@ namespace Dialogue
                 }
             }
 
-            DisplayChoices();
+            dialogueChoiceManager.DisplayChoices();
             dialogueState = DialogueState.FinishTyping;
         }
         
@@ -251,73 +252,6 @@ namespace Dialogue
             }
         }
 
-        #endregion
-
-        #region Choices
-        
-        /// <summary>
-        /// Hide choices
-        /// </summary>
-        private void HideChoices()
-        {
-            foreach (ChoiceManager choiceManager in choicePool)
-            {
-                choiceManager.gameObject.SetActive(false);
-            }
-        }
-        
-        /// <summary>
-        /// Display choices in the dialogue
-        /// </summary>
-        private void DisplayChoices()
-        {
-            List<Choice> currentChoices = currentStory.currentChoices;
-
-            if (currentChoices.Count == 0) return;
-            
-            foreach (Choice choice in currentChoices)
-            {
-                ChoiceManager choiceManager = GetOrCreateChoiceManager();
-                choiceManager.gameObject.SetActive(true);
-                // Set choice text
-                choiceManager.ChoiceText.text = choice.text;
-                choiceManager.choiceIndex = choice.index;
-            }
-        }
-        
-        /// <summary>
-        /// Choice manager object pooling
-        /// </summary>
-        /// <returns>Return existing choice manager in hierarchy or create a new one</returns>
-        private ChoiceManager GetOrCreateChoiceManager()
-        {
-            ChoiceManager choiceManager = choicePool.Find(choice => !choice.gameObject.activeInHierarchy);
-
-            if (choiceManager == null)
-            {
-                choiceManager = Instantiate(choicePrefab, choicesParent).GetComponent<ChoiceManager>();
-                // Add new choice manager to pool 
-                choicePool.Add(choiceManager);
-            }
-            
-            choiceManager.gameObject.SetActive(false);
-
-            return choiceManager;
-        }
-        
-        /// <summary>
-        /// Decide from multiple choice
-        /// </summary>
-        /// <param name="index">Choice's index</param>
-        public void Decide(int index)
-        {
-            if(dialogueState == DialogueState.FinishTyping )
-            {
-                currentStory.ChooseChoiceIndex(index);
-                ContinueStory();
-            }
-        }
-        
         #endregion
 
         #region Tags
