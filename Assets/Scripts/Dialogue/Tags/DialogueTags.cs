@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dialogue
+namespace Dialogue.Tags
 {
     public static class DialogueTags
     {

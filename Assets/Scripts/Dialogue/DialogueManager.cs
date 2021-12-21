@@ -13,6 +13,7 @@ using UnityEngine.UI;
 using Dialogue.Portrait;
 using Dialogue.Choices;
 using Dialogue.Logs;
+using Dialogue.Tags;
 
 namespace Dialogue
 {
@@ -20,43 +21,31 @@ namespace Dialogue
     {
         [Header("Camera Manager")] 
         private CameraMovement cameraMovement;
-        private CameraShake cameraShake;
 
         [Header("Parameters")]
         public DialogueMode dialogueMode = DialogueMode.Normal;
         public DialogueState dialogueState = DialogueState.FinishTyping;
         [SerializeField] private float typingSpeed = 0.04f;
+        [SerializeField] private TextAsset currentDialogueAsset;
 
         [Header("Dialogue UI")]
         [SerializeField] private CanvasGroup dialogueCanvasGroup;
         [SerializeField] private GameObject dialogueHolder;
-        [SerializeField] private GameObject dialogueTextBox;
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Text speakerName;
 
-        [Header("Dialogue Choices")]
         private DialogueChoiceManager dialogueChoiceManager;
-
-        [Header("Dialogue Log")]
         private DialogueLogManager dialogueLogManager;
-
-        [Header("Dialogue Portrait")]
         private DialoguePortraitManager dialoguePortraitManager;
-
-        [Header("Event Data")]
-        [SerializeField] private TextAsset currentDialogueAsset;
-        [SerializeField] private List<EventData> eventDatas;
-
-        [Header("Ending")] 
-        [SerializeField] private Image blackScreen;
+        private DialogueTagManager dialogueTagManager;
 
         private Coroutine displayLineCoroutine;
         private Story currentStory;
-        private EventManager eventManager;
 
         #region Setter and Getter
 
         public Story CurrentStory => currentStory;
+        public Text SpeakerName => speakerName;
         public TextAsset CurrentDialogueAsset => currentDialogueAsset;
         public bool DialogueIsPlaying { get; private set; }
 
@@ -65,11 +54,10 @@ namespace Dialogue
         private void Awake()
         {
             cameraMovement = CameraMovement.Instance;
-            cameraShake = CameraShake.Instance;
             dialogueChoiceManager = DialogueChoiceManager.Instance;
             dialogueLogManager = DialogueLogManager.Instance;
             dialoguePortraitManager = DialoguePortraitManager.Instance;
-            eventManager = EventManager.Instance;
+            dialogueTagManager = DialogueTagManager.Instance;
             
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
@@ -147,7 +135,7 @@ namespace Dialogue
                 displayLineCoroutine = StartCoroutine(DisplaySentence(currentSentence));
                 
                 // Handle tags in story
-                HandleTags(currentStory.currentTags);
+                dialogueTagManager.HandleTags(currentStory.currentTags);
                 // Add dialogue log
                 dialogueLogManager.AddDialogueLog();
             }
@@ -229,144 +217,6 @@ namespace Dialogue
             dialogueState = DialogueState.FinishTyping;
         }
         
-        #endregion
-
-        #region Tags
-        
-        /// <summary>
-        /// Handle tags in dialogue
-        /// </summary>
-        /// <param name="dialogueTags"></param>
-        private void HandleTags(List<string> dialogueTags)
-        {
-            foreach (string dialogueTag in dialogueTags)
-            {
-                // Parse the tag
-                string[] splitTag = dialogueTag.Split(':');
-
-                if (splitTag.Length != 2)
-                {
-                    Debug.LogError("Tag could not be parsed: " + tag);
-                }
-
-                string tagKey = splitTag[0].Trim();
-                string tagValue = splitTag[1].Trim();
-                
-                // Handle tag
-                switch (tagKey)
-                {
-                    case DialogueTags.AUDIO_TAG:
-                        HandleAudio(tagValue);
-                        break;
-                    
-                    case DialogueTags.DIALOGUE_BOX_TAG:
-                        ShowOrHideDialogueBox(tagValue);
-                        break;
-
-                    case DialogueTags.EFFECT_TAG:
-                        switch (tagValue)
-                        {
-                            case DialogueTags.SHAKE_TAG:
-                                StartCoroutine(cameraShake.ShakingEffect());
-                                break;
-                        }
-                        break;
-                    
-                    case DialogueTags.ENDING_TAG:
-                        HandleEndingTag(tagValue);
-                        break;
-                    
-                    case DialogueTags.EVENT_TAG:
-                        SetEventData(tagValue);
-                        break;
-                    
-                    case DialogueTags.PORTRAIT_TAG:
-                        dialoguePortraitManager.DisplayPortraits(tagValue);
-                        break;
-                    
-                    case DialogueTags.SPEAKER_TAG:
-                        dialogueLogManager.speakerNameValue = tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
-                        speakerName.text = dialogueLogManager.speakerNameValue;
-                        break;
-                    
-                    default:
-                        Debug.LogError("Tag is not in the list: " + tag);
-                        break;
-                }
-            }
-        }
-
-        #region Audio
-        
-        private void HandleAudio(string audio)
-        {
-            AudioManager.Instance.Play(audio);
-        }
-        
-        #endregion
-
-        #region Dialogue Box
-
-        /// <summary>
-        /// Show or hide dialogue box depends on tag value
-        /// </summary>
-        /// <param name="tagValue"></param>
-        private void ShowOrHideDialogueBox(string tagValue){
-            switch(tagValue){
-                case DialogueTags.BLANK_VALUE:
-                    dialogueTextBox.SetActive(false);
-                    break;
-                
-                case DialogueTags.SHOW_DIALOGUE_BOX:
-                    dialogueTextBox.SetActive(true);
-                    break;
-
-                default:
-                    Debug.LogError($"Tag: {tagValue} is not registered to handle dialogue box");
-                    break;
-            }
-        }
-
-        #endregion
-
-        #region Event
-        
-        /// <summary>
-        /// Find event data in list
-        /// </summary>
-        /// <param name="eventDataName">Event data name</param>
-        private void SetEventData(string eventDataName)
-        {
-            // Find event data in list
-            foreach (EventData eventData in eventDatas.Where(
-                eventData => eventData.EventName == eventDataName))
-            {
-                eventManager.SetEventData(eventData);  
-                eventData.gameObject.SetActive(true);
-                break;
-            }
-        }
-        
-        #endregion
-
-        #region Ending
-        
-        /// <summary>
-        /// Handle ending tag
-        /// </summary>
-        /// <param name="tagValue"></param>
-        private void HandleEndingTag(string tagValue)
-        {
-            if (tagValue != DialogueTags.CONFIRM_ENDING) return;
-            
-            StartCoroutine(FadingEffect.FadeIn(blackScreen,
-                fadingSpeed: 0.02f,
-                afterEffect: () => SceneLoadTrigger.Instance.LoadScene("HomeScene"))
-            );
-        }
-
-        #endregion
-
         #endregion
     }
 }

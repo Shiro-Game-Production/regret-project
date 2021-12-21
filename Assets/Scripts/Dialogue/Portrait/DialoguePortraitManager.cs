@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Dialogue.Tags;
 
 namespace Dialogue.Portrait{
     public class DialoguePortraitManager : SingletonBaseClass<DialoguePortraitManager> {
