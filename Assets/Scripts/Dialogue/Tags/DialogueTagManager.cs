@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Audios;
 using Dialogue.Portrait;
-using Dialogue.Tags;
+using Dialogue.Logs;
 using Effects;
 using Event;
 using GameCamera;
@@ -10,7 +10,7 @@ using SceneLoading;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Dialogue.Logs{
+namespace Dialogue.Tags{
     public class DialogueTagManager : SingletonBaseClass<DialogueTagManager> {
         [Header("Dialogue UI")]
         [SerializeField] private GameObject dialogueTextBox;

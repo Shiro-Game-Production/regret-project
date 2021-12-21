@@ -1,12 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Audios;
 using Effects;
-using Event;
 using GameCamera;
 using Ink.Runtime;
-using SceneLoading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
