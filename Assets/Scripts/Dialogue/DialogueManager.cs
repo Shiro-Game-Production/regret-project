@@ -12,6 +12,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Dialogue.Portrait;
 using Dialogue.Choices;
+using Dialogue.Logs;
 
 namespace Dialogue
 {
@@ -37,10 +38,7 @@ namespace Dialogue
         private DialogueChoiceManager dialogueChoiceManager;
 
         [Header("Dialogue Log")]
-        [SerializeField] private CanvasGroup dialogueLogCanvasGroup;
-        [SerializeField] private DialogueLogManager dialogueLogPrefab;
-        [SerializeField] private Transform dialogueLogParent;
-        private string dialogueTextValue, speakerNameValue;
+        private DialogueLogManager dialogueLogManager;
 
         [Header("Dialogue Portrait")]
         private DialoguePortraitManager dialoguePortraitManager;
@@ -69,8 +67,10 @@ namespace Dialogue
             cameraMovement = CameraMovement.Instance;
             cameraShake = CameraShake.Instance;
             dialogueChoiceManager = DialogueChoiceManager.Instance;
+            dialogueLogManager = DialogueLogManager.Instance;
             dialoguePortraitManager = DialoguePortraitManager.Instance;
             eventManager = EventManager.Instance;
+            
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
             dialogueHolder.SetActive(false);
@@ -143,13 +143,13 @@ namespace Dialogue
                 
                 // Show sentence by each character
                 string currentSentence = currentStory.Continue();
-                dialogueTextValue = currentSentence;
+                dialogueLogManager.dialogueTextValue = currentSentence;
                 displayLineCoroutine = StartCoroutine(DisplaySentence(currentSentence));
                 
                 // Handle tags in story
                 HandleTags(currentStory.currentTags);
                 // Add dialogue log
-                AddDialogueLog();
+                dialogueLogManager.AddDialogueLog();
             }
             else
             {
@@ -231,29 +231,6 @@ namespace Dialogue
         
         #endregion
 
-        #region Dialogue Log
-
-        /// <summary>
-        /// Add dialogue log
-        /// </summary>
-        private void AddDialogueLog(){
-            // BUG: RESET DIALOGUE LOG
-            DialogueLogManager dialogueLogManager = Instantiate(dialogueLogPrefab, dialogueLogParent);
-            dialogueLogManager.SetDialogueLog(speakerNameValue, dialogueTextValue);
-        }
-
-        public void ShowLog(bool showLog){
-            if(showLog){
-                StartCoroutine(FadingEffect.FadeIn(dialogueLogCanvasGroup,
-                    beforeEffect: () => dialogueMode = DialogueMode.ViewLog));
-            } else {
-                StartCoroutine(FadingEffect.FadeOut(dialogueLogCanvasGroup,
-                    afterEffect: () => dialogueMode = DialogueMode.Normal));
-            }
-        }
-
-        #endregion
-
         #region Tags
         
         /// <summary>
@@ -308,8 +285,8 @@ namespace Dialogue
                         break;
                     
                     case DialogueTags.SPEAKER_TAG:
-                        speakerNameValue = tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
-                        speakerName.text = speakerNameValue;
+                        dialogueLogManager.speakerNameValue = tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
+                        speakerName.text = dialogueLogManager.speakerNameValue;
                         break;
                     
                     default:
@@ -325,12 +302,6 @@ namespace Dialogue
         {
             AudioManager.Instance.Play(audio);
         }
-        
-        #endregion
-
-        #region Portraits
-        
-
         
         #endregion
 

@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Dialogue
+namespace Dialogue.Logs
 {
-    public class DialogueLogManager : MonoBehaviour
+    public class DialogueLog : MonoBehaviour
     {
         [SerializeField] private Text speakerName;
         [SerializeField] private Text dialogueText;

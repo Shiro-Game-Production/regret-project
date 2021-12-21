@@ -6117,6 +6117,54 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &250841077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 250841078}
+  - component: {fileID: 250841079}
+  m_Layer: 0
+  m_Name: Log Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &250841078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250841077}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2015591978}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &250841079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250841077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa86cc47e6f8e34b91368a66c1aa560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueLogCanvasGroup: {fileID: 1183649007}
+  dialogueLogPrefab: {fileID: 1809276562285395948, guid: d1e8f0c556894904496048a169ba0a90, type: 3}
+  dialogueLogParent: {fileID: 248410689}
+  dialogueTextValue: 
+  speakerNameValue: 
 --- !u!1 &252788622
 GameObject:
   m_ObjectHideFlags: 0
@@ -8622,7 +8670,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 811202020}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10692,8 +10740,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1623932825}
-        m_TargetAssemblyTypeName: Dialogue.DialogueManager, Assembly-CSharp
+      - m_Target: {fileID: 250841079}
+        m_TargetAssemblyTypeName: Dialogue.Logs.DialogueLogManager, Assembly-CSharp
         m_MethodName: ShowLog
         m_Mode: 6
         m_Arguments:
@@ -11391,8 +11439,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1623932825}
-        m_TargetAssemblyTypeName: Dialogue.DialogueManager, Assembly-CSharp
+      - m_Target: {fileID: 250841079}
+        m_TargetAssemblyTypeName: Dialogue.Logs.DialogueLogManager, Assembly-CSharp
         m_MethodName: ShowLog
         m_Mode: 6
         m_Arguments:
@@ -11675,17 +11723,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 346516491375830047, guid: 81912c05843dc80458a1460360464cc2, type: 3}
   m_PrefabInstance: {fileID: 1623932823}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1623932825 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 346516491375830044, guid: 81912c05843dc80458a1460360464cc2, type: 3}
-  m_PrefabInstance: {fileID: 1623932823}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 695cdc8d9a6e8a04286b60f504728d7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1625419324
 GameObject:
   m_ObjectHideFlags: 0
@@ -13608,6 +13645,7 @@ Transform:
   - {fileID: 1623932824}
   - {fileID: 747250609}
   - {fileID: 1785294034}
+  - {fileID: 250841078}
   m_Father: {fileID: 1625419325}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
