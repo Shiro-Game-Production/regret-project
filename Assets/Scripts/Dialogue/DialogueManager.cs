@@ -10,7 +10,7 @@ using SceneLoading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Utils;
+using Dialogue.Portrait;
 
 namespace Dialogue
 {
@@ -42,11 +42,9 @@ namespace Dialogue
         [SerializeField] private DialogueLogManager dialogueLogPrefab;
         [SerializeField] private Transform dialogueLogParent;
         private string dialogueTextValue, speakerNameValue;
-        
+
         [Header("Dialogue Portrait")]
-        [SerializeField] private Transform portraitsParent;
-        [SerializeField] private PortraitManager portraitPrefab;
-        private readonly List<PortraitManager> portraitPool = new List<PortraitManager>();
+        private DialoguePortraitManager dialoguePortraitManager;
 
         [Header("Event Data")]
         [SerializeField] private TextAsset currentDialogueAsset;
@@ -70,6 +68,7 @@ namespace Dialogue
         {
             cameraMovement = CameraMovement.Instance;
             cameraShake = CameraShake.Instance;
+            dialoguePortraitManager = DialoguePortraitManager.Instance;
             eventManager = EventManager.Instance;
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
@@ -174,7 +173,7 @@ namespace Dialogue
                     dialogueText.text = "";
                     speakerName.text = "";
                     HideChoices();
-                    HidePortraits();
+                    dialoguePortraitManager.HidePortraits();
                 })
             );
         }
@@ -371,7 +370,7 @@ namespace Dialogue
                         break;
                     
                     case DialogueTags.PORTRAIT_TAG:
-                        DisplayPortraits(tagValue);
+                        dialoguePortraitManager.DisplayPortraits(tagValue);
                         break;
                     
                     case DialogueTags.SPEAKER_TAG:
@@ -397,63 +396,7 @@ namespace Dialogue
 
         #region Portraits
         
-        /// <summary>
-        /// Display portraits
-        /// </summary>
-        /// <param name="filenames"></param>
-        private void DisplayPortraits(string filenames)
-        {
-            string[] files = filenames.Split(',');
-            
-            // If there are no portraits or none, hide portrait and return right away
-            if (files.Length <= 0 || filenames == DialogueTags.BLANK_VALUE)
-            {
-                HidePortraits();
-                return;
-            }
-            
-            HidePortraits(); // Hide previous portrait
 
-            foreach (string filename in files)
-            {
-                Sprite portrait = Resources.Load<Sprite>($"Portraits/{filename}");
-                PortraitManager portraitManager = GetOrCreatePortraitManager();
-                
-                portraitManager.gameObject.SetActive(true);
-                portraitManager.SetPortraitSprite(portrait);
-            }
-        }
-        
-        /// <summary>
-        /// Hide portraits if there are no portraits
-        /// </summary>
-        private void HidePortraits()
-        {
-            foreach (PortraitManager portrait in portraitPool)
-            {
-                portrait.gameObject.SetActive(false);
-            }
-        }
-        
-        /// <summary>
-        /// Portrait manager object pooling
-        /// </summary>
-        /// <returns>Return existing portrait manager in hierarchy or create a new one</returns>
-        private PortraitManager GetOrCreatePortraitManager()
-        {
-            PortraitManager portraitManager = portraitPool.Find(portrait => !portrait.gameObject.activeInHierarchy);
-
-            if (portraitManager == null)
-            {
-                portraitManager = Instantiate(portraitPrefab, portraitsParent).GetComponent<PortraitManager>();
-                // Add new choice manager to pool 
-                portraitPool.Add(portraitManager);
-            }
-            
-            portraitManager.gameObject.SetActive(false);
-
-            return portraitManager;
-        }
         
         #endregion
 

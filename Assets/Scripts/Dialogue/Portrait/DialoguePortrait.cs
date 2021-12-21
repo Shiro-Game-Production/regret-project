@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Dialogue
+namespace Dialogue.Portrait
 {
-    public class PortraitManager : MonoBehaviour
+    public class DialoguePortrait : MonoBehaviour
     {
         [SerializeField] private Image portraitImage;
 

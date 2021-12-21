@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6900940086417131164}
   - component: {fileID: 4676807464258900275}
   - component: {fileID: 5854067089184370397}
-  - component: {fileID: 2657727682114043160}
+  - component: {fileID: 907936351500607960}
   m_Layer: 5
   m_Name: Portrait Image
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2657727682114043160
+--- !u!114 &907936351500607960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5468804382817665004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b93ac41374114bf1963209776c1905e7, type: 3}
+  m_Script: {fileID: 11500000, guid: c1fb69fa3edaf4141b5cd288009672d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   portraitImage: {fileID: 5854067089184370397}
