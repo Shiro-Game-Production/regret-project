@@ -6074,7 +6074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0025024414, y: -824.7872}
+  m_AnchoredPosition: {x: -0.0025024414, y: -824.4301}
   m_SizeDelta: {x: 17, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &248410690
@@ -8577,7 +8577,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 811202020}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10647,13 +10647,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1493208569}
-        m_TargetAssemblyTypeName: UserInterface.ButtonClickManager, Assembly-CSharp
-        m_MethodName: HidePrompts
-        m_Mode: 2
+      - m_Target: {fileID: 1623932825}
+        m_TargetAssemblyTypeName: Dialogue.DialogueManager, Assembly-CSharp
+        m_MethodName: ShowLog
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 1183649007}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10878,7 +10878,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 757921723}
   m_HandleRect: {fileID: 757921722}
   m_Direction: 0
-  m_Value: 0.00015438083
+  m_Value: 0.00015079057
   m_Size: 0.9897835
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -11346,17 +11346,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1493208569}
-        m_TargetAssemblyTypeName: UserInterface.ButtonClickManager, Assembly-CSharp
-        m_MethodName: ShowPrompts
-        m_Mode: 2
+      - m_Target: {fileID: 1623932825}
+        m_TargetAssemblyTypeName: Dialogue.DialogueManager, Assembly-CSharp
+        m_MethodName: ShowLog
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 1183649007}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1592999438
 MonoBehaviour:
@@ -11560,6 +11560,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 346516491375830044, guid: 81912c05843dc80458a1460360464cc2, type: 3}
+      propertyPath: dialogueLogCanvasGroup
+      value: 
+      objectReference: {fileID: 1183649007}
+    - target: {fileID: 346516491375830044, guid: 81912c05843dc80458a1460360464cc2, type: 3}
       propertyPath: eventDatas.Array.data[0]
       value: 
       objectReference: {fileID: 1046833045}
@@ -11626,6 +11630,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 346516491375830047, guid: 81912c05843dc80458a1460360464cc2, type: 3}
   m_PrefabInstance: {fileID: 1623932823}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1623932825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 346516491375830044, guid: 81912c05843dc80458a1460360464cc2, type: 3}
+  m_PrefabInstance: {fileID: 1623932823}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695cdc8d9a6e8a04286b60f504728d7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1625419324
 GameObject:
   m_ObjectHideFlags: 0

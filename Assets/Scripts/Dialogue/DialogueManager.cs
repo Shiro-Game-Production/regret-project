@@ -19,8 +19,10 @@ namespace Dialogue
         [Header("Camera Manager")] 
         private CameraMovement cameraMovement;
         private CameraShake cameraShake;
-        
+
         [Header("Parameters")]
+        public DialogueMode dialogueMode = DialogueMode.Normal;
+        public DialogueState dialogueState = DialogueState.FinishTyping;
         [SerializeField] private float typingSpeed = 0.04f;
 
         [Header("Dialogue UI")]
@@ -36,10 +38,10 @@ namespace Dialogue
         private readonly List<ChoiceManager> choicePool = new List<ChoiceManager>();
 
         [Header("Dialogue Log")]
+        [SerializeField] private CanvasGroup dialogueLogCanvasGroup;
         [SerializeField] private DialogueLogManager dialogueLogPrefab;
         [SerializeField] private Transform dialogueLogParent;
         private string dialogueTextValue, speakerNameValue;
-        
         
         [Header("Dialogue Portrait")]
         [SerializeField] private Transform portraitsParent;
@@ -56,14 +58,12 @@ namespace Dialogue
         private Coroutine displayLineCoroutine;
         private Story currentStory;
         private EventManager eventManager;
-        private bool canContinueToNextLine;
-        private bool canSkipSentence;
 
         #region Setter and Getter
-        
+
         public TextAsset CurrentDialogueAsset => currentDialogueAsset;
         public bool DialogueIsPlaying { get; private set; }
-        
+
         #endregion
 
         private void Awake()
@@ -86,16 +86,26 @@ namespace Dialogue
             // Return if dialogue isn't playing
             if (!DialogueIsPlaying) return;
 
-            if (canContinueToNextLine &&
+            /**
+             * Use mouse button up to continue the story, handle dialogue log, and skip sentence
+             * Handle dialogue log will trigger first if log button is clicked and will not trigger
+                this if
+             * Skip sentence will delay the finish typing after mouse button up, so it will not trigger
+                this if
+            */
+            if (dialogueMode == DialogueMode.Normal &&
+                dialogueState == DialogueState.FinishTyping &&
                 currentStory.currentChoices.Count == 0 &&
-                Input.GetMouseButtonDown(0))
+                Input.GetMouseButtonUp(0))
             {
                 ContinueStory();
             }
             
-            // If right click and is typing, make player can skip dialogue sentence
-            if (MouseClick.IsDoubleClick() && !canContinueToNextLine)
-                canSkipSentence = true;
+            // If mouse button down and is typing, make player can skip dialogue sentence
+            if (Input.GetMouseButtonDown(0) &&
+                dialogueState == DialogueState.Typing){
+                dialogueState = DialogueState.SkipSentence;
+            }
         }
 
         #region Dialogue
@@ -148,14 +158,6 @@ namespace Dialogue
         }
 
         /// <summary>
-        /// Add dialogue log
-        /// </summary>
-        private void AddDialogueLog(){
-            DialogueLogManager dialogueLogManager = Instantiate(dialogueLogPrefab, dialogueLogParent);
-            dialogueLogManager.SetDialogueLog(speakerNameValue, dialogueTextValue);
-        }
-
-        /// <summary>
         /// Actions when dialogue is finished
         /// </summary>
         private void FinishDialogue()
@@ -188,16 +190,20 @@ namespace Dialogue
             // Hide items while typing
             HideChoices();
 
-            canContinueToNextLine = false;
+            dialogueState = DialogueState.Typing;
             bool isAddingRichTextTag = false;
 
             foreach (char letter in sentence)
             {
                 // If there is right mouse click, finish the sentence right away
-                if (canSkipSentence)
+                if (dialogueState == DialogueState.SkipSentence)
                 {
                     dialogueText.text = sentence;
-                    canSkipSentence = false;
+                    // Wait until skip mode finish
+                    // Skip mode is trigger with mouse down
+                    yield return new WaitUntil(() => Input.GetMouseButtonUp(0));
+                    // When mouse up, then change dialogue state to finish typing
+                    dialogueState = DialogueState.FinishTyping;
                     break;
                 }
 
@@ -220,9 +226,32 @@ namespace Dialogue
             }
 
             DisplayChoices();
-            canContinueToNextLine = true;
+            dialogueState = DialogueState.FinishTyping;
         }
         
+        #endregion
+
+        #region Dialogue Log
+
+        /// <summary>
+        /// Add dialogue log
+        /// </summary>
+        private void AddDialogueLog(){
+            // BUG: RESET DIALOGUE LOG
+            DialogueLogManager dialogueLogManager = Instantiate(dialogueLogPrefab, dialogueLogParent);
+            dialogueLogManager.SetDialogueLog(speakerNameValue, dialogueTextValue);
+        }
+
+        public void ShowLog(bool showLog){
+            if(showLog){
+                StartCoroutine(FadingEffect.FadeIn(dialogueLogCanvasGroup,
+                    beforeEffect: () => dialogueMode = DialogueMode.ViewLog));
+            } else {
+                StartCoroutine(FadingEffect.FadeOut(dialogueLogCanvasGroup,
+                    afterEffect: () => dialogueMode = DialogueMode.Normal));
+            }
+        }
+
         #endregion
 
         #region Choices
@@ -283,7 +312,7 @@ namespace Dialogue
         /// <param name="index">Choice's index</param>
         public void Decide(int index)
         {
-            if(canContinueToNextLine)
+            if(dialogueState == DialogueState.FinishTyping )
             {
                 currentStory.ChooseChoiceIndex(index);
                 ContinueStory();
