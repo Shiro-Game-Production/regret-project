@@ -15,10 +15,6 @@ namespace Event
 
         [Header("Dialogue Asset")]
         [SerializeField] private EventDialogue eventDialogue;
-        [SerializeField] private TextAsset waitDialogueAsset;
-        [SerializeField] private TextAsset finishDialogueAsset;
-        [SerializeField] private TextAsset nextEventDialogueAsset;
-        [SerializeField] private TextAsset defaultDialogueAsset;
         
         [Header("Finish Condition")]
         public FinishCondition finishCondition;
@@ -82,7 +78,4 @@ namespace Event
             }
         }
     }
-    
-    public enum EventState{ NotStarted, Start, Active, Finish }
-    public enum FinishCondition { OnTriggerEnter, PuzzleFinished, DialogueFinished }
 }
