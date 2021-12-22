@@ -4,7 +4,7 @@ using Items;
 using UnityEngine;
 
 namespace Event.DialogueEvent {
-    public class DialogueEventRunner : MonoBehaviour, IEvent {
+    public class DialogueEventRunner : MonoBehaviour, IEventRunner {
         public DialogueEventData eventData;
         private DialogueManager dialogueManager;
         private bool hasSetFinishCondition;
