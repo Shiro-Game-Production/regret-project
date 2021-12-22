@@ -6930,7 +6930,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3121273081532524328, guid: 52fd71f467d328546a9208178ce60b5a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3121273081532524328, guid: 52fd71f467d328546a9208178ce60b5a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8804,25 +8804,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046833044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aa283f438074fdcb8b252e1c4893182, type: 3}
+  m_Script: {fileID: 11500000, guid: a6bfd032f4d628947899a5bc1afa7644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: prologue-2
-  affectedItem: {fileID: 1850427943}
   isFinished: 0
   eventState: 0
+  canBeInteracted: 0
+  keepObjectAfterFinish: 1
+  affectedItem: {fileID: 1850427943}
   eventDialogue:
     waitDialogueAsset: {fileID: 0}
     finishDialogueAsset: {fileID: 4900000, guid: 9345e53e0fe8f9b4c98defe795a9fa75, type: 3}
     nextEventDialogueAsset: {fileID: 0}
     defaultDialogueAsset: {fileID: 0}
-  waitDialogueAsset: {fileID: 0}
-  finishDialogueAsset: {fileID: 4900000, guid: 9345e53e0fe8f9b4c98defe795a9fa75, type: 3}
-  nextEventDialogueAsset: {fileID: 0}
-  defaultDialogueAsset: {fileID: 0}
   finishCondition: 2
-  canBeInteracted: 0
-  keepObjectAfterFinish: 1
   triggerObject: {fileID: 1046833046}
 --- !u!114 &1046833046
 MonoBehaviour:
@@ -9914,7 +9910,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 779251394489345642, guid: 395ee48f4f4bc00488bc0be652e7eafe, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 779251394489345642, guid: 395ee48f4f4bc00488bc0be652e7eafe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9958,9 +9954,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 779251394489345645, guid: 395ee48f4f4bc00488bc0be652e7eafe, type: 3}
       propertyPath: m_Name
-      value: Event Manager
+      value: Dialogue Event Manager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 779251394489345643, guid: 395ee48f4f4bc00488bc0be652e7eafe, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 395ee48f4f4bc00488bc0be652e7eafe, type: 3}
 --- !u!4 &1291877141 stripped
 Transform:
@@ -10447,9 +10444,9 @@ MonoBehaviour:
   dialogueTextBox: {fileID: 499073445}
   blackScreen: {fileID: 2065606734}
   eventDatas:
-  - {fileID: 2072811002}
   - {fileID: 1046833045}
   - {fileID: 1850427946}
+  - {fileID: 2072811002}
 --- !u!1 &1423825585
 GameObject:
   m_ObjectHideFlags: 0
@@ -10870,7 +10867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6497117075461150356, guid: b9a2e47bfb48bed41b4b3644ac8eb471, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6497117075461150356, guid: b9a2e47bfb48bed41b4b3644ac8eb471, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11708,15 +11705,15 @@ PrefabInstance:
     - target: {fileID: 346516491375830044, guid: 81912c05843dc80458a1460360464cc2, type: 3}
       propertyPath: eventDatas.Array.data[0]
       value: 
-      objectReference: {fileID: 1046833045}
+      objectReference: {fileID: 0}
     - target: {fileID: 346516491375830044, guid: 81912c05843dc80458a1460360464cc2, type: 3}
       propertyPath: eventDatas.Array.data[1]
       value: 
-      objectReference: {fileID: 1850427946}
+      objectReference: {fileID: 0}
     - target: {fileID: 346516491375830044, guid: 81912c05843dc80458a1460360464cc2, type: 3}
       propertyPath: eventDatas.Array.data[2]
       value: 
-      objectReference: {fileID: 2072811002}
+      objectReference: {fileID: 0}
     - target: {fileID: 346516491375830045, guid: 81912c05843dc80458a1460360464cc2, type: 3}
       propertyPath: m_Name
       value: Dialogue Manager
@@ -12875,25 +12872,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1850427944}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aa283f438074fdcb8b252e1c4893182, type: 3}
+  m_Script: {fileID: 11500000, guid: a6bfd032f4d628947899a5bc1afa7644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: prologue-3
-  affectedItem: {fileID: 2072811000}
   isFinished: 0
   eventState: 0
+  canBeInteracted: 0
+  keepObjectAfterFinish: 1
+  affectedItem: {fileID: 2072811000}
   eventDialogue:
     waitDialogueAsset: {fileID: 0}
     finishDialogueAsset: {fileID: 4900000, guid: 804b68f6eba36524eaed4eafd5c5240d, type: 3}
     nextEventDialogueAsset: {fileID: 0}
     defaultDialogueAsset: {fileID: 0}
-  waitDialogueAsset: {fileID: 0}
-  finishDialogueAsset: {fileID: 4900000, guid: 804b68f6eba36524eaed4eafd5c5240d, type: 3}
-  nextEventDialogueAsset: {fileID: 0}
-  defaultDialogueAsset: {fileID: 0}
   finishCondition: 2
-  canBeInteracted: 0
-  keepObjectAfterFinish: 1
   triggerObject: {fileID: 1850427945}
 --- !u!1 &1852079534
 GameObject:
@@ -14747,25 +14740,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2072810999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aa283f438074fdcb8b252e1c4893182, type: 3}
+  m_Script: {fileID: 11500000, guid: a6bfd032f4d628947899a5bc1afa7644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eventName: prologue-4
-  affectedItem: {fileID: 0}
   isFinished: 0
   eventState: 0
+  canBeInteracted: 0
+  keepObjectAfterFinish: 1
+  affectedItem: {fileID: 0}
   eventDialogue:
     waitDialogueAsset: {fileID: 0}
     finishDialogueAsset: {fileID: 0}
     nextEventDialogueAsset: {fileID: 0}
     defaultDialogueAsset: {fileID: 0}
-  waitDialogueAsset: {fileID: 0}
-  finishDialogueAsset: {fileID: 0}
-  nextEventDialogueAsset: {fileID: 0}
-  defaultDialogueAsset: {fileID: 0}
   finishCondition: 2
-  canBeInteracted: 0
-  keepObjectAfterFinish: 1
   triggerObject: {fileID: 2072811001}
 --- !u!64 &2072811003
 MeshCollider:
@@ -15309,7 +15298,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2081159859462711554, guid: 7c9caaad6d2fa144e83af1c507c5d9f2, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2081159859462711554, guid: 7c9caaad6d2fa144e83af1c507c5d9f2, type: 3}
       propertyPath: m_LocalPosition.x
