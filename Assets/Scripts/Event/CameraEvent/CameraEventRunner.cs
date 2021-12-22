@@ -1,13 +1,23 @@
+using Event.FinishConditionScripts;
+using GameCamera;
 using UnityEngine;
 
 namespace Event.CameraEvent {
     public class CameraEventRunner : MonoBehaviour, IEventRunner
     {
         public CameraEventData eventData;
+        private bool hasSetFinishCondition;
         public bool canStartEvent;
+
+        private CameraMovement cameraMovement;
+
+        private void Awake() {
+            cameraMovement = CameraMovement.Instance;
+        }
 
         private void OnEnable() {
             canStartEvent = false;
+            hasSetFinishCondition = false;
         }
 
         private void Update() {
@@ -22,6 +32,21 @@ namespace Event.CameraEvent {
                     break;
 
                 case EventState.Active:
+                    if(!hasSetFinishCondition)
+                    {
+                        switch (eventData.finishCondition)
+                        {
+                            case FinishCondition.CameraDurationFinished:
+                                eventData.TriggerObject.SetEndingCondition();
+                                hasSetFinishCondition = true;
+                                break;
+                            case FinishCondition.DialogueFinished:
+                            case FinishCondition.PuzzleFinished:
+                            case FinishCondition.OnTriggerEnter:
+                                hasSetFinishCondition = true;
+                                break;
+                        }
+                    }
                     if(eventData.isFinished)
                         OnEventFinish();
                     break;
@@ -40,6 +65,11 @@ namespace Event.CameraEvent {
         public void OnEventActive()
         {
             eventData.eventState = EventState.Active;
+            eventData.canBeInteracted = true;
+            // Move the camera to target object
+            cameraMovement.SetPosition(
+                eventData.TargetObject.position,
+                eventData.TargetObject.eulerAngles);
         }
 
         public void OnEventFinish()

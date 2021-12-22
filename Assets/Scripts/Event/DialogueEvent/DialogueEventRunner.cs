@@ -44,11 +44,12 @@ namespace Event.DialogueEvent {
                                 eventData.TriggerObject.SetEndingCondition();
                                 hasSetFinishCondition = true;
                                 break;
-                            case FinishCondition.PuzzleFinished:
-                                hasSetFinishCondition = true;
-                                break;
                             case FinishCondition.DialogueFinished:
                                 eventData.TriggerObject.SetEndingCondition();
+                                hasSetFinishCondition = true;
+                                break;
+                            case FinishCondition.PuzzleFinished:
+                            case FinishCondition.CameraDurationFinished:
                                 hasSetFinishCondition = true;
                                 break;
                         }

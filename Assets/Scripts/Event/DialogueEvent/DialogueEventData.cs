@@ -8,10 +8,6 @@ namespace Event.DialogueEvent{
         [Header("Dialogue Asset")]
         [SerializeField] private ItemData affectedItem;
         [SerializeField] private EventDialogue eventDialogue;
-
-        [Header("Finish Condition")]
-        public FinishCondition finishCondition;
-        [SerializeField] private FinishConditionManager triggerObject;
         
         // OnTriggerEnter finish condition
         private MeshRenderer eventMeshRenderer;
@@ -22,7 +18,6 @@ namespace Event.DialogueEvent{
         public ItemData AffectedItem => affectedItem;
         public ItemData ItemData { get; private set; }
         public EventDialogue EventDialogue => eventDialogue;
-        public FinishConditionManager TriggerObject => triggerObject;
         
         #endregion
 

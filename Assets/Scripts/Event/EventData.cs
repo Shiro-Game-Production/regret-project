@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Event.FinishConditionScripts;
+using UnityEngine;
 
 namespace Event
 {
@@ -10,6 +11,8 @@ namespace Event
         public EventState eventState = EventState.NotStarted;
         
         [Header("Finish Condition")]
+        public FinishCondition finishCondition;
+        [SerializeField] private FinishConditionManager triggerObject;
         public bool canBeInteracted;
         [SerializeField] private bool keepObjectAfterFinish;
         
@@ -17,6 +20,7 @@ namespace Event
         
         public string EventName => eventName;
         public bool KeepObjectAfterFinish => keepObjectAfterFinish;
+        public FinishConditionManager TriggerObject => triggerObject;
         
         #endregion
 

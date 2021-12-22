@@ -6074,7 +6074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0025024414, y: -824.4301}
+  m_AnchoredPosition: {x: -0.0025024414, y: -824.43005}
   m_SizeDelta: {x: 17, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &248410690
@@ -6915,6 +6915,75 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0055860593, y: 0.005586055, z: 0.0008290313}
   m_Center: {x: 0.000000003841705, y: 0.0000000020954753, z: 0.00002466942}
+--- !u!1 &465006717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 465006718}
+  - component: {fileID: 465006720}
+  - component: {fileID: 465006719}
+  m_Layer: 0
+  m_Name: Kamar A&K Dialogue Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &465006718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465006717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 791861491}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &465006719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465006717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf091ab55da433d8c55d994ad653e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &465006720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465006717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6bfd032f4d628947899a5bc1afa7644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: prologue-3
+  isFinished: 0
+  eventState: 0
+  finishCondition: 2
+  triggerObject: {fileID: 465006719}
+  canBeInteracted: 0
+  keepObjectAfterFinish: 1
+  affectedItem: {fileID: 2072811000}
+  eventDialogue:
+    waitDialogueAsset: {fileID: 0}
+    finishDialogueAsset: {fileID: 4900000, guid: 804b68f6eba36524eaed4eafd5c5240d, type: 3}
+    nextEventDialogueAsset: {fileID: 0}
+    defaultDialogueAsset: {fileID: 0}
 --- !u!114 &473919692 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 729815643411299001, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
@@ -7570,6 +7639,71 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &745805198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745805199}
+  - component: {fileID: 745805201}
+  - component: {fileID: 745805200}
+  m_Layer: 0
+  m_Name: Kamar A&K Camera Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &745805199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745805198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 791861491}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &745805200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745805198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b608f8f808c4a49a5850d201015e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &745805201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745805198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7090f1def3c49cb499bd147f74e3ecb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: camera-altar
+  isFinished: 0
+  eventState: 0
+  finishCondition: 3
+  triggerObject: {fileID: 745805200}
+  canBeInteracted: 0
+  keepObjectAfterFinish: 1
+  targetObject: {fileID: 2072811008}
+  duration: 5
 --- !u!1 &747250608
 GameObject:
   m_ObjectHideFlags: 0
@@ -8827,48 +8961,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
---- !u!1 &1046833044 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2261187204190599698, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
-  m_PrefabInstance: {fileID: 1046833043}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1046833045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046833044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6bfd032f4d628947899a5bc1afa7644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventName: prologue-2
-  isFinished: 0
-  eventState: 0
-  canBeInteracted: 0
-  keepObjectAfterFinish: 1
-  affectedItem: {fileID: 1850427943}
-  eventDialogue:
-    waitDialogueAsset: {fileID: 0}
-    finishDialogueAsset: {fileID: 4900000, guid: 9345e53e0fe8f9b4c98defe795a9fa75, type: 3}
-    nextEventDialogueAsset: {fileID: 0}
-    defaultDialogueAsset: {fileID: 0}
-  finishCondition: 2
-  triggerObject: {fileID: 1046833046}
---- !u!114 &1046833046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046833044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf091ab55da433d8c55d994ad653e20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1053607910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10481,10 +10573,10 @@ MonoBehaviour:
   dialogueTextBox: {fileID: 499073445}
   blackScreen: {fileID: 2065606734}
   eventDatas:
-  - {fileID: 1046833045}
-  - {fileID: 1850427946}
+  - {fileID: 1850869358}
+  - {fileID: 465006720}
+  - {fileID: 745805201}
   - {fileID: 2072811002}
-  - {fileID: 1850427947}
 --- !u!1 &1423825585
 GameObject:
   m_ObjectHideFlags: 0
@@ -12878,73 +12970,81 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 490970899433830609, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
   m_PrefabInstance: {fileID: 1850427942}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850427944}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1f627ff742e44b19279008486e78cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1850427944 stripped
+--- !u!1 &1850869355
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2261187204190599698, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
-  m_PrefabInstance: {fileID: 1850427942}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1850427945
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1850869356}
+  - component: {fileID: 1850869358}
+  - component: {fileID: 1850869357}
+  m_Layer: 0
+  m_Name: Pintu Depan Dialogue Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1850869356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850869355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 813906311}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1850869357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850427944}
+  m_GameObject: {fileID: 1850869355}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bf091ab55da433d8c55d994ad653e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1850427946
+--- !u!114 &1850869358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850427944}
+  m_GameObject: {fileID: 1850869355}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6bfd032f4d628947899a5bc1afa7644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: prologue-3
+  eventName: prologue-2
   isFinished: 0
   eventState: 0
+  finishCondition: 2
+  triggerObject: {fileID: 1850869357}
   canBeInteracted: 0
   keepObjectAfterFinish: 1
-  affectedItem: {fileID: 2072811000}
+  affectedItem: {fileID: 1850427943}
   eventDialogue:
     waitDialogueAsset: {fileID: 0}
-    finishDialogueAsset: {fileID: 4900000, guid: 804b68f6eba36524eaed4eafd5c5240d, type: 3}
+    finishDialogueAsset: {fileID: 4900000, guid: 9345e53e0fe8f9b4c98defe795a9fa75, type: 3}
     nextEventDialogueAsset: {fileID: 0}
     defaultDialogueAsset: {fileID: 0}
-  finishCondition: 2
-  triggerObject: {fileID: 1850427945}
---- !u!114 &1850427947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850427944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7090f1def3c49cb499bd147f74e3ecb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventName: camera-altar
-  isFinished: 0
-  eventState: 0
-  canBeInteracted: 0
-  keepObjectAfterFinish: 1
-  targetObject: {fileID: 2072811008}
-  duration: 5
 --- !u!1 &1852079534
 GameObject:
   m_ObjectHideFlags: 0
@@ -14803,6 +14903,8 @@ MonoBehaviour:
   eventName: prologue-4
   isFinished: 0
   eventState: 0
+  finishCondition: 2
+  triggerObject: {fileID: 2072811001}
   canBeInteracted: 0
   keepObjectAfterFinish: 1
   affectedItem: {fileID: 0}
@@ -14811,8 +14913,6 @@ MonoBehaviour:
     finishDialogueAsset: {fileID: 0}
     nextEventDialogueAsset: {fileID: 0}
     defaultDialogueAsset: {fileID: 0}
-  finishCondition: 2
-  triggerObject: {fileID: 2072811001}
 --- !u!64 &2072811003
 MeshCollider:
   m_ObjectHideFlags: 0

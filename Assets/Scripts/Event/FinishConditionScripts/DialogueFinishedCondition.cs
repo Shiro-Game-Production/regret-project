@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Dialogue;
+using Event.DialogueEvent;
 using Items;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace Event.FinishConditionScripts
         {
             itemData = GetComponent<ItemData>();
             dialogueManager = DialogueManager.Instance;
-            EventData = GetComponent<EventData>();
+            EventData = GetComponent<DialogueEventData>();
         }
 
         public override void SetEndingCondition()
