@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace Event{
+namespace Event.DialogueEvent{
     [Serializable]
-    public class EventDialogue{
+    public struct EventDialogue{
         [SerializeField] private TextAsset waitDialogueAsset;
         [SerializeField] private TextAsset finishDialogueAsset;
         [SerializeField] private TextAsset nextEventDialogueAsset;
