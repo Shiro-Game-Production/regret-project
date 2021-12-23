@@ -35,6 +35,8 @@ namespace Event.FinishConditionScripts{
                 
             // Wait for camera duration
             yield return new WaitForSeconds(cameraEventData.Duration);
+
+            // Camera finish
             Debug.Log("Camera finished");
             DialogueManager.Instance.ResumeStory();
             OnEndingCondition();

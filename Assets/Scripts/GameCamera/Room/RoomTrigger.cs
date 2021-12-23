@@ -4,7 +4,7 @@ namespace GameCamera.Room
 {
     public class RoomTrigger: MonoBehaviour
     {
-        [SerializeField] public bool playerInRoom;
+        public bool playerInRoom;
         [SerializeField] private Transform cameraTransform;
         private CameraMovement cameraMovement;
 
@@ -26,9 +26,20 @@ namespace GameCamera.Room
             playerInRoom = false;
         }
 
+        /// <summary>
+        /// Set camera's transform
+        /// </summary>
         public void SetCameraPosition()
         {
             cameraMovement.SetPosition(cameraTransform.position,
+                cameraTransform.eulerAngles, updateTopDown: true);
+        }
+
+        /// <summary>
+        /// Update camera's transform but doesn't move
+        /// </summary>
+        public void UpdateCameraPosition(){
+            cameraMovement.UpdateTopDown(cameraTransform.position,
                 cameraTransform.eulerAngles);
         }
     }

@@ -55,7 +55,7 @@ namespace GameCamera
         /// </summary>
         public void SetCameraToTopDownMode()
         {
-            SetPosition(topDownMode.localPosition, topDownMode.localEulerAngles);
+            SetPosition(topDownMode.localPosition, topDownMode.localEulerAngles, updateTopDown: true);
         }
         
         /// <summary>
@@ -72,18 +72,29 @@ namespace GameCamera
         /// <param name="targetPosition">Camera target position</param>
         /// <param name="targetAngle">Camera target angle</param>
         /// <param name="setToPlayer">Set camera's parent to player</param>
-        public void SetPosition(Vector3 targetPosition, Vector3 targetAngle, bool setToPlayer = false)
+        /// <param name="updateTopDown">Update top down transform</param>
+        public void SetPosition(Vector3 targetPosition, Vector3 targetAngle, 
+            bool setToPlayer = false, bool updateTopDown = false)
         {
-            if (!setToPlayer)
+            if (updateTopDown)
             {
-                topDownMode.localPosition = targetPosition;
-                topDownMode.localEulerAngles = targetAngle;
+                UpdateTopDown(targetPosition, targetAngle);
             }
             
             canMove = true;
             transform.SetParent(setToPlayer ? playerTransform : null);
             this.targetPosition = targetPosition;
             this.targetAngle = targetAngle;
+        }
+
+        /// <summary>
+        /// Update top down position but doesn't move
+        /// </summary>
+        /// <param name="targetPosition">Top down target position</param>
+        /// <param name="targetAngle">Top down target angle</param>
+        public void UpdateTopDown(Vector3 targetPosition, Vector3 targetAngle){
+            topDownMode.localPosition = targetPosition;
+            topDownMode.localEulerAngles = targetAngle;
         }
     }
 }

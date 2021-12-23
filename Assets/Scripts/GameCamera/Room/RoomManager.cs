@@ -8,11 +8,14 @@ namespace GameCamera.Room
     {
         [SerializeField] private List<RoomTrigger> roomTriggers;
         public bool detectRooms;
+
+        private DialogueManager dialogueManager;
         private bool fixCamera;
         private int roomCount, roomIndex;
 
         private void Start()
         {
+            dialogueManager = DialogueManager.Instance;
             fixCamera = true;
         }
 
@@ -40,11 +43,17 @@ namespace GameCamera.Room
             }
             
             // When player is only in 1 room, set camera position
-            if (roomCount == 1 && fixCamera && !DialogueManager.Instance.DialogueIsPlaying)
+            if (roomCount == 1 && fixCamera &&
+                dialogueManager.dialogueMode != DialogueMode.Pause)
             {
-                detectRooms = false;
-                fixCamera = false;
-                roomTriggers[roomIndex].SetCameraPosition();
+                // If dialogue is still playing, but have to fix camera, just update the position
+                if(dialogueManager.DialogueIsPlaying){
+                    roomTriggers[roomIndex].UpdateCameraPosition();
+                } else { // When dialogue is finished, fix the camera position
+                    detectRooms = false;
+                    fixCamera = false;
+                    roomTriggers[roomIndex].SetCameraPosition();
+                }
             }
         }
     }
