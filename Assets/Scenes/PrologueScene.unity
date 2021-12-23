@@ -1310,11 +1310,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6259449833121969340, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.005
+      value: -0.005
       objectReference: {fileID: 0}
     - target: {fileID: 6259449833121969340, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.002
+      value: -0.002
       objectReference: {fileID: 0}
     - target: {fileID: 6259449833121969340, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6107,7 +6107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0025024414, y: -823.99994}
+  m_AnchoredPosition: {x: -0.0025024414, y: -824.0001}
   m_SizeDelta: {x: 17, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &248410690
@@ -8873,7 +8873,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 811202021}
   m_HandleRect: {fileID: 811202020}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
