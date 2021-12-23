@@ -56,7 +56,6 @@ namespace Dialogue
             
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
-            dialogueHolder.SetActive(false);
         }
 
         private void Start()
@@ -76,7 +75,7 @@ namespace Dialogue
              * Skip sentence will delay the finish typing after mouse button up, so it will not trigger
                 this if
             */
-            if (dialogueMode == DialogueMode.Normal &&
+            if ((dialogueMode == DialogueMode.Normal || dialogueMode == DialogueMode.Resume) &&
                 dialogueState == DialogueState.FinishTyping &&
                 currentStory.currentChoices.Count == 0 &&
                 Input.GetMouseButtonUp(0))
@@ -105,7 +104,6 @@ namespace Dialogue
             StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,
                 beforeEffect: () =>
                 {
-                    dialogueHolder.SetActive(true);
                     cameraMovement.SetCameraToDialogueMode();
                     DialogueIsPlaying = true;
                     ContinueStory();
@@ -141,6 +139,29 @@ namespace Dialogue
         }
 
         /// <summary>
+        /// Pause the story and play other thing
+        /// </summary>
+        public void PauseStory(){
+            // Hide dialogue
+            StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
+                blocksRaycasts: true,
+                beforeEffect: () => dialogueMode = DialogueMode.Pause,
+                afterEffect: () => DialogueIsPlaying = false)
+            );
+        }
+
+        /// <summary>
+        /// Resume the story after pausing the story
+        /// </summary>
+        public void ResumeStory(){
+            // Show dialogue
+            StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,
+                beforeEffect: () => DialogueIsPlaying = true,
+                afterEffect: () => dialogueMode = DialogueMode.Resume)
+            );
+        }
+
+        /// <summary>
         /// Actions when dialogue is finished
         /// </summary>
         private void FinishDialogue()
@@ -152,7 +173,6 @@ namespace Dialogue
                 },
                 afterEffect: () =>
                 {
-                    dialogueHolder.SetActive(false);
                     DialogueIsPlaying = false;
                     dialogueText.text = "";
                     speakerName.text = "";

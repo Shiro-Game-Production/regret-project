@@ -11,5 +11,7 @@ namespace Dialogue{
         AutoTyping,
         HideMode,
         ViewLog,
+        Pause,
+        Resume,
     }
 }

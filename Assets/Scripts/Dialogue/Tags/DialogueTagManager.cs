@@ -10,6 +10,7 @@ using SceneLoading;
 using UnityEngine;
 using UnityEngine.UI;
 using Event.DialogueEvent;
+using Event.CameraEvent;
 
 namespace Dialogue.Tags{
     public class DialogueTagManager : SingletonBaseClass<DialogueTagManager> {
@@ -26,14 +27,12 @@ namespace Dialogue.Tags{
         private DialogueManager dialogueManager;
         private DialogueLogManager dialogueLogManager;
         private DialoguePortraitManager dialoguePortraitManager;
-        private DialogueEventManager eventManager;
 
         private void Awake() {
             cameraShake = CameraShake.Instance;
             dialogueManager = DialogueManager.Instance;
             dialogueLogManager = DialogueLogManager.Instance;
             dialoguePortraitManager = DialoguePortraitManager.Instance;
-            eventManager = DialogueEventManager.Instance;
         }
 
         /// <summary>
@@ -144,7 +143,18 @@ namespace Dialogue.Tags{
             foreach (EventData eventData in eventDatas.Where(
                 eventData => eventData.EventName == eventDataName))
             {
-                eventManager.SetEventData(eventData);
+                // Set event data
+                switch(eventData){
+                    case DialogueEventData _:
+                        DialogueEventManager.Instance.SetEventData(eventData);
+                        break;
+                    case CameraEventData _:
+                        Debug.Log("Set camera event");
+                        dialogueManager.PauseStory();
+                        CameraEventManager.Instance.SetEventData(eventData);
+                        break;
+                }
+                
                 eventData.gameObject.SetActive(true);
                 break;
             }

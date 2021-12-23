@@ -2,6 +2,7 @@
 #portrait:yuri
 #portrait:yuri/pose1/yuri-blouse/yuri-ex4-shock
 ...
+#event:camera-altar
 Eh..
 Apa-apaan ini!?
 #event:prologue-4

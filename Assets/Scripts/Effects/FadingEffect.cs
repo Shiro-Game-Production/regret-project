@@ -91,12 +91,14 @@ using UnityEngine;
         /// From visible (1) to invisible (0)
         /// </summary>
         /// <param name="canvasGroup">CanvasGroup component</param>
+        /// <param name="blocksRaycasts">Block raycast. Default is false</param>
         /// <param name="fadingSpeed">Fading speed for alpha value</param>
         /// <param name="beforeEffect">Action before fade effect</param>
         /// <param name="afterEffect">Action after fade effect</param>
         /// <param name="fadeWaitingTime">Waiting time every loop</param>
         /// <returns>Wait for certain seconds</returns>
         public static IEnumerator FadeOut(CanvasGroup canvasGroup, 
+            bool blocksRaycasts = false,
             float fadeWaitingTime = FADE_WAITING_TIME, float fadingSpeed = FADING_SPEED,
             Action beforeEffect = null, Action afterEffect = null)
         {
@@ -118,7 +120,7 @@ using UnityEngine;
                 yield return new WaitForSeconds(fadeWaitingTime);
             }
             // Don't block the raycast
-            canvasGroup.blocksRaycasts = false;
+            canvasGroup.blocksRaycasts = blocksRaycasts;
 
             afterEffect?.Invoke();
         }

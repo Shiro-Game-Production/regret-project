@@ -1,6 +1,8 @@
 using System.Collections;
+using Dialogue;
 using Event.CameraEvent;
 using GameCamera;
+using Player;
 using UnityEngine;
 
 namespace Event.FinishConditionScripts{
@@ -23,6 +25,7 @@ namespace Event.FinishConditionScripts{
             Debug.Log("Wait for camera finished");
             CameraEventData cameraEventData = EventData as CameraEventData;
             // Wait until player don't move
+            yield return new WaitUntil(() => !PlayerMovement.Instance.IsWalking);
 
             // Run the camera
             // Move the camera to target object
@@ -33,6 +36,7 @@ namespace Event.FinishConditionScripts{
             // Wait for camera duration
             yield return new WaitForSeconds(cameraEventData.Duration);
             Debug.Log("Camera finished");
+            DialogueManager.Instance.ResumeStory();
             OnEndingCondition();
         }
     }
