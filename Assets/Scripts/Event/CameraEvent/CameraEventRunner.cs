@@ -1,5 +1,4 @@
 using Event.FinishConditionScripts;
-using GameCamera;
 using UnityEngine;
 
 namespace Event.CameraEvent {
@@ -8,12 +7,6 @@ namespace Event.CameraEvent {
         public CameraEventData eventData;
         private bool hasSetFinishCondition;
         public bool canStartEvent;
-
-        private CameraMovement cameraMovement;
-
-        private void Awake() {
-            cameraMovement = CameraMovement.Instance;
-        }
 
         private void OnEnable() {
             canStartEvent = false;
@@ -66,10 +59,6 @@ namespace Event.CameraEvent {
         {
             eventData.eventState = EventState.Active;
             eventData.canBeInteracted = true;
-            // Move the camera to target object
-            cameraMovement.SetPosition(
-                eventData.TargetObject.position,
-                eventData.TargetObject.eulerAngles);
         }
 
         public void OnEventFinish()

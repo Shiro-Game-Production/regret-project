@@ -14,6 +14,14 @@ namespace Event.FinishConditionScripts
         private void Awake()
         {
             itemData = GetComponent<ItemData>();
+            if(itemData == null){
+                itemData = GetComponentInParent<ItemData>();
+
+                if(itemData == null){
+                    Debug.LogError("Item data is not found!");
+                }
+            }
+
             dialogueManager = DialogueManager.Instance;
             EventData = GetComponent<DialogueEventData>();
         }

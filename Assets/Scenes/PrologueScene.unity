@@ -8840,7 +8840,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 811202021}
   m_HandleRect: {fileID: 811202020}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14906,7 +14906,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionText: 0
-  events: []
+  events:
+  - {fileID: 0}
   itemMode: 0
   currentDialogue: {fileID: 0}
 --- !u!114 &2072811001

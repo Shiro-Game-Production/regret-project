@@ -23,7 +23,7 @@ namespace Event.DialogueEvent{
 
         private void Awake()
         {
-            ItemData = GetComponent<ItemData>();
+            ItemData = GetComponentInParent<ItemData>();
             
             switch (finishCondition)
             {
