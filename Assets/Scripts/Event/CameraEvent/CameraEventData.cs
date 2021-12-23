@@ -1,4 +1,3 @@
-using Event.FinishConditionScripts;
 using UnityEngine;
 
 namespace Event.CameraEvent {

@@ -8895,6 +8895,26 @@ PrefabInstance:
       propertyPath: currentDialogue
       value: 
       objectReference: {fileID: 4900000, guid: f1448b1fd49b43b4a8308a2a55c7482a, type: 3}
+    - target: {fileID: 490970899433830609, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
+      propertyPath: events.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 490970899433830609, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
+      propertyPath: events.Array.data[0]
+      value: 
+      objectReference: {fileID: 1850869358}
+    - target: {fileID: 490970899433830609, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
+      propertyPath: events.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 490970899433830609, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
+      propertyPath: events.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 490970899433830609, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
+      propertyPath: events.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2261187204190599698, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
       propertyPath: m_Name
       value: Pintu Depan
@@ -12831,6 +12851,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 203291341}
     m_Modifications:
+    - target: {fileID: 490970899433830609, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
+      propertyPath: events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 490970899433830609, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
+      propertyPath: events.Array.data[0]
+      value: 
+      objectReference: {fileID: 745805201}
+    - target: {fileID: 490970899433830609, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
+      propertyPath: events.Array.data[1]
+      value: 
+      objectReference: {fileID: 465006720}
     - target: {fileID: 2261187204190599698, guid: 32750dab864acdb4f97c11779c693e62, type: 3}
       propertyPath: m_Name
       value: Pintu Kamar Adik Kakak
@@ -14874,6 +14906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionText: 0
+  events: []
   itemMode: 0
   currentDialogue: {fileID: 0}
 --- !u!114 &2072811001

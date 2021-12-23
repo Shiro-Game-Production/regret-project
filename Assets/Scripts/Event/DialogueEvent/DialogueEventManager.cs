@@ -4,7 +4,7 @@ using Dialogue;
 using UnityEngine;
 
 namespace Event.DialogueEvent{
-    public class DialogueEventManager : EventManager {
+    public class DialogueEventManager : SingletonBaseClass<DialogueEventManager>, IEventManager {
         [SerializeField] private DialogueEventRunner eventRunnerPrefab;
 
         private List<DialogueEventRunner> eventRunnerPool;
@@ -17,7 +17,7 @@ namespace Event.DialogueEvent{
         /// Set event data to run the event
         /// </summary>
         /// <param name="eventData">Event data</param>
-        public override void SetEventData(EventData eventData)
+        public void SetEventData(EventData eventData)
         {
             DialogueEventRunner eventRunner = GetOrCreateEventRunner();
             eventRunner.eventData = eventData as DialogueEventData;

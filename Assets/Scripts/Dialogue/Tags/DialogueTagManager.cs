@@ -9,6 +9,7 @@ using GameCamera;
 using SceneLoading;
 using UnityEngine;
 using UnityEngine.UI;
+using Event.DialogueEvent;
 
 namespace Dialogue.Tags{
     public class DialogueTagManager : SingletonBaseClass<DialogueTagManager> {
@@ -25,14 +26,14 @@ namespace Dialogue.Tags{
         private DialogueManager dialogueManager;
         private DialogueLogManager dialogueLogManager;
         private DialoguePortraitManager dialoguePortraitManager;
-        private EventManager eventManager;
+        private DialogueEventManager eventManager;
 
         private void Awake() {
             cameraShake = CameraShake.Instance;
             dialogueManager = DialogueManager.Instance;
             dialogueLogManager = DialogueLogManager.Instance;
             dialoguePortraitManager = DialoguePortraitManager.Instance;
-            eventManager = EventManager.Instance;
+            eventManager = DialogueEventManager.Instance;
         }
 
         /// <summary>
@@ -143,7 +144,7 @@ namespace Dialogue.Tags{
             foreach (EventData eventData in eventDatas.Where(
                 eventData => eventData.EventName == eventDataName))
             {
-                eventManager.SetEventData(eventData);  
+                eventManager.SetEventData(eventData);
                 eventData.gameObject.SetActive(true);
                 break;
             }

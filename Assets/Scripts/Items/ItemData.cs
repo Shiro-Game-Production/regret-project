@@ -1,5 +1,9 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Dialogue;
+using Event;
+using Event.CameraEvent;
+using Event.DialogueEvent;
 using UnityEngine;
 
 namespace Items
@@ -10,20 +14,35 @@ namespace Items
         public enum InteractionText { Interaksi, Buka, Bicara }
 
         public InteractionText interactionText = InteractionText.Interaksi;
+        [SerializeField] private List<EventData> events;
         public ItemMode itemMode = ItemMode.NormalMode;
         public TextAsset currentDialogue;
 
         public virtual void HandleInteraction()
         {
-            switch (itemMode)
+            if(events.Count == 0) return;
+            StartCoroutine(StartEvent());
+        }
+
+        private IEnumerator StartEvent(){
+            foreach (EventData eventData in events)
             {
-                case ItemMode.DialogueMode:
-                    HandleDialogue();
-                    break;
-                case ItemMode.NormalMode:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                if(!eventData.isFinished){
+                    // Run the event
+                    switch(eventData){
+                        case DialogueEventData _:
+                            Debug.Log("Convert to dialogue");
+                            HandleDialogue();
+                            break;
+                        case CameraEventData cameraEventData:
+                            Debug.Log("Convert to camera");
+                            CameraEventManager.Instance.SetEventData(cameraEventData);
+                            break;
+                    }
+                    
+                    // Wait event until finished
+                    yield return new WaitUntil(() => eventData.isFinished);
+                }
             }
         }
 

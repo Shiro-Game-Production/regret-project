@@ -4,7 +4,7 @@ using Dialogue;
 using UnityEngine;
 
 namespace Event.CameraEvent {
-    public class CameraEventManager : EventManager {
+    public class CameraEventManager : SingletonBaseClass<CameraEventManager>, IEventManager {
         [SerializeField] private CameraEventRunner eventRunnerPrefab;
 
         private List<CameraEventRunner> eventRunnerPool;
@@ -17,7 +17,7 @@ namespace Event.CameraEvent {
         /// Set event data to run the event
         /// </summary>
         /// <param name="eventData">Event data</param>
-        public override void SetEventData(EventData eventData)
+        public void SetEventData(EventData eventData)
         {
             CameraEventRunner eventRunner = GetOrCreateEventRunner();
             eventRunner.eventData = eventData as CameraEventData;
