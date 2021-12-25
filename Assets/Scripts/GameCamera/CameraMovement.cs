@@ -9,7 +9,10 @@ namespace GameCamera
         [SerializeField] private float transitionSpeed;
         [SerializeField] private bool canMove;
         private Vector3 targetPosition, targetAngle;
-        
+
+        public readonly int HIGHER_PRIORITY = 15;
+        public readonly int LOWER_PRIORITY = 13;
+
         [Header("Top Down Mode")]
         [SerializeField] private Transform topDownMode;
         
@@ -24,30 +27,6 @@ namespace GameCamera
             
             if(playerTransform == null)
                 Debug.LogError("Object with \"Player\" tag not found");
-        }
-
-        private void LateUpdate()
-        {
-            if (!canMove) return;
-            
-            var mainCameraTransform = transform;
-            Vector3 currentPosition = mainCameraTransform.localPosition;
-            Vector3 currentAngles = mainCameraTransform.localEulerAngles;
-            
-            Vector3 smoothPositionTransition = Vector3.Lerp(
-                currentPosition, targetPosition, transitionSpeed * Time.deltaTime);
-
-            Vector3 smoothRotationTransition = Vector3.Lerp(
-                currentAngles, targetAngle, transitionSpeed * Time.deltaTime);
-
-            mainCameraTransform.localPosition = smoothPositionTransition;
-            mainCameraTransform.localEulerAngles = smoothRotationTransition;
-
-            if (mainCameraTransform.localPosition == targetPosition &&
-                mainCameraTransform.localEulerAngles == targetAngle)
-            {
-                canMove = false;
-            }
         }
 
         /// <summary>

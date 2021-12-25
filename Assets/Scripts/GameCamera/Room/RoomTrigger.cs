@@ -1,4 +1,5 @@
 using UnityEngine;
+using Cinemachine;
 
 namespace GameCamera.Room
 {
@@ -6,6 +7,7 @@ namespace GameCamera.Room
     {
         public bool playerInRoom;
         [SerializeField] private Transform cameraTransform;
+        [SerializeField] private CinemachineVirtualCamera virtualCamera;
         private CameraMovement cameraMovement;
 
         private void Awake()
@@ -16,13 +18,14 @@ namespace GameCamera.Room
         private void OnTriggerEnter(Collider other)
         {
             if (!other.gameObject.CompareTag("Player")) return;
-            playerInRoom = true;
+            virtualCamera.Priority = cameraMovement.HIGHER_PRIORITY;
             RoomManager.Instance.detectRooms = true;
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (!other.gameObject.CompareTag("Player")) return;
+            virtualCamera.Priority = cameraMovement.LOWER_PRIORITY;
             playerInRoom = false;
         }
 
