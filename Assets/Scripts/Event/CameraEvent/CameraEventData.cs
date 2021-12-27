@@ -1,16 +1,16 @@
 using UnityEngine;
+using Cinemachine;
 
 namespace Event.CameraEvent {
     public class CameraEventData : EventData {
-        [SerializeField] private Transform targetObject;
+        [SerializeField] private CinemachineVirtualCamera targetVirtualCamera;
         [SerializeField] private float duration = 5f;
 
         #region Setter and Getter
 
-        public Transform TargetObject => targetObject;
+        public CinemachineVirtualCamera TargetVirtualCamera => targetVirtualCamera;
         public float Duration => duration;
         
-
         #endregion
     }
 }

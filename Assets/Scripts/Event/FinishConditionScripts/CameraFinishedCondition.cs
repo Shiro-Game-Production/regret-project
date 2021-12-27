@@ -7,8 +7,10 @@ using UnityEngine;
 
 namespace Event.FinishConditionScripts{
     public class CameraFinishedCondition : FinishConditionManager {
-        
+        private CameraMovement cameraMovement;
+
         private void Awake() {
+            cameraMovement = CameraMovement.Instance;
             EventData = GetComponent<CameraEventData>();
         }
 
@@ -29,15 +31,16 @@ namespace Event.FinishConditionScripts{
 
             // Run the camera
             // Move the camera to target object
-            CameraMovement.Instance.SetPosition(
-                cameraEventData.TargetObject.position,
-                cameraEventData.TargetObject.eulerAngles);
-                
+            cameraMovement.SetVirtualCameraPriority(cameraEventData.TargetVirtualCamera,
+                cameraMovement.CAMERA_HIGHER_PRIORITY);
+
             // Wait for camera duration
             yield return new WaitForSeconds(cameraEventData.Duration);
 
             // Camera finish
             Debug.Log("Camera finished");
+            cameraMovement.SetVirtualCameraPriority(cameraEventData.TargetVirtualCamera,
+                cameraMovement.LOWER_PRIORITY);
             DialogueManager.Instance.ResumeStory();
             OnEndingCondition();
         }

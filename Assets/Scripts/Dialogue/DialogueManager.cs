@@ -9,12 +9,14 @@ using Dialogue.Portrait;
 using Dialogue.Choices;
 using Dialogue.Logs;
 using Dialogue.Tags;
+using Cinemachine;
 
 namespace Dialogue
 {
     public class DialogueManager : SingletonBaseClass<DialogueManager>
     {
         [Header("Camera Manager")] 
+        [SerializeField] private CinemachineVirtualCamera dialogueVcam;
         private CameraMovement cameraMovement;
 
         [Header("Parameters")]
@@ -104,7 +106,8 @@ namespace Dialogue
             StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,
                 beforeEffect: () =>
                 {
-                    cameraMovement.SetCameraToDialogueMode();
+                    cameraMovement.SetVirtualCameraPriority(dialogueVcam,
+                        cameraMovement.DIALOGUE_HIGHER_PRIORITY);
                     DialogueIsPlaying = true;
                     ContinueStory();
                 })
@@ -169,7 +172,8 @@ namespace Dialogue
             StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
                 beforeEffect: () =>
                 {
-                    cameraMovement.SetCameraToTopDownMode();
+                    cameraMovement.SetVirtualCameraPriority(dialogueVcam,
+                        cameraMovement.LOWER_PRIORITY);
                 },
                 afterEffect: () =>
                 {
