@@ -1249,8 +1249,8 @@ MonoBehaviour:
   m_VerticalDamping: 0.5
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_DeadZoneWidth: 0.12
-  m_DeadZoneHeight: 0.2
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0.27
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
@@ -1561,7 +1561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 1.5, z: -1.31}
-  m_XDamping: 6
+  m_XDamping: 1
   m_YDamping: 6
   m_ZDamping: 1
   m_AngularDampingMode: 0
@@ -7794,6 +7794,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.00095881463, y: 0.009588119, z: 0.012943958}
   m_Center: {x: -0.00022504474, y: -0.000000001164153, z: -0.0007191096}
+--- !u!1 &672681438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 672681439}
+  m_Layer: 0
+  m_Name: Target Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &672681439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672681438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.381, y: -3.894, z: 2.808}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1389552258}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &686294673 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5834595880451990046, guid: 691c2f6a9f33e254591d802f2b401428, type: 3}
@@ -8029,7 +8059,9 @@ MonoBehaviour:
   keepObjectAfterFinish: 1
   targetVirtualCamera: {fileID: 1154306988}
   cutsceneTimeline: {fileID: 1389552259}
-  duration: 5
+  useTarget: 1
+  targetCharacter: {fileID: 1160633}
+  targetPosition: {fileID: 672681439}
 --- !u!1 &747250608
 GameObject:
   m_ObjectHideFlags: 0
@@ -9347,8 +9379,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3523312960879964476, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
+      propertyPath: m_CustomBlends
+      value: 
+      objectReference: {fileID: 11400000, guid: 449700e9a63322847b941a88208a3d1c, type: 2}
+    - target: {fileID: 3523312960879964476, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_DefaultBlend.m_Time
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3523312960879964476, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
+      propertyPath: m_DefaultBlend.m_Style
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3523312960879964476, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_DefaultBlend.m_CustomCurve.m_Curve.Array.size
@@ -9440,31 +9480,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5756314267818928616, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.044
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5756314267818928616, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5756314267818928616, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.93
+      value: -6.2
       objectReference: {fileID: 0}
     - target: {fileID: 5756314267818928616, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98745227
+      value: 0.7660445
       objectReference: {fileID: 0}
     - target: {fileID: 5756314267818928616, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1579179
+      value: 0.6427876
       objectReference: {fileID: 0}
     - target: {fileID: 5756314267818928616, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016990475
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5756314267818928616, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000027171951
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5756314267818928616, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9659,6 +9699,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -9074314425455244482, guid: 691c2f6a9f33e254591d802f2b401428, type: 3}
   m_PrefabInstance: {fileID: 2072810998}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1087358267 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6129152236248458201, guid: 691c2f6a9f33e254591d802f2b401428, type: 3}
+  m_PrefabInstance: {fileID: 2072810998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &1087358268
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9777,7 +9822,7 @@ GameObject:
   - component: {fileID: 1111107762}
   - component: {fileID: 1111107763}
   m_Layer: 0
-  m_Name: DollyTrack
+  m_Name: Altar DollyTrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9868,13 +9913,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154306985}
   m_LocalRotation: {x: 0.028566489, y: 0.08330817, z: -0.0023891123, w: 0.99611145}
-  m_LocalPosition: {x: 14.291101, y: 11.186932, z: -2.3238168}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 180157938}
   m_Father: {fileID: 1389552258}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 15, y: 9.561, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1154306987
 Animator:
   serializedVersion: 3
@@ -9912,7 +9957,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 1087358267}
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
@@ -11052,6 +11097,7 @@ Transform:
   m_Children:
   - {fileID: 1154306986}
   - {fileID: 1111107762}
+  - {fileID: 672681439}
   m_Father: {fileID: 1157208329}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14298,7 +14344,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 12
+  m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 638595688}
   m_Follow: {fileID: 638595688}
