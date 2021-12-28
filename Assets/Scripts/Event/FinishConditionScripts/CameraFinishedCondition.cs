@@ -33,9 +33,10 @@ namespace Event.FinishConditionScripts{
             // Move the camera to target object
             cameraMovement.SetVirtualCameraPriority(cameraEventData.TargetVirtualCamera,
                 cameraMovement.CAMERA_HIGHER_PRIORITY);
+            cameraEventData.CutsceneTimeline.Play();
 
             // Wait for camera duration
-            yield return new WaitForSeconds(cameraEventData.Duration);
+            yield return new WaitForSeconds((float) cameraEventData.CutsceneTimeline.duration + 2f);
 
             // Camera finish
             Debug.Log("Camera finished");
