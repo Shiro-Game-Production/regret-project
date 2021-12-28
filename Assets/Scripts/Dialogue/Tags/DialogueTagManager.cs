@@ -69,7 +69,7 @@ namespace Dialogue.Tags{
                         switch (tagValue)
                         {
                             case DialogueTags.SHAKE_TAG:
-                                StartCoroutine(cameraShake.ShakingEffect());
+                                cameraShake.ShakeCamera();
                                 break;
                         }
                         break;
