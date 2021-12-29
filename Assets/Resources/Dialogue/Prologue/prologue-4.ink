@@ -1,7 +1,3 @@
-#speaker:none
-#dialogue-box:none
-#portrait:ken/ken-photo
-...
 #speaker:Yuri
 #dialogue-box:show
 #portrait:yuri/pose2/yuri-blouse/yuri-ex1-shockmore
