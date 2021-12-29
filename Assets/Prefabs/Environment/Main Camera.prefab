@@ -44,8 +44,8 @@ Camera:
   m_GameObject: {fileID: 5756314267818928619}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.16078432, g: 0.16078432, b: 0.16078432, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -98,14 +98,14 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 1
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: 449700e9a63322847b941a88208a3d1c, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -132,7 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29694def3c454117bc1e5c04fdcabf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueVcam: {fileID: 0}
 --- !u!114 &5756314267818928598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,37 +144,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cca0cc426e40f4a40a7ed9e94fc05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.37026465
-      value: 0.09902932
-      inSlope: -0.03206615
-      outSlope: -0.03206615
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.5955227
-      outWeight: 0.22824423
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  shakeDuration: 0.8
+  virtualCamera: {fileID: 0}

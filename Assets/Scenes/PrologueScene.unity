@@ -2420,14 +2420,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3523312960879964476, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
-      propertyPath: m_CustomBlends
-      value: 
-      objectReference: {fileID: 11400000, guid: 449700e9a63322847b941a88208a3d1c, type: 2}
-    - target: {fileID: 3523312960879964476, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
-      propertyPath: m_DefaultBlend.m_Time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3523312960879964476, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_DefaultBlend.m_CustomCurve.m_Curve.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -2554,34 +2546,6 @@ PrefabInstance:
     - target: {fileID: 5756314267818928616, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5756314267818928617, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5756314267818928617, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
-      propertyPath: field of view
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 5756314267818928617, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
-      propertyPath: far clip plane
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5756314267818928617, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
-      propertyPath: near clip plane
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5756314267818928617, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.16078432
-      objectReference: {fileID: 0}
-    - target: {fileID: 5756314267818928617, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.16078432
-      objectReference: {fileID: 0}
-    - target: {fileID: 5756314267818928617, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.16078432
       objectReference: {fileID: 0}
     - target: {fileID: 5756314267818928619, guid: ae35fe57ee1ecfc4bb0a20faaf66039c, type: 3}
       propertyPath: m_Name
@@ -6638,7 +6602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5118401febe16f041a329538f9d70c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prologueTextAsset: {fileID: 4900000, guid: f090e3b6a4f0cc541a3ffbbe9dc17cec, type: 3}
+  initialTextAsset: {fileID: 4900000, guid: f090e3b6a4f0cc541a3ffbbe9dc17cec, type: 3}
 --- !u!1 &2122562282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4829488631852061363, guid: 691c2f6a9f33e254591d802f2b401428, type: 3}
@@ -7212,6 +7176,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3828264039070222716, guid: d10d111424fe9f649b46f948e0685261, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828264039070222716, guid: d10d111424fe9f649b46f948e0685261, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828264039070222716, guid: d10d111424fe9f649b46f948e0685261, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3828264039727497219, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7236,6 +7212,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 250841079}
+    - target: {fileID: 3828264039892742677, guid: d10d111424fe9f649b46f948e0685261, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828264039892742677, guid: d10d111424fe9f649b46f948e0685261, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -17
+      objectReference: {fileID: 0}
     - target: {fileID: 4872425015430483787, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

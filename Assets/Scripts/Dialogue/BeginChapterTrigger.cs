@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Dialogue
 {
-    public class PrologueTrigger : MonoBehaviour
+    public class BeginChapterTrigger : MonoBehaviour
     {
-        [SerializeField] private TextAsset prologueTextAsset;
+        [SerializeField] private TextAsset initialTextAsset;
         private DialogueManager dialogueManager;
 
         private void Awake()
@@ -14,16 +14,17 @@ namespace Dialogue
 
         private void Start()
         {
-            Invoke(nameof(SetPrologueTrigger), 0.02f);
+            // Start chapter after 0.02s
+            Invoke(nameof(StartChapter), 0.02f);
         }
         
         /// <summary>
-        /// Set prologue trigger after a certain seconds
+        /// Start chapter by setting dialogue to dialogue manager
         /// </summary>
-        private void SetPrologueTrigger()
+        private void StartChapter()
         {
             dialogueManager.gameObject.SetActive(true);
-            dialogueManager.SetDialogue(prologueTextAsset);
+            dialogueManager.SetDialogue(initialTextAsset);
         }
     }
 }
