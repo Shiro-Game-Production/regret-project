@@ -12,7 +12,7 @@ Apa ada orang di rumah?
 #speaker:Yuri
 #portrait:yuri/pose1/yuri-blouse/yuri-ex3-warmsmile
 Ken, aku pulang~
-Dimana kamu?
+Di mana kamu?
 Keluarlah
 #speaker:none
 ...

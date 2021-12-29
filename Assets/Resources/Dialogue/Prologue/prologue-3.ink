@@ -4,7 +4,7 @@
 ...
 #event:camera-altar
 Eh..
-Apa-apaan ini!?
+Apa-apaan ini?!
 #event:prologue-4
 Kenapa di kamar ku ada altar kematian?
 ->END
