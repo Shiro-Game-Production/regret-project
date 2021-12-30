@@ -153,6 +153,9 @@ namespace Dialogue.Tags{
                         dialogueManager.PauseStory();
                         CameraEventManager.Instance.SetEventData(eventData);
                         break;
+                    default:
+                        Debug.LogError($"Event: {eventDataName} can't be set. Check the event data class");
+                        break;
                 }
                 
                 eventData.gameObject.SetActive(true);

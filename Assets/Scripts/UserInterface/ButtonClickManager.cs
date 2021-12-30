@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UserInterface
 {
-    public class ButtonClickManager : MonoBehaviour
+    public class ButtonClickManager : SingletonBaseClass<ButtonClickManager>
     {
         public void ShowPrompts(CanvasGroup canvasGroup)
         {

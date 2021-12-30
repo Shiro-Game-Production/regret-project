@@ -1,14 +1,16 @@
 using System.Collections.Generic;
+using Event.FinishConditionScripts;
 using UnityEngine;
 
 namespace Puzzle.Trash{
     [RequireComponent(typeof(BoxCollider2D))]
     public class TrashBin : MonoBehaviour {
         [SerializeField] private List<Trash> trashList;
-
+        private PuzzleFinishedCondition puzzleFinishedCondition;
         private Dictionary<Trash, bool> trashDict;
 
         private void Awake() {
+            puzzleFinishedCondition = GetComponent<PuzzleFinishedCondition>();
             trashDict = new Dictionary<Trash, bool>();
 
             foreach(Trash trash in trashList){
@@ -30,6 +32,7 @@ namespace Puzzle.Trash{
             }
 
             Debug.Log("Puzzle done");
+            puzzleFinishedCondition.OnEndingCondition();
         }
     }
 }

@@ -1,0 +1,2 @@
+﻿#speaker:Yuri
+Sudah selesai

@@ -49,6 +49,9 @@ namespace Event.DialogueEvent {
                                 hasSetFinishCondition = true;
                                 break;
                             case FinishCondition.PuzzleFinished:
+                                eventData.TriggerObject.SetEndingCondition();
+                                hasSetFinishCondition = true;
+                                break;
                             case FinishCondition.CameraDurationFinished:
                                 hasSetFinishCondition = true;
                                 break;

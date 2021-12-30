@@ -8,7 +8,7 @@ namespace Event.FinishConditionScripts
         
         public virtual void SetEndingCondition(){}
 
-        protected void OnEndingCondition()
+        public void OnEndingCondition()
         {
             EventData.isFinished = true;
         }

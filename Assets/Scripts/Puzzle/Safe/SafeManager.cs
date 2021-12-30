@@ -1,3 +1,4 @@
+using Event.FinishConditionScripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,12 +6,18 @@ namespace Puzzle.Safe {
     public class SafeManager : MonoBehaviour
     {
         [SerializeField] private Text safeDisplayText;
+        [SerializeField] private PuzzleFinishedCondition puzzleFinishedCondition;
 
         private const string CORRECT_CODE = "284031"; 
 
-        private void Start()
+        private void Awake()
         {
             safeDisplayText.text = "";
+            if(puzzleFinishedCondition == null){
+                Debug.LogError("Puzzle null");
+            }else{
+                Debug.Log("OK");
+            }
         }
 
         /// <summary>
@@ -32,7 +39,7 @@ namespace Puzzle.Safe {
         {
             if(safeDisplayText.text == CORRECT_CODE)
             {
-                Debug.Log("Safe opened!");
+                puzzleFinishedCondition.OnEndingCondition();
             }
             else
             {
