@@ -3702,11 +3702,11 @@ PrefabInstance:
     - target: {fileID: 6497117075461150357, guid: b9a2e47bfb48bed41b4b3644ac8eb471, type: 3}
       propertyPath: pausePrompts
       value: 
-      objectReference: {fileID: 1990317330}
+      objectReference: {fileID: 0}
     - target: {fileID: 6497117075461150357, guid: b9a2e47bfb48bed41b4b3644ac8eb471, type: 3}
       propertyPath: pauseCanvasGroup
       value: 
-      objectReference: {fileID: 1990317330}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9a2e47bfb48bed41b4b3644ac8eb471, type: 3}
 --- !u!4 &1493208568 stripped
@@ -5453,11 +5453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!225 &1990317330 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 3828264039216800193, guid: d10d111424fe9f649b46f948e0685261, type: 3}
-  m_PrefabInstance: {fileID: 3828264038434518227}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2014691205 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6638425153133628067, guid: 691c2f6a9f33e254591d802f2b401428, type: 3}
@@ -7100,7 +7095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038538987154, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -824.0001
+      value: -823.99994
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038795929098, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

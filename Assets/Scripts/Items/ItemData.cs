@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Dialogue;
-using Event;
-using Event.CameraEvent;
-using Event.DialogueEvent;
 using UnityEngine;
 
 namespace Items
@@ -34,7 +29,8 @@ namespace Items
 
         protected virtual void HandleDialogue()
         {
-            DialogueManager.Instance.SetDialogue(currentDialogue);
+            if(currentDialogue)
+                DialogueManager.Instance.SetDialogue(currentDialogue);
         }
     }
 }
