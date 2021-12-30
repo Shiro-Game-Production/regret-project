@@ -5,7 +5,14 @@ using UnityEngine.Audio;
 {
     public enum ListSound
     {
-        BackgroundMusic,
+        // BGM
+        EndingBGM,
+        MainMenuBGM,
+        NeutralBGM,
+        SadBGM,
+        TenseBGM,
+
+        // SFX
         DoorOpened,
         DoorClosed,
         Slap

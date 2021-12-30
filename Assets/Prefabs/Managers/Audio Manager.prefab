@@ -44,35 +44,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - listSound: 0
-    clip: {fileID: 8300000, guid: 9402029bbb2e94a4bbe7392bfcece48a, type: 3}
+  - listSound: 1
+    clip: {fileID: 8300000, guid: 19d1418f39f700146929b96bb1139430, type: 3}
     audioMixer: {fileID: 24300002, guid: d5bd08d9f45cf3f40b8c23b7b3ae82bc, type: 2}
     volume: 1
     pitch: 1
-    playOnAwake: 1
     loop: 1
     source: {fileID: 0}
-  - listSound: 1
+  - listSound: 0
+    clip: {fileID: 8300000, guid: 671f8d570416e6c46a7079c4d525240b, type: 3}
+    audioMixer: {fileID: 24300002, guid: d5bd08d9f45cf3f40b8c23b7b3ae82bc, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - listSound: 2
+    clip: {fileID: 8300000, guid: 74db5ee0dc48fb74abed061f87dd3f1a, type: 3}
+    audioMixer: {fileID: 24300002, guid: d5bd08d9f45cf3f40b8c23b7b3ae82bc, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - listSound: 3
+    clip: {fileID: 8300000, guid: 17291b8075c6ccd47b87ba82e184cf94, type: 3}
+    audioMixer: {fileID: 24300002, guid: d5bd08d9f45cf3f40b8c23b7b3ae82bc, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - listSound: 4
+    clip: {fileID: 8300000, guid: 38f391ab405796e41ba493fca71096d4, type: 3}
+    audioMixer: {fileID: 24300002, guid: d5bd08d9f45cf3f40b8c23b7b3ae82bc, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - listSound: 5
     clip: {fileID: 8300000, guid: b6c926b19753c4445a500e1a4b8e5987, type: 3}
     audioMixer: {fileID: 24300002, guid: 641f92a3603a0e04c8a56c7796d15d5e, type: 2}
     volume: 1
     pitch: 1
-    playOnAwake: 0
     loop: 0
     source: {fileID: 0}
-  - listSound: 2
+  - listSound: 6
     clip: {fileID: 8300000, guid: ce3e43ea9f61e3c4aac53fd8735c1d1f, type: 3}
     audioMixer: {fileID: 24300002, guid: 641f92a3603a0e04c8a56c7796d15d5e, type: 2}
     volume: 1
     pitch: 1
-    playOnAwake: 0
     loop: 0
     source: {fileID: 0}
-  - listSound: 3
+  - listSound: 7
     clip: {fileID: 8300000, guid: f348d2a50018c374ba2c47addb89f96c, type: 3}
-    audioMixer: {fileID: 24300002, guid: 641f92a3603a0e04c8a56c7796d15d5e, type: 2}
+    audioMixer: {fileID: 24300002, guid: d5bd08d9f45cf3f40b8c23b7b3ae82bc, type: 2}
     volume: 1
     pitch: 1
-    playOnAwake: 0
     loop: 0
     source: {fileID: 0}

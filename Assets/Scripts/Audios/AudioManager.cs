@@ -60,12 +60,12 @@ using UnityEngine;
                 if (donePlayBgm) return;
                 
                 donePlayBgm = true;
-                Play(ListSound.BackgroundMusic);
+                Play(ListSound.MainMenuBGM);
             }
             else
             {
                 donePlayBgm = false;
-                Stop(ListSound.BackgroundMusic);
+                Stop(ListSound.MainMenuBGM);
             }
         }
 
