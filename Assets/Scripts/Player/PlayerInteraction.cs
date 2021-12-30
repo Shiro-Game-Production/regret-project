@@ -72,7 +72,8 @@ namespace Player
             }
 
             // If event data can't be interacted (not finished yet) and item mode is dialogue mode, ...
-            if (!eventData.canBeInteracted && itemData.itemMode == ItemData.ItemMode.DialogueMode ||
+            if (!eventData.canBeInteracted ||
+                (!eventData.canBeInteracted && itemData.itemMode == ItemData.ItemMode.DialogueMode) ||
                 !eventData && !itemData)
             {
                 playerInRange = false;

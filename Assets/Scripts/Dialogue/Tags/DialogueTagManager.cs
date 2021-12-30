@@ -146,6 +146,7 @@ namespace Dialogue.Tags{
                 // Set event data
                 switch(eventData){
                     case DialogueEventData _:
+                        Debug.Log("Set dialogue event");
                         DialogueEventManager.Instance.SetEventData(eventData);
                         break;
                     case CameraEventData _:

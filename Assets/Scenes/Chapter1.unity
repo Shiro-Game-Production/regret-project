@@ -4997,6 +4997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9605d5dec8ff8d43abf449b8c786a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleCanvasGroup: {fileID: 1459141631}
 --- !u!65 &1335602256
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5022,7 +5023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bfd032f4d628947899a5bc1afa7644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: puzzle-event
+  eventName: safe-puzzle
   isFinished: 0
   eventState: 0
   finishCondition: 1

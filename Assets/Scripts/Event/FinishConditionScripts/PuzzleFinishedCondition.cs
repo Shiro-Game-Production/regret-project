@@ -1,10 +1,18 @@
+using Effects;
 using UnityEngine;
 
 namespace Event.FinishConditionScripts{
     public class PuzzleFinishedCondition : FinishConditionManager {
-        public override void SetEndingCondition()
+        [SerializeField] private CanvasGroup puzzleCanvasGroup;
+
+        private void Awake() {
+            EventData = GetComponent<EventData>();
+        }
+
+        public override void OnEndingCondition()
         {
-            base.SetEndingCondition();
+            base.OnEndingCondition();
+            StartCoroutine(FadingEffect.FadeOut(puzzleCanvasGroup));
         }
     }
 }

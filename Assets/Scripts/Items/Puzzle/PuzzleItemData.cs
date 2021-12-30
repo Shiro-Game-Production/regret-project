@@ -1,6 +1,5 @@
 using Effects;
 using UnityEngine;
-using UserInterface;
 
 namespace Items.Puzzle{
     public class PuzzleItemData : ItemData {

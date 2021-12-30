@@ -13,11 +13,6 @@ namespace Puzzle.Safe {
         private void Awake()
         {
             safeDisplayText.text = "";
-            if(puzzleFinishedCondition == null){
-                Debug.LogError("Puzzle null");
-            }else{
-                Debug.Log("OK");
-            }
         }
 
         /// <summary>
