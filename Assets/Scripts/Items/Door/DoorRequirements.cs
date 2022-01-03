@@ -14,8 +14,8 @@ namespace Items.Door
         private const float SPRING = 15;
         private const float DAMPER = 2;
         private const bool USE_LIMITS = true;
-        private const float MIN_ANGLES = -90;
-        private const float MAX_ANGLES = 90;
+        private const float MIN_ANGLES = -80;
+        private const float MAX_ANGLES = 80;
 
         [Header("NavMeshObstacle")]
         private NavMeshObstacle navMeshObstacle;
