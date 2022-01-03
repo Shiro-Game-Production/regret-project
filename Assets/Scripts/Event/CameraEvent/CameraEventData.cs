@@ -14,6 +14,8 @@ namespace Event.CameraEvent {
         [SerializeField] private PlayerMovement targetCharacter;
         [DrawIf("useTarget", true)]
         [SerializeField] private Transform targetPosition;
+        [DrawIf("useTarget", true)]
+        [SerializeField] private Transform lookAtTarget;
 
         #region Setter and Getter
 
@@ -21,6 +23,7 @@ namespace Event.CameraEvent {
         public PlayableDirector CutsceneTimeline => cutsceneTimeline;
         public PlayerMovement TargetCharacter => targetCharacter;
         public Transform TargetPosition => targetPosition;
+        public Transform LookAtTarget => lookAtTarget;
         public bool UseTarget => useTarget;
 
         #endregion

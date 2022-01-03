@@ -36,8 +36,10 @@ namespace Event.FinishConditionScripts{
             cameraEventData.CutsceneTimeline.Play();
 
             // Move the character
-            if(cameraEventData.UseTarget)
+            if(cameraEventData.UseTarget){
                 cameraEventData.TargetCharacter.Move(cameraEventData.TargetPosition.position);
+                cameraEventData.TargetCharacter.transform.LookAt(cameraEventData.LookAtTarget);
+            }
 
             // Wait for camera duration
             yield return new WaitForSeconds((float) cameraEventData.CutsceneTimeline.duration + 2f);
