@@ -38,7 +38,6 @@ namespace Event.FinishConditionScripts{
             // Move the character
             if(cameraEventData.UseTarget){
                 cameraEventData.TargetCharacter.Move(cameraEventData.TargetPosition.position);
-                cameraEventData.TargetCharacter.transform.LookAt(cameraEventData.LookAtTarget);
             }
 
             // Wait for camera duration
@@ -46,6 +45,7 @@ namespace Event.FinishConditionScripts{
 
             // Camera finish
             Debug.Log("Camera finished");
+            cameraEventData.TargetCharacter.transform.LookAt(cameraEventData.LookAtTarget);
             cameraMovement.SetVirtualCameraPriority(cameraEventData.TargetVirtualCamera,
                 cameraMovement.LOWER_PRIORITY);
             DialogueManager.Instance.ResumeStory();

@@ -1287,7 +1287,7 @@ MonoBehaviour:
   triggerObject: {fileID: 465006719}
   canBeInteracted: 0
   keepObjectAfterFinish: 1
-  affectedItem: {fileID: 1658707148}
+  affectedItem: {fileID: 1168611524}
   eventDialogue:
     waitDialogueAsset: {fileID: 0}
     finishDialogueAsset: {fileID: 4900000, guid: 804b68f6eba36524eaed4eafd5c5240d, type: 3}
@@ -1401,8 +1401,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672681438}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.298, y: 0.3483143, z: 4.132}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.61, y: 0.3483143, z: 3.985}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1389552258}
@@ -2015,7 +2015,7 @@ MonoBehaviour:
     roll: 0
   - position: {x: -0.87583923, y: 0, z: -2.7428071}
     roll: 0
-  - position: {x: -1.1771946, y: 0, z: -1.3044848}
+  - position: {x: -1.1771946, y: 0, z: -1.1}
     roll: 0
   - position: {x: 0, y: 0, z: 0}
     roll: 0
@@ -2147,6 +2147,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1168611528}
   - component: {fileID: 1168611527}
+  - component: {fileID: 1168611526}
+  - component: {fileID: 1168611525}
+  - component: {fileID: 1168611524}
   m_Layer: 0
   m_Name: Altar
   m_TagString: Untagged
@@ -2154,6 +2157,58 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1168611524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168611523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22479ba805546908fe30a8de816bfd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionText: 0
+  itemMode: 1
+  currentDialogue: {fileID: 0}
+--- !u!114 &1168611525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168611523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf091ab55da433d8c55d994ad653e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1168611526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168611523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6bfd032f4d628947899a5bc1afa7644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: prologue-4
+  isFinished: 0
+  eventState: 0
+  finishCondition: 2
+  triggerObject: {fileID: 1168611525}
+  canBeInteracted: 0
+  keepObjectAfterFinish: 1
+  affectedItem: {fileID: 0}
+  eventDialogue:
+    waitDialogueAsset: {fileID: 0}
+    finishDialogueAsset: {fileID: 0}
+    nextEventDialogueAsset: {fileID: 0}
+    defaultDialogueAsset: {fileID: 0}
 --- !u!65 &1168611527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2165,8 +2220,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1702633, y: 1.7518177, z: 0.7267914}
-  m_Center: {x: 6.4387608, y: 1.0873456, z: 5.9368267}
+  m_Size: {x: 1.0451918, y: 1.7518177, z: 0.7267914}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1168611528
 Transform:
   m_ObjectHideFlags: 0
@@ -2175,7 +2230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168611523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.426, y: 1.2011971, z: 6.063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1274091198}
@@ -3409,6 +3464,26 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: -1812797309797180963, guid: c97395b7ecfa116428beed9d90839cbe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -1812797309797180963, guid: c97395b7ecfa116428beed9d90839cbe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -1812797309797180963, guid: c97395b7ecfa116428beed9d90839cbe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1812797309797180963, guid: c97395b7ecfa116428beed9d90839cbe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1812797309797180963, guid: c97395b7ecfa116428beed9d90839cbe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: -1766463500265493109, guid: c97395b7ecfa116428beed9d90839cbe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.75
@@ -3657,6 +3732,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 4358079017560324988, guid: c97395b7ecfa116428beed9d90839cbe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.206
+      objectReference: {fileID: 0}
     - target: {fileID: 4535785882574377997, guid: c97395b7ecfa116428beed9d90839cbe, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -3688,6 +3767,10 @@ PrefabInstance:
     - target: {fileID: 5317540622400395390, guid: c97395b7ecfa116428beed9d90839cbe, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469302341320166719, guid: c97395b7ecfa116428beed9d90839cbe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.819
       objectReference: {fileID: 0}
     - target: {fileID: 5651783134554419098, guid: c97395b7ecfa116428beed9d90839cbe, type: 3}
       propertyPath: m_NavMeshLayer
@@ -5982,58 +6065,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.014167327, y: 0.00045086374, z: 0.018334197}
   m_Center: {x: -4.656613e-10, y: 0.0000000067229835, z: 0}
---- !u!114 &1658707146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658706728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6bfd032f4d628947899a5bc1afa7644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventName: prologue-4
-  isFinished: 0
-  eventState: 0
-  finishCondition: 2
-  triggerObject: {fileID: 1658707147}
-  canBeInteracted: 0
-  keepObjectAfterFinish: 1
-  affectedItem: {fileID: 0}
-  eventDialogue:
-    waitDialogueAsset: {fileID: 0}
-    finishDialogueAsset: {fileID: 0}
-    nextEventDialogueAsset: {fileID: 0}
-    defaultDialogueAsset: {fileID: 0}
---- !u!114 &1658707147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658706728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf091ab55da433d8c55d994ad653e20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1658707148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658706728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f22479ba805546908fe30a8de816bfd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionText: 0
-  itemMode: 1
-  currentDialogue: {fileID: 0}
 --- !u!223 &1706556542 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3828264038899206317, guid: d10d111424fe9f649b46f948e0685261, type: 3}
@@ -7524,19 +7555,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.044
+      value: 5.116016
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7283144
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.7795815
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9819163
       objectReference: {fileID: 0}
     - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.022028623
+      value: 0.021635419
       objectReference: {fileID: 0}
     - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.18802968
       objectReference: {fileID: 0}
     - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.004143022
       objectReference: {fileID: 0}
     - target: {fileID: 4477694608829030257, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: canvas
@@ -7562,6 +7605,10 @@ PrefabInstance:
       propertyPath: interactionButtonTransform
       value: 
       objectReference: {fileID: 1961612476}
+    - target: {fileID: 4477694608829030262, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: lookAt
+      value: 
+      objectReference: {fileID: 1658707060}
     - target: {fileID: 4477694609025508192, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -7714,7 +7761,7 @@ PrefabInstance:
     - target: {fileID: 6124342948513466167, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
       propertyPath: eventDatas.Array.data[3]
       value: 
-      objectReference: {fileID: 1658707146}
+      objectReference: {fileID: 1168611526}
     - target: {fileID: 6124342949184697479, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
       propertyPath: portraitsParent
       value: 
