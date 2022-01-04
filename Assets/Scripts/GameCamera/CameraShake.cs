@@ -21,7 +21,6 @@ namespace GameCamera
         }
 
         public void ShakeCamera(float intensity = 5f, float time = 0.8f){
-            Debug.Log("Shake baru");
             CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
                 virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 

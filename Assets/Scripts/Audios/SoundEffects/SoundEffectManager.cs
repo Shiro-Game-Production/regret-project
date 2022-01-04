@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -12,10 +13,10 @@ namespace Audios.SoundEffects
         [ArrayElementTitle("listSoundEffect")]
         public List<SoundEffect> soundEffects;
 
-        private List<AudioSource> audioSources;
+        private List<AudioSource> audioSourcePool;
 
         private void Awake() {
-            audioSources = new List<AudioSource>();
+            audioSourcePool = new List<AudioSource>();
         }
 
         /// <summary>
@@ -27,6 +28,7 @@ namespace Audios.SoundEffects
             AudioClip audioClip = GetAudioClip(audio);
 
             audioSource.PlayOneShot(audioClip);
+            StartCoroutine(StopAudio(audioSource));
         }
 
         /// <summary>
@@ -38,6 +40,17 @@ namespace Audios.SoundEffects
             AudioClip audioClip = GetAudioClip(audio);
 
             audioSource.PlayOneShot(audioClip);
+            StartCoroutine(StopAudio(audioSource));
+        }
+
+        /// <summary>
+        /// Deactivate audio's game object after not playing anymore
+        /// </summary>
+        /// <param name="audioSource">Current audio source</param>
+        /// <returns></returns>
+        private IEnumerator StopAudio(AudioSource audioSource){
+            yield return new WaitUntil(() => !audioSource.isPlaying);
+            audioSource.gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -65,19 +78,20 @@ namespace Audios.SoundEffects
         /// </summary>
         /// <returns>Available sound effect audio source</returns>
         private AudioSource GetAudioSource(){
-            AudioSource audioSource = audioSources.Find(source =>
+            AudioSource audioSource = audioSourcePool.Find(source =>
                 !source.isPlaying && !source.gameObject.activeInHierarchy);
             
-            if(audioSources == null){
+            if(audioSource == null){
+                Debug.Log("Instantiate");
                 GameObject newAudioObject = new GameObject("Sound Effect", typeof(AudioSource));
                 newAudioObject.transform.parent = transform; // Set parent
 
                 // Set mixer
-                AudioSource newAudioSource = newAudioObject.GetComponent<AudioSource>();
-                newAudioSource.outputAudioMixerGroup = sfxAudioMixer;
+                audioSource = newAudioObject.GetComponent<AudioSource>();
+                audioSource.outputAudioMixerGroup = sfxAudioMixer;
 
                 // Add to pool
-                audioSources.Add(newAudioSource);
+                audioSourcePool.Add(audioSource);
             }
 
             audioSource.gameObject.SetActive(true);
