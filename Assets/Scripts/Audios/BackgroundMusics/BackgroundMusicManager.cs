@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Effects;
 using UnityEngine;
@@ -49,14 +50,16 @@ namespace Audios.BackgroundMusics
                         {
                             StartCoroutine(AudioFadingEffect.FadeIn(
                                 bgmAudioSource, backgroundMusic.volume, 
-                                beforeEffect: () => bgmAudioSource.clip = backgroundMusic.clip));
+                                beforeEffect: () => bgmAudioSource.clip = backgroundMusic.clip,
+                                afterEffect: () => bgmAudioSource.Play()));
                         }
                     )
                 );
             } else{
                 StartCoroutine(AudioFadingEffect.FadeIn(
                     bgmAudioSource, backgroundMusic.volume, 
-                    beforeEffect: () => bgmAudioSource.clip = backgroundMusic.clip));
+                    beforeEffect: () => bgmAudioSource.clip = backgroundMusic.clip,
+                    afterEffect: () => bgmAudioSource.Play()));
             }
         }
     }
