@@ -30,10 +30,11 @@ namespace Audios.SoundEffects
         /// Play by audio enum type
         /// </summary>
         /// <param name="audio">Audio enum type</param>
-        public void Play(SoundEffect audio){
+        public void Play(ListSoundEffect audio){
             AudioSource audioSource = GetAudioSource();
+            AudioClip audioClip = GetAudioClip(audio);
 
-            audioSource.PlayOneShot(audio.clip);
+            audioSource.PlayOneShot(audioClip);
         }
 
         /// <summary>
@@ -43,7 +44,16 @@ namespace Audios.SoundEffects
         /// <returns>Audio clip of audio enum name</returns>
         private AudioClip GetAudioClip(string audio){
             SoundEffect soundEffect = soundEffects.Find(s => Enum.TryParse(audio, true, out s.listSoundEffect));
+            return soundEffect.clip;
+        }
 
+        /// <summary>
+        /// Get audio clip from audio enum type
+        /// </summary>
+        /// <param name="audio">Audio enum type</param>
+        /// <returns>Audio clip of audio enum name</returns>
+        private AudioClip GetAudioClip(ListSoundEffect audio){
+            SoundEffect soundEffect = soundEffects.Find(s => s.listSoundEffect == audio);
             return soundEffect.clip;
         }
 

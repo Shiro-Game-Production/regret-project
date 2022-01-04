@@ -11,6 +11,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Event.DialogueEvent;
 using Event.CameraEvent;
+using Audios.BackgroundMusics;
+using Audios.SoundEffects;
 
 namespace Dialogue.Tags{
     public class DialogueTagManager : SingletonBaseClass<DialogueTagManager> {
@@ -57,8 +59,8 @@ namespace Dialogue.Tags{
                 // Handle tag
                 switch (tagKey)
                 {
-                    case DialogueTags.AUDIO_TAG:
-                        HandleAudio(tagValue);
+                    case DialogueTags.BGM_TAG:
+                        BackgroundMusicManager.Instance.Play(tagValue);
                         break;
                     
                     case DialogueTags.DIALOGUE_BOX_TAG:
@@ -85,6 +87,10 @@ namespace Dialogue.Tags{
                     case DialogueTags.PORTRAIT_TAG:
                         dialoguePortraitManager.DisplayPortraits(tagValue);
                         break;
+
+                    case DialogueTags.SFX_TAG:
+                        SoundEffectManager.Instance.Play(tagValue);
+                        break;
                     
                     case DialogueTags.SPEAKER_TAG:
                         dialogueLogManager.speakerNameValue = tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
@@ -97,15 +103,6 @@ namespace Dialogue.Tags{
                 }
             }
         }
-
-        #region Audio
-        
-        private void HandleAudio(string audio)
-        {
-            AudioManager.Instance.Play(audio);
-        }
-        
-        #endregion
 
         #region Dialogue Box
 

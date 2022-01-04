@@ -5,12 +5,13 @@ namespace Dialogue.Tags
     public static class DialogueTags
     {
         [Header("Tags")]
-        public const string AUDIO_TAG = "audio";
+        public const string BGM_TAG = "bgm";
         public const string DIALOGUE_BOX_TAG = "dialogue-box";
         public const string EFFECT_TAG = "effect";
         public const string ENDING_TAG = "end";
         public const string EVENT_TAG = "event";
         public const string PORTRAIT_TAG = "portrait";
+        public const string SFX_TAG = "sfx";
         public const string SPEAKER_TAG = "speaker";
 
         [Header("Tag Value")]

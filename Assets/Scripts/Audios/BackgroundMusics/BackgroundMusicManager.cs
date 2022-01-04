@@ -19,30 +19,35 @@ namespace Audios.BackgroundMusics
         public void Play(string audio){
             BackgroundMusic backgroundMusic = backgroundMusics.Find(
                 s => Enum.TryParse(audio, true, out s.listBackgroundMusic));
-
-            Play(backgroundMusic);
+            PlayAudioEffect(backgroundMusic);
         }
 
         /// <summary>
         /// Play by audio enum type
         /// </summary>
-        /// <param name="audio">Audio enm type</param>
-        public void Play(BackgroundMusic audio){
+        /// <param name="audio">Audio enum type</param>
+        public void Play(ListBackgroundMusic audio){
+            BackgroundMusic backgroundMusic = backgroundMusics.Find(
+                s => s.listBackgroundMusic == audio);
+            PlayAudioEffect(backgroundMusic);
+        }
+
+        private void PlayAudioEffect(BackgroundMusic backgroundMusic){
             if(bgmAudioSource.isPlaying){
                 StartCoroutine(
                     AudioFadingEffect.FadeOut(bgmAudioSource,
                         afterEffect: () =>
                         {
                             StartCoroutine(AudioFadingEffect.FadeIn(
-                                bgmAudioSource, audio.volume, 
-                                beforeEffect: () => bgmAudioSource.clip = audio.clip));
+                                bgmAudioSource, backgroundMusic.volume, 
+                                beforeEffect: () => bgmAudioSource.clip = backgroundMusic.clip));
                         }
                     )
                 );
             } else{
                 StartCoroutine(AudioFadingEffect.FadeIn(
-                    bgmAudioSource, audio.volume, 
-                    beforeEffect: () => bgmAudioSource.clip = audio.clip));
+                    bgmAudioSource, backgroundMusic.volume, 
+                    beforeEffect: () => bgmAudioSource.clip = backgroundMusic.clip));
             }
         }
     }
