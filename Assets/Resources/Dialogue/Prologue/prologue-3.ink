@@ -1,4 +1,5 @@
 #speaker:Yuri
+#bgm:TenseBGM
 #portrait:yuri
 #portrait:yuri/pose1/yuri-blouse/yuri-ex4-shock
 ...

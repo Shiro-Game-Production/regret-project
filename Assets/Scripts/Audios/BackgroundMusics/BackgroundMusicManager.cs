@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Effects;
 using UnityEngine;
@@ -29,7 +28,11 @@ namespace Audios.BackgroundMusics
         public void Play(string audio){
             BackgroundMusic backgroundMusic = backgroundMusics.Find(
                 s => Enum.TryParse(audio, true, out s.listBackgroundMusic));
-            PlayAudioEffect(backgroundMusic);
+            
+            if(backgroundMusic != null)
+                PlayAudioEffect(backgroundMusic);
+            else
+                Debug.LogError($"Audio with name: {audio} is not available");
         }
 
         /// <summary>
@@ -39,7 +42,11 @@ namespace Audios.BackgroundMusics
         public void Play(ListBackgroundMusic audio){
             BackgroundMusic backgroundMusic = backgroundMusics.Find(
                 s => s.listBackgroundMusic == audio);
-            PlayAudioEffect(backgroundMusic);
+
+            if(backgroundMusic != null)
+                PlayAudioEffect(backgroundMusic);
+            else
+                Debug.LogError($"Audio with name: {audio} is not available");
         }
 
         private void PlayAudioEffect(BackgroundMusic backgroundMusic){
@@ -49,16 +56,16 @@ namespace Audios.BackgroundMusics
                         afterEffect: () =>
                         {
                             StartCoroutine(AudioFadingEffect.FadeIn(
-                                bgmAudioSource, backgroundMusic.volume, 
-                                beforeEffect: () => bgmAudioSource.clip = backgroundMusic.clip,
+                                bgmAudioSource, backgroundMusic.Volume, 
+                                beforeEffect: () => bgmAudioSource.clip = backgroundMusic.Clip,
                                 afterEffect: () => bgmAudioSource.Play()));
                         }
                     )
                 );
             } else{
                 StartCoroutine(AudioFadingEffect.FadeIn(
-                    bgmAudioSource, backgroundMusic.volume, 
-                    beforeEffect: () => bgmAudioSource.clip = backgroundMusic.clip,
+                    bgmAudioSource, backgroundMusic.Volume, 
+                    beforeEffect: () => bgmAudioSource.clip = backgroundMusic.Clip,
                     afterEffect: () => bgmAudioSource.Play()));
             }
         }

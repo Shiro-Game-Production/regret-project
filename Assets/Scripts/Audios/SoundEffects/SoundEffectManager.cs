@@ -17,6 +17,7 @@ namespace Audios.SoundEffects
 
         private void Awake() {
             audioSourcePool = new List<AudioSource>();
+            Play("Slap");
         }
 
         /// <summary>
@@ -59,8 +60,12 @@ namespace Audios.SoundEffects
         /// <param name="audio">Audio enum name</param>
         /// <returns>Audio clip of audio enum name</returns>
         private AudioClip GetAudioClip(string audio){
-            SoundEffect soundEffect = soundEffects.Find(s => Enum.TryParse(audio, true, out s.listSoundEffect));
-            return soundEffect.clip;
+            SoundEffect soundEffect = soundEffects.Find(
+                s => Enum.TryParse(audio, true, out s.listSoundEffect));
+            if(soundEffect != null) return soundEffect.Clip;
+
+            Debug.LogError($"Audio clip: {audio} not available");
+            return null;
         }
 
         /// <summary>
@@ -70,7 +75,10 @@ namespace Audios.SoundEffects
         /// <returns>Audio clip of audio enum name</returns>
         private AudioClip GetAudioClip(ListSoundEffect audio){
             SoundEffect soundEffect = soundEffects.Find(s => s.listSoundEffect == audio);
-            return soundEffect.clip;
+            if(soundEffect != null) return soundEffect.Clip;
+
+            Debug.LogError($"Audio clip: {audio} not available");
+            return null;
         }
 
         /// <summary>

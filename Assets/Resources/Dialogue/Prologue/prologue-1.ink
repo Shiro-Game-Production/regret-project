@@ -1,4 +1,5 @@
 #speaker:Yuri
+#bgm:NeutralBGM
 #portrait:yuri/pose1/yuri-blouse/yuri-ex2-serious
 ...
 #portrait:yuri/pose1/yuri-blouse/yuri-ex5-sigh
