@@ -3,25 +3,9 @@ using UnityEngine.Audio;
 
  namespace Audios
 {
-    public enum ListSound
-    {
-        // BGM
-        EndingBGM,
-        MainMenuBGM,
-        NeutralBGM,
-        SadBGM,
-        TenseBGM,
-
-        // SFX
-        DoorOpened,
-        DoorClosed,
-        Slap
-    }
-    
     [System.Serializable]
     public class Sound
     {
-        public ListSound listSound;
         public AudioClip clip;
         public AudioMixerGroup audioMixer;
         
@@ -31,8 +15,5 @@ using UnityEngine.Audio;
         public float pitch = 1;
         
         public bool loop;
-        
-        [HideInInspector]
-        public AudioSource source;
     }
 }
