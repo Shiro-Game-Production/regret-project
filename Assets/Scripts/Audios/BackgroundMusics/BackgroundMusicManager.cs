@@ -27,7 +27,13 @@ namespace Audios.BackgroundMusics
         /// <param name="audio">Audio enum name</param>
         public void Play(string audio){
             BackgroundMusic backgroundMusic = backgroundMusics.Find(
-                s => Enum.TryParse(audio, true, out s.listBackgroundMusic));
+                s => {
+                    if(s.listBackgroundMusic.ToString().ToLower() == audio.ToLower()){
+                        return true;
+                    }
+                    return false;
+                }
+            );
             
             if(backgroundMusic != null)
                 PlayAudioEffect(backgroundMusic);
