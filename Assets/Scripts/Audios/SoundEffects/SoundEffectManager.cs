@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Audios.SoundEffects
 {
     public class SoundEffectManager : SingletonBaseClass<SoundEffectManager>
     {
+        [SerializeField] private AudioMixerGroup sfxAudioMixer;
+        
         [ArrayElementTitle("listSoundEffect")]
         public List<SoundEffect> soundEffects;
 
@@ -67,8 +70,14 @@ namespace Audios.SoundEffects
             
             if(audioSources == null){
                 GameObject newAudioObject = new GameObject("Sound Effect", typeof(AudioSource));
+                newAudioObject.transform.parent = transform; // Set parent
 
-                audioSources.Add(newAudioObject.GetComponent<AudioSource>());
+                // Set mixer
+                AudioSource newAudioSource = newAudioObject.GetComponent<AudioSource>();
+                newAudioSource.outputAudioMixerGroup = sfxAudioMixer;
+
+                // Add to pool
+                audioSources.Add(newAudioSource);
             }
 
             audioSource.gameObject.SetActive(true);

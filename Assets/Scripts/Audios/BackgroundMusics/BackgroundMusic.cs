@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Audios.BackgroundMusics{
@@ -8,7 +9,8 @@ namespace Audios.BackgroundMusics{
         SadBGM,
         TenseBGM,
     }
-
+    
+    [Serializable]
     public class BackgroundMusic: Sound {
         public ListBackgroundMusic listBackgroundMusic;
     }

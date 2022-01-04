@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Effects;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Audios.BackgroundMusics
 {
@@ -11,6 +12,14 @@ namespace Audios.BackgroundMusics
         public List<BackgroundMusic> backgroundMusics;
 
         [SerializeField] private AudioSource bgmAudioSource;
+        [SerializeField] private AudioMixerGroup bgmAudioMixer;
+
+        private void Awake() {
+            bgmAudioSource.outputAudioMixerGroup = bgmAudioMixer;
+            bgmAudioSource.loop = true;
+            
+            Play(ListBackgroundMusic.MainMenuBGM);
+        }
 
         /// <summary>
         /// Play by audio enum name
