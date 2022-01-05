@@ -27,7 +27,7 @@ namespace Event.FinishConditionScripts{
             Debug.Log("Wait for camera finished");
             CameraEventData cameraEventData = EventData as CameraEventData;
             // Wait until player don't move
-            yield return new WaitUntil(() => !PlayerMovement.Instance.IsWalking);
+            yield return new WaitUntil(() => !cameraEventData.TargetCharacter.IsWalking);
 
             // Run the camera
             // Move the camera to target object

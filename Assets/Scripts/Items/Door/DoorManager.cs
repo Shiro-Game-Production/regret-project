@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Audios;
 using Audios.SoundEffects;
 using Player;
 using UnityEngine;
@@ -70,13 +69,13 @@ namespace Items.Door
             yield return new WaitUntil(() => !moveDoorOpener);
             
             // Move the player
-            playerMovement.Move(isPlayerInside ? 
+            playerMovement.Movement.Move(isPlayerInside ? 
                 playerOutsideTransform.position : playerInsideTransform.position);
             isPlayerInside = !isPlayerInside;
             
             // Wait for 2 seconds and when player is not walking anymore
             yield return new WaitForSeconds(2f);
-            yield return new WaitUntil(() => !PlayerMovement.Instance.IsWalking);
+            yield return new WaitUntil(() => !playerMovement.Movement.IsWalking);
 
             // Close the door
             targetPosition = openerOutsideTransform.position;

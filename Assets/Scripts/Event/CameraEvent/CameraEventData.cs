@@ -11,7 +11,7 @@ namespace Event.CameraEvent {
         [Header("Target")]
         [SerializeField] private bool useTarget;
         [DrawIf("useTarget", true)]
-        [SerializeField] private PlayerMovement targetCharacter;
+        [SerializeField] private NavigationMovement targetCharacter;
         [DrawIf("useTarget", true)]
         [SerializeField] private Transform targetPosition;
         [DrawIf("useTarget", true)]
@@ -21,7 +21,7 @@ namespace Event.CameraEvent {
 
         public CinemachineVirtualCamera TargetVirtualCamera => targetVirtualCamera;
         public PlayableDirector CutsceneTimeline => cutsceneTimeline;
-        public PlayerMovement TargetCharacter => targetCharacter;
+        public NavigationMovement TargetCharacter => targetCharacter;
         public Transform TargetPosition => targetPosition;
         public Transform LookAtTarget => lookAtTarget;
         public bool UseTarget => useTarget;

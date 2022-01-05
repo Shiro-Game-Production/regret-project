@@ -11,30 +11,17 @@ namespace Player
     [RequireComponent(typeof(Rigidbody))]
     public class PlayerMovement : SingletonBaseClass<PlayerMovement>
     {
-        [SerializeField] private float speed = 5f;
-        [SerializeField] private float angularSpeed = 1000f;
-        
-        private Animator animator;
+        private NavigationMovement navigationMovement;
         private Camera mainCamera;
-        private NavMeshAgent navPlayer;
         public bool canMove;
-        private bool isWalking;
-        private static readonly int IsWalkingParam = Animator.StringToHash("IsWalking");
 
-        public bool IsWalking => isWalking;
+        public NavigationMovement Movement => navigationMovement;
 
         private void Awake()
         {
-            animator = GetComponent<Animator>();
+            navigationMovement = GetComponent<NavigationMovement>();
             mainCamera = Camera.main;
-            navPlayer = GetComponent<NavMeshAgent>();
-        }
-        
-        private void Start()
-        {
             canMove = true;
-            navPlayer.speed = speed;
-            navPlayer.angularSpeed = angularSpeed;
         }
         
         private void Update()
@@ -45,26 +32,9 @@ namespace Player
                 
                 if (Physics.Raycast(ray, out var hit))
                 {
-                    Move(hit.point);
+                    navigationMovement.Move(hit.point);
                 }
             }
-
-            // Set animation
-            // Uncomment this if want to apply animation
-            if(animator.runtimeAnimatorController)
-            {
-                isWalking = !(navPlayer.remainingDistance <= navPlayer.stoppingDistance);
-                animator.SetBool(IsWalkingParam, isWalking);
-            }
-        }
-        
-        /// <summary>
-        /// Move to destination
-        /// </summary>
-        /// <param name="destination"></param>
-        public void Move(Vector3 destination)
-        {
-            navPlayer.SetDestination(destination);
         }
         
         /// <summary>
