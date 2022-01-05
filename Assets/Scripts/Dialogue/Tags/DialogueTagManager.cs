@@ -136,28 +136,34 @@ namespace Dialogue.Tags{
         /// <param name="eventDataName">Event data name</param>
         private void SetEventData(string eventDataName)
         {
-            // Find event data in list
-            foreach (EventData eventData in eventDatas.Where(
-                eventData => eventData.EventName == eventDataName))
-            {
-                // Set event data
-                switch(eventData){
-                    case DialogueEventData _:
-                        Debug.Log("Set dialogue event");
-                        DialogueEventManager.Instance.SetEventData(eventData);
-                        break;
-                    case CameraEventData _:
-                        Debug.Log("Set camera event");
-                        dialogueManager.PauseStory();
-                        CameraEventManager.Instance.SetEventData(eventData);
-                        break;
-                    default:
-                        Debug.LogError($"Event: {eventDataName} can't be set. Check the event data class");
-                        break;
+            if(eventDatas.Count == 0) return;
+
+            string[] eventNames = eventDataName.Split(',');
+            
+            foreach(string eventName in eventNames){
+                // Find event data in list
+                foreach (EventData eventData in eventDatas.Where(
+                    eventData => eventData.EventName == eventName))
+                {
+                    // Set event data
+                    switch(eventData){
+                        case DialogueEventData _:
+                            Debug.Log("Set dialogue event");
+                            DialogueEventManager.Instance.SetEventData(eventData);
+                            break;
+                        case CameraEventData _:
+                            Debug.Log("Set camera event");
+                            dialogueManager.PauseStory();
+                            CameraEventManager.Instance.SetEventData(eventData);
+                            break;
+                        default:
+                            Debug.LogError($"Event: {eventDataName} can't be set. Check the event data class");
+                            break;
+                    }
+                    
+                    eventData.gameObject.SetActive(true);
+                    break;
                 }
-                
-                eventData.gameObject.SetActive(true);
-                break;
             }
         }
         
