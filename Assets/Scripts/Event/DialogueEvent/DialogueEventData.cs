@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Event.FinishConditionScripts;
 using Items;
 using UnityEngine;
@@ -6,19 +7,17 @@ using UnityEngine;
 namespace Event.DialogueEvent{
     public class DialogueEventData : EventData {
         [Header("Dialogue Asset")]
-        [SerializeField] private ItemData affectedItem;
-        [SerializeField] private EventDialogue eventDialogue;
-        
+        [SerializeField] private List<DialogueAffectedItem> dialogueAffectedItems;
+
         // OnTriggerEnter finish condition
         private MeshRenderer eventMeshRenderer;
         private Collider eventCollider;
 
         #region Setter and Getter
 
-        public ItemData AffectedItem => affectedItem;
         public ItemData ItemData { get; private set; }
-        public EventDialogue EventDialogue => eventDialogue;
-        
+        public List<DialogueAffectedItem> DialogueAffectedItems => dialogueAffectedItems;
+
         #endregion
 
         private void Awake()
@@ -35,7 +34,6 @@ namespace Event.DialogueEvent{
                     eventMeshRenderer = GetComponent<MeshRenderer>();
                     break;
                 case FinishCondition.PuzzleFinished:
-                    break;
                 case FinishCondition.DialogueFinished:
                     break;
                 default:

@@ -1,4 +1,5 @@
 #speaker:Yuri
+#bgm:SadBGM
 #dialogue-box:show
 #portrait:yuri/pose2/yuri-blouse/yuri-ex1-shockmore
 ...Ken?
@@ -7,7 +8,6 @@ BOHONG KAN!?
 ...
 ...
 #portrait:yuri/pose2/yuri-blouse/yuri-ex2-cry
-#bgm:SadBGM
 Kenapa kamu malah pergi lebih dulu, Ken...
 Ini semua salahku..
 Benar-benar salahku..

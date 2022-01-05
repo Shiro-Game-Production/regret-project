@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Effects{
     public static class AudioFadingEffect{
         private const float FADE_WAITING_TIME = 0.05f;
-        private const float FADING_SPEED = 0.15f;
+        private const float FADING_SPEED = 0.25f;
 
         /// <summary>
         /// Audio fade in effect

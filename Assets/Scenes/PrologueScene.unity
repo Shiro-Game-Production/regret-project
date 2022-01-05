@@ -1161,12 +1161,14 @@ MonoBehaviour:
   triggerObject: {fileID: 465006719}
   canBeInteracted: 0
   keepObjectAfterFinish: 1
-  affectedItem: {fileID: 1168611524}
-  eventDialogue:
-    waitDialogueAsset: {fileID: 0}
-    finishDialogueAsset: {fileID: 4900000, guid: 804b68f6eba36524eaed4eafd5c5240d, type: 3}
-    nextEventDialogueAsset: {fileID: 0}
-    defaultDialogueAsset: {fileID: 0}
+  dialogueAffectedItems:
+  - name: prologue-4
+    affectedItem: {fileID: 1168611524}
+    eventDialogue:
+      waitDialogueAsset: {fileID: 0}
+      finishDialogueAsset: {fileID: 4900000, guid: 804b68f6eba36524eaed4eafd5c5240d, type: 3}
+      nextEventDialogueAsset: {fileID: 0}
+      defaultDialogueAsset: {fileID: 0}
 --- !u!1001 &484452942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2137,12 +2139,7 @@ MonoBehaviour:
   triggerObject: {fileID: 1168611525}
   canBeInteracted: 0
   keepObjectAfterFinish: 1
-  affectedItem: {fileID: 0}
-  eventDialogue:
-    waitDialogueAsset: {fileID: 0}
-    finishDialogueAsset: {fileID: 0}
-    nextEventDialogueAsset: {fileID: 0}
-    defaultDialogueAsset: {fileID: 0}
+  dialogueAffectedItems: []
 --- !u!65 &1168611527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6432,12 +6429,14 @@ MonoBehaviour:
   triggerObject: {fileID: 1850869357}
   canBeInteracted: 0
   keepObjectAfterFinish: 1
-  affectedItem: {fileID: 1850427943}
-  eventDialogue:
-    waitDialogueAsset: {fileID: 0}
-    finishDialogueAsset: {fileID: 4900000, guid: 9345e53e0fe8f9b4c98defe795a9fa75, type: 3}
-    nextEventDialogueAsset: {fileID: 0}
-    defaultDialogueAsset: {fileID: 0}
+  dialogueAffectedItems:
+  - name: prologue-3
+    affectedItem: {fileID: 1850427943}
+    eventDialogue:
+      waitDialogueAsset: {fileID: 0}
+      finishDialogueAsset: {fileID: 4900000, guid: 9345e53e0fe8f9b4c98defe795a9fa75, type: 3}
+      nextEventDialogueAsset: {fileID: 0}
+      defaultDialogueAsset: {fileID: 0}
 --- !u!1001 &1868438321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6928,7 +6927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038538987154, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -823.99994
+      value: -824.0001
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038795929098, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
