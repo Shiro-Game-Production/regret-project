@@ -93,8 +93,7 @@ namespace Dialogue.Tags{
                         break;
                     
                     case DialogueTags.SPEAKER_TAG:
-                        dialogueLogManager.speakerNameValue = tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
-                        dialogueManager.SpeakerName.text = dialogueLogManager.speakerNameValue;
+                        HandleSpeakerTag(tagValue);
                         break;
                     
                     default:
@@ -183,6 +182,16 @@ namespace Dialogue.Tags{
                 fadingSpeed: 0.02f,
                 afterEffect: () => SceneLoadTrigger.Instance.LoadScene("HomeScene"))
             );
+        }
+
+        #endregion
+
+        #region Speaker
+
+        private void HandleSpeakerTag(string tagValue){
+            dialogueLogManager.speakerNameValue = tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
+            dialogueManager.SpeakerName.text = dialogueLogManager.speakerNameValue;
+            dialoguePortraitManager.UpdatePortraitColor(dialogueLogManager.speakerNameValue);
         }
 
         #endregion

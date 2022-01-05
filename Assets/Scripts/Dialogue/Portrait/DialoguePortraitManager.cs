@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Dialogue.Tags;
+using System.Text.RegularExpressions;
 
 namespace Dialogue.Portrait{
     public class DialoguePortraitManager : SingletonBaseClass<DialoguePortraitManager> {
@@ -8,10 +9,17 @@ namespace Dialogue.Portrait{
         [Header("Dialogue Portrait")]
         [SerializeField] private Transform portraitsParent;
         [SerializeField] private DialoguePortrait portraitPrefab;
+        [SerializeField] private Color portraitActiveColor = Color.white;
+        [SerializeField] private Color portraitIdleColor;
+
         private List<DialoguePortrait> portraitPool;
+        private Regex regexPattern;
+
+        private const string PORTRAIT_NAME_PATTERN = "^([A-Za-z]+)/";
 
         private void Awake() {
             portraitPool = new List<DialoguePortrait>();
+            regexPattern = new Regex(PORTRAIT_NAME_PATTERN);
         }
 
         /// <summary>
@@ -35,10 +43,19 @@ namespace Dialogue.Portrait{
             {
                 Sprite portrait = Resources.Load<Sprite>($"Portraits/{filename}");
                 DialoguePortrait portraitManager = GetOrCreatePortraitManager();
-                
-                portraitManager.gameObject.SetActive(true);
-                portraitManager.SetPortraitSprite(portrait);
+                Match regexMatch = regexPattern.Match(filename);
+
+                if(regexMatch.Success){
+                    portraitManager.gameObject.SetActive(true);
+                    portraitManager.SetPortrait(portrait, regexMatch.Groups[1].Value);
+                } else{
+                    Debug.LogError($"Regex match failed. Value: {filename}");
+                }
             }
+        }
+
+        public void UpdatePortraitColor(string speakerName){
+            
         }
         
         /// <summary>
