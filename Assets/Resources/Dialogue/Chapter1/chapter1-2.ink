@@ -1,5 +1,5 @@
 ﻿#speaker:Yuri
-#event:camera-1-chapter1-2
+#event:camera1-chapter1-2
 MAMAA !!!
 DIMANA KEN ?!
 DIMANA MAMA MENYEMBUNYIKAN KEN ??!!!!
@@ -45,5 +45,5 @@ Mama sudah lelah.
 Buktikan kalau kamu anak yang berbakti kepada orang tua.
 Setidaknya bantu mama mengerjakan pekerjaan rumah.
 Cepat buang sampah yang sudah menumpuk di depan!
-#event:chapter1-2-1,trash-puzzle,camera-2-chapter1-2
+#event:chapter1-2-1,trash-puzzle,camera2-chapter1-2
 Iya, Ma..

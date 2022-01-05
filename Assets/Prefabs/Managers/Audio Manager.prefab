@@ -51,7 +51,7 @@ MonoBehaviour:
     loop: 0
     listBackgroundMusic: 0
   - clip: {fileID: 8300000, guid: 19d1418f39f700146929b96bb1139430, type: 3}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 0
     listBackgroundMusic: 1
