@@ -6916,7 +6916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038538987154, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -823.99994
+      value: -824.0001
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038795929098, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7327,6 +7327,22 @@ PrefabInstance:
       propertyPath: portraitsParent
       value: 
       objectReference: {fileID: 1363340992}
+    - target: {fileID: 6124342949184697479, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
+      propertyPath: portraitIdleColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124342949184697479, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
+      propertyPath: portraitIdleColor.b
+      value: 0.41509432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124342949184697479, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
+      propertyPath: portraitIdleColor.g
+      value: 0.41509432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124342949184697479, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
+      propertyPath: portraitIdleColor.r
+      value: 0.41509432
+      objectReference: {fileID: 0}
     - target: {fileID: 6124342949752590530, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
       propertyPath: dialogueLogParent
       value: 

@@ -1,5 +1,4 @@
 #speaker:Yuri
-#bgm:SadBGM
 #dialogue-box:show
 #portrait:yuri/pose2/yuri-blouse/yuri-ex1-shockmore
 ...Ken?

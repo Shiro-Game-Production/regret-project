@@ -95,7 +95,6 @@ namespace Audios.SoundEffects
                 !source.isPlaying && !source.gameObject.activeInHierarchy);
             
             if(audioSource == null){
-                Debug.Log("Instantiate");
                 GameObject newAudioObject = new GameObject("Sound Effect", typeof(AudioSource));
                 newAudioObject.transform.parent = transform; // Set parent
 

@@ -21,5 +21,13 @@ namespace Dialogue.Portrait
             portraitImage.sprite = portraitSprite;
             portraitImage.SetNativeSize();
         }
+
+        /// <summary>
+        /// Change portrait color
+        /// </summary>
+        /// <param name="color">Desired portrait color</param>
+        public void ChangePortraitColor(Color color){
+            portraitImage.color = color;
+        }
     }
 }

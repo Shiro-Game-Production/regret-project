@@ -49,13 +49,30 @@ namespace Dialogue.Portrait{
                     portraitManager.gameObject.SetActive(true);
                     portraitManager.SetPortrait(portrait, regexMatch.Groups[1].Value);
                 } else{
-                    Debug.LogError($"Regex match failed. Value: {filename}");
+                    Debug.LogError($"Regex match failed. Value: '{filename}'");
                 }
             }
         }
 
+        /// <summary>
+        /// Update portrait color
+        /// </summary>
+        /// <param name="speakerName">Speaker name</param>
         public void UpdatePortraitColor(string speakerName){
-            
+            // Get active portraits
+            List<DialoguePortrait> dialoguePortraits = portraitPool.FindAll(
+                portrait => portrait.gameObject.activeInHierarchy);
+
+            if(dialoguePortraits.Count <= 0) return;
+
+            // Change active and idle portrait color
+            dialoguePortraits.ForEach(dialoguePortrait =>
+            {
+                Debug.Log(dialoguePortrait.PortraitName);
+                dialoguePortrait.ChangePortraitColor(
+                    dialoguePortrait.PortraitName.ToLower() == speakerName.ToLower()
+                        ? portraitActiveColor : portraitIdleColor);
+            });
         }
         
         /// <summary>
