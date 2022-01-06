@@ -22,5 +22,5 @@ Jika saja aku bisa kembali,,
 Aku ingin mengubah semuanya.
 Dan kali ini ...
 Aku akan melindunginya ...
-#end:true
+#end:Chapter1
 ->END

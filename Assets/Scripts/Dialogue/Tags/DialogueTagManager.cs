@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Audios;
 using Dialogue.Portrait;
 using Dialogue.Logs;
 using Effects;
@@ -13,6 +12,7 @@ using Event.DialogueEvent;
 using Event.CameraEvent;
 using Audios.BackgroundMusics;
 using Audios.SoundEffects;
+using UnityEngine.SceneManagement;
 
 namespace Dialogue.Tags{
     public class DialogueTagManager : SingletonBaseClass<DialogueTagManager> {
@@ -176,8 +176,18 @@ namespace Dialogue.Tags{
         /// <param name="tagValue"></param>
         private void HandleEndingTag(string tagValue)
         {
+            // Handle ending tag
+            SceneList.SceneNames().ForEach(sceneName =>
+            {
+                if (sceneName == tagValue)
+                {
+                    SceneLoadTrigger.Instance.LoadScene(tagValue);
+                    return;
+                }
+            });
+
             if (tagValue != DialogueTags.CONFIRM_ENDING) return;
-            
+
             StartCoroutine(FadingEffect.FadeIn(blackScreen,
                 fadingSpeed: 0.02f,
                 afterEffect: () => SceneLoadTrigger.Instance.LoadScene("HomeScene"))
