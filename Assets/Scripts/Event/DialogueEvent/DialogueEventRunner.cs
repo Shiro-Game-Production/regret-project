@@ -79,6 +79,7 @@ namespace Event.DialogueEvent {
                     if(waitDialogueAsset){
                         // Set actor's dialogue to dialogue manager
                         // Wait dialogue
+                        // dialogueAffectedItem.AffectedItem.itemMode = ItemData.ItemMode.DialogueMode;
                         dialogueAffectedItem.AffectedItem.currentDialogue = waitDialogueAsset;
                     }
                 }

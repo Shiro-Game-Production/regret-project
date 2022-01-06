@@ -47,6 +47,7 @@ namespace Player
             ItemData itemData = other.GetComponent<ItemData>();
             if(itemData)
             {
+                Debug.Log("Interact");
                 hasInteracted = false;
                 playerInRange = true;
                 HandleInteractionButton(itemData);
@@ -76,6 +77,7 @@ namespace Player
                 (!eventData.canBeInteracted && itemData.itemMode == ItemData.ItemMode.DialogueMode) ||
                 !eventData && !itemData)
             {
+                Debug.Log("Player in range false");
                 playerInRange = false;
             }
         }
