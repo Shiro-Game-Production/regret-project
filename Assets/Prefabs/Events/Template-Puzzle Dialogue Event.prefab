@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3553538415725789094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2479966899062677711}
+  - component: {fileID: 7898484631587977462}
+  - component: {fileID: 6905414156934806395}
+  - component: {fileID: 6808034830069913066}
+  - component: {fileID: 8668857677439009521}
+  m_Layer: 0
+  m_Name: Template-Puzzle Dialogue Event
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2479966899062677711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553538415725789094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.739, y: 1.079, z: -4.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7898484631587977462
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553538415725789094}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.45183468, y: 0.30337292, z: 0.508935}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6905414156934806395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553538415725789094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa29e1cae169e714a903e6b1d7ee7d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionText: 0
+  itemMode: 1
+  currentDialogue: {fileID: 0}
+  puzzleCanvasGroup: {fileID: 0}
+  eventData: {fileID: 8668857677439009521}
+--- !u!114 &6808034830069913066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553538415725789094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9605d5dec8ff8d43abf449b8c786a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleCanvasGroup: {fileID: 0}
+  sameBranchEvent: {fileID: 0}
+  finishPuzzleDialogue: {fileID: 0}
+--- !u!114 &8668857677439009521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553538415725789094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6bfd032f4d628947899a5bc1afa7644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventName: 
+  isFinished: 0
+  eventState: 0
+  finishCondition: 1
+  triggerObject: {fileID: 6808034830069913066}
+  canBeInteracted: 0
+  keepObjectAfterFinish: 1
+  dialogueAffectedItems: []

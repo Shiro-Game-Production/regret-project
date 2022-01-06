@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CustomBlends:
   - m_From: Dialogue mode vcam
-    m_To: VCam Camera2-Chapter1-2
+    m_To: VCam camera2-chapter1-2
     m_Blend:
       m_Style: 0
       m_Time: 2

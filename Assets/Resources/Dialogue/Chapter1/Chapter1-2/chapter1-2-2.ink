@@ -51,6 +51,7 @@ Tapi aku takut sama Mama . .
     Untuk sementara Ken tunggu disini dulu ya . .
     Aku akan berusaha bicara sama Mama . .
     #speaker:Ken
+    #event:chapter1-3-1
     Iya Kak!
 * [Aku harus mencari tahu soal ini]
     #speaker:Yuri
@@ -59,4 +60,5 @@ Tapi aku takut sama Mama . .
     Untuk sementara Ken tunggu disini dulu ya . .
     Aku akan berusaha bicara sama Mama . .
     #speaker:Ken
+    #event:safe-puzzle
     Iya Kak!

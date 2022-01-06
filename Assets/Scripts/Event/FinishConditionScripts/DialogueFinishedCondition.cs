@@ -18,7 +18,7 @@ namespace Event.FinishConditionScripts
                 itemData = GetComponentInParent<ItemData>();
 
                 if(itemData == null){
-                    Debug.LogError("Item data is not found!");
+                    Debug.LogError($"Item data in {gameObject.name} is not found!");
                 }
             }
 
