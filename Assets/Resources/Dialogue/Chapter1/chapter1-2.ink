@@ -1,6 +1,6 @@
 ﻿#speaker:Yuri
-#event:camera1-chapter1-2
 MAMAA !!!
+#event:camera1-chapter1-2
 DIMANA KEN ?!
 DIMANA MAMA MENYEMBUNYIKAN KEN ??!!!!
 KEN MASIH HIDUP KAN MA?
