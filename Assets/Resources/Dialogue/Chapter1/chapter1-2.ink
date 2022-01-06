@@ -45,5 +45,5 @@ Kamu yang seharusnya sadar.
 // Buktikan kalau kamu anak yang berbakti kepada orang tua.
 // Setidaknya bantu mama mengerjakan pekerjaan rumah.
 Cepat buang sampah yang sudah menumpuk di depan!
-#event:chapter1-2-1,trash-puzzle,camera2-chapter1-2
+#event:camera2-chapter1-2,chapter1-2-1,trash-puzzle
 Iya, Ma..

@@ -5,6 +5,7 @@ using Player;
 
 namespace Event.CameraEvent {
     public class CameraEventData : EventData {
+        [Header("Virtual Camera")]
         [SerializeField] private CinemachineVirtualCamera targetVirtualCamera;
         [SerializeField] private PlayableDirector cutsceneTimeline;
 

@@ -11,7 +11,7 @@ Perasaan khawatir Yuri terkait hal-hal janggal bukan menjadi masalah lagi.
 Yuri sudah tidak peduli dengan apapun selama dia melihat adiknya di depan matanya.
 #speaker:Mama
 Yuri, Mama bilang untuk mengerjakan tugas rumah bukan memberantakinya lagi.
-#event:camera-1-chapter1-2-1
+#event:camera1-chapter1-2-1
 Sedang apa sih kamu ribut-ribut di depan?
 Ohh..
 Kamu disini rupanya ya?

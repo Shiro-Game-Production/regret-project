@@ -8,10 +8,12 @@ using UnityEngine;
 namespace Event.FinishConditionScripts{
     public class CameraFinishedCondition : FinishConditionManager {
         private CameraMovement cameraMovement;
+        private CameraEventData cameraEventData;
 
         private void Awake() {
             cameraMovement = CameraMovement.Instance;
             EventData = GetComponent<CameraEventData>();
+            cameraEventData = EventData as CameraEventData;
         }
 
         public override void SetEndingCondition()
@@ -25,7 +27,6 @@ namespace Event.FinishConditionScripts{
         /// <returns></returns>
         private IEnumerator WaitForCamera(){
             Debug.Log("Wait for camera finished");
-            CameraEventData cameraEventData = EventData as CameraEventData;
             // Wait until player don't move
             yield return new WaitUntil(() => !cameraEventData.TargetCharacter.IsWalking);
 

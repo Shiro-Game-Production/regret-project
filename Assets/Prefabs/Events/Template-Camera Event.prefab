@@ -50,7 +50,7 @@ MonoBehaviour:
   finishCondition: 3
   triggerObject: {fileID: 494041888491391846}
   canBeInteracted: 0
-  keepObjectAfterFinish: 1
+  keepObjectAfterFinish: 0
   targetVirtualCamera: {fileID: 0}
   cutsceneTimeline: {fileID: 0}
   useTarget: 1
