@@ -60,5 +60,5 @@ Tapi aku takut sama Mama . .
     Untuk sementara Ken tunggu disini dulu ya . .
     Aku akan berusaha bicara sama Mama . .
     #speaker:Ken
-    #event:safe-puzzle
+    #event:safe-puzzle,chapter1-3-2-tv
     Iya Kak!

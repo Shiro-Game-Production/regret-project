@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Event.BranchEvent;
 using Event.FinishConditionScripts;
 using Items;
 using UnityEngine;
@@ -9,12 +10,19 @@ namespace Event.DialogueEvent{
         [Header("Dialogue Asset")]
         [SerializeField] private List<DialogueAffectedItem> dialogueAffectedItems;
 
+        [Header("Branching")]
+        [SerializeField] private bool useBranchEvent;
+        [DrawIf("useBranchEvent", true)]
+        [SerializeField] private BranchEventRunner branchRunner;
+
         // OnTriggerEnter finish condition
         private MeshRenderer eventMeshRenderer;
         private Collider eventCollider;
 
         #region Setter and Getter
 
+        public bool UseBranchEvent => useBranchEvent;
+        public BranchEventRunner BranchRunner => branchRunner;
         public ItemData ItemData { get; private set; }
         public List<DialogueAffectedItem> DialogueAffectedItems => dialogueAffectedItems;
 

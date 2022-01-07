@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Dialogue;
 using Effects;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 namespace Event.FinishConditionScripts{
     public class PuzzleFinishedCondition : FinishConditionManager {
         [SerializeField] private CanvasGroup puzzleCanvasGroup;
-        [SerializeField] private GameObject sameBranchEvent;
+        [SerializeField] private List<GameObject> sameBranchEvents;
         [SerializeField] private TextAsset finishPuzzleDialogue;
 
         private void Awake() {
@@ -20,7 +21,8 @@ namespace Event.FinishConditionScripts{
                     DialogueManager.Instance.SetDialogue(finishPuzzleDialogue);
                 })
             );
-            Destroy(sameBranchEvent);
+            
+            sameBranchEvents.ForEach(sameBranchEvent => Destroy(sameBranchEvent));
         }
     }
 }

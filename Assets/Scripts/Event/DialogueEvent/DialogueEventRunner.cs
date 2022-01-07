@@ -79,7 +79,7 @@ namespace Event.DialogueEvent {
                     if(waitDialogueAsset){
                         // Set actor's dialogue to dialogue manager
                         // Wait dialogue
-                        // dialogueAffectedItem.AffectedItem.itemMode = ItemData.ItemMode.DialogueMode;
+                        dialogueAffectedItem.AffectedItem.itemMode = ItemData.ItemMode.DialogueMode;
                         dialogueAffectedItem.AffectedItem.currentDialogue = waitDialogueAsset;
                     }
                 }
@@ -96,6 +96,11 @@ namespace Event.DialogueEvent {
             eventData.eventState = EventState.Active;
             eventData.canBeInteracted = true;
             eventData.ItemData.itemMode = ItemData.ItemMode.DialogueMode;
+            
+            // Set branch state
+            if(eventData.UseBranchEvent){
+                eventData.BranchRunner.UpdateBranchEventState(BranchEvent.BranchEventState.Active);
+            }
         }
 
         public void OnEventFinish()
@@ -114,6 +119,10 @@ namespace Event.DialogueEvent {
             
             // Set event state
             eventData.eventState = EventState.Finish;
+            // Set branch state
+            if(eventData.UseBranchEvent){
+                eventData.BranchRunner.UpdateBranchEventState(BranchEvent.BranchEventState.Finish);
+            }
             // Deactivate event data renderer
             eventData.OnEventFinish();
         }
