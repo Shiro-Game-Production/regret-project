@@ -2486,6 +2486,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf091ab55da433d8c55d994ad653e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &381494327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8624603230452697308, guid: 7fccd30d1ec6b10498b5d71a142931b6, type: 3}
+  m_PrefabInstance: {fileID: 1009936854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22479ba805546908fe30a8de816bfd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &381494329 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8624603230452697310, guid: 7fccd30d1ec6b10498b5d71a142931b6, type: 3}
@@ -4837,7 +4848,7 @@ PrefabInstance:
     - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
       propertyPath: branchEventData.sameBranchEventDatas.Array.data[1]
       value: 
-      objectReference: {fileID: 7781255498388619170}
+      objectReference: {fileID: 381494329}
     - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
       propertyPath: branchEventData.sameBranchEventDatas.Array.data[2]
       value: 
@@ -7626,11 +7637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8624603230452697310, guid: 7fccd30d1ec6b10498b5d71a142931b6, type: 3}
       propertyPath: eventName
-      value: safe-dialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 8624603230452697310, guid: 7fccd30d1ec6b10498b5d71a142931b6, type: 3}
-      propertyPath: triggerObject
-      value: 
+      value: chapter1-3-2-brangkas
       objectReference: {fileID: 0}
     - target: {fileID: 8624603230452697310, guid: 7fccd30d1ec6b10498b5d71a142931b6, type: 3}
       propertyPath: keepObjectAfterFinish
@@ -7651,7 +7658,7 @@ PrefabInstance:
     - target: {fileID: 8624603230452697310, guid: 7fccd30d1ec6b10498b5d71a142931b6, type: 3}
       propertyPath: dialogueAffectedItems.Array.data[0].eventDialogue.finishDialogueAsset
       value: 
-      objectReference: {fileID: 4900000, guid: fe7462181a620674897fd956a16fbdf5, type: 3}
+      objectReference: {fileID: 4900000, guid: 3bb9576df58db9347b10f763b36d2628, type: 3}
     - target: {fileID: 8624603230452697311, guid: 7fccd30d1ec6b10498b5d71a142931b6, type: 3}
       propertyPath: m_Size.x
       value: 0.45183468
@@ -10121,16 +10128,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4717071674881289959, guid: b16c9a8520901db42b906333bc1fbbe6, type: 3}
       propertyPath: dialogueAffectedItems.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4717071674881289959, guid: b16c9a8520901db42b906333bc1fbbe6, type: 3}
       propertyPath: dialogueAffectedItems.Array.data[0].name
-      value: 
+      value: safe-dialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 4717071674881289959, guid: b16c9a8520901db42b906333bc1fbbe6, type: 3}
+      propertyPath: dialogueAffectedItems.Array.data[0].affectedItem
+      value: 
+      objectReference: {fileID: 381494327}
     - target: {fileID: 4717071674881289959, guid: b16c9a8520901db42b906333bc1fbbe6, type: 3}
       propertyPath: dialogueAffectedItems.Array.data[0].eventDialogue.finishDialogueAsset
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4900000, guid: bd48dc389b127ae45918f91cebd454cb, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b16c9a8520901db42b906333bc1fbbe6, type: 3}
 --- !u!114 &1711753571 stripped
@@ -13754,6 +13765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brangkas Puzzle Event
       objectReference: {fileID: 0}
+    - target: {fileID: 3553538415725789094, guid: 237559fda70da21419aac8912ffd6f44, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6808034830069913066, guid: 237559fda70da21419aac8912ffd6f44, type: 3}
       propertyPath: sameBranchEvent
       value: 
@@ -13788,7 +13803,11 @@ PrefabInstance:
       objectReference: {fileID: 599695933}
     - target: {fileID: 8668857677439009521, guid: 237559fda70da21419aac8912ffd6f44, type: 3}
       propertyPath: useBranchEvent
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8668857677439009521, guid: 237559fda70da21419aac8912ffd6f44, type: 3}
+      propertyPath: keepObjectAfterFinish
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 237559fda70da21419aac8912ffd6f44, type: 3}
