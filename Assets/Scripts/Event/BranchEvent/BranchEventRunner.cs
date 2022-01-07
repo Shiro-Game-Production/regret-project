@@ -20,7 +20,6 @@ namespace Event.BranchEvent{
                 case BranchEventState.Active:
                     // Make the remaining event datas in the same branch to normal mode
                     // if there is active event
-                    // BUG: If there is 1 active, the remaining will be normal
                     foreach(DialogueEventData eventData in branchEventData.SameBranchEventDatas){
                         if(eventData.eventState == EventState.Active) continue;
 
