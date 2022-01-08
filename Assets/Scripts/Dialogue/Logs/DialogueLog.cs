@@ -14,7 +14,12 @@ namespace Dialogue.Logs
         /// <param name="speakerName">Speaker name</param>
         /// <param name="dialogueText">Dialogue text</param>
         public void SetDialogueLog(string speakerName, string dialogueText){
-            this.speakerName.text = speakerName;
+            // Deactivate speaker name if none is talking
+            if(string.IsNullOrWhiteSpace(speakerName)){
+                this.speakerName.gameObject.SetActive(false);
+            } else {
+                this.speakerName.text = speakerName;
+            }
             this.dialogueText.text = dialogueText;
         }
     }

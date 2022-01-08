@@ -9,9 +9,6 @@ namespace Dialogue.Logs{
 
         private DialogueManager dialogueManager;
 
-        [HideInInspector]
-        public string dialogueTextValue, speakerNameValue;
-
         private void Awake() {
             dialogueManager = DialogueManager.Instance;
         }
@@ -19,7 +16,7 @@ namespace Dialogue.Logs{
         /// <summary>
         /// Add dialogue log
         /// </summary>
-        public void AddDialogueLog(){
+        public void AddDialogueLog(string speakerNameValue, string dialogueTextValue){
             // BUG: RESET DIALOGUE LOG
             DialogueLog dialogueLogManager = Instantiate(dialogueLogPrefab, dialogueLogParent);
             dialogueLogManager.SetDialogueLog(speakerNameValue, dialogueTextValue);

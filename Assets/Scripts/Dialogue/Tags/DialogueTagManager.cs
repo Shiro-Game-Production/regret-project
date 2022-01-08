@@ -198,9 +198,9 @@ namespace Dialogue.Tags{
         #region Speaker
 
         private void HandleSpeakerTag(string tagValue){
-            dialogueLogManager.speakerNameValue = tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
-            dialogueManager.SpeakerName.text = dialogueLogManager.speakerNameValue;
-            dialoguePortraitManager.UpdatePortraitColor(dialogueLogManager.speakerNameValue);
+            string speakerName = tagValue == DialogueTags.BLANK_VALUE ? "" : tagValue;
+            dialogueManager.SpeakerName.text = speakerName;
+            dialoguePortraitManager.UpdatePortraitColor(speakerName);
         }
 
         #endregion

@@ -127,13 +127,12 @@ namespace Dialogue
                 
                 // Show sentence by each character
                 string currentSentence = currentStory.Continue();
-                dialogueLogManager.dialogueTextValue = currentSentence;
                 displayLineCoroutine = StartCoroutine(DisplaySentence(currentSentence));
                 
                 // Handle tags in story
                 dialogueTagManager.HandleTags(currentStory.currentTags);
                 // Add dialogue log
-                dialogueLogManager.AddDialogueLog();
+                dialogueLogManager.AddDialogueLog(speakerName.text, currentSentence);
             }
             else
             {
