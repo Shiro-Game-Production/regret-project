@@ -1,9 +1,12 @@
-﻿using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SceneLoading
 {
     public class SceneLoadTrigger : SingletonBaseClass<SceneLoadTrigger>
     {
+        public Animator transition;
+
         #region Don't Destroy On Load
         
         /// <summary>
