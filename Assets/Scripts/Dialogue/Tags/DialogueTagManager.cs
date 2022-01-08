@@ -12,7 +12,6 @@ using Event.DialogueEvent;
 using Event.CameraEvent;
 using Audios.BackgroundMusics;
 using Audios.SoundEffects;
-using UnityEngine.SceneManagement;
 
 namespace Dialogue.Tags{
     public class DialogueTagManager : SingletonBaseClass<DialogueTagManager> {
@@ -148,12 +147,10 @@ namespace Dialogue.Tags{
                     switch(eventData){
                         case DialogueEventData _:
                             Debug.Log("Set dialogue event");
-                            eventData.gameObject.SetActive(true);
                             DialogueEventManager.Instance.SetEventData(eventData);
                             break;
                         case CameraEventData _:
                             Debug.Log("Set camera event");
-                            eventData.gameObject.SetActive(true);
                             dialogueManager.PauseStory();
                             CameraEventManager.Instance.SetEventData(eventData);
                             break;
