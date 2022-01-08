@@ -137,12 +137,12 @@ namespace Dialogue.Tags{
         {
             if(eventDatas.Count == 0) return;
 
-            string[] eventNames = eventDataName.Split(',');
+            string[] eventIds = eventDataName.Split(',');
             
-            foreach(string eventName in eventNames){
+            foreach(string eventId in eventIds){
                 // Find event data in list
                 foreach (EventData eventData in eventDatas.Where(
-                    eventData => eventData.EventName == eventName))
+                    eventData => eventData.EventId == eventId))
                 {
                     // Set event data
                     switch(eventData){

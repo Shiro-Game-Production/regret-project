@@ -6,7 +6,9 @@ namespace Event
     public abstract class EventData : MonoBehaviour
     {
         [Header("Event Data")]
-        [SerializeField] private string eventName;
+        [SerializeField] private string eventId;
+        [TextArea(3,5)]
+        [SerializeField] private string eventDescription;
         public bool isFinished;
         public EventState eventState = EventState.NotStarted;
         
@@ -15,10 +17,10 @@ namespace Event
         [SerializeField] private FinishConditionManager triggerObject;
         public bool canBeInteracted;
         [SerializeField] private bool keepObjectAfterFinish;
-        
+
         #region Setter and Getter
-        
-        public string EventName => eventName;
+
+        public string EventId => eventId;
         public bool KeepObjectAfterFinish => keepObjectAfterFinish;
         public FinishConditionManager TriggerObject => triggerObject;
         

@@ -59,14 +59,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6bfd032f4d628947899a5bc1afa7644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventName: prologue-4
+  eventId: 
+  eventDescription: 
   isFinished: 0
   eventState: 0
   finishCondition: 2
   triggerObject: {fileID: 8624603230452697309}
   canBeInteracted: 0
-  keepObjectAfterFinish: 1
+  keepObjectAfterFinish: 0
   dialogueAffectedItems: []
+  useBranchEvent: 0
+  branchRunner: {fileID: 0}
 --- !u!114 &8624603230452697309
 MonoBehaviour:
   m_ObjectHideFlags: 0

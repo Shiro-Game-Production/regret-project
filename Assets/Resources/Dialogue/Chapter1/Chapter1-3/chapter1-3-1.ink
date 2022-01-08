@@ -51,5 +51,5 @@ Aku baru selesai membuang sampah.
 Aku akan bantu mencari cincin pernikahan tersebut sebelum Papa menjualnya dan memberikannya ke Mama.
 Namun sebagai gantinya, Mama harus berjanji kepada ku kalau Mama tidak akan menyiksa Ken lagi . .
 #speaker:Mama
-#event:safe-dialogue
+#event:chapter1-3-1-1
 Lakukan sesuka mu saja . .

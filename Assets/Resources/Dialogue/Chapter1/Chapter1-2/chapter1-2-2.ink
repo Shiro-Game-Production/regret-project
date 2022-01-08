@@ -60,5 +60,5 @@ Tapi aku takut sama Mama . .
     Untuk sementara Ken tunggu disini dulu ya . .
     Aku akan berusaha bicara sama Mama . .
     #speaker:Ken
-    #event:chapter1-3-2-brangkas,chapter1-3-2-tv
+    #event:safe-dialogue,chapter1-3-2-tv
     Iya Kak!
