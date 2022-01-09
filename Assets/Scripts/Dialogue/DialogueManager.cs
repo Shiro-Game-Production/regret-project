@@ -10,6 +10,7 @@ using Dialogue.Choices;
 using Dialogue.Logs;
 using Dialogue.Tags;
 using Cinemachine;
+using UserInterface;
 
 namespace Dialogue
 {
@@ -20,10 +21,14 @@ namespace Dialogue
         private CameraMovement cameraMovement;
 
         [Header("Parameters")]
-        public DialogueMode dialogueMode = DialogueMode.Normal;
+        [SerializeField] private DialogueMode currentDialogueMode = DialogueMode.Normal;
+        [SerializeField] private DialogueMode previousDialogueMode = DialogueMode.Normal;
         public DialogueState dialogueState = DialogueState.FinishTyping;
-        [SerializeField] private float typingSpeed = 0.04f;
         [SerializeField] private TextAsset currentDialogueAsset;
+        [SerializeField] private float typingSpeed = 0.04f;
+        public bool canAutoModeContinue;
+        [SerializeField] private float autoModeDelay = 3f;
+
 
         [Header("Dialogue UI")]
         [SerializeField] private CanvasGroup dialogueCanvasGroup;
@@ -37,10 +42,13 @@ namespace Dialogue
         private DialogueTagManager dialogueTagManager;
 
         private Coroutine displayLineCoroutine;
+        private Coroutine autoModeCoroutine;
         private Story currentStory;
 
         #region Setter and Getter
 
+        public Coroutine AutoModeCoroutine => autoModeCoroutine;
+        public DialogueMode CurrentDialogueMode => currentDialogueMode;
         public Story CurrentStory => currentStory;
         public Text SpeakerName => speakerName;
         public TextAsset CurrentDialogueAsset => currentDialogueAsset;
@@ -77,7 +85,7 @@ namespace Dialogue
              * Skip sentence will delay the finish typing after mouse button up, so it will not trigger
                 this if
             */
-            if ((dialogueMode == DialogueMode.Normal || dialogueMode == DialogueMode.Resume) &&
+            if (currentDialogueMode == DialogueMode.Normal &&
                 dialogueState == DialogueState.FinishTyping &&
                 currentStory.currentChoices.Count == 0 &&
                 Input.GetMouseButtonUp(0))
@@ -90,10 +98,34 @@ namespace Dialogue
                 dialogueState == DialogueState.Typing){
                 dialogueState = DialogueState.SkipSentence;
             }
+
+            if(canAutoModeContinue && currentDialogueMode == DialogueMode.AutoTyping){
+                canAutoModeContinue = false;
+                autoModeCoroutine = StartCoroutine(DialogueAutoMode());
+            }
         }
 
         #region Dialogue
         
+        public void UpdateDialogueMode(DialogueMode newDialogueMode){
+            // Record current dialogue mode to previous one just in auto and pause mode
+            switch(newDialogueMode){
+                case DialogueMode.Normal:
+                    previousDialogueMode = DialogueMode.Normal;
+                    break;
+                case DialogueMode.AutoTyping:
+                case DialogueMode.Pause:
+                    previousDialogueMode = newDialogueMode;
+                    break;
+            }
+
+            currentDialogueMode = newDialogueMode;
+        }
+
+        public void UpdateToPreviousDialogueMode(){
+            currentDialogueMode = previousDialogueMode;
+        }
+
         /// <summary>
         /// Set dialogue by using dialogue inky file
         /// </summary>
@@ -112,6 +144,18 @@ namespace Dialogue
                     ContinueStory();
                 })
             );
+        }
+
+        private IEnumerator DialogueAutoMode(){
+            Debug.Log("1. Wait typing");
+            yield return new WaitUntil(() => dialogueState == DialogueState.FinishTyping);
+            Debug.Log("2. Delay");
+            yield return new WaitForSeconds(autoModeDelay);
+            Debug.Log("3. Wait auto typing mode");
+            yield return new WaitUntil(() => currentDialogueMode == DialogueMode.AutoTyping);
+            Debug.Log("4. Continue");
+            canAutoModeContinue = true;
+            ContinueStory();
         }
         
         /// <summary>
@@ -147,7 +191,7 @@ namespace Dialogue
             // Hide dialogue
             StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
                 blocksRaycasts: true,
-                beforeEffect: () => dialogueMode = DialogueMode.Pause,
+                beforeEffect: () => currentDialogueMode = DialogueMode.Pause,
                 afterEffect: () => DialogueIsPlaying = false)
             );
         }
@@ -159,7 +203,7 @@ namespace Dialogue
             // Show dialogue
             StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,
                 beforeEffect: () => DialogueIsPlaying = true,
-                afterEffect: () => dialogueMode = DialogueMode.Resume)
+                afterEffect: () => UpdateToPreviousDialogueMode())
             );
         }
 
@@ -176,6 +220,13 @@ namespace Dialogue
                 },
                 afterEffect: () =>
                 {
+                    // Auto mode
+                    currentDialogueMode = DialogueMode.Normal;
+                    previousDialogueMode = DialogueMode.Normal;
+                    canAutoModeContinue = false;
+                    DialogueButtonManager.Instance.AutoModeState(false);
+                    StopCoroutine(autoModeCoroutine);
+
                     DialogueIsPlaying = false;
                     dialogueText.text = "";
                     speakerName.text = "";

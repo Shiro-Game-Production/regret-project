@@ -68,7 +68,6 @@ namespace Dialogue.Portrait{
             // Change active and idle portrait color
             dialoguePortraits.ForEach(dialoguePortrait =>
             {
-                Debug.Log(dialoguePortrait.PortraitName);
                 dialoguePortrait.ChangePortraitColor(
                     dialoguePortrait.PortraitName.ToLower() == speakerName.ToLower()
                         ? portraitActiveColor : portraitIdleColor);

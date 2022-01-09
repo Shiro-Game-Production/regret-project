@@ -12,6 +12,5 @@ namespace Dialogue{
         HideMode,
         ViewLog,
         Pause,
-        Resume,
     }
 }

@@ -29,10 +29,12 @@ namespace Dialogue.Logs{
         public void ShowLog(bool showLog){
             if(showLog){
                 StartCoroutine(FadingEffect.FadeIn(dialogueLogCanvasGroup,
-                    beforeEffect: () => dialogueManager.dialogueMode = DialogueMode.ViewLog));
+                    beforeEffect: () => dialogueManager.UpdateDialogueMode(DialogueMode.ViewLog))
+                );
             } else {
                 StartCoroutine(FadingEffect.FadeOut(dialogueLogCanvasGroup,
-                    afterEffect: () => dialogueManager.dialogueMode = DialogueMode.Normal));
+                    afterEffect: () => dialogueManager.UpdateToPreviousDialogueMode())
+                );
             }
         }
     }
