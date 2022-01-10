@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.63529414, g: 0.63529414, b: 0.63529414, a: 1}
+    m_HighlightedColor: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -3197,7 +3197,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -3407,7 +3407,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.8235294, g: 0.8235294, b: 0.8235294, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -3881,6 +3881,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3845421907398856817, guid: 4d4a544967d3cfc49a1e83e657887df1, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.8235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845421907398856817, guid: 4d4a544967d3cfc49a1e83e657887df1, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.8235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845421907398856817, guid: 4d4a544967d3cfc49a1e83e657887df1, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.8235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845421907398856817, guid: 4d4a544967d3cfc49a1e83e657887df1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 3828264039646934688}
@@ -3991,6 +4003,18 @@ PrefabInstance:
     - target: {fileID: 7828752344196228777, guid: 4d4a544967d3cfc49a1e83e657887df1, type: 3}
       propertyPath: m_Name
       value: Settings Prompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828752344523463344, guid: 4d4a544967d3cfc49a1e83e657887df1, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.8235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828752344523463344, guid: 4d4a544967d3cfc49a1e83e657887df1, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.8235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828752344523463344, guid: 4d4a544967d3cfc49a1e83e657887df1, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.8235294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d4a544967d3cfc49a1e83e657887df1, type: 3}
