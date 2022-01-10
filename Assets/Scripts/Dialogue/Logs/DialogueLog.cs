@@ -20,7 +20,7 @@ namespace Dialogue.Logs
             } else {
                 this.speakerName.text = speakerName;
             }
-            this.dialogueText.text = dialogueText;
+            this.dialogueText.text = $"\"{dialogueText.Trim()}\"";
         }
     }
 }

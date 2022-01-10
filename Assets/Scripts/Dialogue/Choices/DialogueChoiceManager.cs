@@ -76,10 +76,11 @@ namespace Dialogue.Choices{
         /// <param name="index">Choice's index</param>
         public void Decide(int index)
         {
-            if(dialogueManager.dialogueState == DialogueState.FinishTyping )
+            if(dialogueManager.dialogueState == DialogueState.FinishTyping)
             {
                 choiceMode = false;
                 dialogueManager.CurrentStory.ChooseChoiceIndex(index);
+                
                 dialogueManager.ContinueStory();
                 dialogueManager.PopDialogueMode(DialogueMode.Pause);
             }

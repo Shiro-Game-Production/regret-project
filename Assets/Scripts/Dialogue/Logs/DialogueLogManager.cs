@@ -17,7 +17,6 @@ namespace Dialogue.Logs{
         /// Add dialogue log
         /// </summary>
         public void AddDialogueLog(string speakerNameValue, string dialogueTextValue){
-            // BUG: RESET DIALOGUE LOG
             DialogueLog dialogueLogManager = Instantiate(dialogueLogPrefab, dialogueLogParent);
             dialogueLogManager.SetDialogueLog(speakerNameValue, dialogueTextValue);
         }
