@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Dialogue.Logs;
 using Ink.Runtime;
 using UnityEngine;
 
@@ -9,12 +10,14 @@ namespace Dialogue.Choices{
         [SerializeField] private bool choiceMode;
 
         private List<DialogueChoice> choicePool;
+        private DialogueLogManager dialogueLogManager;
         private DialogueManager dialogueManager;
 
         public bool ChoiceMode => choiceMode;
 
         private void Awake() {
             choicePool = new List<DialogueChoice>();
+            dialogueLogManager = DialogueLogManager.Instance;
             dialogueManager = DialogueManager.Instance;
         }
 
@@ -79,8 +82,9 @@ namespace Dialogue.Choices{
             if(dialogueManager.dialogueState == DialogueState.FinishTyping)
             {
                 choiceMode = false;
+                dialogueLogManager.AddDialogueLog("Yuri", 
+                    dialogueManager.CurrentStory.currentChoices[index].text);
                 dialogueManager.CurrentStory.ChooseChoiceIndex(index);
-                
                 dialogueManager.ContinueStory();
                 dialogueManager.PopDialogueMode(DialogueMode.Pause);
             }
