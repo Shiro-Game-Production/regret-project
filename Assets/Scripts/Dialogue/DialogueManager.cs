@@ -44,6 +44,7 @@ namespace Dialogue
         private Coroutine displayLineCoroutine;
         private Coroutine autoModeCoroutine;
         private Stack<DialogueMode> dialogueModeStack;
+        [SerializeField] private List<DialogueMode> dialogueModeStackList;
         private Story currentStory;
 
         #region Setter and Getter
@@ -63,6 +64,7 @@ namespace Dialogue
             dialogueLogManager = DialogueLogManager.Instance;
             dialoguePortraitManager = DialoguePortraitManager.Instance;
             dialogueTagManager = DialogueTagManager.Instance;
+            dialogueModeStackList = new List<DialogueMode>();
             dialogueModeStack = new Stack<DialogueMode>();
 
             dialogueCanvasGroup.interactable = true;
@@ -100,6 +102,7 @@ namespace Dialogue
                 dialogueState = DialogueState.SkipSentence;
             }
 
+            // If auto mode and can continue the auto mode, Start the auto mode
             if(canAutoModeContinue && currentDialogueMode == DialogueMode.AutoTyping){
                 canAutoModeContinue = false;
                 autoModeCoroutine = StartCoroutine(DialogueAutoMode());
@@ -108,17 +111,38 @@ namespace Dialogue
 
         #region Dialogue
         
-        public void UpdateDialogueMode(DialogueMode newDialogueMode){
-            dialogueModeStack.Push(newDialogueMode);
-            currentDialogueMode = dialogueModeStack.Peek();
-            Debug.Log("Push: Stack: " + dialogueModeStack.Count);
+        /// <summary>
+        /// Push dialogue mode to stack list
+        /// </summary>
+        /// <param name="pushElement"></param>
+        public void PushDialogueMode(DialogueMode pushElement){
+            // Special case
+            // If push element is auto typing and there are choices, ...
+            if(pushElement == DialogueMode.AutoTyping && dialogueChoiceManager.ChoiceMode){
+                // Remove pause mode first
+                int choiceIndex = dialogueModeStackList.IndexOf(DialogueMode.Pause);
+                dialogueModeStackList.RemoveAt(choiceIndex);
+                // Add auto first, then pause
+                dialogueModeStackList.Add(DialogueMode.AutoTyping);
+                dialogueModeStackList.Add(DialogueMode.Pause);
+            } else{
+                // Normal push
+                dialogueModeStackList.Add(pushElement);
+            }
+            // Get latest element in stack list
+            currentDialogueMode = dialogueModeStackList[dialogueModeStackList.Count - 1];
         }
 
-        public void UpdateToPreviousDialogueMode(){
-            if(dialogueModeStack.Count > 1){
-                dialogueModeStack.Pop();
-                currentDialogueMode = dialogueModeStack.Peek();
-                Debug.Log("Pop: Stack: " + dialogueModeStack.Count);
+        /// <summary>
+        /// Pop dialogue mode from stack list
+        /// </summary>
+        /// <param name="popElement"></param>
+        public void PopDialogueMode(DialogueMode popElement){
+            // Check if the elements in stack list is greater than 1, ...
+            if(dialogueModeStackList.Count > 1){
+                dialogueModeStackList.Remove(popElement);
+                // Get latest element
+                currentDialogueMode = dialogueModeStackList[dialogueModeStackList.Count - 1];
             }
         }
 
@@ -130,7 +154,7 @@ namespace Dialogue
         {
             currentDialogueAsset = dialogueInk;
             currentStory = new Story(dialogueInk.text);
-            dialogueModeStack.Push(DialogueMode.Normal);
+            PushDialogueMode(DialogueMode.Normal);
 
             StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,
                 beforeEffect: () =>
@@ -143,6 +167,14 @@ namespace Dialogue
             );
         }
 
+        /// <summary>
+        /// Dialogue auto mode
+        /// 1. Wait until finish typing
+        /// 2. Delay in auto mode
+        /// 3. Wait until current mode is auto typing
+        /// 4. Continue the line
+        /// </summary>
+        /// <returns></returns>
         private IEnumerator DialogueAutoMode(){
             Debug.Log("1. Wait typing");
             yield return new WaitUntil(() => dialogueState == DialogueState.FinishTyping);
@@ -155,6 +187,9 @@ namespace Dialogue
             ContinueStory();
         }
 
+        /// <summary>
+        /// Stop auto mode coroutine to prevent multiple calls
+        /// </summary>
         public void StopAutoModeCoroutine(){
             if(autoModeCoroutine != null){
                 StopCoroutine(autoModeCoroutine);
@@ -194,7 +229,7 @@ namespace Dialogue
             // Hide dialogue
             StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
                 blocksRaycasts: true,
-                beforeEffect: () => UpdateDialogueMode(DialogueMode.Pause),
+                beforeEffect: () => PushDialogueMode(DialogueMode.Pause),
                 afterEffect: () => DialogueIsPlaying = false)
             );
         }
@@ -206,7 +241,7 @@ namespace Dialogue
             // Show dialogue
             StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,
                 beforeEffect: () => DialogueIsPlaying = true,
-                afterEffect: () => UpdateToPreviousDialogueMode())
+                afterEffect: () => PopDialogueMode(DialogueMode.Pause))
             );
         }
 
@@ -224,7 +259,7 @@ namespace Dialogue
                 afterEffect: () =>
                 {
                     // Auto mode
-                    dialogueModeStack.Clear();
+                    dialogueModeStackList.RemoveRange(0, dialogueModeStackList.Count);
                     canAutoModeContinue = false;
                     DialogueButtonManager.Instance.AutoModeState(false);
                     StopAutoModeCoroutine();

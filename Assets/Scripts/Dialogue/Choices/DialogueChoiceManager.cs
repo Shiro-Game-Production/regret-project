@@ -39,7 +39,7 @@ namespace Dialogue.Choices{
             if (currentChoices.Count == 0) return;
 
             choiceMode = true;
-            dialogueManager.UpdateDialogueMode(DialogueMode.Pause);
+            dialogueManager.PushDialogueMode(DialogueMode.Pause);
             foreach (Choice choice in currentChoices)
             {
                 DialogueChoice choiceManager = GetOrCreateChoiceManager();
@@ -81,7 +81,7 @@ namespace Dialogue.Choices{
                 choiceMode = false;
                 dialogueManager.CurrentStory.ChooseChoiceIndex(index);
                 dialogueManager.ContinueStory();
-                dialogueManager.UpdateToPreviousDialogueMode();
+                dialogueManager.PopDialogueMode(DialogueMode.Pause);
             }
         }
     }
