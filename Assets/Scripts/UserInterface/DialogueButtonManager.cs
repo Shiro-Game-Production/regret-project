@@ -60,8 +60,8 @@ namespace UserInterface
                 autoButtonImage.sprite = autoModeOn;
             } else{
                 dialogueManager.canAutoModeContinue = false;
-                dialogueManager.UpdateDialogueMode(DialogueMode.Normal);
-                StopCoroutine(dialogueManager.AutoModeCoroutine);
+                dialogueManager.UpdateToPreviousDialogueMode();
+                dialogueManager.StopAutoModeCoroutine();
                 autoButtonImage.sprite = autoModeOff;
             }
         }

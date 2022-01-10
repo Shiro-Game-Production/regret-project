@@ -6,9 +6,12 @@ namespace Dialogue.Choices{
     public class DialogueChoiceManager : SingletonBaseClass<DialogueChoiceManager> {
         [SerializeField] private Transform choicesParent;
         [SerializeField] private DialogueChoice choicePrefab;
-        private List<DialogueChoice> choicePool;
+        [SerializeField] private bool choiceMode;
 
+        private List<DialogueChoice> choicePool;
         private DialogueManager dialogueManager;
+
+        public bool ChoiceMode => choiceMode;
 
         private void Awake() {
             choicePool = new List<DialogueChoice>();
@@ -34,7 +37,9 @@ namespace Dialogue.Choices{
             List<Choice> currentChoices = dialogueManager.CurrentStory.currentChoices;
 
             if (currentChoices.Count == 0) return;
-            
+
+            choiceMode = true;
+            dialogueManager.UpdateDialogueMode(DialogueMode.Pause);
             foreach (Choice choice in currentChoices)
             {
                 DialogueChoice choiceManager = GetOrCreateChoiceManager();
@@ -73,8 +78,10 @@ namespace Dialogue.Choices{
         {
             if(dialogueManager.dialogueState == DialogueState.FinishTyping )
             {
+                choiceMode = false;
                 dialogueManager.CurrentStory.ChooseChoiceIndex(index);
                 dialogueManager.ContinueStory();
+                dialogueManager.UpdateToPreviousDialogueMode();
             }
         }
     }

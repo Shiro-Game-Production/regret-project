@@ -11,6 +11,7 @@ using Dialogue.Logs;
 using Dialogue.Tags;
 using Cinemachine;
 using UserInterface;
+using System.Collections.Generic;
 
 namespace Dialogue
 {
@@ -22,7 +23,6 @@ namespace Dialogue
 
         [Header("Parameters")]
         [SerializeField] private DialogueMode currentDialogueMode = DialogueMode.Normal;
-        [SerializeField] private DialogueMode previousDialogueMode = DialogueMode.Normal;
         public DialogueState dialogueState = DialogueState.FinishTyping;
         [SerializeField] private TextAsset currentDialogueAsset;
         [SerializeField] private float typingSpeed = 0.04f;
@@ -43,11 +43,11 @@ namespace Dialogue
 
         private Coroutine displayLineCoroutine;
         private Coroutine autoModeCoroutine;
+        private Stack<DialogueMode> dialogueModeStack;
         private Story currentStory;
 
         #region Setter and Getter
 
-        public Coroutine AutoModeCoroutine => autoModeCoroutine;
         public DialogueMode CurrentDialogueMode => currentDialogueMode;
         public Story CurrentStory => currentStory;
         public Text SpeakerName => speakerName;
@@ -63,7 +63,8 @@ namespace Dialogue
             dialogueLogManager = DialogueLogManager.Instance;
             dialoguePortraitManager = DialoguePortraitManager.Instance;
             dialogueTagManager = DialogueTagManager.Instance;
-            
+            dialogueModeStack = new Stack<DialogueMode>();
+
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
         }
@@ -108,22 +109,17 @@ namespace Dialogue
         #region Dialogue
         
         public void UpdateDialogueMode(DialogueMode newDialogueMode){
-            // Record current dialogue mode to previous one just in auto and pause mode
-            switch(newDialogueMode){
-                case DialogueMode.Normal:
-                    previousDialogueMode = DialogueMode.Normal;
-                    break;
-                case DialogueMode.AutoTyping:
-                case DialogueMode.Pause:
-                    previousDialogueMode = newDialogueMode;
-                    break;
-            }
-
-            currentDialogueMode = newDialogueMode;
+            dialogueModeStack.Push(newDialogueMode);
+            currentDialogueMode = dialogueModeStack.Peek();
+            Debug.Log("Push: Stack: " + dialogueModeStack.Count);
         }
 
         public void UpdateToPreviousDialogueMode(){
-            currentDialogueMode = previousDialogueMode;
+            if(dialogueModeStack.Count > 1){
+                dialogueModeStack.Pop();
+                currentDialogueMode = dialogueModeStack.Peek();
+                Debug.Log("Pop: Stack: " + dialogueModeStack.Count);
+            }
         }
 
         /// <summary>
@@ -134,7 +130,8 @@ namespace Dialogue
         {
             currentDialogueAsset = dialogueInk;
             currentStory = new Story(dialogueInk.text);
-            
+            dialogueModeStack.Push(DialogueMode.Normal);
+
             StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,
                 beforeEffect: () =>
                 {
@@ -156,6 +153,12 @@ namespace Dialogue
             Debug.Log("4. Continue");
             canAutoModeContinue = true;
             ContinueStory();
+        }
+
+        public void StopAutoModeCoroutine(){
+            if(autoModeCoroutine != null){
+                StopCoroutine(autoModeCoroutine);
+            }
         }
         
         /// <summary>
@@ -191,7 +194,7 @@ namespace Dialogue
             // Hide dialogue
             StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
                 blocksRaycasts: true,
-                beforeEffect: () => currentDialogueMode = DialogueMode.Pause,
+                beforeEffect: () => UpdateDialogueMode(DialogueMode.Pause),
                 afterEffect: () => DialogueIsPlaying = false)
             );
         }
@@ -221,11 +224,10 @@ namespace Dialogue
                 afterEffect: () =>
                 {
                     // Auto mode
-                    currentDialogueMode = DialogueMode.Normal;
-                    previousDialogueMode = DialogueMode.Normal;
+                    dialogueModeStack.Clear();
                     canAutoModeContinue = false;
                     DialogueButtonManager.Instance.AutoModeState(false);
-                    StopCoroutine(autoModeCoroutine);
+                    StopAutoModeCoroutine();
 
                     DialogueIsPlaying = false;
                     dialogueText.text = "";
