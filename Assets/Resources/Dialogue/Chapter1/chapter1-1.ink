@@ -1,5 +1,5 @@
-﻿#speaker:Yuri
-#portrait:yuri/pose1/yuri-tshirt/yuri-ex6-sleepy
+﻿#portrait:yuri/pose1/yuri-tshirt/yuri-ex6-sleepy
+#speaker:Yuri
 ...
 Ahh..
 Kepalaku pusing sekali . .

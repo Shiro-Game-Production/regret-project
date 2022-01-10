@@ -176,13 +176,13 @@ namespace Dialogue
         /// </summary>
         /// <returns></returns>
         private IEnumerator DialogueAutoMode(){
-            Debug.Log("1. Wait typing");
+            // Wait typing
             yield return new WaitUntil(() => dialogueState == DialogueState.FinishTyping);
-            Debug.Log("2. Delay");
+            // Delay
             yield return new WaitForSeconds(autoModeDelay);
-            Debug.Log("3. Wait auto typing mode");
+            // Wait auto typing mode
             yield return new WaitUntil(() => currentDialogueMode == DialogueMode.AutoTyping);
-            Debug.Log("4. Continue");
+            // Continue
             canAutoModeContinue = true;
             ContinueStory();
         }
@@ -229,6 +229,7 @@ namespace Dialogue
             // Hide dialogue
             StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
                 blocksRaycasts: true,
+                fadingSpeed: 1f,
                 beforeEffect: () => PushDialogueMode(DialogueMode.Pause),
                 afterEffect: () => DialogueIsPlaying = false)
             );

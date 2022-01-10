@@ -13747,11 +13747,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038538987154, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -849.9999
+      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038538987154, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -706.99994
+      value: -707
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038721273125, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_SizeDelta.x
@@ -14300,6 +14300,18 @@ PrefabInstance:
       propertyPath: portraitsParent
       value: 
       objectReference: {fileID: 1363340992}
+    - target: {fileID: 6124342949184697479, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
+      propertyPath: portraitIdleColor.b
+      value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124342949184697479, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
+      propertyPath: portraitIdleColor.g
+      value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124342949184697479, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
+      propertyPath: portraitIdleColor.r
+      value: 0.6981132
+      objectReference: {fileID: 0}
     - target: {fileID: 6124342949752590530, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
       propertyPath: dialogueLogParent
       value: 

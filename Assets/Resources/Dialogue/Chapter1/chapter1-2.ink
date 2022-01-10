@@ -1,5 +1,5 @@
-﻿#speaker:Yuri
-#portrait:yuri/pose1/yuri-tshirt/yuri-ex7-scream
+﻿#portrait:yuri/pose1/yuri-tshirt/yuri-ex7-scream
+#speaker:Yuri
 MAMAA !!!
 
 #event:camera1-chapter1-2
@@ -9,13 +9,13 @@ KEN MASIH HIDUP KAN MA?
 Sebenci-bencinya Mama sama Ken, Ken itu tetep anak Mama !
 Ken itu bagian dari keluarga kita, Ma!!
 
+#portrait:yuri/pose2/yuri-tshirt/yuri-ex1-shockmore
 #sfx:slap
 #effect:shake
-#portrait:yuri/pose2/yuri-tshirt/yuri-ex1-shockmore
 PLAAKKK!!
 
-#speaker:Mama
 #portrait:mama/pose1/rin-ex3-madness
+#speaker:Mama
 Kamu yang seharusnya sadar.
 Masih pagi sudah ngelantur tidak jelas.
 
@@ -23,14 +23,14 @@ Masih pagi sudah ngelantur tidak jelas.
 Di mana adab bicara kamu sama orang tua?
 Mau masa depan kamu nanti seperti Papa?!
 
-#speaker:Yuri
 #portrait:yuri/pose2/yuri-tshirt/yuri-ex4-worried
+#speaker:Yuri
 Ta.. Tapi Ma..
 Terlalu banyak yang janggal hari ini.
 Aku.. semalam..
 
-#speaker:Mama
 #portrait:mama/pose1/rin-ex3.1-madnessmore
+#speaker:Mama
 Cukup Yuri.
 
 #portrait:mama/pose1/rin-ex3-madness
@@ -44,13 +44,13 @@ Dasar anak tidak tahu sopan santun!
 Mama sendiri juga sedang mencari adikmu dari semalam.
 Lihat saja sampai ketemu nanti, mama bikin mampus adikmu itu.
 
-#speaker:Yuri
 #portrait:yuri/pose2/yuri-tshirt/yuri-ex4-worried
+#speaker:Yuri
 Ma.. mau sampai kapan Mama kayak gini?
 Apa Mama benar-benar tidak menganggap Ken bagian dari keluarga kita sama sekali?
 
-#speaker:Mama
 #portrait:mama/pose2/rin-ex1-stare
+#speaker:Mama
 Ohh..
 
 #portrait:mama/pose2/rin-ex2-talk
@@ -65,12 +65,12 @@ Papa?
 Hebat sekali anak Papa satu ini.
 Mama sangat tersanjung.
 
-#speaker:Yuri
 #portrait:yuri/pose2/yuri-tshirt/yuri-ex4-worried
+#speaker:Yuri
 Bukan begitu, Ma.
 
-#speaker:Mama
 #portrait:mama/pose1/rin-ex1-stare
+#speaker:Mama
 Cukup Yuri.
 Mama sudah lelah.
 
@@ -79,7 +79,7 @@ Buktikan kalau kamu anak yang berbakti kepada orang tua.
 Setidaknya bantu mama mengerjakan pekerjaan rumah.
 Cepat buang sampah yang sudah menumpuk di depan!
 
-#speaker:Yuri
 #portrait:yuri/pose2/yuri-tshirt/yuri-ex4-worried
+#speaker:Yuri
 #event:camera2-chapter1-2,chapter1-2-1,trash-puzzle
 Iya, Ma..

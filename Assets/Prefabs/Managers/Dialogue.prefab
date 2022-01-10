@@ -44,14 +44,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueVcam: {fileID: 0}
-  dialogueMode: 0
+  currentDialogueMode: 0
   dialogueState: 1
-  typingSpeed: 0.04
   currentDialogueAsset: {fileID: 0}
+  typingSpeed: 0.04
+  canAutoModeContinue: 0
+  autoModeDelay: 3
   dialogueCanvasGroup: {fileID: 0}
   dialogueHolder: {fileID: 0}
   dialogueText: {fileID: 0}
   speakerName: {fileID: 0}
+  dialogueModeStackList: 
 --- !u!1 &6124342947903908124
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   choicesParent: {fileID: 0}
   choicePrefab: {fileID: 329470184439672148, guid: 0572647ca9091894e9bf0d8ac87b3073, type: 3}
+  choiceMode: 0
 --- !u!1 &6124342948513466165
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portraitsParent: {fileID: 0}
   portraitPrefab: {fileID: 907936351500607960, guid: c82bff6f77e3a1747aec57b6f92b4b65, type: 3}
+  portraitActiveColor: {r: 1, g: 1, b: 1, a: 1}
+  portraitIdleColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
 --- !u!1 &6124342949752590528
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,5 +279,3 @@ MonoBehaviour:
   dialogueLogCanvasGroup: {fileID: 0}
   dialogueLogPrefab: {fileID: 1809276562285395948, guid: d1e8f0c556894904496048a169ba0a90, type: 3}
   dialogueLogParent: {fileID: 0}
-  dialogueTextValue: 
-  speakerNameValue: 
