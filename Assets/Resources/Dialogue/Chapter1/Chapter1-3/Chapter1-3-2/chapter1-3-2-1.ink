@@ -1,2 +1,3 @@
-#portrait:safe-code
+#illust:items/buku-nikah
 #event:chapter1-3-2-2
+...

@@ -82,7 +82,12 @@ namespace Dialogue.Tags{
                     case DialogueTags.EVENT_TAG:
                         SetEventData(tagValue);
                         break;
-                    
+
+                    case DialogueTags.ILLUST_TAG:
+                        ShowOrHideDialogueBox(DialogueTags.BLANK_VALUE);
+                        dialoguePortraitManager.DisplayPortraits(tagValue);
+                        break;
+
                     case DialogueTags.PORTRAIT_TAG:
                         dialoguePortraitManager.DisplayPortraits(tagValue);
                         break;
@@ -107,7 +112,7 @@ namespace Dialogue.Tags{
         /// <summary>
         /// Show or hide dialogue box depends on tag value
         /// </summary>
-        /// <param name="tagValue"></param>
+        /// <param name="tagValue">Give "hide" to hide or "show" to show</param>
         private void ShowOrHideDialogueBox(string tagValue){
             switch(tagValue){
                 case DialogueTags.BLANK_VALUE:

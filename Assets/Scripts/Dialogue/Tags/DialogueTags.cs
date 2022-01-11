@@ -10,6 +10,7 @@ namespace Dialogue.Tags
         public const string EFFECT_TAG = "effect";
         public const string ENDING_TAG = "end";
         public const string EVENT_TAG = "event";
+        public const string ILLUST_TAG = "illust";
         public const string PORTRAIT_TAG = "portrait";
         public const string SFX_TAG = "sfx";
         public const string SPEAKER_TAG = "speaker";

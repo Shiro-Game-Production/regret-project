@@ -8,7 +8,7 @@ namespace Puzzle.Safe {
         [SerializeField] private Text safeDisplayText;
         [SerializeField] private PuzzleFinishedCondition puzzleFinishedCondition;
 
-        private const string CORRECT_CODE = "284031"; 
+        [SerializeField] private string correctCode = "251299";
 
         private void Awake()
         {
@@ -21,7 +21,7 @@ namespace Puzzle.Safe {
         /// <param name="digit"></param>
         public void AddDigit(string digit)
         {
-            if(safeDisplayText.text.Length < CORRECT_CODE.Length)
+            if(safeDisplayText.text.Length < correctCode.Length)
             {
                 safeDisplayText.text += digit;
             }
@@ -32,7 +32,7 @@ namespace Puzzle.Safe {
         /// </summary>
         public void CheckCode()
         {
-            if(safeDisplayText.text == CORRECT_CODE)
+            if(safeDisplayText.text == correctCode)
             {
                 puzzleFinishedCondition.OnEndingCondition();
             }

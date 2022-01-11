@@ -34,6 +34,7 @@ namespace Dialogue
         [Header("Dialogue UI")]
         [SerializeField] private CanvasGroup dialogueCanvasGroup;
         [SerializeField] private GameObject dialogueHolder;
+        [SerializeField] private GameObject dialogueTextBox;
         [SerializeField] private TextMeshProUGUI dialogueText;
         [SerializeField] private Text speakerName;
 
@@ -269,8 +270,12 @@ namespace Dialogue
                     DialogueButtonManager.Instance.AutoModeState(false);
                     StopAutoModeCoroutine();
 
+                    // Player
                     playerMovement.Movement.ChangeNavMeshQuality(
                         UnityEngine.AI.ObstacleAvoidanceType.LowQualityObstacleAvoidance);
+
+                    // Dialogue UI
+                    dialogueTextBox.SetActive(true);
                     DialogueIsPlaying = false;
                     dialogueText.text = "";
                     speakerName.text = "";
