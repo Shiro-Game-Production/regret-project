@@ -23,7 +23,10 @@ namespace Event.BranchEvent{
                     foreach(DialogueEventData eventData in branchEventData.SameBranchEventDatas){
                         if(eventData.eventState == EventState.Active) continue;
 
-                        eventData.ItemData.itemMode = Items.ItemData.ItemMode.NormalMode;
+                        if(eventData.ItemData)
+                            eventData.ItemData.itemMode = Items.ItemData.ItemMode.NormalMode;
+                        else
+                            Debug.LogError($"{eventData.EventId} doesn't have item data");
                     }
                     break;
                 case BranchEventState.Finish:
@@ -32,7 +35,10 @@ namespace Event.BranchEvent{
                     foreach(DialogueEventData eventData in branchEventData.SameBranchEventDatas){
                         if(eventData.isFinished) continue;
 
-                        eventData.ItemData.itemMode = Items.ItemData.ItemMode.NormalMode;
+                        if(eventData.ItemData)
+                            eventData.ItemData.itemMode = Items.ItemData.ItemMode.NormalMode;
+                        else
+                            Debug.LogError($"{eventData.EventId} doesn't have item data");
                     }
 
                     Destroy(gameObject);

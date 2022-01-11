@@ -55,7 +55,7 @@ Papa sudah tidak mencintai Mama lagi.
 #portrait:mama/pose2/rin-ex1-stare
 Tidak ada yang mencintai Mama lagi . .
 
-#portrait:yuri/pose1/yuri-tshirt/yuri-ex2-wishing
+#portrait:yuri/pose1/yuri-tshirt/yuri-ex2-serious
 #speaker:Yuri
 <i>(Jadi, barang berharga yang dimaksud Ken tadi adalah cincin pernikahan?)</i>
 <i>(Jelas Mama sangat marah karena barang seberharga itu akan dijual untuk membeli sesuatu yang sangat tidak penting.)</i>
@@ -83,7 +83,7 @@ Sekarang Mama tidak perlu khawatir.
 Aku akan bantu mencari cincin pernikahan tersebut, sebelum Papa menjualnya, dan memberikannya ke Mama.
 Namun sebagai gantinya, Mama harus berjanji kepadaku kalau Mama tidak akan menyiksa Ken lagi . .
 
-#portrait:yuri/pose2/yuri-tshirt/yuri-ex4-smirk
+#portrait:mama/pose2/rin-ex4-smirk
 #speaker:Mama
 #event:chapter1-3-1-1
 Lakukan sesuka mu saja . .

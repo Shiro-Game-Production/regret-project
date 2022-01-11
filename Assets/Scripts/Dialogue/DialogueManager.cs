@@ -11,6 +11,7 @@ using Dialogue.Logs;
 using Dialogue.Tags;
 using Cinemachine;
 using UserInterface;
+using Player;
 using System.Collections.Generic;
 
 namespace Dialogue
@@ -40,10 +41,10 @@ namespace Dialogue
         private DialogueLogManager dialogueLogManager;
         private DialoguePortraitManager dialoguePortraitManager;
         private DialogueTagManager dialogueTagManager;
+        private PlayerMovement playerMovement;
 
         private Coroutine displayLineCoroutine;
         private Coroutine autoModeCoroutine;
-        private Stack<DialogueMode> dialogueModeStack;
         [SerializeField] private List<DialogueMode> dialogueModeStackList;
         private Story currentStory;
 
@@ -64,8 +65,8 @@ namespace Dialogue
             dialogueLogManager = DialogueLogManager.Instance;
             dialoguePortraitManager = DialoguePortraitManager.Instance;
             dialogueTagManager = DialogueTagManager.Instance;
+            playerMovement = PlayerMovement.Instance;
             dialogueModeStackList = new List<DialogueMode>();
-            dialogueModeStack = new Stack<DialogueMode>();
 
             dialogueCanvasGroup.interactable = true;
             dialogueCanvasGroup.blocksRaycasts = false;
@@ -98,6 +99,7 @@ namespace Dialogue
             
             // If mouse button down and is typing, make player can skip dialogue sentence
             if (Input.GetMouseButtonDown(0) &&
+                currentDialogueMode == DialogueMode.Normal &&
                 dialogueState == DialogueState.Typing){
                 dialogueState = DialogueState.SkipSentence;
             }
@@ -159,6 +161,8 @@ namespace Dialogue
             StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,
                 beforeEffect: () =>
                 {
+                    playerMovement.Movement.ChangeNavMeshQuality(
+                        UnityEngine.AI.ObstacleAvoidanceType.NoObstacleAvoidance);
                     cameraMovement.SetVirtualCameraPriority(dialogueVcam,
                         cameraMovement.DIALOGUE_HIGHER_PRIORITY);
                     DialogueIsPlaying = true;
@@ -265,6 +269,8 @@ namespace Dialogue
                     DialogueButtonManager.Instance.AutoModeState(false);
                     StopAutoModeCoroutine();
 
+                    playerMovement.Movement.ChangeNavMeshQuality(
+                        UnityEngine.AI.ObstacleAvoidanceType.LowQualityObstacleAvoidance);
                     DialogueIsPlaying = false;
                     dialogueText.text = "";
                     speakerName.text = "";

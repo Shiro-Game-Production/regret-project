@@ -48,5 +48,13 @@ namespace Player{
         {
             navPlayer.SetDestination(destination);
         }
+
+        /// <summary>
+        /// Change nav mesh quality
+        /// </summary>
+        /// <param name="navMeshQuality"></param>
+        public void ChangeNavMeshQuality(ObstacleAvoidanceType navMeshQuality){
+            navPlayer.obstacleAvoidanceType = navMeshQuality;
+        }
     }
 }
