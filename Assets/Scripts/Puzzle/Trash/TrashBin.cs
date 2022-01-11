@@ -5,10 +5,9 @@ using UnityEngine;
 
 namespace Puzzle.Trash{
     [RequireComponent(typeof(BoxCollider2D))]
-    public class TrashBin : MonoBehaviour {
+    public class TrashBin : PuzzleManager {
         [SerializeField] private bool isClosed;
         [SerializeField] private List<Trash> trashList;
-        [SerializeField] private PuzzleFinishedCondition puzzleFinishedCondition;
 
         [Header("Audio")]
         [SerializeField] private List<AudioClip> plasticThrowAudios;

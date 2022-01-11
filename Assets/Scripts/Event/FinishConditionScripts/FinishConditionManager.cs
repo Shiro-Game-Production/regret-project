@@ -10,6 +10,7 @@ namespace Event.FinishConditionScripts
 
         public virtual void OnEndingCondition()
         {
+            Debug.Log(EventData == null);
             EventData.isFinished = true;
         }
     }

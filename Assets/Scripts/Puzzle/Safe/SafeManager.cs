@@ -5,10 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Puzzle.Safe {
-    public class SafeManager : MonoBehaviour
+    public class SafeManager : PuzzleManager
     {
         [SerializeField] private Text safeDisplayText;
-        [SerializeField] private PuzzleFinishedCondition puzzleFinishedCondition;
 
         [SerializeField] private string correctCode = "251299";
 

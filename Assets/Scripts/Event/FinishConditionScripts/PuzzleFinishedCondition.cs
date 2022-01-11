@@ -1,16 +1,25 @@
 using System.Collections.Generic;
 using Dialogue;
 using Effects;
+using Puzzle;
 using UnityEngine;
 
 namespace Event.FinishConditionScripts{
     public class PuzzleFinishedCondition : FinishConditionManager {
         [SerializeField] private CanvasGroup puzzleCanvasGroup;
+        [SerializeField] private PuzzleManager puzzleManager;
         [SerializeField] private List<GameObject> sameBranchEvents;
         [SerializeField] private TextAsset finishPuzzleDialogue;
 
         private void Awake() {
             EventData = GetComponent<EventData>();
+            Debug.Log($"Finished condition: {EventData.EventId}");
+        }
+
+        public override void SetEndingCondition()
+        {
+            base.SetEndingCondition();
+            puzzleManager.PuzzleFinishedCondition = this;
         }
 
         public override void OnEndingCondition()
