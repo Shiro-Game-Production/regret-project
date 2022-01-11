@@ -40,7 +40,7 @@ namespace Event.FinishConditionScripts
         {
             Debug.Log("Wait for dialogue finished");
             yield return new WaitUntil(() => 
-                !dialogueManager.DialogueIsPlaying && 
+                dialogueManager.DialogueModeStackList.Count == 0 &&
                 dialogueManager.CurrentDialogueAsset == itemData.currentDialogue);
             Debug.Log("Dialogue finished");
             OnEndingCondition();

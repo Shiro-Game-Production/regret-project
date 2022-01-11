@@ -13,7 +13,6 @@ namespace Event.FinishConditionScripts{
 
         private void Awake() {
             EventData = GetComponent<EventData>();
-            Debug.Log($"Finished condition: {EventData.EventId}");
         }
 
         public override void SetEndingCondition()

@@ -25,7 +25,6 @@ namespace Event.BranchEvent{
 
                         if(eventData.ItemData){
                             eventData.ItemData.itemMode = Items.ItemData.ItemMode.NormalMode;
-                            Debug.Log($"{eventData.EventId} become normal mode");
                         }
                         else{
                             Debug.LogError($"{eventData.EventId} doesn't have item data");
@@ -40,7 +39,6 @@ namespace Event.BranchEvent{
 
                         if(eventData.ItemData){
                             eventData.ItemData.itemMode = Items.ItemData.ItemMode.NormalMode;
-                            Debug.Log($"{eventData.EventId} become normal mode");
                         }
                         else{
                             Debug.LogError($"{eventData.EventId} doesn't have item data");

@@ -52,6 +52,7 @@ namespace Dialogue
         #region Setter and Getter
 
         public DialogueMode CurrentDialogueMode => currentDialogueMode;
+        public List<DialogueMode> DialogueModeStackList => dialogueModeStackList;
         public Story CurrentStory => currentStory;
         public Text SpeakerName => speakerName;
         public TextAsset CurrentDialogueAsset => currentDialogueAsset;
