@@ -106,5 +106,5 @@ Tapi aku takut sama Mama . .
 
     #portrait:ken/pose1/ken-ex3-smile
     #speaker:Ken
-    #event:chapter1-3-2-brangkas,chapter1-3-2-tv
+    #event:chapter1-3-2-brangkas,chapter1-3-2-hp,chapter1-3-2-tv
     Iya Kak!
