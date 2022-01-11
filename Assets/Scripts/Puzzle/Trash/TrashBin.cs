@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Puzzle.Trash{
     [RequireComponent(typeof(BoxCollider2D))]
     public class TrashBin : MonoBehaviour {
+        [SerializeField] private bool isClosed;
         [SerializeField] private List<Trash> trashList;
         [SerializeField] private PuzzleFinishedCondition puzzleFinishedCondition;
         private Dictionary<Trash, bool> trashDict;
@@ -19,7 +20,11 @@ namespace Puzzle.Trash{
 
         private void OnTriggerEnter2D(Collider2D other) {
             Trash trash = other.GetComponent<Trash>();
-            if(!trash) return;
+            TrashCanCap trashCanCap = other.GetComponent<TrashCanCap>();
+
+            if(trashCanCap) isClosed = true;
+
+            if(!trash || isClosed) return;
 
             // Set trash's condition
             trashDict[trash] = true;
@@ -32,6 +37,11 @@ namespace Puzzle.Trash{
 
             Debug.Log("Puzzle done");
             puzzleFinishedCondition.OnEndingCondition();
+        }
+
+        private void OnTriggerExit2D(Collider2D other) {
+            TrashCanCap trashCanCap = other.GetComponent<TrashCanCap>();
+            if(trashCanCap) isClosed = false;
         }
     }
 }

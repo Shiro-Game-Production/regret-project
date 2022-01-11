@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Puzzle.Trash
 {
-    public class Trash : DragAndDropUI
+    public class TrashCanCap : DragAndDropUI
     {
 
     }
