@@ -139,3 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   parentRectTransform: {fileID: 0}
+  keypadAudios:
+  - {fileID: 8300000, guid: 1caa01f197044694eb4e1dd9e88e9918, type: 3}
+  - {fileID: 8300000, guid: 67e32f77558ca9146bdc38c94e292c23, type: 3}
+  - {fileID: 8300000, guid: 844199ff1c37a0e4292a4e8783fe33e2, type: 3}

@@ -48,27 +48,27 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 671f8d570416e6c46a7079c4d525240b, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     listBackgroundMusic: 0
   - clip: {fileID: 8300000, guid: 19d1418f39f700146929b96bb1139430, type: 3}
     volume: 0.6
     pitch: 1
-    loop: 0
+    loop: 1
     listBackgroundMusic: 1
   - clip: {fileID: 8300000, guid: 74db5ee0dc48fb74abed061f87dd3f1a, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     listBackgroundMusic: 2
   - clip: {fileID: 8300000, guid: 17291b8075c6ccd47b87ba82e184cf94, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     listBackgroundMusic: 3
   - clip: {fileID: 8300000, guid: 38f391ab405796e41ba493fca71096d4, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     listBackgroundMusic: 4
   bgmAudioSource: {fileID: 7247472208534672502}
   bgmAudioMixer: {fileID: 24300002, guid: d5bd08d9f45cf3f40b8c23b7b3ae82bc, type: 2}
@@ -273,3 +273,23 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     listSoundEffect: 2
+  - clip: {fileID: 8300000, guid: fbca99f4db21f5d42ad67b04bf11fbb0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    listSoundEffect: 3
+  - clip: {fileID: 8300000, guid: ab25a36c182709b4b8563093acdb196a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    listSoundEffect: 4
+  - clip: {fileID: 8300000, guid: 3b4a2e32c82249046a9ef4d98f32d3be, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    listSoundEffect: 5
+  - clip: {fileID: 8300000, guid: 084d877fcd2539443aea70930e7ef7d1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    listSoundEffect: 6

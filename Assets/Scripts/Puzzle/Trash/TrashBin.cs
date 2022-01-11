@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Audios.SoundEffects;
 using Event.FinishConditionScripts;
 using UnityEngine;
 
@@ -8,6 +9,10 @@ namespace Puzzle.Trash{
         [SerializeField] private bool isClosed;
         [SerializeField] private List<Trash> trashList;
         [SerializeField] private PuzzleFinishedCondition puzzleFinishedCondition;
+
+        [Header("Audio")]
+        [SerializeField] private List<AudioClip> plasticThrowAudios;
+        
         private Dictionary<Trash, bool> trashDict;
 
         private void Awake() {
@@ -25,6 +30,10 @@ namespace Puzzle.Trash{
             if(trashCanCap) isClosed = true;
 
             if(!trash || isClosed) return;
+
+            // Play audio
+            int randomAudioIndex = Random.Range(0, plasticThrowAudios.Count);
+            SoundEffectManager.Instance.Play(plasticThrowAudios[randomAudioIndex]);
 
             // Set trash's condition
             trashDict[trash] = true;

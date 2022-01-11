@@ -44,7 +44,8 @@ Semuanya sudah baik-baik saja kok . .
 Apa itu benar?
 Tapi aku masih merasa takut Kak . .
 
-// CG Ending
+#illust:illust/ending
+#bgm:endingBGM
 #speaker:Yuri
 Ken . .
 Dunia yang kita singgahi itu sangat indah lho !

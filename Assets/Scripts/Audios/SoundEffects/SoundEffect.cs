@@ -4,7 +4,11 @@ namespace Audios.SoundEffects {
     public enum ListSoundEffect {
         DoorOpened,
         DoorClosed,
-        Slap
+        Slap,
+        ShelfPush,
+        Locked,
+        AccessDenied,
+        SafeOpened
     }
     
     [Serializable]

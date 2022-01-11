@@ -10,6 +10,7 @@ Sebenci-bencinya Mama sama Ken, Ken itu tetep anak Mama !
 Ken itu bagian dari keluarga kita, Ma!!
 
 #portrait:yuri/pose2/yuri-tshirt/yuri-ex1-shockmore
+#speaker:none
 #sfx:slap
 #effect:shake
 PLAAKKK!!

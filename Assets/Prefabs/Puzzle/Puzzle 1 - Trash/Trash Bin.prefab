@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db92e9a6680cc24bab53df625f06429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClosed: 0
   trashList:
   - {fileID: 0}
   - {fileID: 0}
@@ -129,6 +130,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   puzzleFinishedCondition: {fileID: 0}
+  plasticThrowAudios:
+  - {fileID: 8300000, guid: 1caa01f197044694eb4e1dd9e88e9918, type: 3}
+  - {fileID: 8300000, guid: 67e32f77558ca9146bdc38c94e292c23, type: 3}
+  - {fileID: 8300000, guid: 844199ff1c37a0e4292a4e8783fe33e2, type: 3}
 --- !u!61 &6913797559305673516
 BoxCollider2D:
   m_ObjectHideFlags: 0

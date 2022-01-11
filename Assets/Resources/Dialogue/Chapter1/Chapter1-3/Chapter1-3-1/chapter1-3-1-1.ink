@@ -3,7 +3,7 @@
 Ahh !
 
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex5-sigh
-#sfx:LockedSafe
+#sfx:Locked
 Sepertinya barang berharga itu ada di dalam brankas ini, namun brankas ini terkunci.
 
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex2-serious

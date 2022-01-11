@@ -38,6 +38,7 @@ namespace Items.Door
         {
             if (isLocked)
             {
+                SoundEffectManager.Instance.Play(ListSoundEffect.Locked);
                 ItemNotificationManager.Instance.SetNotificationText("Pintu terkunci");
                 return;
             }

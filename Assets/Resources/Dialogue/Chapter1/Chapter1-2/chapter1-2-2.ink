@@ -8,6 +8,7 @@ KEN?!
 Kakak?!
 sssstttt...
 
+#bgm:neutralBGM
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex3-warmsmile,ken/pose1/ken-ex2-lookside
 #speaker:none
 Yuri memeluk Ken dengan eratnya.

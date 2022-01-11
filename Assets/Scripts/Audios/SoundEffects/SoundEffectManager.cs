@@ -23,6 +23,17 @@ namespace Audios.SoundEffects
         /// Play by audio enum name
         /// </summary>
         /// <param name="audio">Audio enum name</param>
+        public void Play(AudioClip audio){
+            AudioSource audioSource = GetAudioSource();
+
+            audioSource.PlayOneShot(audio);
+            StartCoroutine(StopAudio(audioSource));
+        }
+
+        /// <summary>
+        /// Play by audio enum name
+        /// </summary>
+        /// <param name="audio">Audio enum name</param>
         public void Play(string audio){
             AudioSource audioSource = GetAudioSource();
             AudioClip audioClip = GetAudioClip(audio);
