@@ -45,6 +45,8 @@ Apa itu benar?
 Tapi aku masih merasa takut Kak . .
 
 #illust:illust/ending
+...
+#dialogue-box:show
 #bgm:endingBGM
 #speaker:Yuri
 Ken . .

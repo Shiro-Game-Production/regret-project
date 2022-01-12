@@ -61,7 +61,6 @@ using UnityEngine.UI;
             float fadeWaitingTime = FADE_WAITING_TIME, float fadingSpeed = FADING_SPEED,
             Action beforeEffect = null, Action afterEffect = null)
         {
-            Debug.Log("Fade in");
             float oldAlpha = 0;
             const float newAlpha = 1;
             
@@ -141,7 +140,6 @@ using UnityEngine.UI;
             float fadeWaitingTime = FADE_WAITING_TIME, float fadingSpeed = FADING_SPEED,
             Action beforeEffect = null, Action afterEffect = null)
         {
-            Debug.Log("Fade out");
             float oldAlpha = 1;
             const float newAlpha = 0;
             

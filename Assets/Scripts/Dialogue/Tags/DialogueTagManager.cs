@@ -12,6 +12,7 @@ using Event.DialogueEvent;
 using Event.CameraEvent;
 using Audios.BackgroundMusics;
 using Audios.SoundEffects;
+using Dialogue.Illustration;
 
 namespace Dialogue.Tags{
     public class DialogueTagManager : SingletonBaseClass<DialogueTagManager> {
@@ -26,12 +27,14 @@ namespace Dialogue.Tags{
 
         private CameraShake cameraShake;
         private DialogueManager dialogueManager;
+        private DialogueIllustrationManager dialogueIllustrationManager;
         private DialogueLogManager dialogueLogManager;
         private DialoguePortraitManager dialoguePortraitManager;
 
         private void Awake() {
             cameraShake = CameraShake.Instance;
             dialogueManager = DialogueManager.Instance;
+            dialogueIllustrationManager = DialogueIllustrationManager.Instance;
             dialogueLogManager = DialogueLogManager.Instance;
             dialoguePortraitManager = DialoguePortraitManager.Instance;
         }
@@ -85,7 +88,7 @@ namespace Dialogue.Tags{
 
                     case DialogueTags.ILLUST_TAG:
                         ShowOrHideDialogueBox(DialogueTags.BLANK_VALUE);
-                        dialoguePortraitManager.DisplayPortraits(tagValue);
+                        dialogueIllustrationManager.DisplayIllustrtations(tagValue);
                         break;
 
                     case DialogueTags.PORTRAIT_TAG:

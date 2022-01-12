@@ -74,7 +74,7 @@ namespace Player
             
             if(other.CompareTag("NPC")){
                 EventData[] eventDatas = other.GetComponentsInChildren<EventData>();
-                Debug.Log(eventDatas.Length);
+                
                 // If all event datas can't be interacted and item mode is in normal mode, ...
                 if(Array.TrueForAll(eventDatas, e => !e.canBeInteracted) &&
                     itemData.itemMode == ItemData.ItemMode.NormalMode){

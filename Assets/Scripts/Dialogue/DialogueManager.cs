@@ -13,6 +13,7 @@ using Cinemachine;
 using UserInterface;
 using Player;
 using System.Collections.Generic;
+using Dialogue.Illustration;
 
 namespace Dialogue
 {
@@ -39,6 +40,7 @@ namespace Dialogue
         [SerializeField] private Text speakerName;
 
         private DialogueChoiceManager dialogueChoiceManager;
+        private DialogueIllustrationManager dialogueIllustrationManager;
         private DialogueLogManager dialogueLogManager;
         private DialoguePortraitManager dialoguePortraitManager;
         private DialogueTagManager dialogueTagManager;
@@ -64,6 +66,7 @@ namespace Dialogue
         {
             cameraMovement = CameraMovement.Instance;
             dialogueChoiceManager = DialogueChoiceManager.Instance;
+            dialogueIllustrationManager = DialogueIllustrationManager.Instance;
             dialogueLogManager = DialogueLogManager.Instance;
             dialoguePortraitManager = DialoguePortraitManager.Instance;
             dialogueTagManager = DialogueTagManager.Instance;
@@ -281,6 +284,7 @@ namespace Dialogue
                     dialogueText.text = "";
                     speakerName.text = "";
                     dialogueChoiceManager.HideChoices();
+                    dialogueIllustrationManager.HideIllustrtations();
                     dialoguePortraitManager.HidePortraits();
                 })
             );
