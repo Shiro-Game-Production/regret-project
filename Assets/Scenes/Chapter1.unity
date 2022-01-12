@@ -5245,6 +5245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ken
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e411486ee300ee548b66dec4330898bd, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e411486ee300ee548b66dec4330898bd, type: 3}
 --- !u!1001 &910816874
@@ -9378,7 +9382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22479ba805546908fe30a8de816bfd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionText: 0
+  interactionText: 2
   itemMode: 1
   currentDialogue: {fileID: 0}
 --- !u!54 &1323280042
@@ -10583,6 +10587,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e9e0cfbc45a941f4cadc3a088d54df57, type: 3}
       propertyPath: m_Name
       value: Rin
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e9e0cfbc45a941f4cadc3a088d54df57, type: 3}
+      propertyPath: m_TagString
+      value: NPC
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e0cfbc45a941f4cadc3a088d54df57, type: 3}
@@ -13605,15 +13613,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5220798764678537063, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.015941989
+      value: 0.01594199
       objectReference: {fileID: 0}
     - target: {fileID: 5220798764678537063, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.12295084
+      value: -0.1229508
       objectReference: {fileID: 0}
     - target: {fileID: 5220798764678537063, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.001975325
+      value: 0.0019753247
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}

@@ -1,81 +1,81 @@
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex4-shock
 #speaker:Yuri
-EHH..
-KEN?!
+// EHH..
+// KEN?!
 
-#portrait:ken/pose1/ken-ex2-lookside
-#speaker:Ken
-Kakak?!
-sssstttt...
+// #portrait:ken/pose1/ken-ex2-lookside
+// #speaker:Ken
+// Kakak?!
+// sssstttt...
 
-#bgm:neutralBGM
-#portrait:yuri/pose1/yuri-tshirt/yuri-ex3-warmsmile,ken/pose1/ken-ex2-lookside
-#speaker:none
-Yuri memeluk Ken dengan eratnya.
-Perasaan khawatir Yuri terkait hal-hal janggal bukan menjadi masalah lagi.
+// #bgm:neutralBGM
+// #portrait:yuri/pose1/yuri-tshirt/yuri-ex3-warmsmile,ken/pose1/ken-ex2-lookside
+// #speaker:none
+// Yuri memeluk Ken dengan eratnya.
+// Perasaan khawatir Yuri terkait hal-hal janggal bukan menjadi masalah lagi.
 
-#portrait:yuri/pose1/yuri-tshirt/yuri-ex3.1-warmsmilemore,ken/pose1/ken-ex2-lookside
-Yuri sudah tidak peduli dengan apapun selama dia melihat adiknya di depan matanya.
+// #portrait:yuri/pose1/yuri-tshirt/yuri-ex3.1-warmsmilemore,ken/pose1/ken-ex2-lookside
+// Yuri sudah tidak peduli dengan apapun selama dia melihat adiknya di depan matanya.
 
-#portrait:yuri/pose1/yuri-tshirt/yuri-ex1-confident
-#speaker:Yuri
-Kamu ngapain disini Ken?
+// #portrait:yuri/pose1/yuri-tshirt/yuri-ex1-confident
+// #speaker:Yuri
+// Kamu ngapain disini Ken?
 
-#portrait:ken/pose1/ken-ex1-frown
-#speaker:Ken
-Aku takut Kak . .
+// #portrait:ken/pose1/ken-ex1-frown
+// #speaker:Ken
+// Aku takut Kak . .
 
-#portrait:ken/pose1/ken-ex2-lookside
-Mama sama Papa semalam bertengkar.
-Lalu Mama melihat aku yang baru saja habis dari toilet.
+// #portrait:ken/pose1/ken-ex2-lookside
+// Mama sama Papa semalam bertengkar.
+// Lalu Mama melihat aku yang baru saja habis dari toilet.
 
-#portrait:ken/pose1/ken-ex1-frown
-Sejak itu, Mama mencariku . .
-Makanya aku sembunyi disini.
+// #portrait:ken/pose1/ken-ex1-frown
+// Sejak itu, Mama mencariku . .
+// Makanya aku sembunyi disini.
 
-#portrait:yuri/pose1/yuri-tshirt/yuri-ex2-serious
-#speaker:Yuri
-Semalam Mama bertengkar?
+// #portrait:yuri/pose1/yuri-tshirt/yuri-ex2-serious
+// #speaker:Yuri
+// Semalam Mama bertengkar?
 
-#portrait:ken/pose1/ken-ex1-frown
-#speaker:Ken
-Iya Kak . .
-Kakak tidak dengar?
+// #portrait:ken/pose1/ken-ex1-frown
+// #speaker:Ken
+// Iya Kak . .
+// Kakak tidak dengar?
 
-#portrait:yuri/pose1/yuri-tshirt/yuri-ex3.1-warmsmilemore
-#speaker:Yuri
-Ahh . .
-Engga kok, aku lupa . .
+// #portrait:yuri/pose1/yuri-tshirt/yuri-ex3.1-warmsmilemore
+// #speaker:Yuri
+// Ahh . .
+// Engga kok, aku lupa . .
 
-#portrait:yuri/pose1/yuri-tshirt/yuri-ex2-serious
-<i>(Sepertinya perasaanku benar tentang hari ini.)</i>
-<i>(Tidak mungkin aku melupakan semuanya tentang apa yang sudah terjadi kemarin . .)</i>
-<i>(Apa mungkin aku kembali ke masa lalu?)</i>
-<i>(Ahhh tidak .. tidak mungkin.)</i>
-<i>(Hal seperti itu kan hanya terjadi di film - film.)</i>
+// #portrait:yuri/pose1/yuri-tshirt/yuri-ex2-serious
+// <i>(Sepertinya perasaanku benar tentang hari ini.)</i>
+// <i>(Tidak mungkin aku melupakan semuanya tentang apa yang sudah terjadi kemarin . .)</i>
+// <i>(Apa mungkin aku kembali ke masa lalu?)</i>
+// <i>(Ahhh tidak .. tidak mungkin.)</i>
+// <i>(Hal seperti itu kan hanya terjadi di film - film.)</i>
 
-#portrait:ken/pose1/ken-ex1-frown
-#speaker:Ken
-Kak?
+// #portrait:ken/pose1/ken-ex1-frown
+// #speaker:Ken
+// Kak?
 
-#portrait:yuri/pose1/yuri-tshirt/yuri-ex1-confident
-#speaker:Yuri
-Aku tidak begitu dengar soalnya waktu itu aku udah tidur.
+// #portrait:yuri/pose1/yuri-tshirt/yuri-ex1-confident
+// #speaker:Yuri
+// Aku tidak begitu dengar soalnya waktu itu aku udah tidur.
 
-#portrait:ken/pose1/ken-ex2-lookside
-#speaker:Ken
-Jujur aku tidak menyangka kalau uang dan barang berharga bisa membuat Mama semarah itu..
+// #portrait:ken/pose1/ken-ex2-lookside
+// #speaker:Ken
+// Jujur aku tidak menyangka kalau uang dan barang berharga bisa membuat Mama semarah itu..
 
-#portrait:yuri/pose1/yuri-tshirt/yuri-ex2-serious
-#speaker:Yuri
-Ehh..
-Maksudnya?
+// #portrait:yuri/pose1/yuri-tshirt/yuri-ex2-serious
+// #speaker:Yuri
+// Ehh..
+// Maksudnya?
 
-#portrait:ken/pose1/ken-ex2-lookside
-#speaker:Ken
-Sepertinya Papa ingin merebut barang berharga punya Mama . .
-Tetapi Mama sangat melindungi benda tersebut.
-Soalnya kalau Mama tidak melindungi benda itu, tidak mungkin Mama bisa semarah itu semalam.
+// #portrait:ken/pose1/ken-ex2-lookside
+// #speaker:Ken
+// Sepertinya Papa ingin merebut barang berharga punya Mama . .
+// Tetapi Mama sangat melindungi benda tersebut.
+// Soalnya kalau Mama tidak melindungi benda itu, tidak mungkin Mama bisa semarah itu semalam.
 
 #portrait:ken/pose1/ken-ex1-frown
 Aku sangat sayang sama Mama . .

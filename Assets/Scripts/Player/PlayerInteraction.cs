@@ -1,4 +1,5 @@
-﻿using Dialogue;
+﻿using System;
+using Dialogue;
 using Event;
 using Event.FinishConditionScripts;
 using Items;
@@ -58,8 +59,8 @@ namespace Player
             // if collide with event data, ...
             EventData eventData = other.GetComponent<EventData>();
             ItemData itemData = other.GetComponent<ItemData>();
-            if (!eventData || !itemData) return;
-            
+            if (!itemData) return;
+
             // Special case for door only
             DoorManager doorManager = other.GetComponent<DoorManager>();
             // If door manager is animating, set hasInteracted to true
@@ -70,13 +71,27 @@ namespace Player
                     return;
                 }
             }
-
-            // If event data can't be interacted (not finished yet) and item mode is dialogue mode, ...
-            if (!eventData.canBeInteracted ||
-                (!eventData.canBeInteracted && itemData.itemMode == ItemData.ItemMode.DialogueMode) ||
-                !eventData && !itemData)
-            {
-                playerInRange = false;
+            
+            if(other.CompareTag("NPC")){
+                EventData[] eventDatas = other.GetComponentsInChildren<EventData>();
+                Debug.Log(eventDatas.Length);
+                // If all event datas can't be interacted and item mode is in normal mode, ...
+                if(Array.TrueForAll(eventDatas, e => !e.canBeInteracted) &&
+                    itemData.itemMode == ItemData.ItemMode.NormalMode){
+                    // Make player in range false
+                    playerInRange = false;
+                }
+            }
+            else{
+                if(!eventData) return;
+                
+                // If event data can't be interacted (not finished yet) and item mode is dialogue mode, ...
+                if (!eventData.canBeInteracted ||
+                    (!eventData.canBeInteracted && itemData.itemMode == ItemData.ItemMode.DialogueMode) ||
+                    (!eventData && !itemData))
+                {
+                    playerInRange = false;
+                }
             }
         }
 
