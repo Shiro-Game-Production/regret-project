@@ -23,7 +23,8 @@ namespace Event.BranchEvent{
 
                     branchEventData.BranchParts[i].EventDatas.ForEach(eventData =>
                     {
-                        eventData.ItemData.itemMode = Items.ItemData.ItemMode.NormalMode;
+                        if(eventData.ItemData)
+                            eventData.ItemData.itemMode = Items.ItemData.ItemMode.NormalMode;
                     });
                 }
 

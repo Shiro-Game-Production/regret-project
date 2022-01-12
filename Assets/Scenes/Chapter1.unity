@@ -8213,7 +8213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8624603230452697310, guid: 7fccd30d1ec6b10498b5d71a142931b6, type: 3}
       propertyPath: dialogueAffectedItems.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8624603230452697310, guid: 7fccd30d1ec6b10498b5d71a142931b6, type: 3}
       propertyPath: dialogueAffectedItems.Array.data[0].name
@@ -9393,6 +9393,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!224 &1321907515 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8054110189220693621, guid: d10d111424fe9f649b46f948e0685261, type: 3}
+  m_PrefabInstance: {fileID: 3828264038434518227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1323280038 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e411486ee300ee548b66dec4330898bd, type: 3}
@@ -15512,6 +15517,14 @@ PrefabInstance:
       propertyPath: m_Alpha
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8054110189220693621, guid: d10d111424fe9f649b46f948e0685261, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054110189220693621, guid: d10d111424fe9f649b46f948e0685261, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d10d111424fe9f649b46f948e0685261, type: 3}
 --- !u!1001 &4477694608829983439
@@ -15643,6 +15656,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1625419325}
     m_Modifications:
+    - target: {fileID: 4303758444568370507, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
+      propertyPath: illustrtationsParent
+      value: 
+      objectReference: {fileID: 1321907515}
     - target: {fileID: 5778430167241591998, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
       propertyPath: speakerName
       value: 
