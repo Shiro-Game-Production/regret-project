@@ -1,5 +1,5 @@
 ﻿#portrait:yuri/pose1/yuri-tshirt/yuri-ex6-sleepy
-#bgm:tenseBGM
+#bgm:neutralBGM
 #speaker:Yuri
 ...
 Ahh..
