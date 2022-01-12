@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using Effects;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace SceneLoading
 {
     public class SceneLoadTrigger : SingletonBaseClass<SceneLoadTrigger>
     {
-        public Animator transition;
+        [SerializeField] private Image fadingImage;
+
+        public Image FadingImage => fadingImage;
 
         #region Don't Destroy On Load
-        
+
         /// <summary>
         /// Use only 1 Scene Load Trigger from HomeScene
         /// </summary>
@@ -32,6 +36,12 @@ namespace SceneLoading
         private void Awake()
         {
             SetInstance();
+
+            SceneManager.activeSceneChanged += ChangeActiveScene;
+        }
+
+        private void ChangeActiveScene(Scene current, Scene next){
+            StartCoroutine(FadingEffect.FadeOut(fadingImage));
         }
 
         /// <summary>
@@ -40,8 +50,13 @@ namespace SceneLoading
         /// <param name="sceneName">Scene's name to load</param>
         public void LoadScene(string sceneName)
         {
-            LoadingData.sceneName = sceneName;
-            SceneManager.LoadScene(LOADING_SCENE_NAME);
+            StartCoroutine(FadingEffect.FadeIn(fadingImage,
+                afterEffect: () =>
+                {
+                    LoadingData.sceneName = sceneName;
+                    SceneManager.LoadScene(LOADING_SCENE_NAME);
+                })
+            );
         }
     }
 }

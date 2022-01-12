@@ -61,6 +61,7 @@ using UnityEngine.UI;
             float fadeWaitingTime = FADE_WAITING_TIME, float fadingSpeed = FADING_SPEED,
             Action beforeEffect = null, Action afterEffect = null)
         {
+            Debug.Log("Fade in");
             float oldAlpha = 0;
             const float newAlpha = 1;
             
@@ -122,6 +123,48 @@ using UnityEngine.UI;
             // Don't block the raycast
             canvasGroup.blocksRaycasts = blocksRaycasts;
 
+            afterEffect?.Invoke();
+        }
+
+        /// <summary>
+        /// Fade out effect by using image alpha
+        /// From visible (1) to invisible (0)
+        /// </summary>
+        /// <param name="canvasGroup">CanvasGroup component</param>
+        /// <param name="blocksRaycasts">Block raycast. Default is false</param>
+        /// <param name="fadingSpeed">Fading speed for alpha value</param>
+        /// <param name="beforeEffect">Action before fade effect</param>
+        /// <param name="afterEffect">Action after fade effect</param>
+        /// <param name="fadeWaitingTime">Waiting time every loop</param>
+        /// <returns>Wait for certain seconds</returns>
+        public static IEnumerator FadeOut(Image image, 
+            float fadeWaitingTime = FADE_WAITING_TIME, float fadingSpeed = FADING_SPEED,
+            Action beforeEffect = null, Action afterEffect = null)
+        {
+            Debug.Log("Fade out");
+            float oldAlpha = 1;
+            const float newAlpha = 0;
+            
+            // Block the raycast
+            image.gameObject.SetActive(true);
+            beforeEffect?.Invoke();
+            
+            while (oldAlpha > newAlpha)
+            {
+                Color currentColor = image.color;
+                float currentAlpha = currentColor.a;
+
+                // Increase current alpha
+                currentAlpha -= fadingSpeed;
+                currentColor.a = currentAlpha;
+                image.color = currentColor;
+                
+                // Update old alpha
+                oldAlpha = currentAlpha;
+                yield return new WaitForSeconds(fadeWaitingTime);
+            }
+
+            image.gameObject.SetActive(false);
             afterEffect?.Invoke();
         }
     }

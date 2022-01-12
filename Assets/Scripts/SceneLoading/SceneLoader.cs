@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Effects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -57,11 +58,16 @@ namespace SceneLoading
         {
             // Wait for 3 seconds
             yield return new WaitForSeconds(WAIT_SECONDS);
-            
-            // Load scene asynchronously
-            AsyncOperation loadingScene = SceneManager.LoadSceneAsync(LoadingData.sceneName);
 
-            stopAnimating = loadingScene.isDone;
+            // Fade in
+            StartCoroutine(FadingEffect.FadeIn(SceneLoadTrigger.Instance.FadingImage,
+                afterEffect: () =>
+                {
+                    // Load scene asynchronously
+                    AsyncOperation loadingScene = SceneManager.LoadSceneAsync(LoadingData.sceneName);
+                    stopAnimating = loadingScene.isDone;
+                })
+            );
         }
     }
 }
