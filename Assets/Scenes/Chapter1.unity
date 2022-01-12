@@ -5329,7 +5329,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
       propertyPath: branchEventData.name
-      value: safe-puzzle branch2 chapter1-3
+      value: branch2 chapter1-3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[0].name
+      value: dialogue dengan mama
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].name
+      value: observasi
       objectReference: {fileID: 0}
     - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
       propertyPath: branchEventData.sameBranchEventDatas.Array.size
@@ -5349,6 +5361,46 @@ PrefabInstance:
       objectReference: {fileID: 1933505636}
     - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
       propertyPath: branchEventData.sameBranchEventDatas.Array.data[3]
+      value: 
+      objectReference: {fileID: 1249864272}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[0].eventToFinish
+      value: 
+      objectReference: {fileID: 1711753571}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].eventToFinish
+      value: 
+      objectReference: {fileID: 192534128}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[0].quantityToFinishPart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].quantityToFinishPart
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[0].eventDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].eventDatas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[0].eventDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 1711753571}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].eventDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 192534128}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].eventDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 1933505636}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].eventDatas.Array.data[2]
       value: 
       objectReference: {fileID: 1249864272}
     - target: {fileID: 8440407608600867945, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
@@ -15198,7 +15250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038538987154, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -707
+      value: -706.99994
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038721273125, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_SizeDelta.x
@@ -16158,7 +16210,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
       propertyPath: branchEventData.name
-      value: trash-puzzle branch1 chapter1-2
+      value: branch1 chapter1-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[0].name
+      value: rak-sepatu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].name
+      value: trash-puzzle
       objectReference: {fileID: 0}
     - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
       propertyPath: branchEventData.sameBranchEventDatas.Array.size
@@ -16170,6 +16234,38 @@ PrefabInstance:
       objectReference: {fileID: 787429786}
     - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
       propertyPath: branchEventData.sameBranchEventDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 1768646615}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[0].eventToFinish
+      value: 
+      objectReference: {fileID: 787429786}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].eventToFinish
+      value: 
+      objectReference: {fileID: 1768646615}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[0].quantityToFinishPart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].quantityToFinishPart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[0].eventDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].eventDatas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[0].eventDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 787429786}
+    - target: {fileID: 8440407608600867944, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}
+      propertyPath: branchEventData.branchParts.Array.data[1].eventDatas.Array.data[0]
       value: 
       objectReference: {fileID: 1768646615}
     - target: {fileID: 8440407608600867945, guid: c285a199a951de44dba81c1a92b8cf9c, type: 3}

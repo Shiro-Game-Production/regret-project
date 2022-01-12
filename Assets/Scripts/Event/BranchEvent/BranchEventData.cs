@@ -8,19 +8,8 @@ namespace Event.BranchEvent{
     [Serializable]
     public class BranchEventData{
         [SerializeField] private string name;
-        public BranchEventState branchEventState = BranchEventState.NotStarted;
-        [SerializeField] private List<DialogueEventData> sameBranchEventDatas;
+        [SerializeField] private List<BranchPart> branchParts;
 
-        #region Setter and Getter
-
-        public List<DialogueEventData> SameBranchEventDatas => sameBranchEventDatas;
-
-        #endregion
-    }
-
-    public enum BranchEventState{
-        NotStarted,
-        Active,
-        Finish
+        public List<BranchPart> BranchParts => branchParts;
     }
 }

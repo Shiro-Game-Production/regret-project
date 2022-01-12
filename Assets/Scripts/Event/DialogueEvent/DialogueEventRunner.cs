@@ -1,4 +1,5 @@
 using Dialogue;
+using Event.BranchEvent;
 using Event.FinishConditionScripts;
 using Items;
 using UnityEngine;
@@ -101,7 +102,7 @@ namespace Event.DialogueEvent {
             
             // Set branch state
             if(eventData.UseBranchEvent){
-                eventData.BranchRunner.UpdateBranchEventState(BranchEvent.BranchEventState.Active);
+                eventData.BranchRunner.UpdateBranchPartState(eventData, BranchState.Active);
             }
         }
 
@@ -123,7 +124,7 @@ namespace Event.DialogueEvent {
             eventData.eventState = EventState.Finish;
             // Set branch state
             if(eventData.UseBranchEvent){
-                eventData.BranchRunner.UpdateBranchEventState(BranchEvent.BranchEventState.Finish);
+                eventData.BranchRunner.UpdateBranchPartState(eventData, BranchState.Finish);
             }
             // Deactivate event data renderer
             eventData.OnEventFinish();
