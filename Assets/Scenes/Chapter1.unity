@@ -1378,10 +1378,6 @@ PrefabInstance:
 
         Next: chapter1-3-2-1 (safe-puzzle)'
       objectReference: {fileID: 0}
-    - target: {fileID: 8624603230452697310, guid: 7fccd30d1ec6b10498b5d71a142931b6, type: 3}
-      propertyPath: keepObjectAfterFinish
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8624603230452697311, guid: 7fccd30d1ec6b10498b5d71a142931b6, type: 3}
       propertyPath: m_Size.x
       value: 0.45183468

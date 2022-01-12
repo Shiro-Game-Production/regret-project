@@ -7,7 +7,7 @@ namespace Event.DialogueEvent {
     public class DialogueEventRunner : MonoBehaviour, IEventRunner {
         public DialogueEventData eventData;
         private DialogueManager dialogueManager;
-        private bool hasSetFinishCondition;
+        private bool hasSetFinishCondition, canSetNextEvent;
         public bool canStartEvent;
 
         private void Awake()
@@ -16,6 +16,7 @@ namespace Event.DialogueEvent {
         }
 
         private void OnEnable() {
+            canSetNextEvent = false;
             canStartEvent = false;
             hasSetFinishCondition = false;
         }
@@ -47,6 +48,7 @@ namespace Event.DialogueEvent {
                             case FinishCondition.DialogueFinished:
                                 eventData.TriggerObject.SetEndingCondition();
                                 hasSetFinishCondition = true;
+                                canSetNextEvent = true;
                                 break;
                             case FinishCondition.PuzzleFinished:
                                 eventData.TriggerObject.SetEndingCondition();
@@ -64,7 +66,7 @@ namespace Event.DialogueEvent {
                     }
                     break;
                 case EventState.Finish:
-                    if(dialogueManager.DialogueIsPlaying)
+                    if(dialogueManager.DialogueIsPlaying || canSetNextEvent)
                         SetNextEvent();
                     break;
             }
