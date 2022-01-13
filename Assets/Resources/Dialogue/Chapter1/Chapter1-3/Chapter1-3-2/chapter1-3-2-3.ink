@@ -90,6 +90,6 @@ AHAHAHAA . .
 Mulai sekarang Ken jangan khawatir lagi yaa . .
 
 #speaker:Ken
-#end:true
 Iya, Kak . .
+#end:CreditScene
 ->END

@@ -1,4 +1,5 @@
-﻿using Effects;
+﻿using Credits;
+using Effects;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +9,14 @@ namespace SceneLoading
     public class SceneLoadTrigger : SingletonBaseClass<SceneLoadTrigger>
     {
         [SerializeField] private Image fadingImage;
+
+        [Header("Credit Background")]
+        [SerializeField] private Sprite homeSceneCreditSprite;
+        [SerializeField] private Sprite finalSceneCreditSprite;
+
+        private const string CREDIT_SCENE_NAME = "CreditScene";
+        private const string HOME_SCENE_NAME = "HomeScene";
+        private const string FINAL_SCENE_NAME = "Chapter1";
 
         public Image FadingImage => fadingImage;
 
@@ -40,6 +49,11 @@ namespace SceneLoading
             SceneManager.activeSceneChanged += ChangeActiveScene;
         }
 
+        /// <summary>
+        /// Change active scene
+        /// </summary>
+        /// <param name="current"></param>
+        /// <param name="next"></param>
         private void ChangeActiveScene(Scene current, Scene next){
             StartCoroutine(FadingEffect.FadeOut(fadingImage));
         }
@@ -50,6 +64,19 @@ namespace SceneLoading
         /// <param name="sceneName">Scene's name to load</param>
         public void LoadScene(string sceneName)
         {
+            // If next scene is credits, ...
+            if(sceneName == CREDIT_SCENE_NAME){
+                // Change background according to each scene's sprite
+                switch(SceneManager.GetActiveScene().name){
+                    case HOME_SCENE_NAME:
+                        CreditsManager.Instance.creditBackgroundSprite = homeSceneCreditSprite;
+                        break;
+                    case FINAL_SCENE_NAME:
+                        CreditsManager.Instance.creditBackgroundSprite = finalSceneCreditSprite;
+                        break;
+                }
+            }
+
             StartCoroutine(FadingEffect.FadeIn(fadingImage,
                 afterEffect: () =>
                 {

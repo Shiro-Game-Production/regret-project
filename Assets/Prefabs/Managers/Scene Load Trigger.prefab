@@ -220,3 +220,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadingImage: {fileID: 8807120103989446574}
+  homeSceneCreditSprite: {fileID: 21300000, guid: 1107f3ffbc94b73489cc6f1ed27c7d63, type: 3}
+  finalSceneCreditSprite: {fileID: 21300000, guid: 53cf964e768d5ab42a7525250ceb4318, type: 3}
