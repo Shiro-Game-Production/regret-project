@@ -1,77 +1,123 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor;
+using Effects;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Credits
 {
     public class CreditsManager : MonoBehaviour
     {
-        [SerializeField] private TextAsset creditsCsv;
+        [Range(0, 10)]
+        [SerializeField] private float creditDuration = 3f;
+        [Range(0, 5)]
+        [SerializeField] private float betweenCreditDuration = 1f;
 
-        private Dictionary<string, string> creditsDict;
-        private Dictionary<int, string> creditsHeaderDict;
+        [Header("Credit UI")]
+        [SerializeField] private CanvasGroup creditCanvasGroup;
+        [SerializeField] private Text titleText, bodyText;
+
+        private List<Credit> creditList;
+        private const string CREDITS_PATH = "Assets/Resources/credits.tsv";
 
         private void Awake() {
-            creditsDict = new Dictionary<string, string>();
-            creditsHeaderDict = new Dictionary<int, string>();
+            creditList = new List<Credit>();
             ReadFile();
         }
-
+        
+        /// <summary>
+        /// Read file CSV or TSV
+        /// </summary>
         private void ReadFile(){
-            // Get asset path
-            string creditsPath = AssetDatabase.GetAssetPath(creditsCsv);
-            
-            // Check exist
-            if(string.IsNullOrWhiteSpace(creditsPath) || 
-                !File.Exists(creditsPath)) {
-                Debug.LogError($"{creditsCsv} cannot be found");
+            // Check path existance
+            if(!File.Exists(CREDITS_PATH)) {
+                Debug.LogError($"{CREDITS_PATH} cannot be found");
                 return;
             }
 
-            StreamReader reader = new StreamReader(creditsPath);
+            StreamReader reader = new StreamReader(CREDITS_PATH);
             string lines = reader.ReadToEnd();
             reader.Close();
 
             ReadLines(lines);
         }
 
+        /// <summary>
+        /// Read lines in files and convert it to dictionary
+        /// </summary>
+        /// <param name="lines"></param>
         private void ReadLines(string lines){
             string[] rows = lines.Split('\n');
 
             // Assign names
             for (int i = 0; i < rows.Length; i++)
             {
-                string[] items = rows[i].Split(',');
+                string[] items = rows[i].Split('\t');
 
                 // Get header
                 if(i == 0){
                     for (int j = 0; j < items.Length; j++)
                     {
                         string item = items[j].Trim();
-                        Debug.Log($"Header: {item}");
-                        if (!creditsDict.ContainsKey(item)){
-                            creditsDict[item] = "";
-                            creditsHeaderDict[j] = item;
-                        }
+                        creditList.Add(new Credit(j, item, ""));
                     }
                     continue;
                 }
 
+                // Get values
                 for (int j = 0; j < items.Length; j++){
                     // If null or white space, continue
                     if(string.IsNullOrWhiteSpace(items[j])) continue;
-
-                    Debug.Log($"Header: {items[j]}");
                     // Add names in dict
-                    creditsDict[creditsHeaderDict[j]] += $"{items[j]}\n";
+                    creditList[j].body += $"{items[j]}\n";
                 }
             }
 
-            foreach(string key in creditsDict.Keys){
-                Debug.Log($"{key}: {creditsDict[key]}");
+            StartCoroutine(AnimateCredits());
+        }
+
+        private IEnumerator AnimateCredits(){
+            // Loop through credits
+            for (int i = 0; i < creditList.Count; i++)
+            {
+                Credit credit = creditList[i];
+
+                // Fade in
+                StartCoroutine(FadingEffect.FadeIn(creditCanvasGroup, 
+                    beforeEffect: () => {
+                        titleText.text = credit.Title;
+                        bodyText.text = credit.body;
+                    })
+                );
+                // Wait
+                yield return new WaitForSeconds(creditDuration);
+
+                // Fade out
+                StartCoroutine(FadingEffect.FadeOut(creditCanvasGroup, 
+                    afterEffect: () => {
+                        titleText.text = "";
+                        bodyText.text = "";
+                    })
+                );
+
+                yield return new WaitForSeconds(betweenCreditDuration);
             }
         }
+    }
+
+    public class Credit{
+        private int id;
+        private string title;
+        public string body;
+
+        public Credit(int id, string title, string body){
+            this.id = id;
+            this.title = title;
+            this.body = body;
+        }
+
+        public int ID => id;
+        public string Title => title;
     }
 }
