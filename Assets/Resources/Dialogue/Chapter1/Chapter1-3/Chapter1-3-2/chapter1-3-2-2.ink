@@ -140,9 +140,11 @@ Cita - cita ku sampai kebawa mimpi . .
 #speaker:Mama
 Bagus kalau begitu . .
 
-#portrait:yuri/pose2/yuri-tshirt/yuri-ex2-cry
+
+#portrait:yuri/pose2/yuri-tshirt/yuri-ex4-worried
 #speaker:Yuri
 . . .
+#portrait:yuri/pose2/yuri-tshirt/yuri-ex2-cry
 <i>(Jika hal itu benar kalau aku kembali ke masa lalu . .)</i>
 <i>(Aku sangat berterima kasih kepada Tuhan yang sudah memberikan satu kali lagi kesempatan . .)</i>
 <i>(Untuk menyelamatkan Ken . .)</i>

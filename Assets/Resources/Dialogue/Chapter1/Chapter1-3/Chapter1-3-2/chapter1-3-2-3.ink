@@ -45,9 +45,10 @@ Apa itu benar?
 Tapi aku masih merasa takut Kak . .
 
 #illust:illust/ending
-...
-#dialogue-box:show
 #bgm:endingBGM
+...
+
+#dialogue-box:show
 #speaker:Yuri
 Ken . .
 Dunia yang kita singgahi itu sangat indah lho !

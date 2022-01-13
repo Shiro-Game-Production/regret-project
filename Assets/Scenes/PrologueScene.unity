@@ -374,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionText: 0
   itemMode: 0
-  currentDialogue: {fileID: 4900000, guid: 8d2202ad8309efb45a85827aab2cb952, type: 3}
+  currentDialogue: {fileID: 4900000, guid: 180b82ee1c1733c468a51d53ba2c68b8, type: 3}
 --- !u!65 &105920779
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1887,6 +1887,11 @@ Transform:
   m_Father: {fileID: 1508271475}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1329434724 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8054110189220693621, guid: d10d111424fe9f649b46f948e0685261, type: 3}
+  m_PrefabInstance: {fileID: 3828264038434518227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1363340992 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3828264039755569683, guid: d10d111424fe9f649b46f948e0685261, type: 3}
@@ -7437,6 +7442,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1625419325}
     m_Modifications:
+    - target: {fileID: 4303758444568370507, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
+      propertyPath: illustrtationsParent
+      value: 
+      objectReference: {fileID: 1329434724}
     - target: {fileID: 5778430167241591998, guid: f023b05fb08a29c4d924a0b050d2dc01, type: 3}
       propertyPath: speakerName
       value: 
