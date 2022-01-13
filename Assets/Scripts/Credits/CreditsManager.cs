@@ -1,18 +1,19 @@
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 namespace Credits
 {
     public class CreditsManager : SingletonBaseClass<CreditsManager>
     {
+        [SerializeField] private TextAsset creditCsv;
+
         public Sprite creditBackgroundSprite;
 
         private List<Credit> creditList;
 
         public List<Credit> CreditList => creditList;
-
-        private const string CREDITS_PATH = "Assets/Resources/credits.tsv";
 
         /// <summary>
         /// Set instance and don't destroy on load
@@ -44,14 +45,15 @@ namespace Credits
         /// </summary>
         private void ReadFile()
         {
+            string creditsPath = AssetDatabase.GetAssetPath(creditCsv);
             // Check path existance
-            if (!File.Exists(CREDITS_PATH))
+            if (!File.Exists(creditsPath))
             {
-                Debug.LogError($"{CREDITS_PATH} cannot be found");
+                Debug.LogError($"{creditsPath} cannot be found");
                 return;
             }
 
-            StreamReader reader = new StreamReader(CREDITS_PATH);
+            StreamReader reader = new StreamReader(creditsPath);
             string lines = reader.ReadToEnd();
             reader.Close();
 
@@ -69,7 +71,7 @@ namespace Credits
             // Assign names
             for (int i = 0; i < rows.Length; i++)
             {
-                string[] items = rows[i].Split('\t');
+                string[] items = rows[i].Split(';');
 
                 // Get header
                 if (i == 0)
