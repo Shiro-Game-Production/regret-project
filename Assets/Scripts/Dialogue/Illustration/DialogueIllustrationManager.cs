@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Dialogue.Tags;
+using Effects;
 
 namespace Dialogue.Illustration{
     public class DialogueIllustrationManager : SingletonBaseClass<DialogueIllustrationManager> {
@@ -35,10 +36,13 @@ namespace Dialogue.Illustration{
             foreach (string filename in files)
             {
                 Sprite illustration = Resources.Load<Sprite>($"Portraits/{filename}");
-                DialogueIllustration illustrtationManager = GetOrCreateIllustrtationManager();
+                DialogueIllustration dialogueIllustrtation = GetOrCreateIllustrtationManager();
 
-                illustrtationManager.gameObject.SetActive(true);
-                illustrtationManager.SetIllustration(illustration);
+                dialogueIllustrtation.SetIllustration(illustration);
+                // Fade in
+                StartCoroutine(FadingEffect.FadeIn(dialogueIllustrtation.IllustrationImage,
+                    beforeEffect: () => dialogueIllustrtation.gameObject.SetActive(true))
+                );
             }
         }
         
@@ -49,7 +53,9 @@ namespace Dialogue.Illustration{
         {
             foreach (DialogueIllustration illustrtation in illustrtationPool)
             {
-                illustrtation.gameObject.SetActive(false);
+                StartCoroutine(FadingEffect.FadeOut(illustrtation.IllustrationImage,
+                    afterEffect: () => illustrtation.gameObject.SetActive(false))
+                );
             }
         }
         
@@ -59,19 +65,19 @@ namespace Dialogue.Illustration{
         /// <returns>Return existing illustrtation manager in hierarchy or create a new one</returns>
         private DialogueIllustration GetOrCreateIllustrtationManager()
         {
-            DialogueIllustration illustrationManager = illustrtationPool.Find(illustrtation => 
+            DialogueIllustration dialogueIllustration = illustrtationPool.Find(illustrtation => 
                 !illustrtation.gameObject.activeInHierarchy);
 
-            if (illustrationManager == null)
+            if (dialogueIllustration == null)
             {
-                illustrationManager = Instantiate(illustrtationPrefab, illustrtationsParent).GetComponent<DialogueIllustration>();
+                dialogueIllustration = Instantiate(illustrtationPrefab, illustrtationsParent).GetComponent<DialogueIllustration>();
                 // Add new choice manager to pool 
-                illustrtationPool.Add(illustrationManager);
+                illustrtationPool.Add(dialogueIllustration);
             }
             
-            illustrationManager.gameObject.SetActive(false);
+            dialogueIllustration.gameObject.SetActive(false);
 
-            return illustrationManager;
+            return dialogueIllustration;
         }
     }
 }

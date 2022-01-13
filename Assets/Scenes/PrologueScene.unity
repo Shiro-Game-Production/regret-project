@@ -375,7 +375,7 @@ MonoBehaviour:
   itemName: Kalender
   interactionText: 0
   itemMode: 0
-  currentDialogue: {fileID: 4900000, guid: 180b82ee1c1733c468a51d53ba2c68b8, type: 3}
+  currentDialogue: {fileID: 4900000, guid: 8d2202ad8309efb45a85827aab2cb952, type: 3}
 --- !u!65 &105920779
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6774,7 +6774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3084515702808481471, guid: a27a401a72b6c7f4b86309b8a8dc5d1b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a27a401a72b6c7f4b86309b8a8dc5d1b, type: 3}
@@ -6979,7 +6979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038538987154, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -707
+      value: -706.99994
       objectReference: {fileID: 0}
     - target: {fileID: 3828264038735774375, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_Material

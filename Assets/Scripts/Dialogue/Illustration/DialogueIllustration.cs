@@ -8,6 +8,8 @@ namespace Dialogue.Illustration
     {
         [SerializeField] private Image illustrationImage;
 
+        public Image IllustrationImage => illustrationImage;
+
         /// <summary>
         /// Set illustrtation sprite
         /// </summary>
@@ -16,7 +18,6 @@ namespace Dialogue.Illustration
         {
             illustrationImage.sprite = illustrationSprite;
             illustrationImage.SetNativeSize();
-            StartCoroutine(FadingEffect.FadeIn(illustrationImage));
         }
     }
 }
