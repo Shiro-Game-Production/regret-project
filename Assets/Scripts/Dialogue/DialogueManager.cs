@@ -339,6 +339,33 @@ namespace Dialogue
             dialogueChoiceManager.DisplayChoices();
             dialogueState = DialogueState.FinishTyping;
         }
+
+        /// <summary>
+        /// Pause dialogue when opening setting
+        /// </summary>
+        public void PauseMode(CanvasGroup canvasGroup)
+        {
+            //Fade in
+            ButtonClickManager.Instance.ShowPrompts(canvasGroup, () =>
+            {
+                PushDialogueMode(DialogueMode.Pause);
+            });
+            
+        }
+
+        /// <summary>
+        /// Resume dialogue when closing setting
+        /// </summary>
+        public void ResumeMode(CanvasGroup canvasGroup)
+        {
+            //Fade out
+            ButtonClickManager.Instance.HidePrompts(canvasGroup, () => 
+            {
+                //continue
+                PopDialogueMode(DialogueMode.Pause);
+            });
+            
+        }
         
         #endregion
     }
