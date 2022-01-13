@@ -43,4 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63467952048cf94b8aa0a0151189ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popUps: {fileID: 0}
+  tutorialDatas:
+  - name: Player Movement
+    tutorialPopUp: "Gunakan klik untuk berjalan dan \nberinteraksi dengan objek."
+  popUpDuration: 5
+  tutorialText: {fileID: 0}
+  popUpTutorial: {fileID: 0}
