@@ -9,9 +9,12 @@ namespace Items
         public enum ItemMode { DialogueMode, NormalMode }
         public enum InteractionText { Interaksi, Buka, Bicara }
 
+        [SerializeField] private string itemName;
         public InteractionText interactionText = InteractionText.Interaksi;
         public ItemMode itemMode = ItemMode.NormalMode;
         public TextAsset currentDialogue;
+
+        public string ItemName => itemName;
 
         public virtual void HandleInteraction()
         {
