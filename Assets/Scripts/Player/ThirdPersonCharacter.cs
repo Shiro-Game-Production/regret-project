@@ -29,8 +29,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
 
+        private bool isAnimParamsExist;
+        private const string FORWARD_PARAMS = "Forward";
+		private const string TURN_PARAMS = "Turn";
 
-		void Start()
+
+        void Start()
 		{
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
@@ -40,6 +44,20 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
+
+            CheckAnimatorParams();
+        }
+
+		private void CheckAnimatorParams(){
+			// Check is walking parameter
+            // For rin original animator
+            foreach(AnimatorControllerParameter param in m_Animator.parameters){
+                if(TURN_PARAMS == param.name || FORWARD_PARAMS == param.name){
+                    isAnimParamsExist = true;
+                } else{
+                    isAnimParamsExist = false;
+                }
+            }
 		}
 
 
@@ -118,8 +136,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void UpdateAnimator(Vector3 move)
 		{
 			// update the animator parameters
-			m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
-			m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+			if(isAnimParamsExist){
+				m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
+				m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+			}
 			// m_Animator.SetBool("Crouch", m_Crouching);
 			// m_Animator.SetBool("OnGround", m_IsGrounded);
 			// if (!m_IsGrounded)

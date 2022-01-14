@@ -13,7 +13,9 @@ namespace Player{
         private Animator animator;
         private NavMeshAgent navPlayer;
         private ThirdPersonCharacter character;
-        private bool isWalking;
+        private bool isWalking, isWalkingExist;
+
+        private const string IS_WALKING_PARAMS = "IsWalking";
 
         public bool IsWalking => isWalking;
 
@@ -28,6 +30,16 @@ namespace Player{
         {
             navPlayer.updateRotation = false;
             navPlayer.speed = speed;
+            
+            // Check is walking parameter
+            // For rin original animator
+            foreach(AnimatorControllerParameter param in animator.parameters){
+                if(IS_WALKING_PARAMS == param.name){
+                    isWalkingExist = true;
+                } else{
+                    isWalkingExist = false;
+                }
+            }
         }
         
         private void Update()
@@ -37,6 +49,11 @@ namespace Player{
             if(animator.runtimeAnimatorController)
             {
                 isWalking = !(navPlayer.remainingDistance <= navPlayer.stoppingDistance);
+                
+                if(isWalkingExist){
+                    Debug.Log(gameObject.name);
+                    animator.SetBool("IsWalking", isWalking);
+                }
 
                 if(isWalking){
                     character.Move(navPlayer.desiredVelocity, false, false);
