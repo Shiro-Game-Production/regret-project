@@ -14,7 +14,6 @@ namespace Player{
         private NavMeshAgent navPlayer;
         private ThirdPersonCharacter character;
         private bool isWalking;
-        private static readonly int IsWalkingParam = Animator.StringToHash("IsWalking");
 
         public bool IsWalking => isWalking;
 
@@ -38,7 +37,6 @@ namespace Player{
             if(animator.runtimeAnimatorController)
             {
                 isWalking = !(navPlayer.remainingDistance <= navPlayer.stoppingDistance);
-                animator.SetBool(IsWalkingParam, isWalking);
 
                 if(isWalking){
                     character.Move(navPlayer.desiredVelocity, false, false);

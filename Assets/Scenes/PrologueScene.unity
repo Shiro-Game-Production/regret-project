@@ -6978,11 +6978,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5220798764678537063, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.07306059
+      value: 0.07306058
       objectReference: {fileID: 0}
     - target: {fileID: 5220798764678537063, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.001808005
+      value: -0.0018080049
       objectReference: {fileID: 0}
     - target: {fileID: 5220798764678537063, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7701,6 +7701,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5222795440220693033, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1706556542}
+    - target: {fileID: 5222795440220693033, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1053607911}
+    - target: {fileID: 5222795440220693033, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: interactionButton
+      value: 
+      objectReference: {fileID: 1961612477}
+    - target: {fileID: 5222795440220693033, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: interactionBtnText
+      value: 
+      objectReference: {fileID: 266500810}
+    - target: {fileID: 5222795440220693033, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: interactionNameText
+      value: 
+      objectReference: {fileID: 3828264038434518228}
+    - target: {fileID: 5222795440220693033, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: interactionButtonParent
+      value: 
+      objectReference: {fileID: 1706556543}
+    - target: {fileID: 5222795440220693033, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: interactionButtonTransform
+      value: 
+      objectReference: {fileID: 1961612476}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
 --- !u!1001 &4717071674504928871
