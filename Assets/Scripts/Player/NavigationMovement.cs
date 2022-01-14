@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 namespace Player{
     [RequireComponent(typeof(Animator))]
@@ -12,6 +13,7 @@ namespace Player{
         
         private Animator animator;
         private NavMeshAgent navPlayer;
+        private ThirdPersonCharacter character;
         private bool isWalking;
         private static readonly int IsWalkingParam = Animator.StringToHash("IsWalking");
 
@@ -20,13 +22,13 @@ namespace Player{
         private void Awake()
         {
             animator = GetComponent<Animator>();
+            character = GetComponent<ThirdPersonCharacter>();
             navPlayer = GetComponent<NavMeshAgent>();
         }
         
         private void Start()
         {
-            navPlayer.speed = speed;
-            navPlayer.angularSpeed = angularSpeed;
+            navPlayer.updateRotation = false;
         }
         
         private void Update()
@@ -37,6 +39,12 @@ namespace Player{
             {
                 isWalking = !(navPlayer.remainingDistance <= navPlayer.stoppingDistance);
                 animator.SetBool(IsWalkingParam, isWalking);
+
+                if(isWalking){
+                    character.Move(navPlayer.desiredVelocity, false, false);
+                } else{
+                    character.Move(Vector3.zero, false, false);
+                }
             }
         }
         
