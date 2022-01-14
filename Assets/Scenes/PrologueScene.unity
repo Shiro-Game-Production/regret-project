@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 9351bb75bd279da4a8400b50681084a3, type: 2}
---- !u!136 &1160636 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 4477694608829030259, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
-  m_PrefabInstance: {fileID: 4477694608829983439}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &28185594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 729815643411299001, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 1160636}
+      objectReference: {fileID: 0}
     - target: {fileID: 1766058712348374810, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -758,7 +753,7 @@ PrefabInstance:
     - target: {fileID: 729815643411299001, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 1160636}
+      objectReference: {fileID: 0}
     - target: {fileID: 1766058712348374810, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -958,7 +953,7 @@ PrefabInstance:
     - target: {fileID: 729815643411299001, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 1160636}
+      objectReference: {fileID: 0}
     - target: {fileID: 1766058712348374810, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2053,7 +2048,7 @@ PrefabInstance:
     - target: {fileID: 729815643411299001, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 1160636}
+      objectReference: {fileID: 0}
     - target: {fileID: 1766058712348374810, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2330,7 +2325,7 @@ PrefabInstance:
     - target: {fileID: 729815643411299001, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 1160636}
+      objectReference: {fileID: 0}
     - target: {fileID: 1766058712348374810, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5836,7 +5831,7 @@ PrefabInstance:
     - target: {fileID: 729815643411299001, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 1160636}
+      objectReference: {fileID: 0}
     - target: {fileID: 1766058712348374810, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -6173,7 +6168,7 @@ PrefabInstance:
     - target: {fileID: 729815643411299001, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 1160636}
+      objectReference: {fileID: 0}
     - target: {fileID: 1766058712348374810, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6484,7 +6479,7 @@ PrefabInstance:
     - target: {fileID: 729815643411299001, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 1160636}
+      objectReference: {fileID: 0}
     - target: {fileID: 1766058712348374810, guid: e48cde5be2c9b9a41b5447fee141de45, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -6905,7 +6900,7 @@ PrefabInstance:
     - target: {fileID: 494041888491391847, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: targetCharacter
       value: 
-      objectReference: {fileID: 4477694608829983440}
+      objectReference: {fileID: 0}
     - target: {fileID: 494041888491391847, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: eventDescription
       value: 'camera-altar
@@ -7708,17 +7703,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
---- !u!114 &4477694608829983440 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3551627634210812415, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
-  m_PrefabInstance: {fileID: 4477694608829983439}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7a9efd1fd2ed544ca0cb7d4d0974862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4717071674504928871
 PrefabInstance:
   m_ObjectHideFlags: 0

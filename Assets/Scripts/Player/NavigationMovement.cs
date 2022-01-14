@@ -9,7 +9,6 @@ namespace Player{
     [RequireComponent(typeof(Rigidbody))]
     public class NavigationMovement : MonoBehaviour {
         [SerializeField] private float speed = 5f;
-        [SerializeField] private float angularSpeed = 1000f;
         
         private Animator animator;
         private NavMeshAgent navPlayer;
@@ -29,6 +28,7 @@ namespace Player{
         private void Start()
         {
             navPlayer.updateRotation = false;
+            navPlayer.speed = speed;
         }
         
         private void Update()
