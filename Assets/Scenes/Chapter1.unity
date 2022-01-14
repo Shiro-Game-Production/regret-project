@@ -15381,7 +15381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3084515702808481471, guid: a27a401a72b6c7f4b86309b8a8dc5d1b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a27a401a72b6c7f4b86309b8a8dc5d1b, type: 3}
@@ -15743,11 +15743,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3828264039892742677, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3828264039892742677, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 4872425015430483787, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchorMax.x
@@ -15877,6 +15877,14 @@ PrefabInstance:
       propertyPath: interactionButtonTransform
       value: 
       objectReference: {fileID: 1961612476}
+    - target: {fileID: 4477694608829030258, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: e5bc5c0cc5b47714bb5e54a7ade5b80a, type: 3}
+    - target: {fileID: 4477694608829030258, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4477694609025508192, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_RootOrder
       value: 3
