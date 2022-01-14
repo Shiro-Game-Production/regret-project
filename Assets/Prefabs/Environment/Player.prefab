@@ -51,8 +51,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 6247809882649043056}
+  m_Follow: {fileID: 5615175956715838278}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -258,6 +258,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &997730975207022362
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090981161374368252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.35409147, y: 1.7513638, z: 0.5578015}
+  m_Center: {x: -0.052727133, y: 0.8699992, z: 0.10844635}
 --- !u!136 &5966941405535293432
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -459,5 +472,10 @@ GameObject:
 --- !u!4 &5615175956715838278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ffb48138dada49c47adf692e4f5116df, type: 3}
+  m_PrefabInstance: {fileID: 5361436079387966637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6247809882649043056 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7146359073500734243, guid: ffb48138dada49c47adf692e4f5116df, type: 3}
   m_PrefabInstance: {fileID: 5361436079387966637}
   m_PrefabAsset: {fileID: 0}

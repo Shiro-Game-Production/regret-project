@@ -5497,6 +5497,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.014167327, y: 0.00045086374, z: 0.018334197}
   m_Center: {x: -4.656613e-10, y: 0.0000000067229835, z: 0}
+--- !u!114 &1662027454 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8860366713131366104, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
+  m_PrefabInstance: {fileID: 4477694608829983439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a9efd1fd2ed544ca0cb7d4d0974862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!223 &1706556542 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3828264038899206317, guid: d10d111424fe9f649b46f948e0685261, type: 3}
@@ -6900,7 +6911,7 @@ PrefabInstance:
     - target: {fileID: 494041888491391847, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: targetCharacter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1662027454}
     - target: {fileID: 494041888491391847, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: eventDescription
       value: 'camera-altar
@@ -6952,6 +6963,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[1].value
       value: 
       objectReference: {fileID: 494041888157163257}
+    - target: {fileID: 3427214168899490824, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
+      propertyPath: m_Name
+      value: VCam camera altar
+      objectReference: {fileID: 0}
     - target: {fileID: 3809766130395153184, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.61
@@ -6978,11 +6993,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5220798764678537063, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.07306058
+      value: 0.07306059
       objectReference: {fileID: 0}
     - target: {fileID: 5220798764678537063, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0018080049
+      value: -0.001808005
       objectReference: {fileID: 0}
     - target: {fileID: 5220798764678537063, guid: 725790b81e3d0a248b41a603d1d81b9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7429,6 +7444,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 250841079}
+    - target: {fileID: 3828264039727497244, guid: d10d111424fe9f649b46f948e0685261, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -134.1001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828264039727497244, guid: d10d111424fe9f649b46f948e0685261, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 62.19995
+      objectReference: {fileID: 0}
     - target: {fileID: 3828264039755569683, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -7451,11 +7474,11 @@ PrefabInstance:
       objectReference: {fileID: 250841079}
     - target: {fileID: 3828264039892742677, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3828264039892742677, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4872425015430483787, guid: d10d111424fe9f649b46f948e0685261, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7595,7 +7618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.044
+      value: 1.86
       objectReference: {fileID: 0}
     - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7603,7 +7626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.92
+      value: -7.59
       objectReference: {fileID: 0}
     - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7615,11 +7638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.000000005711519
       objectReference: {fileID: 0}
     - target: {fileID: 4477694607990817785, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -1.2584744e-10
       objectReference: {fileID: 0}
     - target: {fileID: 4477694608829030257, guid: e1633dfdcbf1e36409516f1a15478654, type: 3}
       propertyPath: canvas
