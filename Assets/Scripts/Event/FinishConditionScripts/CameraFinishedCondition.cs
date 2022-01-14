@@ -49,7 +49,7 @@ namespace Event.FinishConditionScripts{
             cameraEventData.TargetCharacter.transform.LookAt(cameraEventData.LookAtTarget);
             cameraMovement.SetVirtualCameraPriority(cameraEventData.TargetVirtualCamera,
                 cameraMovement.LOWER_PRIORITY);
-            DialogueManager.Instance.ResumeStory();
+            DialogueManager.Instance.ResumeStoryForEvent();
             OnEndingCondition();
         }
     }

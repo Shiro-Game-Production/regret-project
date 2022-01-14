@@ -13,6 +13,7 @@ namespace Tutorial{
         [Header("Parameters")]
         [Range(3, 10)]
         [SerializeField] private float popUpDuration = 5f;
+
         private bool showPopUp = true;
         private int popUpIndex;
 
@@ -20,10 +21,7 @@ namespace Tutorial{
         [SerializeField] private Text tutorialText;
         [SerializeField] private CanvasGroup popUpTutorial;
 
-
-        //Start is called before the first frame update
-        private void Update()
-        {
+        private void Update() {
             Invoke(nameof(TutorialFlow), 0.04f);
         }
 
@@ -34,7 +32,7 @@ namespace Tutorial{
             switch(popUpIndex){
                 case 0:
                     CheckTutorial(
-                        !DialogueManager.Instance.DialogueIsPlaying && 
+                        DialogueManager.Instance.CurrentDialogueState == DialogueState.Stop && 
                         !PlayerMovement.Instance.Movement.IsWalking,
                         PlayerMovement.Instance.Movement.IsWalking);
                     break;

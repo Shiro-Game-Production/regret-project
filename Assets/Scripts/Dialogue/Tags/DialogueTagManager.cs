@@ -159,7 +159,7 @@ namespace Dialogue.Tags{
                             break;
                         case CameraEventData _:
                             Debug.Log("Set camera event");
-                            dialogueManager.PauseStory();
+                            dialogueManager.PauseStoryForEvent();
                             CameraEventManager.Instance.SetEventData(eventData);
                             break;
                         default:

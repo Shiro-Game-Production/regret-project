@@ -1,5 +1,10 @@
 namespace Dialogue{
     public enum DialogueState{
+        Running,
+        Stop,
+    }
+    
+    public enum DialogueTypingState{
         Typing,
         FinishTyping,
         SkipSentence,

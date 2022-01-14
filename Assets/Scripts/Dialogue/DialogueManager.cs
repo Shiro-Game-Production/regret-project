@@ -24,8 +24,9 @@ namespace Dialogue
         private CameraMovement cameraMovement;
 
         [Header("Parameters")]
+        [SerializeField] private DialogueState dialogueState = DialogueState.Stop;
         [SerializeField] private DialogueMode currentDialogueMode = DialogueMode.Normal;
-        public DialogueState dialogueState = DialogueState.FinishTyping;
+        public DialogueTypingState dialogueTypingState = DialogueTypingState.FinishTyping;
         [SerializeField] private TextAsset currentDialogueAsset;
         [SerializeField] private float typingSpeed = 0.04f;
         public bool canAutoModeContinue;
@@ -53,6 +54,7 @@ namespace Dialogue
 
         #region Setter and Getter
 
+        public DialogueState CurrentDialogueState => dialogueState;
         public DialogueMode CurrentDialogueMode => currentDialogueMode;
         public List<DialogueMode> DialogueModeStackList => dialogueModeStackList;
         public Story CurrentStory => currentStory;
@@ -95,7 +97,7 @@ namespace Dialogue
                 this if
             */
             if (currentDialogueMode == DialogueMode.Normal &&
-                dialogueState == DialogueState.FinishTyping &&
+                dialogueTypingState == DialogueTypingState.FinishTyping &&
                 currentStory.currentChoices.Count == 0 &&
                 Input.GetMouseButtonUp(0))
             {
@@ -105,8 +107,8 @@ namespace Dialogue
             // If mouse button down and is typing, make player can skip dialogue sentence
             if (Input.GetMouseButtonDown(0) &&
                 currentDialogueMode == DialogueMode.Normal &&
-                dialogueState == DialogueState.Typing){
-                dialogueState = DialogueState.SkipSentence;
+                dialogueTypingState == DialogueTypingState.Typing){
+                dialogueTypingState = DialogueTypingState.SkipSentence;
             }
 
             // If auto mode and can continue the auto mode, Start the auto mode
@@ -161,6 +163,7 @@ namespace Dialogue
         {
             currentDialogueAsset = dialogueInk;
             currentStory = new Story(dialogueInk.text);
+            dialogueState = DialogueState.Running;
             PushDialogueMode(DialogueMode.Normal);
 
             StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,
@@ -187,7 +190,7 @@ namespace Dialogue
         /// <returns></returns>
         private IEnumerator DialogueAutoMode(){
             // Wait typing
-            yield return new WaitUntil(() => dialogueState == DialogueState.FinishTyping);
+            yield return new WaitUntil(() => dialogueTypingState == DialogueTypingState.FinishTyping);
             // Delay
             yield return new WaitForSeconds(autoModeDelay);
             // Wait auto typing mode
@@ -235,7 +238,7 @@ namespace Dialogue
         /// <summary>
         /// Pause the story and play other thing
         /// </summary>
-        public void PauseStory(){
+        public void PauseStoryForEvent(){
             // Hide dialogue
             StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
                 blocksRaycasts: true,
@@ -248,7 +251,7 @@ namespace Dialogue
         /// <summary>
         /// Resume the story after pausing the story
         /// </summary>
-        public void ResumeStory(){
+        public void ResumeStoryForEvent(){
             // Show dialogue
             StartCoroutine(FadingEffect.FadeIn(dialogueCanvasGroup,
                 beforeEffect: () => DialogueIsPlaying = true,
@@ -261,6 +264,7 @@ namespace Dialogue
         /// </summary>
         private void FinishDialogue()
         {
+            dialogueState = DialogueState.Stop;
             StartCoroutine(FadingEffect.FadeOut(dialogueCanvasGroup,
                 beforeEffect: () =>
                 {
@@ -302,20 +306,20 @@ namespace Dialogue
             // Hide items while typing
             dialogueChoiceManager.HideChoices();
 
-            dialogueState = DialogueState.Typing;
+            dialogueTypingState = DialogueTypingState.Typing;
             bool isAddingRichTextTag = false;
 
             foreach (char letter in sentence)
             {
                 // If there is right mouse click, finish the sentence right away
-                if (dialogueState == DialogueState.SkipSentence)
+                if (dialogueTypingState == DialogueTypingState.SkipSentence)
                 {
                     dialogueText.text = sentence;
                     // Wait until skip mode finish
                     // Skip mode is trigger with mouse down
                     yield return new WaitUntil(() => Input.GetMouseButtonUp(0));
                     // When mouse up, then change dialogue state to finish typing
-                    dialogueState = DialogueState.FinishTyping;
+                    dialogueTypingState = DialogueTypingState.FinishTyping;
                     break;
                 }
 
@@ -338,7 +342,7 @@ namespace Dialogue
             }
 
             dialogueChoiceManager.DisplayChoices();
-            dialogueState = DialogueState.FinishTyping;
+            dialogueTypingState = DialogueTypingState.FinishTyping;
         }
 
         /// <summary>
@@ -351,7 +355,6 @@ namespace Dialogue
             {
                 PushDialogueMode(DialogueMode.Pause);
             });
-            
         }
 
         /// <summary>

@@ -79,7 +79,7 @@ namespace Dialogue.Choices{
         /// <param name="index">Choice's index</param>
         public void Decide(int index)
         {
-            if(dialogueManager.dialogueState == DialogueState.FinishTyping)
+            if(dialogueManager.dialogueTypingState == DialogueTypingState.FinishTyping)
             {
                 choiceMode = false;
                 dialogueLogManager.AddDialogueLog("Yuri", 
