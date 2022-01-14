@@ -43,7 +43,7 @@ Ini cincin pernikahan Mama kan?
 Simpan ini baik - baik Ma, jangan sampai Papa merebut cincin ini kembali.
 
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex5-sigh
-Ya ampun, apa - apaan Papa ini ingin menjual barang seberharga ini ?!
+Ya ampun, apa-apaan Papa ini ingin menjual barang seberharga ini ?!
 
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex2-serious
 Pokoknya ya, Ma . .
@@ -68,7 +68,7 @@ Sudah bicaranya?
 Yuri . .
 
 #portrait:mama/pose1/rin-ex2-talk
-Brankas itu kan milik Mama dan Papa.
+Brankas itukan milik Mama dan Papa.
 Sudah jelas Mama bisa mengambil cincin ini dan menyimpannya sendiri.
 Justru kamu yang tidak sopan membuka-buka barang pribadi Mama.
 
@@ -99,10 +99,10 @@ Kamu kan baru lulus SMA, kamu bebas kok untuk memilih jalan hidup kamu kedepanny
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex7-scream
 #speaker:Yuri
 TUNGGU !
-Aku memang sudah bekerja diluar kota Ma . .
+Aku memang sudah bekerja di luar kota Ma . .
 
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex2-serious
-Aku sudah membeli apartemen sendiri dari hasil kerja keras ku dan aku bukan anak SMA lagi !
+Aku sudah membeli apartemen sendiri dari hasil kerja kerasku dan aku bukan anak SMA lagi !
 
 #portrait:mama/pose1/rin-ex1-stare
 #speaker:Mama
@@ -134,12 +134,11 @@ Semalam aku bermimpi kalau aku sudah membeli apartemen . .
 
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex3.1-warmsmilemore
 Ahahaa . . .
-Cita - cita ku sampai kebawa mimpi . .
+Cita - citaku sampai kebawa mimpi . .
 
 #portrait:mama/pose1/rin-ex1-stare
 #speaker:Mama
 Bagus kalau begitu . .
-
 
 #portrait:yuri/pose2/yuri-tshirt/yuri-ex4-worried
 #speaker:Yuri

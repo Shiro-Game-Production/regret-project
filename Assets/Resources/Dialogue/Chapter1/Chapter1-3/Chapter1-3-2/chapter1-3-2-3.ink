@@ -1,7 +1,7 @@
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex3.1-warmsmilemore
 #speaker:Yuri
 KEENNN !!
-Apa kau masih disitu ?
+Apa kau masih di situ ?
 
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex3-warmsmile
 Coba dengar deh !
@@ -58,7 +58,7 @@ Apa Ken punya cita-cita?
 
 #speaker:Ken
 Aku ingin bisa menolong orang yang terluka Kak . .
-Aku ingin menjadi seperti dokter yang mengobati luka-luka ku waktu itu !
+Aku ingin menjadi seperti dokter yang mengobati luka-lukaku waktu itu !
 
 #speaker:Yuri
 Hebat !!

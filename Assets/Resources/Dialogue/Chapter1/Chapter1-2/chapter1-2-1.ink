@@ -26,7 +26,7 @@ Sedang apa sih kamu ribut-ribut di depan?
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex4-shock,ken/pose1/ken-ex2-lookside,mama/pose2/rin-ex1-stare
 #speaker:Mama
 Ohh..
-Kamu disini rupanya ya?
+Kamu di sini rupanya ya?
 
 #portrait:ken/pose1/ken-ex1-frown,mama/pose1/rin-ex3.1-madnessmore
 #speaker:Mama

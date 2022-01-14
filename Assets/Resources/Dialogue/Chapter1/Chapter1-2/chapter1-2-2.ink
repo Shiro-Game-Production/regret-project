@@ -18,7 +18,7 @@ Yuri sudah tidak peduli dengan apapun selama dia melihat adiknya di depan matany
 
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex1-confident
 #speaker:Yuri
-Kamu ngapain disini Ken?
+Kamu ngapain di sini Ken?
 
 #portrait:ken/pose1/ken-ex1-frown
 #speaker:Ken
@@ -30,7 +30,7 @@ Lalu Mama melihat aku yang baru saja habis dari toilet.
 
 #portrait:ken/pose1/ken-ex1-frown
 Sejak itu, Mama mencariku . .
-Makanya aku sembunyi disini.
+Makanya aku sembunyi di sini.
 
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex2-serious
 #speaker:Yuri
@@ -59,7 +59,7 @@ Kak?
 
 #portrait:yuri/pose1/yuri-tshirt/yuri-ex1-confident
 #speaker:Yuri
-Aku tidak begitu dengar soalnya waktu itu aku udah tidur.
+Aku tidak begitu dengar soalnya waktu itu aku sudah tidur.
 
 #portrait:ken/pose1/ken-ex2-lookside
 #speaker:Ken
