@@ -170,9 +170,10 @@ namespace Dialogue
                         UnityEngine.AI.ObstacleAvoidanceType.NoObstacleAvoidance);
                     cameraMovement.SetVirtualCameraPriority(dialogueVcam,
                         cameraMovement.DIALOGUE_HIGHER_PRIORITY);
-                    DialogueIsPlaying = true;
+                    
                     ContinueStory();
-                })
+                }, 
+                afterEffect: () => DialogueIsPlaying = true)
             );
         }
 
